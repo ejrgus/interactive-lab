@@ -155,7 +155,7 @@ function updateSearch() {
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/hyundai-family.json');
+    const response = await fetch('../data/hyundai-family.json?v=20260920-2');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     graph = await response.json();
     sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
