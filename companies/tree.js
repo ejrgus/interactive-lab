@@ -275,8 +275,11 @@ function setTreeZoom(value, options = {}) {
   if (!graph) return;
   const preserveCenter = options.preserveCenter !== false;
   const previousZoom = treeZoom || 1;
-  const logicalCenterX = (viewport.scrollLeft + viewport.clientWidth / 2) / previousZoom;
-  const logicalCenterY = (viewport.scrollTop + viewport.clientHeight / 2) / previousZoom;
+  const viewportBounds = viewport.getBoundingClientRect();
+  const anchorX = Number.isFinite(options.clientX) ? options.clientX - viewportBounds.left : viewport.clientWidth / 2;
+  const anchorY = Number.isFinite(options.clientY) ? options.clientY - viewportBounds.top : viewport.clientHeight / 2;
+  const logicalAnchorX = (viewport.scrollLeft + anchorX) / previousZoom;
+  const logicalAnchorY = (viewport.scrollTop + anchorY) / previousZoom;
   treeZoom = Math.min(TREE_ZOOM_MAX, Math.max(minimumTreeZoom(), value));
   const scaledWidth = graph.meta.canvasWidth * treeZoom;
   const scaledHeight = graph.meta.canvasHeight * treeZoom;
@@ -288,8 +291,8 @@ function setTreeZoom(value, options = {}) {
   updateTreeZoomControls();
   if (preserveCenter) {
     viewport.scrollTo({
-      left: Math.max(0, logicalCenterX * treeZoom - viewport.clientWidth / 2),
-      top: Math.max(0, logicalCenterY * treeZoom - viewport.clientHeight / 2)
+      left: Math.max(0, logicalAnchorX * treeZoom - anchorX),
+      top: Math.max(0, logicalAnchorY * treeZoom - anchorY)
     });
   }
 }
@@ -1075,11 +1078,44 @@ document.addEventListener('keydown', (event) => {
   }
 });
 viewport.addEventListener('wheel', (event) => {
-  if (event.shiftKey && event.deltaY !== 0) {
-    viewport.scrollLeft += event.deltaY;
-    event.preventDefault();
-  }
+  if (!graph || event.deltaY === 0) return;
+  const zoomFactor = Math.exp(-event.deltaY * .0015);
+  setTreeZoom(treeZoom * zoomFactor, { clientX:event.clientX, clientY:event.clientY });
+  event.preventDefault();
 }, { passive:false });
+
+let viewportPanState = null;
+const finishViewportPan = (event) => {
+  if (!viewportPanState || event.pointerId !== viewportPanState.pointerId) return;
+  if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+  viewportPanState = null;
+  viewport.classList.remove('is-panning');
+};
+
+viewport.addEventListener('pointerdown', (event) => {
+  if (event.button !== 0 || event.target.closest('.tree-node')) return;
+  const bounds = viewport.getBoundingClientRect();
+  if (event.clientX > bounds.left + viewport.clientWidth || event.clientY > bounds.top + viewport.clientHeight) return;
+  viewportPanState = {
+    pointerId:event.pointerId,
+    clientX:event.clientX,
+    clientY:event.clientY,
+    scrollLeft:viewport.scrollLeft,
+    scrollTop:viewport.scrollTop
+  };
+  viewport.setPointerCapture(event.pointerId);
+  viewport.classList.add('is-panning');
+  event.preventDefault();
+});
+
+viewport.addEventListener('pointermove', (event) => {
+  if (!viewportPanState || event.pointerId !== viewportPanState.pointerId) return;
+  viewport.scrollLeft = viewportPanState.scrollLeft - (event.clientX - viewportPanState.clientX);
+  viewport.scrollTop = viewportPanState.scrollTop - (event.clientY - viewportPanState.clientY);
+});
+
+viewport.addEventListener('pointerup', finishViewportPan);
+viewport.addEventListener('pointercancel', finishViewportPan);
 window.addEventListener('resize', () => setTreeZoom(treeZoom, { preserveCenter:false }));
 
 window.addEventListener('popstate', () => {
