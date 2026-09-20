@@ -15,6 +15,11 @@ const researchDocument = document.querySelector('#research-document');
 const researchSearch = document.querySelector('#research-search');
 const researchResult = document.querySelector('#research-result');
 const familySwitcher = document.querySelector('#family-switcher');
+const finder = document.querySelector('#lineage-finder');
+const finderSearch = document.querySelector('#finder-search');
+const finderFamilies = document.querySelector('#finder-families');
+const finderSummary = document.querySelector('#finder-summary');
+const finderResults = document.querySelector('#finder-results');
 
 let graph = null;
 let families = [];
@@ -25,6 +30,10 @@ let selectedNodeId = null;
 let researchMarkdown = '';
 let activeDepartureCategory = '전체';
 let loadSequence = 0;
+let familyEnrichment = {};
+let finderEntries = [];
+let finderBuilt = false;
+let finderReturnFocus = null;
 
 const normalize = (value = '') => value.toLocaleLowerCase('ko-KR').replace(/[\s·→()\-–—]/g, '');
 const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;' })[char]);
@@ -39,12 +48,12 @@ function nthIndexOf(text, query, occurrence = 1) {
   return index;
 }
 
-function extractMembersFromResearch(group) {
-  if (!group.memberHeading || !researchMarkdown) return [];
-  const headingIndex = nthIndexOf(researchMarkdown, group.memberHeading, group.memberOccurrence || 1);
+function extractMembersFromMarkdown(group, markdown) {
+  if (!group.memberHeading || !markdown) return [];
+  const headingIndex = nthIndexOf(markdown, group.memberHeading, group.memberOccurrence || 1);
   if (headingIndex < 0) return [];
-  const blockStart = researchMarkdown.indexOf('\n', headingIndex) + 1;
-  const tail = researchMarkdown.slice(blockStart);
+  const blockStart = markdown.indexOf('\n', headingIndex) + 1;
+  const tail = markdown.slice(blockStart);
   const nextHeading = tail.search(/\n#{3,4}\s/);
   const block = nextHeading < 0 ? tail : tail.slice(0, nextHeading);
   const members = [];
@@ -63,6 +72,43 @@ function extractMembersFromResearch(group) {
     });
   });
   return [...new Set(members)];
+}
+
+function extractMembersFromResearch(group) {
+  return extractMembersFromMarkdown(group, researchMarkdown);
+}
+
+function mergeEnrichment(base, familyId) {
+  const extra = familyEnrichment[familyId];
+  if (!extra) return base;
+  base.meta = { ...base.meta, ...(extra.meta || {}) };
+  const overrideMap = new Map((extra.nodeOverrides || []).map((node) => [node.id, node]));
+  base.nodes = base.nodes.map((node) => ({ ...node, ...(overrideMap.get(node.id) || {}) }));
+  const nodeIds = new Set(base.nodes.map((node) => node.id));
+  (extra.nodes || []).forEach((node) => { if (!nodeIds.has(node.id)) base.nodes.push(node); });
+  const positionFixes = {
+    samsung:{ 'new-management':{ x:1088 } },
+    lg:{ 'succession-1970':{ x:270 }, 'semicon-bigdeal':{ x:1090 }, 'gs-holdings':{ x:1510 }, 'card-crisis':{ x:1510 } },
+    sk:{ 'skt-rename':{ x:1160 }, 'sovereign-defense':{ x:1590 } }
+  }[familyId] || {};
+  base.nodes.forEach((node) => Object.assign(node, positionFixes[node.id] || {}));
+  const edgeKeys = new Set(base.edges.map((edge) => `${edge.from}:${edge.to}:${edge.type}`));
+  (extra.edges || []).forEach((edge) => {
+    const key = `${edge.from}:${edge.to}:${edge.type}`;
+    if (!edgeKeys.has(key)) base.edges.push(edge);
+  });
+  (extra.timelineExtras || []).forEach((addition) => {
+    const era = base.timeline.find((item) => item.era === addition.era);
+    if (era) era.events.push(...addition.events);
+    else base.timeline.push(addition);
+  });
+  const departureKeys = new Set(base.departures.map((item) => `${item.former}:${item.now}`));
+  (extra.departures || []).forEach((item) => {
+    if (!departureKeys.has(`${item.former}:${item.now}`)) base.departures.push(item);
+  });
+  const sourceIds = new Set(base.sources.map((source) => source.id));
+  (extra.sources || []).forEach((source) => { if (!sourceIds.has(source.id)) base.sources.push(source); });
+  return base;
 }
 
 function hydrateGroupMembers() {
@@ -499,6 +545,137 @@ function highlightResearch(query) {
   first?.scrollIntoView({ behavior:'smooth', block:'center' });
 }
 
+function finderEntry(family, type, name, description, payload = {}) {
+  return { familyId:family.id, familyLabel:family.label, type, name, description, ...payload };
+}
+
+async function buildFinderIndex() {
+  if (finderBuilt) return;
+  finderSummary.textContent = '네 가문의 기업·계열사 목록을 불러오는 중입니다…';
+  const collections = await Promise.all(families.map(async (family) => {
+    const [dataResponse, researchResponse] = await Promise.all([
+      fetch(`${family.data}?v=20260920-10`),
+      fetch(`${family.research}?v=20260920-10`)
+    ]);
+    if (!dataResponse.ok || !researchResponse.ok) return [];
+    const familyGraph = mergeEnrichment(await dataResponse.json(), family.id);
+    const markdown = await researchResponse.text();
+    const entries = [finderEntry(family, '가문', family.label, family.subtitle, { target:'family' })];
+    familyGraph.nodes.forEach((node) => entries.push(finderEntry(
+      family,
+      node.current ? '현재 그룹' : '계보 기업',
+      node.label,
+      [node.year, node.kind, node.note, ...(node.aliases || [])].filter(Boolean).join(' · '),
+      { target:'node', nodeId:node.id }
+    )));
+    familyGraph.groups.forEach((group) => {
+      entries.push(finderEntry(family, '현재 그룹', group.name, `${group.status} · ${group.summary}`, { target:'group', groupName:group.name }));
+      const members = extractMembersFromMarkdown(group, markdown);
+      const fullMembers = members.length > groupMembers(group).length ? members : groupMembers(group);
+      fullMembers.forEach((member) => entries.push(finderEntry(family, '계열사', member, `${group.name} · ${group.memberScope || group.status}`, { target:'member', groupName:group.name, memberName:member })));
+    });
+    familyGraph.departures.forEach((item) => entries.push(finderEntry(family, '이탈 기업', item.former, `현재 ${item.now} · ${item.path}`, { target:'departure', departureName:item.former })));
+    return entries;
+  }));
+  const typeOrder = { '가문':0, '현재 그룹':1, '계보 기업':2, '계열사':3, '이탈 기업':4 };
+  finderEntries = collections.flat().sort((a, b) => typeOrder[a.type] - typeOrder[b.type] || a.familyLabel.localeCompare(b.familyLabel, 'ko') || a.name.localeCompare(b.name, 'ko'));
+  finderBuilt = true;
+  renderFinderResults();
+}
+
+function finderMark(value, rawQuery) {
+  const safe = escapeHtml(value);
+  if (!rawQuery.trim()) return safe;
+  const escaped = rawQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return safe.replace(new RegExp(`(${escaped})`, 'ig'), '<mark>$1</mark>');
+}
+
+function renderFinderFamilies() {
+  finderFamilies.replaceChildren(...families.map((family) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'finder-family';
+    button.innerHTML = `<strong>${escapeHtml(family.label)}</strong><span>${escapeHtml(family.subtitle)}</span>`;
+    button.addEventListener('click', async () => {
+      await selectFamily(family.id);
+      closeFinder();
+      setView('tree');
+    });
+    return button;
+  }));
+}
+
+async function activateFinderEntry(entry) {
+  await selectFamily(entry.familyId);
+  closeFinder();
+  if (entry.target === 'family') { setView('tree'); return; }
+  if (entry.target === 'node') {
+    setView('tree');
+    const node = nodeMap.get(entry.nodeId);
+    if (node) { search.value = node.label; updateSearch(); openInspector(node); }
+    return;
+  }
+  if (entry.target === 'group') {
+    setView('groups');
+    const card = [...document.querySelectorAll('.group-card')].find((item) => normalize(item.dataset.groupName) === normalize(entry.groupName));
+    card?.classList.add('is-search-target');
+    card?.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  if (entry.target === 'member') { revealGroupMember(entry.groupName, entry.memberName); return; }
+  if (entry.target === 'departure') {
+    setView('departed');
+    const card = [...document.querySelectorAll('.departure-card')].find((item) => normalize(item.querySelector('h3')?.textContent) === normalize(entry.departureName));
+    card?.scrollIntoView({ behavior:'smooth', block:'center' });
+  }
+}
+
+function renderFinderResults() {
+  if (!finderBuilt) return;
+  const raw = finderSearch.value.trim();
+  const query = normalize(raw);
+  const matches = query ? finderEntries.filter((entry) => normalize(`${entry.name} ${entry.description} ${entry.familyLabel}`).includes(query)) : finderEntries;
+  finderSummary.textContent = raw ? `“${raw}” 검색 결과 ${matches.length.toLocaleString('ko-KR')}개` : `네 가문에서 ${matches.length.toLocaleString('ko-KR')}개 항목을 스크롤하거나 검색할 수 있습니다.`;
+  if (!matches.length) {
+    finderResults.innerHTML = '<p class="finder-empty">일치하는 기업이 없습니다. 옛 이름이나 그룹 이름으로도 검색해 보세요.</p>';
+    return;
+  }
+  finderResults.replaceChildren(...matches.map((entry) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'finder-result';
+    button.setAttribute('role', 'option');
+    button.innerHTML = `<span class="finder-result-type">${escapeHtml(entry.type)}</span><span class="finder-result-main"><strong>${finderMark(entry.name, raw)}</strong><span>${finderMark(entry.description, raw)}</span></span><span class="finder-result-family">${escapeHtml(entry.familyLabel)} →</span>`;
+    button.addEventListener('click', () => activateFinderEntry(entry));
+    return button;
+  }));
+}
+
+async function openFinder() {
+  finderReturnFocus = document.activeElement;
+  finder.classList.add('is-open');
+  finder.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  renderFinderFamilies();
+  finderSearch.value = '';
+  try { await buildFinderIndex(); } catch (error) {
+    finderSummary.textContent = '기업 목록을 불러오지 못했습니다.';
+    console.error(error);
+  }
+  finderSearch.focus();
+}
+
+function closeFinder() {
+  if (!finder.classList.contains('is-open')) return;
+  finder.classList.remove('is-open');
+  finder.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  const url = new URL(window.location.href);
+  url.searchParams.delete('finder');
+  history.replaceState(history.state, '', url);
+  finderReturnFocus?.focus?.();
+}
+
 async function loadResearch() {
   researchDocument.innerHTML = '<p class="research-loading">전체 조사 원문을 불러오는 중입니다…</p>';
   if (researchMarkdown) {
@@ -580,14 +757,14 @@ async function selectFamily(familyId, options = {}) {
   activeDepartureCategory = '전체';
   try {
     const [graphResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-9`),
-      fetch(`${family.research}?v=20260920-9`)
+      fetch(`${family.data}?v=20260920-10`),
+      fetch(`${family.research}?v=20260920-10`)
     ]);
     if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
     if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
     const [nextGraph, nextResearch] = await Promise.all([graphResponse.json(), researchResponse.text()]);
     if (sequence !== loadSequence) return;
-    graph = nextGraph;
+    graph = mergeEnrichment(nextGraph, family.id);
     researchMarkdown = nextResearch;
     if (!graph.meta.familyName) graph.meta.familyName = family.label;
     hydrateGroupMembers();
@@ -610,11 +787,17 @@ async function selectFamily(familyId, options = {}) {
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/families.json?v=20260920-9');
+    const [response, enrichmentResponse] = await Promise.all([
+      fetch('../data/families.json?v=20260920-10'),
+      fetch('../data/family-enrichment.json?v=20260920-10')
+    ]);
     if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
     families = await response.json();
-    const requested = new URL(window.location.href).searchParams.get('family') || 'hyundai';
+    if (enrichmentResponse.ok) familyEnrichment = await enrichmentResponse.json();
+    const params = new URL(window.location.href).searchParams;
+    const requested = params.get('family') || 'hyundai';
     await selectFamily(requested, { updateUrl:false });
+    if (params.get('finder') === '1') openFinder();
   } catch (error) {
     canvas.setAttribute('aria-busy', 'false');
     status.textContent = '기업 가문 목록을 불러오지 못했습니다.';
@@ -641,6 +824,9 @@ document.addEventListener('click', (event) => {
   }
 });
 search.addEventListener('input', updateSearch);
+finderSearch.addEventListener('input', renderFinderResults);
+document.querySelectorAll('[data-finder-close]').forEach((button) => button.addEventListener('click', closeFinder));
+document.querySelector('[data-open-finder]').addEventListener('click', (event) => { event.preventDefault(); openFinder(); });
 search.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') memberSearchResults.querySelector('button')?.click();
 });
@@ -648,7 +834,8 @@ researchSearch.addEventListener('input', () => highlightResearch(researchSearch.
 document.addEventListener('keydown', (event) => {
   if (event.key === '/' && document.querySelector('[data-view="tree"]').classList.contains('is-active') && document.activeElement !== search) { event.preventDefault(); search.focus(); }
   if (event.key === 'Escape') {
-    if (!infoPanel.hidden) { infoPanel.hidden = true; infoToggle.setAttribute('aria-expanded', 'false'); }
+    if (finder.classList.contains('is-open')) closeFinder();
+    else if (!infoPanel.hidden) { infoPanel.hidden = true; infoToggle.setAttribute('aria-expanded', 'false'); }
     else if (inspector.classList.contains('is-open')) closeInspector();
     else if (document.activeElement === search || search.value) { search.value = ''; updateSearch(); search.blur(); }
   }
@@ -661,8 +848,11 @@ viewport.addEventListener('wheel', (event) => {
 }, { passive:false });
 
 window.addEventListener('popstate', () => {
-  const requested = new URL(window.location.href).searchParams.get('family') || 'hyundai';
+  const params = new URL(window.location.href).searchParams;
+  const requested = params.get('family') || 'hyundai';
   if (requested !== activeFamily?.id) selectFamily(requested, { updateUrl:false });
+  if (params.get('finder') === '1') openFinder();
+  else closeFinder();
 });
 
 loadGraph();

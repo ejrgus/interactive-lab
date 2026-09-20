@@ -7,16 +7,16 @@
   <meta name="theme-color" content="#f5f5f7">
   <title>한국 대기업 가문 계보 아카이브 — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css">
-  <link rel="stylesheet" href="tree.css?v=20260920-9">
+  <link rel="stylesheet" href="tree.css?v=20260920-10">
   <script type="module" src="../assets/js/navigation.js"></script>
-  <script type="module" src="tree.js?v=20260920-9"></script>
+  <script type="module" src="tree.js?v=20260920-10"></script>
 </head>
 <body class="tree-page">
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="site-header" data-header>
     <div class="nav-shell">
       <a class="brand" href="../index.html" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
-      <nav class="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a class="is-active" href="index.html" aria-current="page">기업 계보</a><a href="../immune/index.html">면역체계</a><a href="../README.md">프로젝트 소개</a></nav>
+      <nav class="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a class="is-active" href="index.html?finder=1" aria-current="page" data-open-finder>기업 계보</a><a href="../immune/index.html">면역체계</a><a href="../README.md">프로젝트 소개</a></nav>
     </div>
   </header>
 
@@ -119,5 +119,19 @@
       <article class="research-document" id="research-document" aria-busy="true"></article>
     </section>
   </main>
+
+  <div class="lineage-finder" id="lineage-finder" aria-hidden="true">
+    <button class="finder-scrim" type="button" data-finder-close aria-label="기업 계보 찾기 닫기"></button>
+    <section class="finder-panel" role="dialog" aria-modal="true" aria-labelledby="finder-title">
+      <header class="finder-head">
+        <div><span>LINEAGE DIRECTORY</span><h2 id="finder-title">어떤 기업을 찾고 있나요?</h2><p>가문·그룹·기업·옛 이름·현재 계열사를 한 번에 찾습니다.</p></div>
+        <button class="finder-close" type="button" data-finder-close aria-label="기업 계보 찾기 닫기">×</button>
+      </header>
+      <label class="finder-search" for="finder-search"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="finder-search" type="search" placeholder="예: 삼성전자, LG반도체, SK실트론, 현대자동차" autocomplete="off"><kbd>ESC</kbd></label>
+      <div class="finder-families" id="finder-families" aria-label="기업 가문 빠른 선택"></div>
+      <div class="finder-summary" id="finder-summary" aria-live="polite">기업 목록을 준비하고 있습니다.</div>
+      <div class="finder-results" id="finder-results" role="listbox" aria-label="기업 검색 결과"></div>
+    </section>
+  </div>
 </body>
 </html>
