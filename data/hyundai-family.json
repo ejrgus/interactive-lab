@@ -1,17 +1,37 @@
 {
-  "meta": {
-    "title": "범현대가",
-    "schemaVersion": 1,
-    "lastVerified": "",
-    "status": "researching",
-    "eventFields": ["id", "date", "year", "title", "description", "type", "relatedCompanies", "relatedPeople", "parentGroup", "resultingGroups", "reason", "sourceIds", "confidence"],
-    "confidenceValues": ["confirmed", "probable", "disputed", "researching"]
-  },
-  "groups": [],
-  "companies": [],
-  "people": [],
-  "events": [],
-  "relationships": [],
-  "sources": []
+  "meta": { "title": "범현대가", "schemaVersion": 2, "status": "structure-preview", "notice": "연도와 세부 관계를 단정하지 않는 인터페이스 구조 미리보기입니다. 사실 검증 후 교체합니다." },
+  "stages": [
+    { "id": "origin", "label": "출발", "x": 70 },
+    { "id": "growth", "label": "성장", "x": 510 },
+    { "id": "separation", "label": "분화", "x": 990 },
+    { "id": "present", "label": "현재", "x": 1660 }
+  ],
+  "nodes": [
+    { "id": "hyundai-origin", "label": "현대의 역사적 출발점", "aliases": ["현대"], "stage": "출발", "note": "연도·명칭 검증 예정", "icon": "始", "x": 120, "y": 410, "placeholder": true },
+    { "id": "hyundai-growth", "label": "성장과 사업 확장", "aliases": ["현대 확장"], "stage": "성장", "note": "주요 사건 조사 예정", "icon": "+", "x": 575, "y": 410, "placeholder": true },
+    { "id": "auto-branch", "label": "자동차 계열 분화 지점", "aliases": ["현대자동차"], "stage": "분화", "note": "관계·시점 검증 예정", "icon": "A", "x": 1070, "y": 70, "placeholder": true },
+    { "id": "heavy-branch", "label": "중공업 계열 분화 지점", "aliases": ["현대중공업", "HD현대"], "stage": "분화", "note": "관계·시점 검증 예정", "icon": "H", "x": 1070, "y": 240, "placeholder": true },
+    { "id": "retail-branch", "label": "유통 계열 분화 지점", "aliases": ["현대백화점"], "stage": "분화", "note": "관계·시점 검증 예정", "icon": "R", "x": 1070, "y": 410, "placeholder": true },
+    { "id": "hyundai-branch", "label": "현대그룹 계열 흐름", "aliases": ["현대그룹"], "stage": "분화", "note": "관계·시점 검증 예정", "icon": "G", "x": 1070, "y": 580, "placeholder": true },
+    { "id": "hdc-branch", "label": "건설 계열 분화 지점", "aliases": ["HDC", "현대산업개발"], "stage": "분화", "note": "관계·시점 검증 예정", "icon": "C", "x": 1070, "y": 750, "placeholder": true },
+    { "id": "hyundai-motor", "label": "현대자동차그룹", "aliases": ["현대자동차", "기아", "현대차"], "stage": "현재", "note": "세부 계열사 조사 예정", "icon": "HM", "x": 1780, "y": 70, "current": true },
+    { "id": "hd-hyundai", "label": "HD현대", "aliases": ["현대중공업그룹", "현대중공업"], "stage": "현재", "note": "세부 계열사 조사 예정", "icon": "HD", "x": 1780, "y": 240, "current": true },
+    { "id": "hyundai-department", "label": "현대백화점그룹", "aliases": ["현대백화점"], "stage": "현재", "note": "세부 계열사 조사 예정", "icon": "HR", "x": 1780, "y": 410, "current": true },
+    { "id": "hyundai-group", "label": "현대그룹", "aliases": ["현대엘리베이터"], "stage": "현재", "note": "세부 계열사 조사 예정", "icon": "HG", "x": 1780, "y": 580, "current": true },
+    { "id": "hdc-group", "label": "HDC그룹", "aliases": ["현대산업개발", "HDC현대산업개발"], "stage": "현재", "note": "세부 계열사 조사 예정", "icon": "HC", "x": 1780, "y": 750, "current": true }
+  ],
+  "edges": [
+    { "id": "origin-growth", "from": "hyundai-origin", "to": "hyundai-growth", "type": "continuation" },
+    { "id": "growth-auto", "from": "hyundai-growth", "to": "auto-branch", "type": "split" },
+    { "id": "growth-heavy", "from": "hyundai-growth", "to": "heavy-branch", "type": "split" },
+    { "id": "growth-retail", "from": "hyundai-growth", "to": "retail-branch", "type": "split" },
+    { "id": "growth-hyundai", "from": "hyundai-growth", "to": "hyundai-branch", "type": "split" },
+    { "id": "growth-hdc", "from": "hyundai-growth", "to": "hdc-branch", "type": "split" },
+    { "id": "auto-current", "from": "auto-branch", "to": "hyundai-motor", "type": "continuation" },
+    { "id": "heavy-current", "from": "heavy-branch", "to": "hd-hyundai", "type": "continuation" },
+    { "id": "retail-current", "from": "retail-branch", "to": "hyundai-department", "type": "continuation" },
+    { "id": "hyundai-current", "from": "hyundai-branch", "to": "hyundai-group", "type": "continuation" },
+    { "id": "hdc-current", "from": "hdc-branch", "to": "hdc-group", "type": "continuation" }
+  ]
 }
 
