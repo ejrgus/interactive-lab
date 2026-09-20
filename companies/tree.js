@@ -39,6 +39,67 @@ const normalize = (value = '') => value.toLocaleLowerCase('ko-KR').replace(/[\s�
 const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;' })[char]);
 const groupMembers = (group) => Array.isArray(group.members) ? group.members : String(group.members || '').split(/,\s*/).filter(Boolean);
 
+function separateNodesFromUnrelatedTracks(layout) {
+  const width = layout.meta.nodeWidth || 202;
+  const height = layout.meta.nodeHeight || 72;
+  const rowStep = height + 20;
+  const nodeById = new Map(layout.nodes.map((node) => [node.id, node]));
+  const outgoing = new Map(layout.nodes.map((node) => [node.id, []]));
+  layout.edges.forEach((edge) => outgoing.get(edge.from)?.push(edge.to));
+  const reachability = new Map();
+  const canReach = (fromId, toId) => {
+    const key = `${fromId}:${toId}`;
+    if (reachability.has(key)) return reachability.get(key);
+    const pending = [...(outgoing.get(fromId) || [])];
+    const visited = new Set();
+    while (pending.length) {
+      const current = pending.pop();
+      if (current === toId) {
+        reachability.set(key, true);
+        return true;
+      }
+      if (visited.has(current)) continue;
+      visited.add(current);
+      pending.push(...(outgoing.get(current) || []));
+    }
+    reachability.set(key, false);
+    return false;
+  };
+  const crossesHorizontalTrack = (node, candidateY) => layout.edges.some((edge) => {
+    if (edge.from === node.id || edge.to === node.id) return false;
+    if (canReach(edge.from, node.id) && canReach(node.id, edge.to)) return false;
+    const from = nodeById.get(edge.from);
+    const to = nodeById.get(edge.to);
+    if (!from || !to) return false;
+    const trackY = from.y + height / 2;
+    if (Math.abs(trackY - (to.y + height / 2)) > 1) return false;
+    const trackLeft = Math.min(from.x + width, to.x);
+    const trackRight = Math.max(from.x + width, to.x);
+    const overlapsX = node.x < trackRight - 4 && node.x + width > trackLeft + 4;
+    const crossesCard = trackY > candidateY + 4 && trackY < candidateY + height - 4;
+    return overlapsX && crossesCard;
+  });
+  const overlapsNode = (node, candidateY) => layout.nodes.some((other) => {
+    if (other.id === node.id) return false;
+    const overlapsX = node.x < other.x + width + 8 && node.x + width + 8 > other.x;
+    const overlapsY = candidateY < other.y + height + 8 && candidateY + height + 8 > other.y;
+    return overlapsX && overlapsY;
+  });
+
+  layout.nodes.forEach((node) => {
+    if (!crossesHorizontalTrack(node, node.y)) return;
+    const originalY = node.y;
+    const offsets = [rowStep, -rowStep, rowStep * 2, -rowStep * 2, rowStep * 3, -rowStep * 3];
+    const candidateY = offsets
+      .map((offset) => originalY + offset)
+      .find((nextY) => nextY >= 24
+        && nextY + height <= layout.meta.canvasHeight - 24
+        && !overlapsNode(node, nextY)
+        && !crossesHorizontalTrack(node, nextY));
+    if (Number.isFinite(candidateY)) node.y = candidateY;
+  });
+}
+
 function nthIndexOf(text, query, occurrence = 1) {
   let index = -1;
   for (let count = 0; count < occurrence; count += 1) {
@@ -147,6 +208,7 @@ function mergeEnrichment(base, familyId) {
     const key = `${edge.from}:${edge.to}:${edge.type}`;
     if (!edgeKeys.has(key)) base.edges.push(edge);
   });
+  separateNodesFromUnrelatedTracks(base);
   (extra.timelineExtras || []).forEach((addition) => {
     const era = base.timeline.find((item) => item.era === addition.era);
     if (era) era.events.push(...addition.events);
@@ -604,8 +666,8 @@ async function buildFinderIndex() {
   finderSummary.textContent = '네 가문의 기업·계열사 목록을 불러오는 중입니다…';
   const collections = await Promise.all(families.map(async (family) => {
     const [dataResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-13`),
-      fetch(`${family.research}?v=20260920-13`)
+      fetch(`${family.data}?v=20260920-14`),
+      fetch(`${family.research}?v=20260920-14`)
     ]);
     if (!dataResponse.ok || !researchResponse.ok) return [];
     const familyGraph = mergeEnrichment(await dataResponse.json(), family.id);
@@ -807,8 +869,8 @@ async function selectFamily(familyId, options = {}) {
   activeDepartureCategory = '전체';
   try {
     const [graphResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-13`),
-      fetch(`${family.research}?v=20260920-13`)
+      fetch(`${family.data}?v=20260920-14`),
+      fetch(`${family.research}?v=20260920-14`)
     ]);
     if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
     if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
@@ -838,8 +900,8 @@ async function selectFamily(familyId, options = {}) {
 async function loadGraph() {
   try {
     const [response, enrichmentResponse] = await Promise.all([
-      fetch('../data/families.json?v=20260920-13'),
-      fetch('../data/family-enrichment.json?v=20260920-13')
+      fetch('../data/families.json?v=20260920-14'),
+      fetch('../data/family-enrichment.json?v=20260920-14')
     ]);
     if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
     families = await response.json();
