@@ -14,17 +14,63 @@ const infoPanel = document.querySelector('#archive-info');
 const researchDocument = document.querySelector('#research-document');
 const researchSearch = document.querySelector('#research-search');
 const researchResult = document.querySelector('#research-result');
+const familySwitcher = document.querySelector('#family-switcher');
 
 let graph = null;
+let families = [];
+let activeFamily = null;
 let nodeMap = new Map();
 let sourceMap = new Map();
 let selectedNodeId = null;
 let researchMarkdown = '';
 let activeDepartureCategory = '전체';
+let loadSequence = 0;
 
 const normalize = (value = '') => value.toLocaleLowerCase('ko-KR').replace(/[\s·→()\-–—]/g, '');
 const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;' })[char]);
 const groupMembers = (group) => Array.isArray(group.members) ? group.members : String(group.members || '').split(/,\s*/).filter(Boolean);
+
+function nthIndexOf(text, query, occurrence = 1) {
+  let index = -1;
+  for (let count = 0; count < occurrence; count += 1) {
+    index = text.indexOf(query, index + 1);
+    if (index < 0) return -1;
+  }
+  return index;
+}
+
+function extractMembersFromResearch(group) {
+  if (!group.memberHeading || !researchMarkdown) return [];
+  const headingIndex = nthIndexOf(researchMarkdown, group.memberHeading, group.memberOccurrence || 1);
+  if (headingIndex < 0) return [];
+  const blockStart = researchMarkdown.indexOf('\n', headingIndex) + 1;
+  const tail = researchMarkdown.slice(blockStart);
+  const nextHeading = tail.search(/\n#{3,4}\s/);
+  const block = nextHeading < 0 ? tail : tail.slice(0, nextHeading);
+  const members = [];
+  block.split(/\r?\n/).forEach((line) => {
+    let text = line.trim();
+    if (!text || /^(>|\||---|#)/.test(text)) return;
+    text = text.replace(/\*\*/g, '').replace(/`/g, '').trim();
+    if (/^(?:금융(?:,\s*보험)?|보험|비금융|지주 및 중간지주|반도체|에너지,\s*화학|통신,\s*미디어,\s*플랫폼|바이오|건설,\s*환경,\s*소재|유통,\s*서비스|도시가스 계열|사회적기업,\s*장애인표준사업장)\s*\d*개.*$/i.test(text) && !text.includes(':')) return;
+    text = text.replace(/^(?:금융(?:,\s*보험)?|보험|비금융|지주 및 중간지주|반도체|에너지,\s*화학|통신,\s*미디어,\s*플랫폼|바이오|건설,\s*환경,\s*소재|유통,\s*서비스|도시가스 계열|사회적기업,\s*장애인표준사업장)[^:]*:\s*/i, '');
+    if (/^(?:금융|보험|비금융|지주|반도체|에너지|통신|바이오|건설|유통|도시가스|사회적기업)[^,]*$/i.test(text)) return;
+    if (!/[가-힣A-Za-z0-9]/.test(text) || (!text.includes(',') && !/(?:\(주\)|주\)|회사|홀딩스|그룹|SK|삼성|엘지|에스케이)/.test(text))) return;
+    text.split(/,\s*/).map((item) => item.trim()).filter(Boolean).forEach((item) => {
+      const cleaned = item.replace(/\[A\]|\[D\]/g, '').replace(/\s*\([^)]*전체[^)]*\)$/, '').trim();
+      if (cleaned.length < 2 || cleaned.length > 80 || /[.!?]$/.test(cleaned)) return;
+      members.push(cleaned);
+    });
+  });
+  return [...new Set(members)];
+}
+
+function hydrateGroupMembers() {
+  graph.groups.forEach((group) => {
+    const extracted = extractMembersFromResearch(group);
+    if (extracted.length > groupMembers(group).length) group.members = extracted;
+  });
+}
 
 function setView(name) {
   document.querySelectorAll('[data-view]').forEach((view) => view.classList.toggle('is-active', view.dataset.view === name));
@@ -422,7 +468,7 @@ function renderMarkdown(markdown) {
 function highlightResearch(query) {
   researchDocument.querySelectorAll('mark').forEach((mark) => mark.replaceWith(document.createTextNode(mark.textContent)));
   const raw = query.trim();
-  if (!raw) { researchResult.textContent = '원문 1,000여 줄 전체를 표시하고 있습니다.'; return; }
+  if (!raw) { researchResult.textContent = `원문 ${researchMarkdown.split(/\r?\n/).length.toLocaleString('ko-KR')}줄 전체를 표시하고 있습니다.`; return; }
   const walker = document.createTreeWalker(researchDocument, NodeFilter.SHOW_TEXT);
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
@@ -455,45 +501,123 @@ function highlightResearch(query) {
 
 async function loadResearch() {
   researchDocument.innerHTML = '<p class="research-loading">전체 조사 원문을 불러오는 중입니다…</p>';
-  try {
-    const response = await fetch('../research/hyundai-family-complete.md?v=20260920-7');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    researchMarkdown = await response.text();
+  if (researchMarkdown) {
     researchDocument.innerHTML = renderMarkdown(researchMarkdown);
     researchDocument.setAttribute('aria-busy', 'false');
-    researchResult.textContent = '원문 1,000여 줄 전체를 표시하고 있습니다.';
+    researchResult.textContent = `원문 ${researchMarkdown.split(/\r?\n/).length.toLocaleString('ko-KR')}줄 전체를 표시하고 있습니다.`;
+    return;
+  }
+  researchDocument.innerHTML = `<p>조사 원문을 불러오지 못했습니다.</p>`;
+  researchDocument.setAttribute('aria-busy', 'false');
+}
+
+function updateFamilyInterface() {
+  const meta = graph.meta;
+  const defaultLabels = activeFamily?.id === 'hyundai'
+    ? { core:'원 현대그룹', direct:'직계 분리 그룹', branch:'방계·독자 창업', exit:'타 그룹 이탈' }
+    : { core:'원 그룹', direct:'직계 분리 그룹', branch:'방계·혼맥', exit:'매각·이탈' };
+  document.title = `${meta.title} — Interactive Lab`;
+  document.querySelector('[data-family-kicker]').textContent = meta.archiveKicker || (activeFamily?.id === 'hyundai' ? 'PAN-HYUNDAI ARCHIVE · 1947—2026' : meta.title);
+  document.querySelector('[data-family-title]').textContent = meta.title;
+  document.querySelector('[data-family-summary]').textContent = meta.summary || '탄생·분리·합병·이탈과 현재 기업집단을 한곳에서 봅니다.';
+  document.querySelector('[data-family-notice]').textContent = meta.notice || '';
+  document.querySelectorAll('[data-family-name]').forEach((element) => { element.textContent = meta.familyName || activeFamily.label; });
+  document.querySelectorAll('[data-filter-label]').forEach((element) => {
+    element.textContent = meta.filterLabels?.[element.dataset.filterLabel] || defaultLabels[element.dataset.filterLabel];
+  });
+  document.querySelector('[data-reset-view]').textContent = meta.resetLabel || '처음으로 이동';
+  document.querySelector('[data-timeline-summary]').textContent = `${graph.stages[0]?.label.split('·')[0].trim() || '창업'}부터 2026년 현재까지. 사건의 확실성은 출처 등급으로 구분합니다.`;
+  document.querySelector('[data-groups-summary]').textContent = `${meta.familyName || activeFamily.label}에서 이어진 현재 기업집단과 소그룹, 전체 계열사를 봅니다.`;
+}
+
+function renderFamilySwitcher() {
+  familySwitcher.replaceChildren(...families.map((family) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = family.label;
+    button.title = family.subtitle;
+    button.classList.toggle('is-active', family.id === activeFamily?.id);
+    button.setAttribute('aria-pressed', String(family.id === activeFamily?.id));
+    button.addEventListener('click', () => selectFamily(family.id));
+    return button;
+  }));
+}
+
+function renderAll() {
+  sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
+  canvas.style.width = `${graph.meta.canvasWidth}px`;
+  canvas.style.height = `${graph.meta.canvasHeight}px`;
+  document.documentElement.style.setProperty('--node-width', `${graph.meta.nodeWidth}px`);
+  document.documentElement.style.setProperty('--node-height', `${graph.meta.nodeHeight}px`);
+  document.querySelector('[data-stat="groups"]').textContent = graph.groups.length;
+  document.querySelector('[data-stat="nodes"]').textContent = graph.nodes.length;
+  document.querySelector('[data-stat="sources"]').textContent = graph.meta.sourceCount;
+  renderStages();
+  renderNodes();
+  renderEdges();
+  renderTimeline();
+  renderGroups();
+  renderDepartureControls();
+  renderDepartures();
+  updateFamilyInterface();
+  loadResearch();
+  canvas.setAttribute('aria-busy', 'false');
+  viewport.scrollTo({ left: 0, top: graph.meta.resetTop || 690 });
+}
+
+async function selectFamily(familyId, options = {}) {
+  const family = families.find((item) => item.id === familyId) || families[0];
+  if (!family) return;
+  const sequence = ++loadSequence;
+  activeFamily = family;
+  renderFamilySwitcher();
+  canvas.setAttribute('aria-busy', 'true');
+  status.textContent = `${family.label} 자료를 불러오는 중입니다…`;
+  closeInspector();
+  search.value = '';
+  researchSearch.value = '';
+  memberSearchResults.replaceChildren();
+  activeDepartureCategory = '전체';
+  try {
+    const [graphResponse, researchResponse] = await Promise.all([
+      fetch(`${family.data}?v=20260920-9`),
+      fetch(`${family.research}?v=20260920-9`)
+    ]);
+    if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
+    if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
+    const [nextGraph, nextResearch] = await Promise.all([graphResponse.json(), researchResponse.text()]);
+    if (sequence !== loadSequence) return;
+    graph = nextGraph;
+    researchMarkdown = nextResearch;
+    if (!graph.meta.familyName) graph.meta.familyName = family.label;
+    hydrateGroupMembers();
+    renderAll();
+    renderFamilySwitcher();
+    status.textContent = '기업을 검색하면 이어지는 경로를 강조합니다.';
+    if (options.updateUrl !== false) {
+      const url = new URL(window.location.href);
+      if (family.id === 'hyundai') url.searchParams.delete('family');
+      else url.searchParams.set('family', family.id);
+      history.pushState({ family:family.id }, '', url);
+    }
   } catch (error) {
-    researchDocument.innerHTML = `<p>조사 원문을 불러오지 못했습니다. <a href="../research/hyundai-family-complete.md">원본 Markdown 파일 열기</a></p>`;
-    researchDocument.setAttribute('aria-busy', 'false');
+    if (sequence !== loadSequence) return;
+    canvas.setAttribute('aria-busy', 'false');
+    status.textContent = `${family.label} 계보 데이터를 불러오지 못했습니다.`;
     console.error(error);
   }
 }
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/hyundai-family.json?v=20260920-7');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    graph = await response.json();
-    sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
-    canvas.style.width = `${graph.meta.canvasWidth}px`;
-    canvas.style.height = `${graph.meta.canvasHeight}px`;
-    document.documentElement.style.setProperty('--node-width', `${graph.meta.nodeWidth}px`);
-    document.documentElement.style.setProperty('--node-height', `${graph.meta.nodeHeight}px`);
-    document.querySelector('[data-stat="groups"]').textContent = graph.groups.length;
-    document.querySelector('[data-stat="nodes"]').textContent = graph.nodes.length;
-    document.querySelector('[data-stat="sources"]').textContent = graph.meta.sourceCount;
-    renderStages();
-    renderNodes();
-    renderEdges();
-    renderTimeline();
-    renderGroups();
-    renderDepartureControls();
-    renderDepartures();
-    canvas.setAttribute('aria-busy', 'false');
-    viewport.scrollTo({ left: 0, top: 690 });
+    const response = await fetch('../data/families.json?v=20260920-9');
+    if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
+    families = await response.json();
+    const requested = new URL(window.location.href).searchParams.get('family') || 'hyundai';
+    await selectFamily(requested, { updateUrl:false });
   } catch (error) {
     canvas.setAttribute('aria-busy', 'false');
-    status.textContent = '계보 데이터를 불러오지 못했습니다.';
+    status.textContent = '기업 가문 목록을 불러오지 못했습니다.';
     console.error(error);
   }
 }
@@ -501,7 +625,7 @@ async function loadGraph() {
 document.querySelectorAll('[data-view-button]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.viewButton)));
 document.querySelector('[data-sidebar-close]').addEventListener('click', () => setSidebar(false));
 document.querySelector('[data-sidebar-open]').addEventListener('click', () => setSidebar(true));
-document.querySelector('[data-reset-view]').addEventListener('click', () => viewport.scrollTo({ left:0, top:690, behavior:'smooth' }));
+document.querySelector('[data-reset-view]').addEventListener('click', () => viewport.scrollTo({ left:0, top:graph?.meta.resetTop || 690, behavior:'smooth' }));
 document.querySelector('[data-inspector-close]').addEventListener('click', closeInspector);
 inspectorScrim.addEventListener('click', closeInspector);
 document.querySelectorAll('.filter-list input').forEach((input) => input.addEventListener('change', applyFilters));
@@ -535,5 +659,10 @@ viewport.addEventListener('wheel', (event) => {
     event.preventDefault();
   }
 }, { passive:false });
+
+window.addEventListener('popstate', () => {
+  const requested = new URL(window.location.href).searchParams.get('family') || 'hyundai';
+  if (requested !== activeFamily?.id) selectFamily(requested, { updateUrl:false });
+});
 
 loadGraph();

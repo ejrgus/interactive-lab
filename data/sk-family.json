@@ -1,0 +1,929 @@
+{
+  "meta": {
+    "schemaVersion": 6,
+    "status": "multi-family-research",
+    "lastReviewed": "2026-09-20",
+    "nodeWidth": 202,
+    "nodeHeight": 72,
+    "title": "범SK가 완전 계보",
+    "familyName": "범SK가",
+    "archiveKicker": "PAN-SK ARCHIVE · 1953—2026",
+    "summary": "형제 승계, 사촌 공동경영, 인수 확장과 리밸런싱을 한곳에서 봅니다.",
+    "notice": "범SK가는 다른 가문과 달리 가족 계열분리를 거의 하지 않았습니다. SK디스커버리·SK네트웍스는 사실상 독립 경영하지만 공정위상 SK 집단 안에 있으며, 쉴더스만 2026년 별도 집단으로 지정됐습니다.",
+    "canvasWidth": 2730,
+    "canvasHeight": 1430,
+    "sourceCount": 41,
+    "resetLabel": "1953으로 이동",
+    "resetTop": 500,
+    "filterLabels": {
+      "core": "SK 본체·공통 계보",
+      "direct": "그룹 내 소그룹",
+      "branch": "방계·혼맥",
+      "exit": "매각·합병·이탈"
+    }
+  },
+  "stages": [
+    {
+      "id": "textile",
+      "label": "1953–1972 · 섬유 시대",
+      "x": 40
+    },
+    {
+      "id": "oil",
+      "label": "1973–1993 · 석유 시대",
+      "x": 480
+    },
+    {
+      "id": "telecom",
+      "label": "1994–2002 · 통신·SK 전환",
+      "x": 920
+    },
+    {
+      "id": "crisis",
+      "label": "2003–2011 · 위기와 방어",
+      "x": 1360
+    },
+    {
+      "id": "chip",
+      "label": "2012–2023 · 반도체·소그룹",
+      "x": 1800
+    },
+    {
+      "id": "current",
+      "label": "2024–2026 · 리밸런싱",
+      "x": 2290
+    }
+  ],
+  "nodes": [
+    {
+      "id": "sunkyong",
+      "label": "선경직물",
+      "year": "1953",
+      "kind": "창업",
+      "note": "최종건, 수원 평동 직기 4대로 출발",
+      "detail": "최종건, 수원 평동 직기 4대로 출발",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK네트웍스"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "skhistory"
+      ]
+    },
+    {
+      "id": "polyester",
+      "label": "선경합섬",
+      "year": "1969",
+      "kind": "설립",
+      "note": "원사 생산, 현 SK케미칼 계보",
+      "detail": "원사 생산, 현 SK케미칼 계보",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 1010,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK케미칼",
+        "SK디스커버리"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "brothers",
+      "label": "최종건 → 최종현",
+      "year": "1973",
+      "kind": "형제 승계",
+      "note": "창업주 사망 뒤 동생이 2대 회장",
+      "detail": "최종건이 48세로 사망하자 43세 동생 최종현이 잡음 없이 승계.",
+      "context": "",
+      "ownership": "",
+      "x": 504,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "skwiki"
+      ]
+    },
+    {
+      "id": "yugong",
+      "label": "대한석유공사(유공)",
+      "year": "1980",
+      "kind": "인수",
+      "note": "정부 보유 정유사 민영화",
+      "detail": "정부 보유 정유사 민영화",
+      "context": "",
+      "ownership": "섬유기업이 정유사를 인수한 전환점.",
+      "x": 504,
+      "y": 458,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK이노베이션",
+        "SK에너지"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "telecom",
+      "label": "한국이동통신",
+      "year": "1994",
+      "kind": "인수",
+      "note": "10년 준비 끝 이동통신 진출",
+      "detail": "10년 준비 끝 이동통신 진출",
+      "context": "",
+      "ownership": "한국통신 자회사였던 회사를 공개입찰로 인수.",
+      "x": 944,
+      "y": 366,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK텔레콤"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "sk-name",
+      "label": "선경 → SK그룹",
+      "year": "1998",
+      "kind": "CI 통합",
+      "note": "유공·한국이동통신 브랜드 통합",
+      "detail": "유공·한국이동통신 브랜드 통합",
+      "context": "",
+      "ownership": "",
+      "x": 944,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK그룹"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "cousin-succession",
+      "label": "5형제 합의 승계",
+      "year": "1998",
+      "kind": "사촌 합의",
+      "note": "최윤원이 최태원을 추천",
+      "detail": "최종건·최종현 두 집안의 5형제가 오너 지분을 최태원에게 몰아 경영권을 방어.",
+      "context": "범SK가가 분가하지 않은 핵심 장면.",
+      "ownership": "",
+      "x": 944,
+      "y": 1010,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "skwiki"
+      ]
+    },
+    {
+      "id": "accounting",
+      "label": "SK글로벌 분식회계",
+      "year": "2003",
+      "kind": "위기",
+      "note": "최태원 구속기소·그룹 신뢰 위기",
+      "detail": "최태원 구속기소·그룹 신뢰 위기",
+      "context": "",
+      "ownership": "",
+      "x": 1384,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK네트웍스"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "sovereign",
+      "label": "소버린 경영권 공격",
+      "year": "2003–2005",
+      "kind": "경영권 방어",
+      "note": "14.99% 지분 확보에 공동 대응",
+      "detail": "외부 위협이 사촌 공동경영의 결속을 강화했습니다.",
+      "context": "",
+      "ownership": "",
+      "x": 1384,
+      "y": 458,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "mill-close",
+      "label": "수원 평동 직물공장 폐쇄",
+      "year": "2003",
+      "kind": "소멸",
+      "note": "창업 모태가 50년 만에 폐쇄",
+      "detail": "창업 모태가 50년 만에 폐쇄",
+      "context": "",
+      "ownership": "",
+      "x": 1384,
+      "y": 1102,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "hynix",
+      "label": "하이닉스 → SK하이닉스",
+      "year": "2012",
+      "kind": "인수",
+      "note": "현대전자 계보 반도체 인수",
+      "detail": "현대전자 계보 반도체 인수",
+      "context": "",
+      "ownership": "SK텔레콤이 약 3조 4천억 원 투자.",
+      "x": 1824,
+      "y": 366,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK하이닉스",
+        "하이닉스반도체"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "discovery",
+      "label": "SK디스커버리",
+      "year": "2017",
+      "kind": "인적분할",
+      "note": "최창원 소그룹 지주사",
+      "detail": "최창원 소그룹 지주사",
+      "context": "",
+      "ownership": "법적 계열분리 없이 사실상 독립 경영. SK 브랜드와 수펙스는 공유.",
+      "x": 1824,
+      "y": 826,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK케미칼",
+        "SK가스",
+        "SK바이오사이언스"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "square",
+      "label": "SK스퀘어",
+      "year": "2021",
+      "kind": "인적분할",
+      "note": "SK텔레콤 투자부문",
+      "detail": "SK텔레콤 투자부문",
+      "context": "",
+      "ownership": "",
+      "x": 1824,
+      "y": 550,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": true,
+      "aliases": [
+        "SK스퀘어"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "shielders",
+      "label": "SK쉴더스",
+      "year": "2021·2023",
+      "kind": "합병·매각",
+      "note": "SK인포섹+ADT캡스 → EQT",
+      "detail": "SK인포섹+ADT캡스 → EQT",
+      "context": "",
+      "ownership": "2023년 EQT가 경영권을 인수해 SK 소유에서 이탈.",
+      "x": 1824,
+      "y": 1194,
+      "category": "exit",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "ADT캡스",
+        "SK인포섹"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "rebalance",
+      "label": "49개사 외부 매각·통합",
+      "year": "2024–2026",
+      "kind": "리밸런싱",
+      "note": "계열사 198개 → 151개",
+      "detail": "2년간 13조 원 규모 자산 효율화. 목표는 계열사 100개 이하.",
+      "context": "",
+      "ownership": "",
+      "x": 2314,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "sk",
+      "label": "SK",
+      "year": "2026",
+      "kind": "현재",
+      "note": "최태원 · 151개사 · 422.0조",
+      "detail": "최태원 · 151개사 · 422.0조",
+      "context": "",
+      "ownership": "",
+      "x": 2314,
+      "y": 458,
+      "category": "core",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "에스케이",
+        "SK그룹"
+      ],
+      "subsidiaries": [
+        {
+          "name": "SK하이닉스",
+          "description": "AI 반도체·HBM"
+        },
+        {
+          "name": "SK이노베이션",
+          "description": "통합 에너지"
+        },
+        {
+          "name": "SK텔레콤",
+          "description": "통신"
+        }
+      ],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "sk-discovery",
+      "label": "SK디스커버리 소그룹",
+      "year": "2026",
+      "kind": "그룹 내부",
+      "note": "최창원 · 사실상 독립 경영",
+      "detail": "최창원 · 사실상 독립 경영",
+      "context": "",
+      "ownership": "",
+      "x": 2314,
+      "y": 826,
+      "category": "direct",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK디스커버리",
+        "SK케미칼",
+        "SK가스"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "sk-networks",
+      "label": "SK네트웍스 소그룹",
+      "year": "2026",
+      "kind": "그룹 내부",
+      "note": "최성환 사업총괄 · 그룹 모태",
+      "detail": "최성환 사업총괄 · 그룹 모태",
+      "context": "",
+      "ownership": "",
+      "x": 2314,
+      "y": 1010,
+      "category": "direct",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "SK네트웍스",
+        "선경직물"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "shielders-current",
+      "label": "쉴더스그룹",
+      "year": "2026",
+      "kind": "독립 집단",
+      "note": "EQT · 2개사 · 6.0조",
+      "detail": "EQT · 2개사 · 6.0조",
+      "context": "",
+      "ownership": "",
+      "x": 2314,
+      "y": 1194,
+      "category": "exit",
+      "current": true,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "SK쉴더스",
+        "캡스텍"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "siltron-doosan",
+      "label": "SK실트론 → 두산",
+      "year": "2025 SPA",
+      "kind": "매각 예정",
+      "note": "지분 70.6% 약 2.3조",
+      "detail": "지분 70.6% 약 2.3조",
+      "context": "",
+      "ownership": "2026년 5월 공정위 기준에는 아직 SK 계열. 거래 진행형.",
+      "x": 2314,
+      "y": 182,
+      "category": "exit",
+      "current": true,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "LG실트론",
+        "SK실트론"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "sunkyong",
+      "to": "brothers",
+      "type": "continuation"
+    },
+    {
+      "from": "sunkyong",
+      "to": "polyester",
+      "type": "continuation"
+    },
+    {
+      "from": "brothers",
+      "to": "yugong",
+      "type": "continuation"
+    },
+    {
+      "from": "brothers",
+      "to": "telecom",
+      "type": "continuation"
+    },
+    {
+      "from": "brothers",
+      "to": "sk-name",
+      "type": "continuation"
+    },
+    {
+      "from": "sk-name",
+      "to": "cousin-succession",
+      "type": "continuation"
+    },
+    {
+      "from": "sk-name",
+      "to": "accounting",
+      "type": "continuation"
+    },
+    {
+      "from": "accounting",
+      "to": "sovereign",
+      "type": "continuation"
+    },
+    {
+      "from": "sunkyong",
+      "to": "mill-close",
+      "type": "exit"
+    },
+    {
+      "from": "sovereign",
+      "to": "hynix",
+      "type": "merger"
+    },
+    {
+      "from": "sovereign",
+      "to": "discovery",
+      "type": "split"
+    },
+    {
+      "from": "sovereign",
+      "to": "square",
+      "type": "continuation"
+    },
+    {
+      "from": "square",
+      "to": "shielders",
+      "type": "exit"
+    },
+    {
+      "from": "hynix",
+      "to": "rebalance",
+      "type": "continuation"
+    },
+    {
+      "from": "discovery",
+      "to": "sk-discovery",
+      "type": "continuation"
+    },
+    {
+      "from": "sunkyong",
+      "to": "sk-networks",
+      "type": "continuation"
+    },
+    {
+      "from": "shielders",
+      "to": "shielders-current",
+      "type": "exit"
+    },
+    {
+      "from": "rebalance",
+      "to": "sk",
+      "type": "continuation"
+    },
+    {
+      "from": "rebalance",
+      "to": "siltron-doosan",
+      "type": "exit"
+    }
+  ],
+  "timeline": [
+    {
+      "era": "섬유에서 석유로",
+      "range": "1953–1993",
+      "events": [
+        {
+          "date": "1953",
+          "text": "수원 평동 선경직물 창업",
+          "grade": "B"
+        },
+        {
+          "date": "1969",
+          "text": "선경합섬 설립",
+          "grade": "B"
+        },
+        {
+          "date": "1973",
+          "text": "최종건 사망, 동생 최종현 승계",
+          "grade": "C"
+        },
+        {
+          "date": "1980",
+          "text": "대한석유공사(유공) 인수",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "era": "통신과 SK 전환",
+      "range": "1994–2002",
+      "events": [
+        {
+          "date": "1994",
+          "text": "한국이동통신 인수",
+          "grade": "C"
+        },
+        {
+          "date": "1997",
+          "text": "SK텔레콤으로 사명 변경",
+          "grade": "C"
+        },
+        {
+          "date": "1998",
+          "text": "SK그룹 CI 통합, 5형제 합의 승계",
+          "grade": "C"
+        }
+      ]
+    },
+    {
+      "era": "위기와 결속",
+      "range": "2003–2011",
+      "events": [
+        {
+          "date": "2003",
+          "text": "SK글로벌 분식회계와 최태원 구속기소",
+          "grade": "D"
+        },
+        {
+          "date": "2003–05",
+          "text": "소버린의 경영권 공격 방어",
+          "grade": "C"
+        },
+        {
+          "date": "2003",
+          "text": "수원 평동 직물공장 폐쇄",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "era": "반도체와 소그룹",
+      "range": "2012–2023",
+      "events": [
+        {
+          "date": "2012",
+          "text": "하이닉스 인수, SK하이닉스 출범",
+          "grade": "C"
+        },
+        {
+          "date": "2017",
+          "text": "SK디스커버리 지주사 전환",
+          "grade": "C"
+        },
+        {
+          "date": "2021",
+          "text": "SK인포섹+ADT캡스 → SK쉴더스",
+          "grade": "C"
+        },
+        {
+          "date": "2023",
+          "text": "EQT가 SK쉴더스 경영권 인수",
+          "grade": "C"
+        }
+      ]
+    },
+    {
+      "era": "리밸런싱",
+      "range": "2024–2026",
+      "events": [
+        {
+          "date": "2024.11",
+          "text": "SK이노베이션+SK E&S 합병",
+          "grade": "C"
+        },
+        {
+          "date": "2024–26",
+          "text": "49개사 외부 매각·13조 자산 효율화",
+          "grade": "C"
+        },
+        {
+          "date": "2025.7",
+          "text": "SK실트론 두산 매각 SPA",
+          "grade": "C"
+        },
+        {
+          "date": "2026",
+          "text": "SK 151개사·쉴더스 별도 집단 지정",
+          "grade": "A"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "SK",
+      "controller": "최태원",
+      "rank": "2위",
+      "assets": "421조 9,786억",
+      "affiliates": "151개사",
+      "status": "공시대상집단",
+      "summary": "반도체·에너지·통신·배터리·바이오·건설·서비스.",
+      "memberScope": "공정위 151개사 중 원문 주요 75개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 151개 — 주요 항목"
+    },
+    {
+      "name": "SK디스커버리 소그룹",
+      "controller": "최창원",
+      "rank": "SK 내부",
+      "assets": "별도 집계 없음",
+      "affiliates": "주요 10개사",
+      "status": "사실상 독립 경영",
+      "summary": "지분 관계는 거의 없지만 SK 브랜드와 수펙스 협의체를 공유.",
+      "members": [
+        "SK디스커버리",
+        "SK케미칼",
+        "SK케미칼대정",
+        "SK가스",
+        "SK어드밴스드",
+        "SK멀티유틸리티",
+        "SK바이오사이언스",
+        "SK D&D",
+        "SK이터닉스",
+        "SK플라즈마"
+      ]
+    },
+    {
+      "name": "SK네트웍스 소그룹",
+      "controller": "최성환",
+      "rank": "SK 내부",
+      "assets": "별도 집계 없음",
+      "affiliates": "관련사",
+      "status": "그룹 모태 계열",
+      "summary": "선경직물의 법인 계보. 최신원 이후 아들 최성환이 사업총괄.",
+      "members": [
+        "SK네트웍스",
+        "SK네트웍스서비스",
+        "SK스피드메이트",
+        "SK핀크스",
+        "FSK L&S",
+        "내트럭"
+      ]
+    },
+    {
+      "name": "쉴더스그룹",
+      "controller": "SK쉴더스(법인)",
+      "rank": "84위",
+      "assets": "5조 9,661억",
+      "affiliates": "2개사",
+      "status": "2026 신규 지정·SK 이탈",
+      "summary": "이름에 SK가 남았지만 EQT가 지배하는 별도 기업집단.",
+      "members": [
+        "에스케이쉴더스(주)",
+        "(주)캡스텍"
+      ]
+    }
+  ],
+  "departures": [
+    {
+      "category": "사모펀드 매각",
+      "former": "SK쉴더스",
+      "now": "쉴더스그룹(EQT)",
+      "path": "2023 약 2조 원 경영권 인수",
+      "reason": "SK스퀘어·맥쿼리 지분 매각",
+      "grade": "C"
+    },
+    {
+      "category": "사모펀드 매각",
+      "former": "SK스페셜티",
+      "now": "한앤컴퍼니 계열",
+      "path": "2024–25 지분 85% 2조 6,308억",
+      "reason": "리밸런싱과 자산 효율화",
+      "grade": "C"
+    },
+    {
+      "category": "타 재벌 매각",
+      "former": "SK실트론",
+      "now": "두산 계열 예정",
+      "path": "2025.7.31 지분 70.6% SPA",
+      "reason": "약 2조 3천억 유동성 확보",
+      "grade": "C"
+    },
+    {
+      "category": "외부 매각",
+      "former": "SK렌터카",
+      "now": "외부 매각",
+      "path": "2024 SK네트웍스 매각",
+      "reason": "비핵심 자산 정리",
+      "grade": "C"
+    },
+    {
+      "category": "합병 소멸",
+      "former": "SK E&S",
+      "now": "SK이노베이션",
+      "path": "2024.11 합병",
+      "reason": "자산 105조 이상 통합 에너지회사",
+      "grade": "C"
+    },
+    {
+      "category": "합병 소멸",
+      "former": "SK트레이딩인터내셔널·SK엔텀",
+      "now": "SK온",
+      "path": "2024–2026 합병",
+      "reason": "배터리 밸류체인 재편",
+      "grade": "C"
+    },
+    {
+      "category": "합병 소멸",
+      "former": "SK아이이테크놀로지",
+      "now": "SK이노베이션",
+      "path": "2025.8 흡수합병 결정",
+      "reason": "리밸런싱",
+      "grade": "C"
+    },
+    {
+      "category": "합병 소멸",
+      "former": "SK어드밴스드",
+      "now": "SK가스",
+      "path": "2025.8 합병 발표",
+      "reason": "소그룹 사업 재편",
+      "grade": "C"
+    },
+    {
+      "category": "합병 소멸",
+      "former": "SK에코엔지니어링",
+      "now": "SK에코플랜트",
+      "path": "2025.8 흡수합병 결정",
+      "reason": "건설·환경 조직 통합",
+      "grade": "C"
+    },
+    {
+      "category": "사명 변경",
+      "former": "SK글로벌",
+      "now": "SK네트웍스",
+      "path": "2003 분식회계 뒤 재편",
+      "reason": "법인은 존속",
+      "grade": "D"
+    },
+    {
+      "category": "공장 폐쇄",
+      "former": "선경직물 수원 평동 공장",
+      "now": "폐쇄",
+      "path": "2003.9 폐쇄",
+      "reason": "그룹 모태가 50년 만에 소멸",
+      "grade": "B"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ftc",
+      "title": "공정거래위원회 2026 공시대상기업집단 지정 자료",
+      "url": "https://www.ftc.go.kr/www/downloadBbsFile.do?atchmnflNo=53485"
+    },
+    {
+      "id": "egroup",
+      "title": "공정거래위원회 기업집단포털",
+      "url": "https://www.egroup.go.kr/"
+    },
+    {
+      "id": "skhistory",
+      "title": "SK 공식 홈페이지 역사",
+      "url": "https://www.sk.co.kr/ko/about/history.jsp"
+    },
+    {
+      "id": "skwiki",
+      "title": "나무위키 범SK가 — 뼈대 참고용",
+      "url": "https://namu.wiki/w/%EB%B2%94SK%EA%B0%80"
+    }
+  ]
+}

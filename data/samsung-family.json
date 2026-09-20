@@ -1,0 +1,1209 @@
+{
+  "meta": {
+    "schemaVersion": 6,
+    "status": "multi-family-research",
+    "lastReviewed": "2026-09-20",
+    "nodeWidth": 202,
+    "nodeHeight": 72,
+    "title": "범삼성가 완전 계보",
+    "familyName": "범삼성가",
+    "archiveKicker": "PAN-SAMSUNG ARCHIVE · 1938—2026",
+    "summary": "계획적 분봉, 혼맥, 빅딜과 현재 6개 공시대상집단을 한곳에서 봅니다.",
+    "notice": "범삼성가는 법률상 단일 기업집단이 아닙니다. 직계 분봉과 홍씨·구씨 혼맥을 함께 표시하며, 자산·계열사 수는 2026년 5월 공정위 지정 기준입니다.",
+    "canvasWidth": 2660,
+    "canvasHeight": 1490,
+    "sourceCount": 45,
+    "resetLabel": "1938로 이동",
+    "resetTop": 520,
+    "filterLabels": {
+      "core": "원 삼성그룹",
+      "direct": "직계 분리 그룹",
+      "branch": "혼맥·방계",
+      "exit": "매각·해체·이탈"
+    }
+  },
+  "stages": [
+    {
+      "id": "birth",
+      "label": "1938–1968 · 창업과 기반",
+      "x": 40
+    },
+    {
+      "id": "electronics",
+      "label": "1969–1986 · 전자·중화학 확장",
+      "x": 450
+    },
+    {
+      "id": "succession",
+      "label": "1987–1990 · 이건희 승계",
+      "x": 860
+    },
+    {
+      "id": "division",
+      "label": "1991–1999 · 계획적 분봉",
+      "x": 1270
+    },
+    {
+      "id": "restructure",
+      "label": "2000–2017 · 구조조정과 빅딜",
+      "x": 1710
+    },
+    {
+      "id": "current",
+      "label": "2018–2026 · 3세 체제",
+      "x": 2200
+    }
+  ],
+  "nodes": [
+    {
+      "id": "sanghoe",
+      "label": "삼성상회",
+      "year": "1938",
+      "kind": "창업",
+      "note": "대구에서 무역회사로 출발",
+      "detail": "이병철이 매제 허순구와 함께 대구에서 삼성상회를 세웠습니다.",
+      "context": "범삼성가 모든 흐름의 공통 출발점.",
+      "ownership": "",
+      "x": 64,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "familywiki"
+      ]
+    },
+    {
+      "id": "cj-origin",
+      "label": "제일제당공업",
+      "year": "1953",
+      "kind": "설립",
+      "note": "국내 최초 설탕 생산",
+      "detail": "국내 최초 설탕 생산",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 550,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "제일제당",
+        "CJ제일제당"
+      ],
+      "subsidiaries": [
+        {
+          "name": "CJ제일제당",
+          "description": "2007년 사업회사로 재편"
+        }
+      ],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "textile",
+      "label": "제일모직",
+      "year": "1954",
+      "kind": "설립",
+      "note": "섬유·소재 축 형성",
+      "detail": "섬유·소재 축 형성",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 918,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "제일모직"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "life",
+      "label": "동방생명",
+      "year": "1957",
+      "kind": "설립",
+      "note": "현 삼성생명보험",
+      "detail": "현 삼성생명보험",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 1102,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "삼성생명",
+        "삼성생명보험"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "fertilizer",
+      "label": "한국비료공업",
+      "year": "1964",
+      "kind": "설립",
+      "note": "1967년 국가 헌납",
+      "detail": "1967년 국가 헌납",
+      "context": "",
+      "ownership": "사카린 밀수 사건 뒤 주식 51%와 운영권을 정부에 헌납. 1994년 재인수 후 2016년 롯데로 이동.",
+      "x": 64,
+      "y": 274,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "삼성정밀화학",
+        "롯데정밀화학"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "joongang-origin",
+      "label": "중앙일보·동양방송",
+      "year": "1965",
+      "kind": "창간",
+      "note": "홍진기 가문과 결합",
+      "detail": "홍진기 가문과 결합",
+      "context": "",
+      "ownership": "",
+      "x": 64,
+      "y": 90,
+      "category": "branch",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "중앙일보",
+        "TBC"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "saehan-origin",
+      "label": "새한미디어",
+      "year": "1967",
+      "kind": "독자 창업",
+      "note": "이창희가 삼성 이탈 후 설립",
+      "detail": "이창희가 삼성 이탈 후 설립",
+      "context": "",
+      "ownership": "1969년 승계 분쟁에서 축출된 이창희 계열. 1995년 제일합섬까지 분리.",
+      "x": 64,
+      "y": 366,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "새한그룹"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "삼성전자공업",
+      "year": "1969",
+      "kind": "설립",
+      "note": "전자산업의 중심축",
+      "detail": "전자산업의 중심축",
+      "context": "",
+      "ownership": "",
+      "x": 474,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "삼성전자"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "succession-conflict",
+      "label": "장남·차남 축출",
+      "year": "1969",
+      "kind": "승계 분쟁",
+      "note": "이맹희·이창희의 이병철 고발",
+      "detail": "1969년 말 두 형제가 아버지를 청와대에 고발한 사건으로 후계 구도에서 축출됐습니다.",
+      "context": "",
+      "ownership": "",
+      "x": 474,
+      "y": 458,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "familywiki"
+      ]
+    },
+    {
+      "id": "lee-kunhee",
+      "label": "이건희 체제",
+      "year": "1987",
+      "kind": "승계",
+      "note": "이병철 별세 뒤 3남 승계",
+      "detail": "이병철 별세 뒤 3남 승계",
+      "context": "",
+      "ownership": "이건희가 1987년 12월 회장에 취임하고 1993년 신경영을 선언.",
+      "x": 884,
+      "y": 734,
+      "category": "core",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "hansol-split",
+      "label": "전주제지 → 한솔",
+      "year": "1991·1993",
+      "kind": "계열분리",
+      "note": "장녀 이인희에게 제지 배분",
+      "detail": "장녀 이인희에게 제지 배분",
+      "context": "",
+      "ownership": "1991년 독립 선언, 1993년 9월 완전 계열분리.",
+      "x": 1294,
+      "y": 182,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "한솔제지",
+        "한솔그룹"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "shinsegae-split",
+      "label": "신세계백화점",
+      "year": "1991·1997",
+      "kind": "계열분리",
+      "note": "5녀 이명희에게 유통 배분",
+      "detail": "5녀 이명희에게 유통 배분",
+      "context": "",
+      "ownership": "1991년 독립 선언, 1997년 공정위 공식 승인.",
+      "x": 1294,
+      "y": 366,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "신세계그룹",
+        "이마트"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "cj-split",
+      "label": "제일제당 → CJ",
+      "year": "1993·1997",
+      "kind": "계열분리",
+      "note": "장남 이맹희 계열 독립",
+      "detail": "장남 이맹희 계열 독립",
+      "context": "",
+      "ownership": "1993년 6월 분리, 1997년 공정위 공식 승인.",
+      "x": 1294,
+      "y": 550,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "CJ그룹",
+        "씨제이"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "saehan-split",
+      "label": "제일합섬 → 새한",
+      "year": "1995",
+      "kind": "계열분리",
+      "note": "차남 이창희 계열",
+      "detail": "차남 이창희 계열",
+      "context": "",
+      "ownership": "",
+      "x": 1294,
+      "y": 734,
+      "category": "direct",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "새한그룹",
+        "제일합섬"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "joongang-split",
+      "label": "중앙그룹",
+      "year": "1994·1999",
+      "kind": "혼맥 분리",
+      "note": "홍석현의 언론·콘텐츠 그룹",
+      "detail": "홍석현의 언론·콘텐츠 그룹",
+      "context": "",
+      "ownership": "1994년 결별 선언 뒤 1999년 공식 계열분리.",
+      "x": 1294,
+      "y": 918,
+      "category": "branch",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "중앙일보",
+        "JTBC"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "bgf-split",
+      "label": "보광 → BGF",
+      "year": "1999·2006",
+      "kind": "2단계 분리",
+      "note": "삼성→중앙→독립",
+      "detail": "삼성→중앙→독립",
+      "context": "",
+      "ownership": "1999년 삼성에서 중앙과 함께 분리, 2006년 중앙에서 다시 분리.",
+      "x": 1294,
+      "y": 1102,
+      "category": "branch",
+      "current": false,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "보광",
+        "BGF리테일",
+        "CU"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "almus",
+      "label": "영보엔지니어링 → 알머스",
+      "year": "2005",
+      "kind": "계열분리",
+      "note": "위장계열사 자진신고 뒤 분리",
+      "detail": "위장계열사 자진신고 뒤 분리",
+      "context": "",
+      "ownership": "",
+      "x": 1734,
+      "y": 1286,
+      "category": "branch",
+      "current": false,
+      "external": false,
+      "unverified": true,
+      "aliases": [
+        "알머스",
+        "애니모드"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "saehan-collapse",
+      "label": "새한그룹 해체",
+      "year": "2000",
+      "kind": "워크아웃",
+      "note": "필름 과잉투자와 2.39조 부채",
+      "detail": "필름 과잉투자와 2.39조 부채",
+      "context": "",
+      "ownership": "오너 일가가 경영권을 상실하고 계열사는 제3자에게 흩어짐.",
+      "x": 1734,
+      "y": 734,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "코스모신소재",
+        "도레이첨단소재"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "renault",
+      "label": "삼성자동차 → 르노코리아",
+      "year": "2000·2022",
+      "kind": "매각·사명변경",
+      "note": "르노 인수 뒤 삼성 명칭 제거",
+      "detail": "르노 인수 뒤 삼성 명칭 제거",
+      "context": "",
+      "ownership": "",
+      "x": 1734,
+      "y": 918,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "르노삼성자동차",
+        "르노코리아"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "hanwha-deal",
+      "label": "삼성 방산·화학 → 한화",
+      "year": "2014",
+      "kind": "빅딜",
+      "note": "테크윈·탈레스·토탈·종합화학",
+      "detail": "테크윈·탈레스·토탈·종합화학",
+      "context": "",
+      "ownership": "",
+      "x": 1734,
+      "y": 366,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "한화에어로스페이스",
+        "한화시스템",
+        "한화임팩트",
+        "한화토탈에너지스"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "lotte-deal",
+      "label": "삼성 화학 → 롯데",
+      "year": "2015·2016",
+      "kind": "빅딜",
+      "note": "정밀화학·BP화학·SDI 케미칼",
+      "detail": "정밀화학·BP화학·SDI 케미칼",
+      "context": "",
+      "ownership": "",
+      "x": 1734,
+      "y": 182,
+      "category": "exit",
+      "current": false,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "롯데정밀화학",
+        "롯데BP화학",
+        "롯데케미칼"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "samsung",
+      "label": "삼성",
+      "year": "2026",
+      "kind": "현재",
+      "note": "이재용 · 67개사 · 695.8조",
+      "detail": "이재용 · 67개사 · 695.8조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 734,
+      "category": "core",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "삼성그룹"
+      ],
+      "subsidiaries": [
+        {
+          "name": "삼성전자",
+          "description": "전자·반도체"
+        },
+        {
+          "name": "삼성물산",
+          "description": "건설·상사·패션"
+        },
+        {
+          "name": "삼성생명",
+          "description": "보험"
+        }
+      ],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "hansol",
+      "label": "한솔그룹",
+      "year": "2026",
+      "kind": "현재",
+      "note": "조동길 · 26개사 · 5.5조",
+      "detail": "조동길 · 26개사 · 5.5조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 182,
+      "category": "direct",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "한솔"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "shinsegae",
+      "label": "신세계그룹",
+      "year": "2026",
+      "kind": "현재",
+      "note": "이명희 · 65개사 · 74.6조",
+      "detail": "이명희 · 65개사 · 74.6조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 366,
+      "category": "direct",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "이마트",
+        "신세계"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "cj",
+      "label": "CJ그룹",
+      "year": "2026",
+      "kind": "현재",
+      "note": "이재현 · 67개사 · 39.7조",
+      "detail": "이재현 · 67개사 · 39.7조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 550,
+      "category": "direct",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "씨제이",
+        "CJ"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "joongang",
+      "label": "중앙그룹",
+      "year": "2026",
+      "kind": "현재",
+      "note": "홍석현 · 55개사 · 7.4조",
+      "detail": "홍석현 · 55개사 · 7.4조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 918,
+      "category": "branch",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "중앙일보",
+        "JTBC"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "bgf",
+      "label": "BGF그룹",
+      "year": "2026",
+      "kind": "현재",
+      "note": "홍석조 · 17개사 · 6.5조",
+      "detail": "홍석조 · 17개사 · 6.5조",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 1102,
+      "category": "branch",
+      "current": true,
+      "external": false,
+      "unverified": false,
+      "aliases": [
+        "보광",
+        "CU",
+        "BGF리테일"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    },
+    {
+      "id": "ourhome",
+      "label": "아워홈 → 한화",
+      "year": "2025",
+      "kind": "혼맥 이탈",
+      "note": "구자학·이숙희 계열, 한화 매각",
+      "detail": "구자학·이숙희 계열, 한화 매각",
+      "context": "",
+      "ownership": "",
+      "x": 2224,
+      "y": 1286,
+      "category": "exit",
+      "current": true,
+      "external": true,
+      "unverified": false,
+      "aliases": [
+        "아워홈",
+        "한화호텔앤드리조트"
+      ],
+      "subsidiaries": [],
+      "sourceIds": [
+        "ftc"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "sanghoe",
+      "to": "electronics",
+      "type": "continuation"
+    },
+    {
+      "from": "sanghoe",
+      "to": "cj-origin",
+      "type": "continuation"
+    },
+    {
+      "from": "sanghoe",
+      "to": "textile",
+      "type": "continuation"
+    },
+    {
+      "from": "sanghoe",
+      "to": "life",
+      "type": "continuation"
+    },
+    {
+      "from": "sanghoe",
+      "to": "fertilizer",
+      "type": "exit"
+    },
+    {
+      "from": "sanghoe",
+      "to": "joongang-origin",
+      "type": "family"
+    },
+    {
+      "from": "sanghoe",
+      "to": "saehan-origin",
+      "type": "split"
+    },
+    {
+      "from": "electronics",
+      "to": "lee-kunhee",
+      "type": "continuation"
+    },
+    {
+      "from": "succession-conflict",
+      "to": "cj-split",
+      "type": "split"
+    },
+    {
+      "from": "succession-conflict",
+      "to": "saehan-split",
+      "type": "split"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "samsung",
+      "type": "continuation"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "hansol-split",
+      "type": "split"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "shinsegae-split",
+      "type": "split"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "cj-split",
+      "type": "split"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "saehan-split",
+      "type": "split"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "joongang-split",
+      "type": "family"
+    },
+    {
+      "from": "lee-kunhee",
+      "to": "bgf-split",
+      "type": "family"
+    },
+    {
+      "from": "hansol-split",
+      "to": "hansol",
+      "type": "continuation"
+    },
+    {
+      "from": "shinsegae-split",
+      "to": "shinsegae",
+      "type": "continuation"
+    },
+    {
+      "from": "cj-split",
+      "to": "cj",
+      "type": "continuation"
+    },
+    {
+      "from": "joongang-split",
+      "to": "joongang",
+      "type": "continuation"
+    },
+    {
+      "from": "bgf-split",
+      "to": "bgf",
+      "type": "continuation"
+    },
+    {
+      "from": "saehan-split",
+      "to": "saehan-collapse",
+      "type": "exit"
+    },
+    {
+      "from": "electronics",
+      "to": "renault",
+      "type": "exit"
+    },
+    {
+      "from": "electronics",
+      "to": "hanwha-deal",
+      "type": "exit"
+    },
+    {
+      "from": "fertilizer",
+      "to": "lotte-deal",
+      "type": "exit"
+    },
+    {
+      "from": "saehan-collapse",
+      "to": "ourhome",
+      "type": "family"
+    }
+  ],
+  "timeline": [
+    {
+      "era": "창업과 승계 갈등",
+      "range": "1938–1987",
+      "events": [
+        {
+          "date": "1938",
+          "text": "대구 삼성상회 창립",
+          "grade": "D"
+        },
+        {
+          "date": "1953",
+          "text": "제일제당공업 설립",
+          "grade": "C"
+        },
+        {
+          "date": "1966–67",
+          "text": "사카린 사건과 한국비료 헌납",
+          "grade": "B"
+        },
+        {
+          "date": "1969",
+          "text": "삼성전자공업 설립, 장남·차남 후계 탈락",
+          "grade": "D"
+        },
+        {
+          "date": "1987",
+          "text": "이병철 별세, 이건희 승계",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "era": "계획적 분봉",
+      "range": "1991–1999",
+      "events": [
+        {
+          "date": "1991",
+          "text": "신세계·전주제지 독립 선언",
+          "grade": "C"
+        },
+        {
+          "date": "1993",
+          "text": "CJ와 한솔 완전 분리",
+          "grade": "C"
+        },
+        {
+          "date": "1995",
+          "text": "제일합섬 새한 계열분리",
+          "grade": "B"
+        },
+        {
+          "date": "1997",
+          "text": "CJ·신세계 공정위 승인",
+          "grade": "C"
+        },
+        {
+          "date": "1999",
+          "text": "중앙·보광 공식 분리",
+          "grade": "C"
+        }
+      ]
+    },
+    {
+      "era": "해체와 사업 정리",
+      "range": "2000–2016",
+      "events": [
+        {
+          "date": "2000",
+          "text": "새한 워크아웃, 삼성자동차 르노 인수",
+          "grade": "C"
+        },
+        {
+          "date": "2006",
+          "text": "BGF가 중앙에서 재분리",
+          "grade": "C"
+        },
+        {
+          "date": "2014",
+          "text": "삼성-한화 1차 빅딜",
+          "grade": "C"
+        },
+        {
+          "date": "2015–16",
+          "text": "롯데 2차 빅딜, 화학 철수",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "era": "3세 체제",
+      "range": "2018–2026",
+      "events": [
+        {
+          "date": "2018",
+          "text": "이재용 동일인 지정",
+          "grade": "D"
+        },
+        {
+          "date": "2024–25",
+          "text": "신세계 남매 계열분리 공식화·지분 이전",
+          "grade": "C"
+        },
+        {
+          "date": "2025",
+          "text": "아워홈 한화 편입",
+          "grade": "C"
+        },
+        {
+          "date": "2026",
+          "text": "삼성 67개사·자산 695.8조",
+          "grade": "A"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "삼성",
+      "controller": "이재용",
+      "rank": "1위",
+      "assets": "695조 7,850억",
+      "affiliates": "67개사",
+      "status": "공시대상집단",
+      "summary": "전자·반도체·바이오·금융·건설·서비스.",
+      "memberScope": "2026 공정위 전체 67개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 67개 전체 명단[A]"
+    },
+    {
+      "name": "신세계그룹",
+      "controller": "이명희",
+      "rank": "11위",
+      "assets": "74조 5,817억",
+      "affiliates": "65개사",
+      "status": "공시대상집단",
+      "summary": "이마트·백화점·스타필드·호텔·온라인 유통.",
+      "memberScope": "2026 공정위 전체 65개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 65개 전체 명단[A]"
+    },
+    {
+      "name": "CJ그룹",
+      "controller": "이재현",
+      "rank": "15위",
+      "assets": "39조 7,304억",
+      "affiliates": "67개사",
+      "status": "공시대상집단",
+      "summary": "식품·바이오·물류·엔터테인먼트.",
+      "memberScope": "2026 공정위 전체 67개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 67개 전체 명단[A]",
+      "memberOccurrence": 2
+    },
+    {
+      "name": "중앙그룹",
+      "controller": "홍석현",
+      "rank": "73위",
+      "assets": "7조 3,558억",
+      "affiliates": "55개사",
+      "status": "공시대상집단",
+      "summary": "중앙일보·JTBC·콘텐츠·멀티플렉스·리조트.",
+      "memberScope": "2026 공정위 전체 55개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 55개 전체 명단[A]"
+    },
+    {
+      "name": "BGF그룹",
+      "controller": "홍석조",
+      "rank": "77위",
+      "assets": "6조 5,403억",
+      "affiliates": "17개사",
+      "status": "공시대상집단",
+      "summary": "CU 편의점과 소재·물류·투자.",
+      "memberScope": "2026 공정위 전체 17개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 17개 전체 명단[A]"
+    },
+    {
+      "name": "한솔그룹",
+      "controller": "조동길",
+      "rank": "91위",
+      "assets": "5조 4,938억",
+      "affiliates": "26개사",
+      "status": "공시대상집단",
+      "summary": "제지·소재·화학·물류·전자부품.",
+      "memberScope": "2026 공정위 전체 26개사 [A]",
+      "memberHeading": "2026년 공정위 확정 계열사 26개 전체 명단[A]"
+    },
+    {
+      "name": "알머스",
+      "controller": "김상용",
+      "rank": "미지정",
+      "assets": "—",
+      "affiliates": "소규모",
+      "status": "방계 기업",
+      "summary": "구 영보엔지니어링. 2005년 위장계열사 자진신고 뒤 분리.",
+      "members": [
+        "알머스",
+        "애니모드"
+      ]
+    },
+    {
+      "name": "새한그룹",
+      "controller": "이창희 일가",
+      "rank": "해체",
+      "assets": "—",
+      "affiliates": "2000년 해체",
+      "status": "역사적 그룹",
+      "summary": "새한미디어·제일합섬 계열. 워크아웃 뒤 제3자에게 분산.",
+      "members": [
+        "새한미디어 → 코스모신소재",
+        "(주)새한 → 도레이첨단소재",
+        "도레이새한 → 도레이첨단소재",
+        "의류사업부문 → 에리트베이직"
+      ]
+    },
+    {
+      "name": "아워홈",
+      "controller": "한화호텔앤드리조트",
+      "rank": "이탈",
+      "assets": "인수가 8,695억",
+      "affiliates": "2025년 매각",
+      "status": "혼맥 이탈",
+      "summary": "LG 구인회 3남 구자학과 삼성 이병철 차녀 이숙희의 교집합.",
+      "members": [
+        "아워홈"
+      ]
+    }
+  ],
+  "departures": [
+    {
+      "category": "국가 헌납·재인수",
+      "former": "한국비료공업",
+      "now": "롯데정밀화학",
+      "path": "1967 국가 헌납 → 1994 삼성 재인수 → 2016 롯데",
+      "reason": "사카린 밀수 사건과 이후 화학사업 매각",
+      "grade": "B"
+    },
+    {
+      "category": "한화 빅딜",
+      "former": "삼성테크윈",
+      "now": "한화에어로스페이스",
+      "path": "2014 지분 32.43% 매각",
+      "reason": "방산·화학 선택과 집중",
+      "grade": "C"
+    },
+    {
+      "category": "한화 빅딜",
+      "former": "삼성탈레스",
+      "now": "한화시스템",
+      "path": "2014 이동 → 2016 사명 변경",
+      "reason": "방산사업 일괄 매각",
+      "grade": "C"
+    },
+    {
+      "category": "한화 빅딜",
+      "former": "삼성종합화학",
+      "now": "한화임팩트",
+      "path": "2014 한화종합화학 → 한화임팩트",
+      "reason": "화학사업 정리",
+      "grade": "C"
+    },
+    {
+      "category": "한화 빅딜",
+      "former": "삼성토탈",
+      "now": "한화토탈에너지스",
+      "path": "2014 한화 인수",
+      "reason": "화학사업 정리",
+      "grade": "C"
+    },
+    {
+      "category": "롯데 빅딜",
+      "former": "삼성정밀화학",
+      "now": "롯데정밀화학",
+      "path": "2015 계약 → 2016 사명 변경",
+      "reason": "삼성의 화학사업 완전 철수",
+      "grade": "B"
+    },
+    {
+      "category": "롯데 빅딜",
+      "former": "삼성BP화학",
+      "now": "롯데BP화학",
+      "path": "2015 정밀화학과 함께 이동",
+      "reason": "화학사업 일괄 매각",
+      "grade": "C"
+    },
+    {
+      "category": "제3자 매각",
+      "former": "삼성자동차",
+      "now": "르노코리아",
+      "path": "2000 르노 인수 → 2022 삼성 명칭 제거",
+      "reason": "외환위기와 자동차사업 실패",
+      "grade": "D"
+    },
+    {
+      "category": "그룹 해체",
+      "former": "새한미디어",
+      "now": "코스모신소재",
+      "path": "2000 워크아웃 → 2010 매각",
+      "reason": "필름 과잉투자와 부채",
+      "grade": "D"
+    },
+    {
+      "category": "그룹 해체",
+      "former": "제일합섬·(주)새한",
+      "now": "도레이첨단소재",
+      "path": "워크아웃 → 웅진 → 도레이 → 2019 합병",
+      "reason": "새한그룹 해체",
+      "grade": "D"
+    },
+    {
+      "category": "혼맥 이탈",
+      "former": "아워홈",
+      "now": "한화그룹",
+      "path": "2025 지분 58.62% 인수",
+      "reason": "오너 4남매 경영권 분쟁 뒤 매각",
+      "grade": "C"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ftc",
+      "title": "공정거래위원회 2026 공시대상기업집단 지정 자료",
+      "url": "https://www.ftc.go.kr/www/downloadBbsFile.do?atchmnflNo=53485"
+    },
+    {
+      "id": "egroup",
+      "title": "공정거래위원회 기업집단포털",
+      "url": "https://www.egroup.go.kr/"
+    },
+    {
+      "id": "familywiki",
+      "title": "나무위키 범삼성가 — 뼈대 참고용",
+      "url": "https://namu.wiki/w/%EB%B2%94%EC%82%BC%EC%84%B1%EA%B0%80"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "hyundai",
+    "label": "범현대가",
+    "subtitle": "정주영에서 갈라진 15개 흐름",
+    "data": "../data/hyundai-family.json",
+    "research": "../research/hyundai-family-complete.md"
+  },
+  {
+    "id": "samsung",
+    "label": "범삼성가",
+    "subtitle": "계획적 분봉과 혼맥의 계보",
+    "data": "../data/samsung-family.json",
+    "research": "../research/samsung-family-complete.md"
+  },
+  {
+    "id": "lg",
+    "label": "범LG가",
+    "subtitle": "구씨·허씨 동업과 형제 분가",
+    "data": "../data/lg-family.json",
+    "research": "../research/lg-family-complete.md"
+  },
+  {
+    "id": "sk",
+    "label": "범SK가",
+    "subtitle": "분리 대신 ‘따로 또 같이’",
+    "data": "../data/sk-family.json",
+    "research": "../research/sk-family-complete.md"
+  }
+]
