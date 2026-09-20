@@ -52,11 +52,26 @@
 
 ## 4. 주요 기업 설립
 
+### 현대양행의 두 갈래
+
+- 상태: `confirmed`
+- 사건 날짜: 1962-09-20 / 1980-02 / 1980
+- 요약: 현대양행은 1962년 설립됐다. 1980년 창원 중공업 부문은 한국중공업이라는 공기업으로 전환됐고, 2001년 두산이 인수해 두산중공업, 2022년 두산에너빌리티로 이어졌다. 한편 안양공장은 1980년 만도기계로 상호를 변경했고, 자원개발부에서 한라자원이 독립해 현재 HL그룹의 자동차부품·건설 갈래로 이어졌다.
+- 표시 원칙: 현대양행 전체가 단순히 두산에너빌리티로 한 번에 개명된 것처럼 그리지 않고, `한국중공업→두산중공업→두산에너빌리티`와 `만도기계·한라자원→한라그룹→HL그룹`을 분기해 표시한다.
+- 출처: 두산에너빌리티 공식 역사, HL그룹 공식 역사
+
 ## 5. 계열분리 사건
 
 ## 6. 계열분리 이유
 
 ## 7. 현재 각 그룹의 관계
+
+### 현재 현대그룹의 공식 소개 계열사
+
+- 상태: `confirmed`
+- 기준: 현대그룹 공식 계열사 소개 페이지, 2026-09-20 확인
+- 현대엘리베이터, 현대아산, 현대무벡스, 현대경제연구원, 현대투자파트너스, 현대글로벌, 에이블현대호텔앤리조트, 블룸비스타 호텔앤컨퍼런스, 현대홀딩스컴퍼니, 현대프라퍼티
+- 주의: 이 목록은 현대그룹 공식 홈페이지의 소개 범위를 따른다. 공정거래위원회 기업집단 소속회사 명단이나 연결재무제표 종속기업 목록과는 범위가 다를 수 있다.
 
 ## 8. 이름은 공유하지만 별도 기업이 된 사례
 
@@ -77,6 +92,11 @@
 | KCC | KCC 공식 연혁 | KCC | https://www.kccworld.co.kr/techdoc/b05/cvt/B05F202110017592111kor.pdf | 2026-09-20 | 1 |
 | MARINE | 현대해상 공식 연혁 | 현대해상 | https://www.hi.co.kr/serviceAction.do?menuId=101540 | 2026-09-20 | 1 |
 | SKHYNIX | SK하이닉스 공식 역사 | SK하이닉스 | https://www.skhynix.com/company/UI-FR-CP05/ | 2026-09-20 | 1 |
+| DOOSAN | 두산에너빌리티 공식 역사 | 두산에너빌리티 | https://www.doosanenerbility.com/kr/about/history_era | 2026-09-20 | 1 |
+| DOOSAN-GROUP | 두산그룹 주요 역사 | (주)두산 | https://www.doosan.com/kr/intro/business-highlights | 2026-09-20 | 1 |
+| DOOSAN-REPORT | 두산에너빌리티 통합보고서 | 두산에너빌리티 | https://v3-origin-doosanheavy.doosan.com/heavy_file/management/data/overview_result/report/2023_report_kr.pdf | 2026-09-20 | 1 |
+| HYUNDAI-GROUP | 현대그룹 공식 계열사 소개 | 현대그룹 | https://www.hyundaigroup.com/product/subsidiary.asp | 2026-09-20 | 1 |
+| HYUNDAI-GROUP-HISTORY | 현대그룹 공식 그룹 History | 현대그룹 | https://www.hyundaigroup.com/group/history.asp | 2026-09-20 | 1 |
 
 ## 12. 추가 확인이 필요한 내용
 
