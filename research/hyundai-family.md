@@ -36,7 +36,13 @@
 
 ## 1. 조사 범위와 기준
 
-<!-- 범현대가에 포함할 그룹·기업·인물의 기준을 정의한다. -->
+현재 시범 화면은 범현대가의 모든 법인과 지분관계를 망라하지 않는다. 다음 흐름을 우선 표시한다.
+
+- 현대토건사와 현대건설에서 직접 사업이 확장된 주요 회사
+- 1999~2002년을 전후해 독립한 주요 기업집단
+- 정주영 창업자의 형제가 별도로 창업해 통상 범현대가로 분류되는 KCC·HL 계열
+- 현대라는 이름을 유지하지만 현재는 별도 기업인 현대해상
+- 현대전자에서 출발했지만 현재는 SK그룹 소속인 SK하이닉스
 
 ## 2. 범현대가의 정의
 
@@ -62,7 +68,15 @@
 
 | ID | 출처명 | 발행 주체 | URL | 확인 날짜 | 신뢰 단계 |
 |---|---|---|---|---|---|
-| | | | | | |
+| HDEC | 현대건설 70년 | 현대건설 | https://www.hdec.kr/HdecToday/334/45p-topic.pdf | 2026-09-20 | 1 |
+| MOTOR | 현대자동차 공식 연혁 | 현대자동차 | https://www.hyundai.com/worldwide/en/footer/corporate/history/1967-2000 | 2026-09-20 | 1 |
+| HD | HD현대중공업 공식 역사 | HD현대중공업 | https://hd-hhi.com/kr/company/heritage/history | 2026-09-20 | 1 |
+| DEPT | 현대백화점그룹 공식 연혁 | 현대백화점그룹 | https://www.ehyundai.com/newPortal/group/GI/GI000002.do?locale=ko | 2026-09-20 | 1 |
+| HDC | HDC 2024 IR 주요 연혁 | HDC | https://hdc-holdings.com/resource/file/ir_report_2024_4Q.pdf | 2026-09-20 | 1 |
+| HL | HL그룹 공식 역사 | HL그룹 | https://www.hlcompany.com/group/history.jsp | 2026-09-20 | 1 |
+| KCC | KCC 공식 연혁 | KCC | https://www.kccworld.co.kr/techdoc/b05/cvt/B05F202110017592111kor.pdf | 2026-09-20 | 1 |
+| MARINE | 현대해상 공식 연혁 | 현대해상 | https://www.hi.co.kr/serviceAction.do?menuId=101540 | 2026-09-20 | 1 |
+| SKHYNIX | SK하이닉스 공식 역사 | SK하이닉스 | https://www.skhynix.com/company/UI-FR-CP05/ | 2026-09-20 | 1 |
 
 ## 12. 추가 확인이 필요한 내용
 
@@ -74,5 +88,5 @@
 
 ## 14. 최종 확인 날짜
 
-- 아직 확인하지 않음
+- 2026-09-20
 
