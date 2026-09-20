@@ -9,44 +9,23 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <script type="module" src="assets/js/navigation.js"></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header" data-header>
     <div class="nav-shell">
       <a class="brand" href="index.html" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
-      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a class="is-active" href="index.html" aria-current="page">홈</a><a href="companies/index.html">기업 계보</a><a href="immune/index.html">면역체계</a><a href="#about">프로젝트 소개</a></nav>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a class="is-active" href="index.html" aria-current="page">홈</a><a href="companies/index.html">기업 계보</a><a href="immune/index.html">면역체계</a><a href="README.md">프로젝트 소개</a></nav>
     </div>
   </header>
-
-  <main id="main">
+  <main id="main" class="home-main">
     <section class="hero page-shell">
       <p class="eyebrow reveal">Interactive knowledge atlas</p>
-      <h1 class="display-title reveal">복잡한 이야기를<br><span>직접 탐색하는 경험으로.</span></h1>
+      <h1 class="display-title reveal"><span class="title-primary">복잡한 이야기를</span><span class="title-secondary">직접 탐색하는 경험으로.</span></h1>
       <p class="hero-copy reveal">기업의 탄생과 분리, 우리 몸의 방어 체계처럼 한눈에 보기 어려운 흐름을 움직이고 펼쳐보며 이해합니다.</p>
-      <div class="hero-actions reveal"><a class="button button-primary" href="companies/index.html">기업 계보 살펴보기</a><a class="button button-secondary" href="#collections">전체 콘텐츠 보기</a></div>
       <div class="hero-orbit" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span></div>
     </section>
-
-    <section class="section page-shell" id="collections" aria-labelledby="collections-title">
-      <div class="section-heading reveal"><div><p class="eyebrow">Collections</p><h2 id="collections-title">하나의 공간, 서로 다른 세계</h2></div><p>각 기능은 독립된 페이지로 작동해 필요한 콘텐츠만 빠르게 불러옵니다.</p></div>
-      <div class="feature-grid">
-        <a class="feature-card feature-card-blue reveal" href="companies/index.html">
-          <div class="feature-card-top"><span class="status status-live">기반 공개</span><span class="arrow" aria-hidden="true">↗</span></div>
-          <div class="feature-visual family-visual" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-          <div><p class="card-kicker">기업 역사와 지배구조</p><h3>대기업의 탄생과<br>계열분리</h3><p>범현대가부터 시작해 기업이 어떻게 생겨나고 갈라졌는지 시간과 관계로 살펴봅니다.</p></div>
-        </a>
-        <a class="feature-card feature-card-green reveal" href="immune/index.html">
-          <div class="feature-card-top"><span class="status status-soon">준비 중</span><span class="arrow" aria-hidden="true">↗</span></div>
-          <div class="feature-visual cell-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-          <div><p class="card-kicker">Interactive simulation</p><h3>면역체계<br>시뮬레이션</h3><p>병원체가 들어온 순간부터 면역세포가 대응하는 과정을 직접 조작하며 이해합니다.</p></div>
-        </a>
-      </div>
-    </section>
-
-    <section class="about-section" id="about"><div class="page-shell about-grid"><p class="eyebrow reveal">Why Interactive Lab</p><div class="reveal"><h2>읽는 데서 멈추지 않고,<br>관계를 발견하도록.</h2><p>정보를 단순히 나열하지 않습니다. 출처가 확인된 데이터를 바탕으로 시간, 원인, 연결 관계가 자연스럽게 드러나는 인터랙션을 설계합니다.</p></div></div></section>
   </main>
-  <footer class="site-footer"><div class="page-shell footer-inner"><p>Interactive Lab</p><p>작은 질문에서 시작하는 시각화 실험실.</p></div></footer>
 </body>
 </html>
 
