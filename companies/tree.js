@@ -6,6 +6,7 @@ const stageLayer = document.querySelector('#stage-layer');
 const connectorLayer = document.querySelector('#connector-layer');
 const search = document.querySelector('#tree-search');
 const status = document.querySelector('#tree-status');
+const memberSearchResults = document.querySelector('#member-search-results');
 const inspector = document.querySelector('#node-inspector');
 const inspectorScrim = document.querySelector('#inspector-scrim');
 const infoToggle = document.querySelector('[data-info-toggle]');
@@ -23,6 +24,7 @@ let activeDepartureCategory = '전체';
 
 const normalize = (value = '') => value.toLocaleLowerCase('ko-KR').replace(/[\s·→()\-–—]/g, '');
 const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;' })[char]);
+const groupMembers = (group) => Array.isArray(group.members) ? group.members : String(group.members || '').split(/,\s*/).filter(Boolean);
 
 function setView(name) {
   document.querySelectorAll('[data-view]').forEach((view) => view.classList.toggle('is-active', view.dataset.view === name));
@@ -193,6 +195,38 @@ function ancestorsOf(ids) {
   return included;
 }
 
+function currentNodeForGroup(group) {
+  const groupName = normalize(group.name);
+  return graph.nodes.find((node) => {
+    if (!node.current) return false;
+    const nodeNames = normalize([node.label, ...(node.aliases || [])].join(' '));
+    return nodeNames.includes(groupName) || groupName.includes(normalize(node.label));
+  });
+}
+
+function revealGroupMember(groupName, memberName) {
+  setView('groups');
+  document.querySelectorAll('.group-card.is-search-target').forEach((card) => card.classList.remove('is-search-target'));
+  document.querySelectorAll('.group-member-list li.is-search-target').forEach((item) => item.classList.remove('is-search-target'));
+  const card = [...document.querySelectorAll('.group-card')].find((item) => normalize(item.dataset.groupName) === normalize(groupName));
+  if (!card) return;
+  const member = [...card.querySelectorAll('[data-member-name]')].find((item) => normalize(item.dataset.memberName) === normalize(memberName));
+  card.classList.add('is-search-target');
+  member?.classList.add('is-search-target');
+  card.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function renderMemberSearchResults(matches) {
+  memberSearchResults.replaceChildren(...matches.slice(0, 12).map(({ group, member }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'member-search-result';
+    button.innerHTML = `<strong>${escapeHtml(member)}</strong><span>${escapeHtml(group.name)} · 현재 그룹에서 보기</span>`;
+    button.addEventListener('click', () => revealGroupMember(group.name, member));
+    return button;
+  }));
+}
+
 function applyFilters() {
   const enabled = new Set([...document.querySelectorAll('.filter-list input:checked')].map((input) => input.value));
   nodeLayer.querySelectorAll('.tree-node').forEach((card) => card.classList.toggle('is-hidden', !enabled.has(card.dataset.category)));
@@ -212,6 +246,7 @@ function updateSearch() {
   const paths = [...connectorLayer.querySelectorAll('.tree-edge')].filter((path) => path.style.display !== 'none');
   cards.forEach((card) => card.classList.remove('is-dimmed', 'is-highlighted', 'is-match'));
   paths.forEach((path) => path.classList.remove('is-dimmed', 'is-highlighted'));
+  memberSearchResults.replaceChildren();
   if (!query) {
     status.textContent = '기업을 검색하면 이어지는 경로를 강조합니다.';
     return;
@@ -219,11 +254,24 @@ function updateSearch() {
   const visibleIds = new Set(cards.map((card) => card.dataset.nodeId));
   const allMatches = graph.nodes.filter((node) => visibleIds.has(node.id) && normalize([node.label, ...(node.aliases || [])].join(' ')).includes(query));
   const exactCurrent = allMatches.filter((node) => node.current && normalize([node.label, ...(node.aliases || [])].join(' ')).includes(query));
-  const matches = exactCurrent.length ? exactCurrent : allMatches;
-  if (!matches.length) {
+  const directMatches = exactCurrent.length ? exactCurrent : allMatches;
+  const memberMatches = graph.groups.flatMap((group) => groupMembers(group)
+    .filter((member) => normalize(member).includes(query))
+    .map((member) => ({ group, member })));
+  renderMemberSearchResults(memberMatches);
+  const parentMatches = [...new Map(memberMatches.map(({ group }) => {
+    const node = currentNodeForGroup(group);
+    return node ? [node.id, node] : null;
+  }).filter(Boolean)).values()].filter((node) => visibleIds.has(node.id));
+  const matches = directMatches.length ? directMatches : parentMatches;
+  if (!matches.length && !memberMatches.length) {
     cards.forEach((card) => card.classList.add('is-dimmed'));
     paths.forEach((path) => path.classList.add('is-dimmed'));
     status.textContent = `“${raw}” 검색 결과가 없습니다.`;
+    return;
+  }
+  if (!matches.length) {
+    status.textContent = `계열사 검색 결과 ${memberMatches.length}개입니다. 결과를 눌러 현재 그룹에서 확인하세요.`;
     return;
   }
   const matchIds = new Set(matches.map((node) => node.id));
@@ -240,7 +288,11 @@ function updateSearch() {
     path.classList.toggle('is-dimmed', !active);
   });
   const target = matches[0];
-  status.textContent = `${matches.map((node) => node.label).join(', ')} 경로를 강조했습니다.`;
+  if (memberMatches.length && !directMatches.length) {
+    status.textContent = `${memberMatches[0].member} · ${memberMatches[0].group.name} 경로를 강조했습니다.`;
+  } else {
+    status.textContent = `${matches.map((node) => node.label).join(', ')} 경로를 강조했습니다.${memberMatches.length ? ` 계열사 결과 ${memberMatches.length}개.` : ''}`;
+  }
   viewport.scrollTo({ left: Math.max(0, target.x - viewport.clientWidth * .64), top: Math.max(0, target.y - viewport.clientHeight * .42), behavior: 'smooth' });
 }
 
@@ -267,8 +319,9 @@ function renderGroups() {
   document.querySelector('#group-grid').replaceChildren(...graph.groups.map((group) => {
     const card = document.createElement('article');
     card.className = 'group-card';
-    const members = Array.isArray(group.members) ? group.members : String(group.members || '').split(/,\s*/).filter(Boolean);
-    card.innerHTML = `<div class="group-card-main"><div class="group-card-top"><h3>${escapeHtml(group.name)}</h3><span class="group-status">${escapeHtml(group.status)}</span></div><div class="group-meta"><span>${escapeHtml(group.rank)}</span><span>${escapeHtml(group.assets)}</span><span>${escapeHtml(group.affiliates)}</span><span>${escapeHtml(group.controller)}</span></div><p>${escapeHtml(group.summary)}</p></div><section class="group-directory" aria-label="${escapeHtml(group.name)} 계열사 목록"><div class="group-directory-head"><strong>현재 계열사·관련 회사</strong><span>${escapeHtml(group.memberScope || `${members.length}개사`)}</span></div><ul class="group-member-list">${members.map((member) => `<li>${escapeHtml(member)}</li>`).join('')}</ul></section>`;
+    card.dataset.groupName = group.name;
+    const members = groupMembers(group);
+    card.innerHTML = `<div class="group-card-main"><div class="group-card-top"><h3>${escapeHtml(group.name)}</h3><span class="group-status">${escapeHtml(group.status)}</span></div><div class="group-meta"><span>${escapeHtml(group.rank)}</span><span>${escapeHtml(group.assets)}</span><span>${escapeHtml(group.affiliates)}</span><span>${escapeHtml(group.controller)}</span></div><p>${escapeHtml(group.summary)}</p></div><section class="group-directory" aria-label="${escapeHtml(group.name)} 계열사 목록"><div class="group-directory-head"><strong>현재 계열사·관련 회사</strong><span>${escapeHtml(group.memberScope || `${members.length}개사`)}</span></div><ul class="group-member-list">${members.map((member) => `<li data-member-name="${escapeHtml(member)}">${escapeHtml(member)}</li>`).join('')}</ul></section>`;
     const target = graph.nodes.find((node) => node.current && normalize([node.label, ...(node.aliases || [])].join(' ')).includes(normalize(group.name)));
     if (target) {
       const button = document.createElement('button');
@@ -403,7 +456,7 @@ function highlightResearch(query) {
 async function loadResearch() {
   researchDocument.innerHTML = '<p class="research-loading">전체 조사 원문을 불러오는 중입니다…</p>';
   try {
-    const response = await fetch('../research/hyundai-family-complete.md?v=20260920-6');
+    const response = await fetch('../research/hyundai-family-complete.md?v=20260920-7');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     researchMarkdown = await response.text();
     researchDocument.innerHTML = renderMarkdown(researchMarkdown);
@@ -418,7 +471,7 @@ async function loadResearch() {
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/hyundai-family.json?v=20260920-6');
+    const response = await fetch('../data/hyundai-family.json?v=20260920-7');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     graph = await response.json();
     sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
@@ -464,6 +517,9 @@ document.addEventListener('click', (event) => {
   }
 });
 search.addEventListener('input', updateSearch);
+search.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') memberSearchResults.querySelector('button')?.click();
+});
 researchSearch.addEventListener('input', () => highlightResearch(researchSearch.value));
 document.addEventListener('keydown', (event) => {
   if (event.key === '/' && document.querySelector('[data-view="tree"]').classList.contains('is-active') && document.activeElement !== search) { event.preventDefault(); search.focus(); }
