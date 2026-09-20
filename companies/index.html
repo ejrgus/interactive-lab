@@ -3,73 +3,119 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="범현대가의 형성과 계열분리를 가로형 기업 계보로 탐색합니다">
+  <meta name="description" content="1947년 현대토건사부터 2026년 범현대가 기업집단까지, 분리·합병·이탈을 탐색하는 기업 계보">
   <meta name="theme-color" content="#f5f5f7">
-  <title>기업 계보 — Interactive Lab</title>
+  <title>범현대가 아카이브 — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css">
-  <link rel="stylesheet" href="tree.css?v=20260920-4">
+  <link rel="stylesheet" href="tree.css?v=20260920-5">
   <script type="module" src="../assets/js/navigation.js"></script>
-  <script type="module" src="tree.js?v=20260920-4"></script>
+  <script type="module" src="tree.js?v=20260920-5"></script>
 </head>
 <body class="tree-page">
-  <a class="skip-link" href="#tree-viewport">계보 화면으로 건너뛰기</a>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="site-header" data-header>
     <div class="nav-shell">
       <a class="brand" href="../index.html" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
-      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a class="is-active" href="index.html" aria-current="page">기업 계보</a><a href="../immune/index.html">면역체계</a><a href="../README.md">프로젝트 소개</a></nav>
+      <nav class="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a class="is-active" href="index.html" aria-current="page">기업 계보</a><a href="../immune/index.html">면역체계</a><a href="../README.md">프로젝트 소개</a></nav>
     </div>
   </header>
 
-  <main class="tree-app">
-    <aside class="tree-sidebar" id="tree-sidebar" aria-label="기업 계보 선택">
-      <div class="sidebar-heading"><div><p>Lineage</p><h1>계보 목록</h1></div><button type="button" data-sidebar-close aria-label="계보 목록 닫기">‹</button></div>
-      <label class="search-box" for="tree-search"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="tree-search" type="search" placeholder="기업명 검색" autocomplete="off"><kbd aria-hidden="true">/</kbd></label>
-      <p class="search-example">예: 현대자동차, SK하이닉스</p>
-      <nav class="family-list" aria-label="기업 집단 목록">
-        <button class="family-item is-active" type="button" aria-current="true"><span></span><strong>범현대가</strong><small data-node-count>불러오는 중</small></button>
-        <button class="family-item" type="button" disabled><span></span><strong>범삼성가</strong><small>준비 중</small></button>
-        <button class="family-item" type="button" disabled><span></span><strong>범LG가</strong><small>준비 중</small></button>
-        <button class="family-item" type="button" disabled><span></span><strong>범SK가</strong><small>준비 중</small></button>
-        <button class="family-item" type="button" disabled><span></span><strong>범롯데가</strong><small>준비 중</small></button>
-      </nav>
-    </aside>
-
-    <section class="tree-workspace" aria-label="범현대가 계보 작업 화면">
-      <div class="tree-hud">
-        <button class="sidebar-open" type="button" data-sidebar-open aria-controls="tree-sidebar" aria-expanded="true"><span aria-hidden="true">☰</span> 계보 목록</button>
-        <div class="tree-title"><strong>범현대가 주요 계보</strong><span>1947 → 현재 · PC 화면 최적화</span></div>
-        <button class="info-toggle" type="button" data-info-toggle aria-controls="tree-info" aria-expanded="false" aria-label="계보 이용 안내">i</button>
+  <main class="lineage-app" id="main-content">
+    <header class="archive-header">
+      <div class="archive-heading">
+        <span class="archive-kicker">PAN-HYUNDAI ARCHIVE · 1947—2026</span>
+        <strong>범현대가 완전 계보</strong>
+        <span class="archive-summary">탄생·분리·합병·이탈과 현재 기업집단을 한곳에서 봅니다.</span>
       </div>
-      <aside class="tree-info" id="tree-info" hidden>
-        <div><strong>조작 안내</strong><span>마우스 휠은 위·아래, Shift + 휠은 좌·우로 이동합니다.</span></div>
-        <div><strong>자료 원칙</strong><span>공식 연혁·공시를 우선하고 나무위키는 조사 단서로만 참고합니다.</span></div>
-        <div><strong>검색 안내</strong><span id="tree-status" aria-live="polite">기업을 검색하면 현재 기업까지 이어지는 경로를 강조합니다.</span></div>
-      </aside>
-      <div class="tree-legend" aria-label="연결선 범례"><span><i class="continuation"></i>존속·사명변경</span><span><i class="split"></i>계열분리·독립창업</span><span><i class="merger"></i>인수·합병</span><span><i class="exit"></i>계열이탈</span></div>
-      <div class="tree-viewport" id="tree-viewport" tabindex="0" aria-label="범현대가 가로·세로 계보. 일반 휠은 위아래, Shift와 휠은 좌우로 이동합니다.">
-        <div class="tree-canvas" id="tree-canvas" aria-busy="true">
-          <div class="stage-layer" id="stage-layer" aria-hidden="true"></div>
-          <svg class="connector-layer" id="connector-layer" aria-hidden="true"></svg>
-          <div class="node-layer" id="node-layer"></div>
-        </div>
+      <div class="archive-stats" aria-label="자료 현황">
+        <span><b data-stat="groups">—</b>현재·관련 그룹</span>
+        <span><b data-stat="nodes">—</b>계보 노드</span>
+        <span><b data-stat="sources">—</b>출처</span>
+        <button class="info-toggle" type="button" data-info-toggle aria-controls="archive-info" aria-expanded="false" aria-label="자료 이용 안내">i</button>
       </div>
-
-      <button class="inspector-scrim" id="inspector-scrim" type="button" aria-label="상세 정보 닫기" tabindex="-1"></button>
-      <aside class="node-inspector" id="node-inspector" aria-hidden="true" aria-label="기업 상세 정보">
-        <div class="inspector-head">
-          <div><p id="inspector-meta"></p><h2 id="inspector-title"></h2></div>
-          <button class="inspector-close" type="button" data-inspector-close aria-label="상세 정보 닫기">×</button>
-        </div>
-        <div class="inspector-scroll">
-          <p class="inspector-lead" id="inspector-detail"></p>
-          <section class="inspector-section" id="inspector-context-section"><h3>이 시점의 의미</h3><p id="inspector-context"></p></section>
-          <section class="inspector-section" id="inspector-ownership-section"><h3>소속·지배 변화</h3><p id="inspector-ownership"></p></section>
-          <section class="inspector-section" id="inspector-subsidiaries-section"><h3 id="inspector-subsidiaries-title">주요 계열사</h3><div class="subsidiary-list" id="inspector-subsidiaries"></div></section>
-          <section class="inspector-section source-section"><h3>확인한 출처</h3><div id="inspector-sources"></div></section>
-        </div>
+      <aside class="archive-info" id="archive-info" hidden>
+        <strong>이 자료를 읽는 법</strong>
+        <p><b>A</b> 정부·공시, <b>B</b> 기업 공식자료, <b>C</b> 언론, <b>D</b> 위키 참고자료입니다. D등급과 충돌 자료는 확정 사실이 아니라 조사 상태로 표시합니다.</p>
+        <p>범현대가는 법률상 단일 기업집단이 아니라 공통의 역사와 창업가계를 가진 독립 기업들의 통칭입니다. 자산·계열사 수는 2026년 5월 공정위 지정 기준입니다.</p>
       </aside>
+    </header>
+
+    <nav class="view-tabs" aria-label="범현대가 자료 보기">
+      <button class="is-active" type="button" data-view-button="tree" aria-selected="true">전체 계보</button>
+      <button type="button" data-view-button="timeline" aria-selected="false">연혁</button>
+      <button type="button" data-view-button="groups" aria-selected="false">현재 그룹</button>
+      <button type="button" data-view-button="departed" aria-selected="false">이탈·소멸 기업</button>
+      <button type="button" data-view-button="research" aria-selected="false">전체 조사 원문</button>
+    </nav>
+
+    <section class="app-view tree-view is-active" data-view="tree" aria-label="범현대가 전체 계보">
+      <aside class="tree-sidebar" id="tree-sidebar" aria-label="계보 탐색 도구">
+        <div class="sidebar-heading"><div><p>Lineage explorer</p><h1>범현대가</h1></div><button type="button" data-sidebar-close aria-label="탐색 도구 닫기">‹</button></div>
+        <label class="search-box" for="tree-search"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="tree-search" type="search" placeholder="기업명·옛 이름 검색" autocomplete="off"><kbd aria-hidden="true">/</kbd></label>
+        <p class="search-status" id="tree-status" aria-live="polite">기업을 검색하면 이어지는 경로를 강조합니다.</p>
+        <fieldset class="filter-list">
+          <legend>표시할 흐름</legend>
+          <label><input type="checkbox" value="core" checked><span class="filter-dot core"></span>원 현대그룹</label>
+          <label><input type="checkbox" value="direct" checked><span class="filter-dot direct"></span>직계 분리 그룹</label>
+          <label><input type="checkbox" value="branch" checked><span class="filter-dot branch"></span>방계·독자 창업</label>
+          <label><input type="checkbox" value="exit" checked><span class="filter-dot exit"></span>타 그룹 이탈</label>
+        </fieldset>
+        <div class="sidebar-note"><strong>조작</strong><span>휠: 상하</span><span>Shift + 휠: 좌우</span><span>카드 선택: 상세 정보</span></div>
+      </aside>
+
+      <section class="tree-workspace" aria-label="가로형 기업 계보">
+        <div class="tree-tools">
+          <button class="sidebar-open" type="button" data-sidebar-open aria-controls="tree-sidebar" aria-expanded="true"><span aria-hidden="true">☰</span> 탐색</button>
+          <div class="tree-legend" aria-label="연결선 범례"><span><i class="continuation"></i>존속·사명변경</span><span><i class="split"></i>분리·독립</span><span><i class="merger"></i>인수·합병</span><span><i class="exit"></i>계열이탈</span></div>
+          <button class="reset-view" type="button" data-reset-view>1947로 이동</button>
+        </div>
+        <div class="tree-viewport" id="tree-viewport" tabindex="0" aria-label="범현대가 가로·세로 계보">
+          <div class="tree-canvas" id="tree-canvas" aria-busy="true">
+            <div class="stage-layer" id="stage-layer" aria-hidden="true"></div>
+            <svg class="connector-layer" id="connector-layer" aria-hidden="true"></svg>
+            <div class="node-layer" id="node-layer"></div>
+          </div>
+        </div>
+        <button class="inspector-scrim" id="inspector-scrim" type="button" aria-label="상세 정보 닫기" tabindex="-1"></button>
+        <aside class="node-inspector" id="node-inspector" aria-hidden="true" aria-label="기업 상세 정보">
+          <div class="inspector-head"><div><p id="inspector-meta"></p><h2 id="inspector-title"></h2></div><button class="inspector-close" type="button" data-inspector-close aria-label="상세 정보 닫기">×</button></div>
+          <div class="inspector-scroll">
+            <div class="confidence-row" id="inspector-confidence"></div>
+            <p class="inspector-lead" id="inspector-detail"></p>
+            <section class="inspector-section" id="inspector-context-section"><h3>역사적 의미</h3><p id="inspector-context"></p></section>
+            <section class="inspector-section" id="inspector-ownership-section"><h3>분리·지배 변화</h3><p id="inspector-ownership"></p></section>
+            <section class="inspector-section" id="inspector-subsidiaries-section"><h3 id="inspector-subsidiaries-title">주요 계열사</h3><div class="subsidiary-list" id="inspector-subsidiaries"></div></section>
+            <section class="inspector-section source-section"><h3>근거 자료</h3><div id="inspector-sources"></div></section>
+          </div>
+        </aside>
+      </section>
+    </section>
+
+    <section class="app-view content-view" data-view="timeline" aria-label="범현대가 연혁">
+      <div class="content-toolbar"><div><span>CHRONOLOGY</span><h2>형성에서 재편까지</h2></div><p>1947년 창업부터 2026년 현재까지. 사건의 확실성은 출처 등급으로 구분합니다.</p></div>
+      <div class="timeline-list" id="timeline-list"></div>
+    </section>
+
+    <section class="app-view content-view" data-view="groups" aria-label="현재 범현대가 관련 그룹">
+      <div class="content-toolbar"><div><span>CURRENT LANDSCAPE</span><h2>현재 그룹 지형</h2></div><p>같은 ‘현대’의 뿌리를 공유하지만 현재는 서로 독립된 기업집단입니다.</p></div>
+      <div class="group-grid" id="group-grid"></div>
+    </section>
+
+    <section class="app-view content-view" data-view="departed" aria-label="범현대가를 떠난 회사">
+      <div class="content-toolbar"><div><span>DEPARTURES &amp; AFTERLIVES</span><h2>떠난 회사들의 현재</h2></div><p>다른 그룹의 핵심이 된 회사, 합병·청산된 법인, 현대전자·기아 구조조정의 결과를 모았습니다.</p></div>
+      <div class="departure-controls" id="departure-controls"></div>
+      <div class="departure-list" id="departure-list"></div>
+    </section>
+
+    <section class="app-view research-view" data-view="research" aria-label="범현대가 전체 조사 원문">
+      <div class="research-aside">
+        <span>RESEARCH NOTE</span><h2>범현대가 완전 정리</h2>
+        <p>사이트의 기준 원고 전체입니다. 확정 정보뿐 아니라 출처 충돌, 추가 조사 항목, 53개 자료 목록까지 보존합니다.</p>
+        <label class="research-search"><span>원문 검색</span><input type="search" id="research-search" placeholder="예: 현대양행, 왕자의 난"></label>
+        <p class="research-result" id="research-result"></p>
+      </div>
+      <article class="research-document" id="research-document" aria-busy="true"></article>
     </section>
   </main>
 </body>
 </html>
-
