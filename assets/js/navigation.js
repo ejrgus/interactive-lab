@@ -1,5 +1,10 @@
 document.documentElement.classList.add("js");
 
+const favicon = document.createElement("link");
+favicon.rel = "icon";
+favicon.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x2='1' y2='1'%3E%3Cstop stop-color='%230087ff'/%3E%3Cstop offset='1' stop-color='%2354d6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='10' fill='white' fill-opacity='.92'/%3E%3C/svg%3E";
+document.head.append(favicon);
+
 const header = document.querySelector("[data-header]");
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#site-nav");
