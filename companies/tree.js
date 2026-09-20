@@ -1,6 +1,7 @@
 const treeView = document.querySelector('[data-view="tree"]');
 const viewport = document.querySelector('#tree-viewport');
 const canvas = document.querySelector('#tree-canvas');
+const canvasContent = document.querySelector('#tree-canvas-content');
 const nodeLayer = document.querySelector('#node-layer');
 const stageLayer = document.querySelector('#stage-layer');
 const connectorLayer = document.querySelector('#connector-layer');
@@ -20,6 +21,9 @@ const finderSearch = document.querySelector('#finder-search');
 const finderFamilies = document.querySelector('#finder-families');
 const finderSummary = document.querySelector('#finder-summary');
 const finderResults = document.querySelector('#finder-results');
+const treeZoomOut = document.querySelector('[data-tree-zoom-out]');
+const treeZoomIn = document.querySelector('[data-tree-zoom-in]');
+const treeZoomReset = document.querySelector('[data-tree-zoom-reset]');
 
 let graph = null;
 let families = [];
@@ -34,6 +38,11 @@ let familyEnrichment = {};
 let finderEntries = [];
 let finderBuilt = false;
 let finderReturnFocus = null;
+let treeZoom = 1;
+let initialNodePositions = new Map();
+
+const TREE_ZOOM_STEP = .1;
+const TREE_ZOOM_MAX = 2;
 
 const normalize = (value = '') => value.toLocaleLowerCase('ko-KR').replace(/[\s·→()\-–—]/g, '');
 const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;' })[char]);
@@ -244,6 +253,60 @@ function setView(name) {
 function setSidebar(open) {
   treeView.classList.toggle('sidebar-collapsed', !open);
   document.querySelector('[data-sidebar-open]').setAttribute('aria-expanded', String(open));
+  requestAnimationFrame(() => setTreeZoom(treeZoom, { preserveCenter:false }));
+}
+
+function minimumTreeZoom() {
+  if (!graph || !viewport.clientWidth || !viewport.clientHeight) return .2;
+  const horizontalFit = (viewport.clientWidth - 24) / graph.meta.canvasWidth;
+  const verticalFit = (viewport.clientHeight - 24) / graph.meta.canvasHeight;
+  return Math.max(.15, Math.min(1, horizontalFit, verticalFit));
+}
+
+function updateTreeZoomControls() {
+  const minimum = minimumTreeZoom();
+  treeZoomReset.textContent = `${Math.round(treeZoom * 100)}%`;
+  treeZoomReset.setAttribute('aria-label', `현재 트리 배율 ${Math.round(treeZoom * 100)}%. 100%로 복원`);
+  treeZoomOut.disabled = treeZoom <= minimum + .001;
+  treeZoomIn.disabled = treeZoom >= TREE_ZOOM_MAX - .001;
+}
+
+function setTreeZoom(value, options = {}) {
+  if (!graph) return;
+  const preserveCenter = options.preserveCenter !== false;
+  const previousZoom = treeZoom || 1;
+  const logicalCenterX = (viewport.scrollLeft + viewport.clientWidth / 2) / previousZoom;
+  const logicalCenterY = (viewport.scrollTop + viewport.clientHeight / 2) / previousZoom;
+  treeZoom = Math.min(TREE_ZOOM_MAX, Math.max(minimumTreeZoom(), value));
+  const scaledWidth = graph.meta.canvasWidth * treeZoom;
+  const scaledHeight = graph.meta.canvasHeight * treeZoom;
+  canvas.style.width = `${scaledWidth}px`;
+  canvas.style.height = `${scaledHeight}px`;
+  canvasContent.style.width = `${graph.meta.canvasWidth}px`;
+  canvasContent.style.height = `${graph.meta.canvasHeight}px`;
+  canvasContent.style.transform = `scale(${treeZoom})`;
+  updateTreeZoomControls();
+  if (preserveCenter) {
+    viewport.scrollTo({
+      left: Math.max(0, logicalCenterX * treeZoom - viewport.clientWidth / 2),
+      top: Math.max(0, logicalCenterY * treeZoom - viewport.clientHeight / 2)
+    });
+  }
+}
+
+function resetTreeWorkspace() {
+  if (!graph) return;
+  graph.nodes.forEach((node) => {
+    const initial = initialNodePositions.get(node.id);
+    if (initial) Object.assign(node, initial);
+  });
+  closeInspector();
+  renderNodes();
+  renderEdges();
+  applyFilters();
+  treeZoom = 1;
+  setTreeZoom(1, { preserveCenter:false });
+  viewport.scrollTo({ left:0, top:(graph.meta.resetTop || 690) * treeZoom, behavior:'smooth' });
 }
 
 function edgePath(from, to, edge) {
@@ -340,6 +403,59 @@ function openInspector(node) {
   inspectorScrim.classList.add('is-open');
 }
 
+function enableNodeDrag(card, node) {
+  let dragState = null;
+  let suppressClick = false;
+
+  const finishDrag = (event) => {
+    if (!dragState || event.pointerId !== dragState.pointerId) return;
+    if (card.hasPointerCapture(event.pointerId)) card.releasePointerCapture(event.pointerId);
+    card.classList.remove('is-dragging');
+    suppressClick = dragState.moved;
+    dragState = null;
+    if (suppressClick) setTimeout(() => { suppressClick = false; }, 0);
+  };
+
+  card.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    dragState = {
+      pointerId:event.pointerId,
+      clientX:event.clientX,
+      clientY:event.clientY,
+      nodeX:node.x,
+      nodeY:node.y,
+      moved:false
+    };
+    card.setPointerCapture(event.pointerId);
+  });
+
+  card.addEventListener('pointermove', (event) => {
+    if (!dragState || event.pointerId !== dragState.pointerId) return;
+    const deltaX = (event.clientX - dragState.clientX) / treeZoom;
+    const deltaY = (event.clientY - dragState.clientY) / treeZoom;
+    if (!dragState.moved && Math.hypot(deltaX, deltaY) < 4) return;
+    dragState.moved = true;
+    card.classList.add('is-dragging');
+    node.x = Math.max(0, Math.min(graph.meta.canvasWidth - graph.meta.nodeWidth, dragState.nodeX + deltaX));
+    node.y = Math.max(0, Math.min(graph.meta.canvasHeight - graph.meta.nodeHeight, dragState.nodeY + deltaY));
+    card.style.left = `${node.x}px`;
+    card.style.top = `${node.y}px`;
+    renderEdges();
+  });
+
+  card.addEventListener('pointerup', finishDrag);
+  card.addEventListener('pointercancel', finishDrag);
+  card.addEventListener('click', (event) => {
+    if (suppressClick) {
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+      return;
+    }
+    openInspector(node);
+  });
+}
+
 function renderNodes() {
   nodeMap = new Map(graph.nodes.map((node) => [node.id, node]));
   nodeLayer.replaceChildren(...graph.nodes.map((node) => {
@@ -367,7 +483,7 @@ function renderNodes() {
     note.className = 'node-note';
     note.textContent = node.note;
     card.append(top, title, note);
-    card.addEventListener('click', () => openInspector(node));
+    enableNodeDrag(card, node);
     return card;
   }));
 }
@@ -497,7 +613,7 @@ function updateSearch() {
   } else {
     status.textContent = `${matches.map((node) => node.label).join(', ')} 경로를 강조했습니다.${memberMatches.length ? ` 계열사 결과 ${memberMatches.length}개.` : ''}`;
   }
-  viewport.scrollTo({ left: Math.max(0, target.x - viewport.clientWidth * .64), top: Math.max(0, target.y - viewport.clientHeight * .42), behavior: 'smooth' });
+  viewport.scrollTo({ left: Math.max(0, target.x * treeZoom - viewport.clientWidth * .64), top: Math.max(0, target.y * treeZoom - viewport.clientHeight * .42), behavior: 'smooth' });
 }
 
 function renderTimeline() {
@@ -814,7 +930,7 @@ function updateFamilyInterface() {
   document.querySelectorAll('[data-filter-label]').forEach((element) => {
     element.textContent = meta.filterLabels?.[element.dataset.filterLabel] || defaultLabels[element.dataset.filterLabel];
   });
-  document.querySelector('[data-reset-view]').textContent = meta.resetLabel || '처음으로 이동';
+  document.querySelector('[data-reset-view]').textContent = '초기화';
   document.querySelector('[data-timeline-summary]').textContent = `${graph.stages[0]?.label.split('·')[0].trim() || '창업'}부터 2026년 현재까지. 사건의 확실성은 출처 등급으로 구분합니다.`;
   document.querySelector('[data-groups-summary]').textContent = `${meta.familyName || activeFamily.label}에서 이어진 현재 기업집단과 소그룹, 전체 계열사를 봅니다.`;
 }
@@ -834,8 +950,8 @@ function renderFamilySwitcher() {
 
 function renderAll() {
   sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
-  canvas.style.width = `${graph.meta.canvasWidth}px`;
-  canvas.style.height = `${graph.meta.canvasHeight}px`;
+  canvasContent.style.width = `${graph.meta.canvasWidth}px`;
+  canvasContent.style.height = `${graph.meta.canvasHeight}px`;
   document.documentElement.style.setProperty('--node-width', `${graph.meta.nodeWidth}px`);
   document.documentElement.style.setProperty('--node-height', `${graph.meta.nodeHeight}px`);
   document.querySelector('[data-stat="groups"]').textContent = graph.groups.length;
@@ -851,6 +967,8 @@ function renderAll() {
   updateFamilyInterface();
   loadResearch();
   canvas.setAttribute('aria-busy', 'false');
+  treeZoom = 1;
+  setTreeZoom(1, { preserveCenter:false });
   viewport.scrollTo({ left: 0, top: graph.meta.resetTop || 690 });
 }
 
@@ -877,6 +995,7 @@ async function selectFamily(familyId, options = {}) {
     const [nextGraph, nextResearch] = await Promise.all([graphResponse.json(), researchResponse.text()]);
     if (sequence !== loadSequence) return;
     graph = mergeEnrichment(nextGraph, family.id);
+    initialNodePositions = new Map(graph.nodes.map((node) => [node.id, { x:node.x, y:node.y }]));
     researchMarkdown = nextResearch;
     if (!graph.meta.familyName) graph.meta.familyName = family.label;
     hydrateGroupMembers();
@@ -920,7 +1039,10 @@ async function loadGraph() {
 document.querySelectorAll('[data-view-button]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.viewButton)));
 document.querySelector('[data-sidebar-close]').addEventListener('click', () => setSidebar(false));
 document.querySelector('[data-sidebar-open]').addEventListener('click', () => setSidebar(true));
-document.querySelector('[data-reset-view]').addEventListener('click', () => viewport.scrollTo({ left:0, top:graph?.meta.resetTop || 690, behavior:'smooth' }));
+document.querySelector('[data-reset-view]').addEventListener('click', resetTreeWorkspace);
+treeZoomOut.addEventListener('click', () => setTreeZoom(treeZoom - TREE_ZOOM_STEP));
+treeZoomIn.addEventListener('click', () => setTreeZoom(treeZoom + TREE_ZOOM_STEP));
+treeZoomReset.addEventListener('click', () => setTreeZoom(1));
 document.querySelector('[data-inspector-close]').addEventListener('click', closeInspector);
 inspectorScrim.addEventListener('click', closeInspector);
 document.querySelectorAll('.filter-list input').forEach((input) => input.addEventListener('change', applyFilters));
@@ -958,6 +1080,7 @@ viewport.addEventListener('wheel', (event) => {
     event.preventDefault();
   }
 }, { passive:false });
+window.addEventListener('resize', () => setTreeZoom(treeZoom, { preserveCenter:false }));
 
 window.addEventListener('popstate', () => {
   const params = new URL(window.location.href).searchParams;

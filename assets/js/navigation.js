@@ -1,6 +1,6 @@
 document.documentElement.classList.add("js");
 
-const FONT_SIZE_STEPS = [90, 100, 110, 120, 130];
+const FONT_SIZE_STEPS = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
 const FONT_SIZE_STORAGE_KEY = "interactive-lab-font-size";
 const DEFAULT_FONT_SIZE = 100;
 
