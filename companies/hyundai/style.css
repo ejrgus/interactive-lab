@@ -1,0 +1,25 @@
+.hyundai-hero { padding-bottom: 100px; } .hyundai-hero h1 span { color: #86868b; }
+.hero-meta { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.timeline-section { padding: 96px 0 120px; color: #f5f5f7; background: #101114; overflow: hidden; }
+.timeline-heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; }
+.timeline-heading h2,.detail-intro h2,.research-note h2 { margin: 0; font-size: clamp(2.2rem,4.7vw,4.6rem); line-height: 1.02; letter-spacing: -.055em; }
+.timeline-heading .eyebrow { color: #64b5ff; }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; color: #a1a1a6; font-size: .82rem; } .legend span { display: flex; align-items: center; gap: 7px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; } .dot-event { background: #64b5ff; } .dot-split { background: #6de1b4; }
+.timeline-viewport { margin-top: 54px; padding: 42px max(20px,calc((100vw - 1180px)/2)); overflow-x: auto; scrollbar-color: #494b50 transparent; }
+.timeline { min-width: 900px; display: flex; align-items: stretch; position: relative; gap: 24px; padding: 35px 0 30px; }
+.timeline::before { content: ""; position: absolute; top: 24px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,#64b5ff,#6de1b4 70%,transparent); }
+.timeline-loading,.empty-card,.event-card { position: relative; width: 310px; flex: 0 0 310px; padding: 24px; border: 1px solid rgba(255,255,255,.11); border-radius: 24px; background: rgba(255,255,255,.065); backdrop-filter: blur(18px); }
+.timeline-loading::before,.empty-card::before,.event-card::before { content: ""; position: absolute; width: 13px; height: 13px; left: 24px; top: -18px; border-radius: 50%; background: #64b5ff; box-shadow: 0 0 0 8px rgba(100,181,255,.14); }
+.empty-card { min-height: 250px; } .empty-card h3,.event-card h3 { margin: 10px 0 12px; font-size: 1.5rem; letter-spacing: -.035em; } .empty-card p,.event-card p { margin: 0; color: #a1a1a6; } .empty-card small,.event-card time { color: #64b5ff; font-weight: 700; }
+.event-card { color: #f5f5f7; text-align: left; cursor: pointer; } .event-card:hover { background: rgba(255,255,255,.1); } .event-card[data-type="split"]::before { background: #6de1b4; box-shadow: 0 0 0 8px rgba(109,225,180,.14); }
+.detail-section { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; padding-block: 120px; } .detail-intro > p:last-child { color: var(--muted); }
+.detail-panel { align-self: start; overflow: hidden; border: 1px solid var(--line); border-radius: 26px; background: #fff; box-shadow: var(--shadow); }
+.detail-toggle { width: 100%; min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 28px; border: 0; color: var(--ink); background: transparent; text-align: left; cursor: pointer; }
+.detail-toggle span:first-child { display: grid; gap: 5px; } .detail-toggle small { color: var(--muted); } .detail-toggle strong { font-size: 1.12rem; }
+.plus { width: 30px; height: 30px; position: relative; flex: 0 0 auto; border-radius: 50%; background: #f0f0f2; }
+.plus::before,.plus::after { content: ""; position: absolute; width: 12px; height: 2px; top: 14px; left: 9px; background: var(--ink); transition: transform .2s ease; } .plus::after { transform: rotate(90deg); } .detail-toggle[aria-expanded="true"] .plus::after { transform: rotate(0); }
+.detail-content { padding: 0 28px 28px; color: var(--muted); } .detail-content p { margin-top: 0; } .detail-tags { display: flex; flex-wrap: wrap; gap: 8px; } .detail-tags span { padding: 7px 10px; border-radius: 999px; color: var(--ink); background: #f3f3f5; font-size: .78rem; font-weight: 650; }
+.research-note { padding-block: 100px; background: #eaf4ff; } .research-note-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: end; } .research-note-inner > p { margin: 0; color: #51606f; font-size: 1.06rem; }
+@media (max-width: 760px) { .hero-meta,.timeline-heading { align-items: flex-start; flex-direction: column; } .timeline-viewport { overflow: visible; padding: 26px 14px 0 42px; } .timeline { min-width: 0; display: grid; gap: 18px; padding-left: 20px; } .timeline::before { top: 0; bottom: 0; left: 1px; right: auto; width: 1px; height: auto; } .timeline-loading,.empty-card,.event-card { width: 100%; min-height: auto; flex: auto; } .timeline-loading::before,.empty-card::before,.event-card::before { top: 25px; left: -26px; } .detail-section,.research-note-inner { grid-template-columns: 1fr; gap: 36px; } }
+
