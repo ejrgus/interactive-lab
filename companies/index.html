@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="한국 대기업의 탄생과 계열분리를 가로형 테크트리로 탐색합니다">
+  <meta name="description" content="범현대가의 형성과 계열분리를 가로형 기업 계보로 탐색합니다">
   <meta name="theme-color" content="#f5f5f7">
   <title>기업 계보 — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css">
@@ -12,53 +12,51 @@
   <script type="module" src="tree.js"></script>
 </head>
 <body class="tree-page">
-  <a class="skip-link" href="#tree-main">계보 화면으로 건너뛰기</a>
+  <a class="skip-link" href="#tree-viewport">계보 화면으로 건너뛰기</a>
   <header class="site-header" data-header>
     <div class="nav-shell">
       <a class="brand" href="../index.html" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
       <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a class="is-active" href="index.html" aria-current="page">기업 계보</a><a href="../immune/index.html">면역체계</a><a href="../README.md">프로젝트 소개</a></nav>
     </div>
   </header>
 
-  <main id="tree-main" class="tree-app">
+  <main class="tree-app">
     <aside class="tree-sidebar" id="tree-sidebar" aria-label="기업 계보 선택">
-      <div class="sidebar-heading">
-        <div><p class="sidebar-kicker">Lineage explorer</p><h1>계보 탐색</h1></div>
-        <button class="sidebar-close" type="button" data-sidebar-close aria-label="계보 목록 닫기">‹</button>
-      </div>
-      <label class="search-box" for="tree-search">
-        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg>
-        <input id="tree-search" type="search" placeholder="기업·계열 검색" autocomplete="off">
-        <kbd aria-hidden="true">/</kbd>
-      </label>
-      <p class="search-help" id="search-help">예: 현대자동차</p>
+      <div class="sidebar-heading"><div><p>Lineage</p><h1>계보 목록</h1></div><button type="button" data-sidebar-close aria-label="계보 목록 닫기">‹</button></div>
+      <label class="search-box" for="tree-search"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="tree-search" type="search" placeholder="기업명 검색" autocomplete="off"><kbd aria-hidden="true">/</kbd></label>
+      <p class="search-example">예: 현대자동차, SK하이닉스</p>
       <nav class="family-list" aria-label="기업 집단 목록">
-        <p class="family-label">기업 집단</p>
-        <button class="family-item is-active" type="button" aria-current="true"><span class="family-dot"></span><span><strong>범현대가</strong><small>구조 미리보기</small></span><span aria-hidden="true">›</span></button>
-        <button class="family-item" type="button" disabled><span class="family-dot"></span><span><strong>범삼성가</strong><small>준비 중</small></span><span aria-hidden="true">›</span></button>
-        <button class="family-item" type="button" disabled><span class="family-dot"></span><span><strong>범LG가</strong><small>준비 중</small></span><span aria-hidden="true">›</span></button>
-        <button class="family-item" type="button" disabled><span class="family-dot"></span><span><strong>범SK가</strong><small>준비 중</small></span><span aria-hidden="true">›</span></button>
-        <button class="family-item" type="button" disabled><span class="family-dot"></span><span><strong>범롯데가</strong><small>준비 중</small></span><span aria-hidden="true">›</span></button>
+        <button class="family-item is-active" type="button" aria-current="true"><span></span><strong>범현대가</strong><small>28개 노드</small></button>
+        <button class="family-item" type="button" disabled><span></span><strong>범삼성가</strong><small>준비 중</small></button>
+        <button class="family-item" type="button" disabled><span></span><strong>범LG가</strong><small>준비 중</small></button>
+        <button class="family-item" type="button" disabled><span></span><strong>범SK가</strong><small>준비 중</small></button>
+        <button class="family-item" type="button" disabled><span></span><strong>범롯데가</strong><small>준비 중</small></button>
       </nav>
-      <div class="sidebar-note"><span aria-hidden="true">i</span><p>공식 자료를 우선 확인하고, 나무위키는 조사 단서를 찾는 참고 자료로만 사용합니다.</p></div>
+      <div class="sidebar-foot"><strong>자료 원칙</strong><span>공식 연혁·공시 우선<br>나무위키는 단서 확인용</span></div>
     </aside>
 
-    <section class="tree-workspace" aria-labelledby="tree-title">
-      <button class="sidebar-open" type="button" data-sidebar-open aria-controls="tree-sidebar" aria-expanded="true"><span aria-hidden="true">☰</span><span>계보 목록</span></button>
-      <div class="tree-toolbar">
-        <div class="tree-heading"><p class="tree-eyebrow">Corporate tech tree</p><h2 id="tree-title">범현대가</h2></div>
-        <div class="toolbar-right"><span class="preview-badge"><span></span>구조 설계 미리보기</span><button class="reset-view" type="button" data-reset-view>처음 위치</button></div>
+    <section class="tree-workspace" aria-label="범현대가 계보 작업 화면">
+      <div class="tree-hud">
+        <button class="sidebar-open" type="button" data-sidebar-open aria-controls="tree-sidebar" aria-expanded="true"><span aria-hidden="true">☰</span> 계보 목록</button>
+        <div class="tree-title"><strong>범현대가 주요 계보</strong><span>1947 → 현재 · PC 화면 최적화</span></div>
+        <button class="reset-view" type="button" data-reset-view>처음 위치</button>
       </div>
-      <div class="research-banner" role="note"><strong>현재는 큰 틀을 만드는 단계입니다.</strong><span>연도, 분리 사유, 지배구조와 연결 관계는 출처 검증 후 확정합니다.</span></div>
-      <div class="legend" aria-label="연결선 범례">
-        <span><i class="legend-line continuation"></i>존속·연결</span><span><i class="legend-line split"></i>분리</span><span><i class="legend-line merger"></i>합병</span><span><i class="legend-line dissolved"></i>폐지</span>
+      <div class="tree-legend" aria-label="연결선 범례"><span><i class="continuation"></i>존속·사명변경</span><span><i class="split"></i>계열분리·독립창업</span><span><i class="merger"></i>인수·합병</span><span><i class="exit"></i>계열이탈</span></div>
+      <div class="wheel-guide" aria-hidden="true"><span>휠 ↕ 세로</span><span>Shift + 휠 ↔ 가로</span></div>
+      <div class="tree-status" id="tree-status" aria-live="polite">기업을 검색하면 현재 기업까지 이어지는 경로만 강조됩니다.</div>
+
+      <div class="tree-viewport" id="tree-viewport" tabindex="0" aria-label="범현대가 가로·세로 계보. 일반 휠은 위아래, Shift와 휠은 좌우로 이동합니다.">
+        <div class="tree-canvas" id="tree-canvas" aria-busy="true">
+          <div class="stage-layer" id="stage-layer" aria-hidden="true"></div>
+          <svg class="connector-layer" id="connector-layer" aria-hidden="true"></svg>
+          <div class="node-layer" id="node-layer"></div>
+        </div>
       </div>
-      <div class="tree-status" id="tree-status" aria-live="polite">왼쪽은 과거, 오른쪽은 현재입니다. 가로로 움직여 전체 흐름을 살펴보세요.</div>
-      <div class="tree-viewport" id="tree-viewport" tabindex="0" aria-label="범현대가 가로형 계보. Shift와 마우스 휠 또는 가로 스크롤로 이동할 수 있습니다.">
-        <div class="tree-canvas" id="tree-canvas" aria-busy="true"><svg class="connector-layer" id="connector-layer" aria-hidden="true"></svg><div class="stage-layer" id="stage-layer" aria-hidden="true"></div><div class="node-layer" id="node-layer"></div></div>
-      </div>
-      <div class="scroll-hint" aria-hidden="true"><span>과거</span><i></i><span>현재</span></div>
+
+      <aside class="node-inspector" id="node-inspector" hidden aria-live="polite">
+        <button type="button" data-inspector-close aria-label="상세 정보 닫기">×</button>
+        <p id="inspector-meta"></p><h2 id="inspector-title"></h2><p id="inspector-detail"></p><div id="inspector-sources"></div>
+      </aside>
     </section>
   </main>
 </body>
