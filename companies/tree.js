@@ -267,7 +267,8 @@ function renderGroups() {
   document.querySelector('#group-grid').replaceChildren(...graph.groups.map((group) => {
     const card = document.createElement('article');
     card.className = 'group-card';
-    card.innerHTML = `<div class="group-card-top"><h3>${escapeHtml(group.name)}</h3><span class="group-status">${escapeHtml(group.status)}</span></div><div class="group-meta"><span>${escapeHtml(group.rank)}</span><span>${escapeHtml(group.assets)}</span><span>${escapeHtml(group.affiliates)}</span><span>${escapeHtml(group.controller)}</span></div><p>${escapeHtml(group.summary)}</p><div class="group-members">${escapeHtml(group.members)}</div>`;
+    const members = Array.isArray(group.members) ? group.members : String(group.members || '').split(/,\s*/).filter(Boolean);
+    card.innerHTML = `<div class="group-card-main"><div class="group-card-top"><h3>${escapeHtml(group.name)}</h3><span class="group-status">${escapeHtml(group.status)}</span></div><div class="group-meta"><span>${escapeHtml(group.rank)}</span><span>${escapeHtml(group.assets)}</span><span>${escapeHtml(group.affiliates)}</span><span>${escapeHtml(group.controller)}</span></div><p>${escapeHtml(group.summary)}</p></div><section class="group-directory" aria-label="${escapeHtml(group.name)} 계열사 목록"><div class="group-directory-head"><strong>현재 계열사·관련 회사</strong><span>${escapeHtml(group.memberScope || `${members.length}개사`)}</span></div><ul class="group-member-list">${members.map((member) => `<li>${escapeHtml(member)}</li>`).join('')}</ul></section>`;
     const target = graph.nodes.find((node) => node.current && normalize([node.label, ...(node.aliases || [])].join(' ')).includes(normalize(group.name)));
     if (target) {
       const button = document.createElement('button');
@@ -279,7 +280,7 @@ function renderGroups() {
         updateSearch();
         openInspector(target);
       });
-      card.append(button);
+      card.querySelector('.group-card-main').append(button);
     }
     return card;
   }));
@@ -402,7 +403,7 @@ function highlightResearch(query) {
 async function loadResearch() {
   researchDocument.innerHTML = '<p class="research-loading">전체 조사 원문을 불러오는 중입니다…</p>';
   try {
-    const response = await fetch('../research/hyundai-family-complete.md?v=20260920-5');
+    const response = await fetch('../research/hyundai-family-complete.md?v=20260920-6');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     researchMarkdown = await response.text();
     researchDocument.innerHTML = renderMarkdown(researchMarkdown);
@@ -417,7 +418,7 @@ async function loadResearch() {
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/hyundai-family.json?v=20260920-5');
+    const response = await fetch('../data/hyundai-family.json?v=20260920-6');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     graph = await response.json();
     sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
