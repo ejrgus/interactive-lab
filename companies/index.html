@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f5f5f7">
   <title>기업 계보 — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css">
-  <link rel="stylesheet" href="tree.css?v=20260920-2">
+  <link rel="stylesheet" href="tree.css?v=20260920-3">
   <script type="module" src="../assets/js/navigation.js"></script>
-  <script type="module" src="tree.js?v=20260920-2"></script>
+  <script type="module" src="tree.js?v=20260920-3"></script>
 </head>
 <body class="tree-page">
   <a class="skip-link" href="#tree-viewport">계보 화면으로 건너뛰기</a>
@@ -26,7 +26,7 @@
       <label class="search-box" for="tree-search"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.5-4.5m2.5-5A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="tree-search" type="search" placeholder="기업명 검색" autocomplete="off"><kbd aria-hidden="true">/</kbd></label>
       <p class="search-example">예: 현대자동차, SK하이닉스</p>
       <nav class="family-list" aria-label="기업 집단 목록">
-        <button class="family-item is-active" type="button" aria-current="true"><span></span><strong>범현대가</strong><small>28개 노드</small></button>
+        <button class="family-item is-active" type="button" aria-current="true"><span></span><strong>범현대가</strong><small data-node-count>불러오는 중</small></button>
         <button class="family-item" type="button" disabled><span></span><strong>범삼성가</strong><small>준비 중</small></button>
         <button class="family-item" type="button" disabled><span></span><strong>범LG가</strong><small>준비 중</small></button>
         <button class="family-item" type="button" disabled><span></span><strong>범SK가</strong><small>준비 중</small></button>
@@ -53,9 +53,19 @@
         </div>
       </div>
 
-      <aside class="node-inspector" id="node-inspector" hidden aria-live="polite">
-        <button type="button" data-inspector-close aria-label="상세 정보 닫기">×</button>
-        <p id="inspector-meta"></p><h2 id="inspector-title"></h2><p id="inspector-detail"></p><div id="inspector-sources"></div>
+      <button class="inspector-scrim" id="inspector-scrim" type="button" aria-label="상세 정보 닫기" tabindex="-1"></button>
+      <aside class="node-inspector" id="node-inspector" aria-hidden="true" aria-label="기업 상세 정보">
+        <div class="inspector-head">
+          <div><p id="inspector-meta"></p><h2 id="inspector-title"></h2></div>
+          <button class="inspector-close" type="button" data-inspector-close aria-label="상세 정보 닫기">×</button>
+        </div>
+        <div class="inspector-scroll">
+          <p class="inspector-lead" id="inspector-detail"></p>
+          <section class="inspector-section" id="inspector-context-section"><h3>이 시점의 의미</h3><p id="inspector-context"></p></section>
+          <section class="inspector-section" id="inspector-ownership-section"><h3>소속·지배 변화</h3><p id="inspector-ownership"></p></section>
+          <section class="inspector-section" id="inspector-subsidiaries-section"><h3 id="inspector-subsidiaries-title">주요 계열사</h3><div class="subsidiary-list" id="inspector-subsidiaries"></div></section>
+          <section class="inspector-section source-section"><h3>확인한 출처</h3><div id="inspector-sources"></div></section>
+        </div>
       </aside>
     </section>
   </main>
