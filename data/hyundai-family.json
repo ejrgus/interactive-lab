@@ -5,9 +5,9 @@
     "status": "research-expanded",
     "lastReviewed": "2026-09-20",
     "canvasWidth": 3180,
-    "canvasHeight": 1300,
-    "nodeWidth": 182,
-    "nodeHeight": 64,
+    "canvasHeight": 980,
+    "nodeWidth": 190,
+    "nodeHeight": 68,
     "notice": "공식 연혁과 기업 자료를 우선해 만든 주요 계보입니다. 모든 비상장 법인과 지분율을 망라한 공정거래법상 기업집단 도표는 아닙니다."
   },
   "stages": [
@@ -20,32 +20,32 @@
   ],
   "nodes": [
     {
-      "id": "hyundai-civil", "label": "현대토건사", "aliases": ["현대토건"], "year": "1947", "kind": "창업", "note": "범현대가 기업사의 출발", "x": 80, "y": 650,
+      "id": "hyundai-civil", "label": "현대토건사", "aliases": ["현대토건"], "year": "1947", "kind": "창업", "note": "범현대가 기업사의 출발", "x": 80, "y": 545,
       "detail": "정주영이 1947년 5월 현대토건사를 설립했습니다. 1950년 현대자동차공업사와 합병하며 현대건설주식회사로 이어졌고, 이후 자동차·조선·유통 등 여러 사업이 확장되는 기업사적 출발점이 됐습니다.",
       "context": "이 노드는 법적 지주회사를 뜻하기보다 범현대가 기업사의 공통 출발점을 나타냅니다.",
       "ownership": "창업자 정주영의 개인 사업에서 현대건설 법인 체제로 전환됩니다.", "sourceIds": ["hdec"]
     },
     {
-      "id": "hyundai-construction", "label": "현대건설", "aliases": ["현대건설주식회사"], "year": "1950", "kind": "합병·법인", "note": "현대토건사+자동차공업사", "x": 360, "y": 650,
+      "id": "hyundai-construction", "label": "현대건설", "aliases": ["현대건설주식회사"], "year": "1950", "kind": "합병·법인", "note": "현대토건사+자동차공업사", "x": 360, "y": 545,
       "detail": "1950년 현대토건사와 현대자동차공업사가 합병해 현대건설주식회사가 출범했습니다. 전후 복구와 해외 건설을 기반으로 성장하면서 자동차·조선·전자·유통 등 현대의 주요 사업이 뻗어나갔습니다.",
       "context": "범현대가의 여러 갈래가 여기에서 직접 설립되거나 사업적으로 성장했습니다.",
       "ownership": "2001년 채권단 공동관리 이후 2011년 현대자동차그룹에 편입됐습니다.", "sourceIds": ["hdec"]
     },
 
     {
-      "id": "kcc-origin", "label": "금강스레트공업", "aliases": ["금강", "KCC"], "year": "1958", "kind": "독립 창업", "note": "정상영 창업 · 건자재", "x": 680, "y": 110,
+      "id": "kcc-origin", "label": "금강스레트공업", "aliases": ["금강", "KCC"], "year": "1958", "kind": "독립 창업", "note": "정상영 창업 · 건자재", "x": 680, "y": 105,
       "detail": "정주영의 동생 정상영이 1958년 금강스레트공업을 설립했습니다. 현대그룹에서 나중에 떼어낸 법인이라기보다 범현대가 구성원이 별도로 창업한 계열입니다.",
       "context": "현대라는 이름을 쓰지 않지만 가족계 기업으로 범현대가에 포함해 다룹니다.",
       "ownership": "현대그룹의 법적 계열분리선이 아니라 독립 창업선입니다.", "sourceIds": ["kcc"]
     },
     {
-      "id": "kcc-current", "label": "KCC그룹", "aliases": ["KCC", "케이씨씨"], "year": "현재", "kind": "독립 그룹", "note": "도료·건자재·실리콘", "x": 2920, "y": 110, "current": true,
+      "id": "kcc-current", "label": "KCC그룹", "aliases": ["KCC", "케이씨씨"], "year": "현재", "kind": "독립 그룹", "note": "도료·건자재·실리콘", "x": 2920, "y": 105, "current": true,
       "detail": "금강스레트공업과 고려화학의 역사를 잇는 독립 기업집단입니다.",
       "ownership": "현대그룹·현대자동차그룹과 별도의 기업집단입니다.", "sourceIds": ["kcc"]
     },
 
     {
-      "id": "hyundai-yanghaeng", "label": "현대양행", "aliases": ["한라", "HL", "한국중공업", "두산에너빌리티"], "year": "1962", "kind": "독립 창업", "note": "정인영 창업 · 중공업", "x": 680, "y": 225,
+      "id": "hyundai-yanghaeng", "label": "현대양행", "aliases": ["한라", "HL", "한국중공업", "두산에너빌리티"], "year": "1962", "kind": "독립 창업", "note": "정인영 창업 · 중공업", "x": 680, "y": 200,
       "detail": "정주영의 동생 정인영이 1962년 현대양행을 세웠습니다. 이 회사의 역사는 하나의 직선으로만 이어지지 않습니다. 창원 중공업 부문은 1980년 공기업 한국중공업으로 전환됐고, 안양 자동차부품 공장은 만도기계로, 자원개발부는 한라자원으로 재편돼 훗날 HL그룹의 축을 만들었습니다.",
       "context": "‘현대양행이 두산에너빌리티가 됐다’는 설명은 창원 중공업 부문에는 맞지만, 만도·한라로 이어진 다른 사업 갈래도 함께 봐야 정확합니다.",
       "ownership": "1980년 중화학공업 투자 조정 과정에서 창원공장 중심 중공업 부문이 정부 투자 공기업으로 전환됐습니다.",
@@ -59,13 +59,13 @@
       "sourceIds": ["hl", "doosan"]
     },
     {
-      "id": "korea-heavy", "label": "한국중공업", "aliases": ["두산중공업", "두산에너빌리티"], "year": "1980", "kind": "공기업 전환", "note": "현대양행 중공업 부문", "x": 1120, "y": 165, "external": true,
+      "id": "korea-heavy", "label": "한국중공업", "aliases": ["두산중공업", "두산에너빌리티"], "year": "1980", "kind": "공기업 전환", "note": "현대양행 중공업 부문", "x": 1120, "y": 145, "external": true,
       "detail": "현대양행의 창원 중공업 부문은 1980년 한국중공업으로 사명이 바뀌고 정부가 직접 투자하는 공기업 체제로 전환됐습니다.",
       "context": "범현대가 내부의 사명 변경이 아니라 민간 현대양행의 핵심 중공업 자산이 공기업으로 이동한 사건입니다.",
       "ownership": "현대양행·한라 측의 지배에서 벗어나 정부 투자 공기업이 됐습니다.", "sourceIds": ["doosan"]
     },
     {
-      "id": "doosan-heavy", "label": "두산중공업", "aliases": ["한국중공업", "두산에너빌리티"], "year": "2001", "kind": "민영화·사명변경", "note": "두산이 한국중공업 인수", "x": 1760, "y": 165, "external": true,
+      "id": "doosan-heavy", "label": "두산중공업", "aliases": ["한국중공업", "두산에너빌리티"], "year": "2001", "kind": "민영화·사명변경", "note": "두산이 한국중공업 인수", "x": 1760, "y": 145, "external": true,
       "detail": "두산이 한국중공업을 인수하면서 2001년 민영화됐고 두산중공업으로 사명이 바뀌었습니다.",
       "context": "현대양행의 중공업 법인 계보가 현대가가 아닌 두산그룹으로 연결되는 결정적 지점입니다.",
       "ownership": "공기업에서 두산그룹 소속 민간기업으로 전환됐습니다.", "sourceIds": ["doosan", "doosan-group"]
@@ -77,30 +77,30 @@
       "ownership": "2001년 두산그룹 편입 이후 현재까지 두산 계열입니다.", "sourceIds": ["doosan", "doosan-report"]
     },
     {
-      "id": "mando-machinery", "label": "만도기계", "aliases": ["만도", "HL만도"], "year": "1980", "kind": "사업 재편", "note": "현대양행 안양공장 계승", "x": 1120, "y": 250,
+      "id": "mando-machinery", "label": "만도기계", "aliases": ["만도", "HL만도"], "year": "1980", "kind": "사업 재편", "note": "현대양행 안양공장 계승", "x": 1120, "y": 235,
       "detail": "현대양행 안양공장은 1980년 2월 만도기계로 상호를 바꾸고 자동차부품 전문기업으로 성장했습니다.",
       "context": "현대양행의 모든 사업이 한국중공업으로 간 것이 아니라 자동차부품 갈래는 만도로 이어졌습니다.",
       "ownership": "정인영 계열의 한라그룹 핵심 사업으로 발전했습니다.", "sourceIds": ["hl"]
     },
     {
-      "id": "halla-resource", "label": "한라자원", "aliases": ["한라건설", "HL D&I한라"], "year": "1980", "kind": "분사", "note": "현대양행 자원개발부 독립", "x": 1120, "y": 335,
+      "id": "halla-resource", "label": "한라자원", "aliases": ["한라건설", "HL D&I한라"], "year": "1980", "kind": "분사", "note": "현대양행 자원개발부 독립", "x": 1120, "y": 315,
       "detail": "현대양행 자원개발부에서 독립한 한라자원은 한라건설과 현재 HL D&I한라로 이어지는 건설 갈래의 모태가 됐습니다.",
       "context": "만도기계와 함께 한라그룹 재건의 또 다른 축입니다.",
       "ownership": "정인영 계열의 독립 사업회사로 출발했습니다.", "sourceIds": ["hl"]
     },
     {
-      "id": "halla-group", "label": "한라그룹", "aliases": ["한라", "HL"], "year": "1984", "kind": "그룹명", "note": "만도·건설 중심 재편", "x": 1760, "y": 290,
+      "id": "halla-group", "label": "한라그룹", "aliases": ["한라", "HL"], "year": "1984", "kind": "그룹명", "note": "만도·건설 중심 재편", "x": 1760, "y": 275,
       "detail": "정인영 계열 기업들은 만도기계와 한라건설 등을 중심으로 한라그룹을 형성했습니다. 공식 연혁은 1984년부터 38년 동안 한라 명칭을 사용했다고 설명합니다.",
       "context": "현대양행의 사업 갈래 중 정인영 일가가 유지·재건한 기업군입니다.",
       "ownership": "범현대가의 독립 기업집단으로 현대그룹과 별도 경영됐습니다.", "sourceIds": ["hl"]
     },
     {
-      "id": "halla-holdings", "label": "한라홀딩스", "aliases": ["HL홀딩스"], "year": "2014", "kind": "지주회사", "note": "지주회사 체제 출범", "x": 2260, "y": 290,
+      "id": "halla-holdings", "label": "한라홀딩스", "aliases": ["HL홀딩스"], "year": "2014", "kind": "지주회사", "note": "지주회사 체제 출범", "x": 2260, "y": 275,
       "detail": "2014년 한라홀딩스가 출범하며 그룹의 지주회사 체제가 구체화됐습니다.",
       "ownership": "한라그룹의 지주회사 역할을 하며 2022년 HL홀딩스로 사명을 변경했습니다.", "sourceIds": ["hl"]
     },
     {
-      "id": "hl-current", "label": "HL그룹", "aliases": ["HL", "HL만도", "한라그룹"], "year": "2022–현재", "kind": "그룹명 변경", "note": "한라에서 HL로", "x": 2920, "y": 290, "current": true,
+      "id": "hl-current", "label": "HL그룹", "aliases": ["HL", "HL만도", "한라그룹"], "year": "2022–현재", "kind": "그룹명 변경", "note": "한라에서 HL로", "x": 2920, "y": 275, "current": true,
       "detail": "한라그룹은 창립 60주년인 2022년 9월 그룹명을 HL로 변경했습니다.",
       "ownership": "현대그룹·두산그룹과 별도의 독립 기업집단입니다.",
       "subsidiaries": [
@@ -112,17 +112,17 @@
     },
 
     {
-      "id": "hyundai-motor", "label": "현대자동차", "aliases": ["현대차"], "year": "1967", "kind": "설립", "note": "자동차 사업 진출", "x": 680, "y": 430,
+      "id": "hyundai-motor", "label": "현대자동차", "aliases": ["현대차"], "year": "1967", "kind": "설립", "note": "자동차 사업 진출", "x": 680, "y": 365,
       "detail": "현대자동차는 1967년 12월 설립됐습니다. 이후 독자 모델 개발과 수출 확대를 거쳐 현대그룹 자동차 부문의 중심이 됐습니다.",
       "ownership": "2000년 현대그룹에서 분리돼 자동차 전문 그룹의 중심 회사가 됐습니다.", "sourceIds": ["motor"]
     },
     {
-      "id": "kia", "label": "기아자동차", "aliases": ["기아", "KIA"], "year": "1998", "kind": "인수", "note": "현대자동차가 인수", "x": 1760, "y": 390,
+      "id": "kia", "label": "기아자동차", "aliases": ["기아", "KIA"], "year": "1998", "kind": "인수", "note": "현대자동차가 인수", "x": 1760, "y": 355,
       "detail": "현대자동차는 1998년 기아자동차를 인수했습니다. 이 인수는 이후 현대자동차그룹의 양대 완성차 체제를 만드는 핵심 사건이 됐습니다.",
       "ownership": "현대자동차가 인수한 뒤 현대자동차그룹의 주요 계열사가 됐습니다.", "sourceIds": ["motor"]
     },
     {
-      "id": "hmg-current", "label": "현대자동차그룹", "aliases": ["현대차그룹", "현대자동차", "기아", "현대모비스", "현대건설"], "year": "2000–현재", "kind": "계열분리", "note": "2011 현대건설 재편입", "x": 2920, "y": 430, "current": true,
+      "id": "hmg-current", "label": "현대자동차그룹", "aliases": ["현대차그룹", "현대자동차", "기아", "현대모비스", "현대건설"], "year": "2000–현재", "kind": "계열분리", "note": "2011 현대건설 재편입", "x": 2920, "y": 365, "current": true,
       "detail": "현대자동차와 기아를 중심으로 2000년 현대그룹에서 계열분리된 자동차 전문 기업집단입니다. 현대건설은 2011년 이 그룹에 편입됐습니다.",
       "ownership": "현재 현대그룹과는 별도의 기업집단입니다.",
       "subsidiaries": [
@@ -134,22 +134,22 @@
     },
 
     {
-      "id": "shipbuilding", "label": "현대조선중공업", "aliases": ["현대조선", "현대중공업"], "year": "1973", "kind": "독립법인", "note": "울산 조선소에서 출발", "x": 680, "y": 525,
+      "id": "shipbuilding", "label": "현대조선중공업", "aliases": ["현대조선", "현대중공업"], "year": "1973", "kind": "독립법인", "note": "울산 조선소에서 출발", "x": 680, "y": 445,
       "detail": "1972년 울산조선소 기공 뒤 1973년 12월 현대조선중공업이 독립법인으로 출범했습니다.",
       "ownership": "현대그룹 조선·중공업 부문의 핵심 회사였습니다.", "sourceIds": ["hd"]
     },
     {
-      "id": "hyundai-heavy", "label": "현대중공업", "aliases": ["현대중공업그룹"], "year": "1978", "kind": "사명변경", "note": "종합중공업으로 확대", "x": 1120, "y": 525,
+      "id": "hyundai-heavy", "label": "현대중공업", "aliases": ["현대중공업그룹"], "year": "1978", "kind": "사명변경", "note": "종합중공업으로 확대", "x": 1120, "y": 445,
       "detail": "사업 영역 확대에 따라 1978년 현대조선중공업에서 현대중공업으로 사명을 바꿨습니다.",
       "ownership": "2002년 현대그룹에서 공식 계열분리됐습니다.", "sourceIds": ["hd"]
     },
     {
-      "id": "heavy-group", "label": "현대중공업그룹", "aliases": ["HD현대"], "year": "2002", "kind": "계열분리", "note": "현대그룹에서 공식 분리", "x": 1760, "y": 525,
+      "id": "heavy-group", "label": "현대중공업그룹", "aliases": ["HD현대"], "year": "2002", "kind": "계열분리", "note": "현대그룹에서 공식 분리", "x": 1760, "y": 445,
       "detail": "2002년 현대중공업 등 관련 회사들이 현대그룹에서 계열분리돼 독립 그룹으로 자리 잡았습니다.",
       "ownership": "현대그룹과 별도 기업집단으로 분리됐습니다.", "sourceIds": ["hd-separation"]
     },
     {
-      "id": "hd-current", "label": "HD현대", "aliases": ["현대중공업", "HD현대중공업"], "year": "2022–현재", "kind": "그룹명 변경", "note": "조선·에너지·산업기계", "x": 2920, "y": 525, "current": true,
+      "id": "hd-current", "label": "HD현대", "aliases": ["현대중공업", "HD현대중공업"], "year": "2022–현재", "kind": "그룹명 변경", "note": "조선·에너지·산업기계", "x": 2920, "y": 445, "current": true,
       "detail": "현대중공업그룹은 2022년 창립 50주년을 계기로 그룹명을 HD현대로 바꿨습니다.",
       "ownership": "현대그룹·현대자동차그룹과 별도의 독립 기업집단입니다.",
       "subsidiaries": [
@@ -161,17 +161,17 @@
     },
 
     {
-      "id": "keumkang-development", "label": "금강개발산업", "aliases": ["현대백화점"], "year": "1971", "kind": "설립", "note": "유통·복지사업의 모태", "x": 680, "y": 620,
+      "id": "keumkang-development", "label": "금강개발산업", "aliases": ["현대백화점"], "year": "1971", "kind": "설립", "note": "유통·복지사업의 모태", "x": 680, "y": 525,
       "detail": "1971년 설립된 금강개발산업은 현대그룹 임직원 복지와 단체급식에서 출발해 백화점 등 유통사업으로 확장했습니다.",
       "ownership": "현대그룹 유통 부문으로 성장한 뒤 1999년 계열분리됐습니다.", "sourceIds": ["department"]
     },
     {
-      "id": "hyundai-department", "label": "현대백화점", "aliases": ["금강개발산업"], "year": "1999·2000", "kind": "분리·사명변경", "note": "1999 독립 · 2000 개명", "x": 1760, "y": 620,
+      "id": "hyundai-department", "label": "현대백화점", "aliases": ["금강개발산업"], "year": "1999·2000", "kind": "분리·사명변경", "note": "1999 독립 · 2000 개명", "x": 1760, "y": 525,
       "detail": "1999년 현대그룹에서 계열분리했고, 2000년 금강개발산업에서 현대백화점으로 사명을 변경했습니다.",
       "ownership": "현대그룹과 별도 기업집단으로 독립했습니다.", "sourceIds": ["department"]
     },
     {
-      "id": "department-current", "label": "현대백화점그룹", "aliases": ["현대백화점", "현대홈쇼핑", "현대그린푸드"], "year": "현재", "kind": "독립 그룹", "note": "유통·패션·리빙", "x": 2920, "y": 620, "current": true,
+      "id": "department-current", "label": "현대백화점그룹", "aliases": ["현대백화점", "현대홈쇼핑", "현대그린푸드"], "year": "현재", "kind": "독립 그룹", "note": "유통·패션·리빙", "x": 2920, "y": 525, "current": true,
       "detail": "현대백화점을 중심으로 유통·패션·리빙·식품 사업을 운영하는 독립 그룹입니다.",
       "ownership": "현재 현대그룹 및 현대자동차그룹과 별도입니다.",
       "subsidiaries": [
@@ -182,28 +182,28 @@
     },
 
     {
-      "id": "korea-urban", "label": "한국도시개발", "aliases": ["현대산업개발", "HDC"], "year": "1976", "kind": "설립", "note": "HDC그룹의 모태", "x": 680, "y": 715,
+      "id": "korea-urban", "label": "한국도시개발", "aliases": ["현대산업개발", "HDC"], "year": "1976", "kind": "설립", "note": "HDC그룹의 모태", "x": 680, "y": 605,
       "detail": "1976년 한국도시개발이 설립됐습니다. 1986년 한라건설과 합병해 현대산업개발이 됐습니다.",
       "ownership": "현대그룹 건설·개발 부문에서 성장했습니다.", "sourceIds": ["hdc"]
     },
     {
-      "id": "hyundai-development", "label": "현대산업개발", "aliases": ["HDC현대산업개발"], "year": "1986·1999", "kind": "합병·계열분리", "note": "1986 합병 · 1999 독립", "x": 1660, "y": 715,
+      "id": "hyundai-development", "label": "현대산업개발", "aliases": ["HDC현대산업개발"], "year": "1986·1999", "kind": "합병·계열분리", "note": "1986 합병 · 1999 독립", "x": 1660, "y": 605,
       "detail": "한국도시개발과 한라건설의 합병으로 1986년 현대산업개발이 출범했고, 1999년 현대그룹에서 계열분리했습니다.",
       "ownership": "현대그룹에서 독립해 별도 기업집단이 됐습니다.", "sourceIds": ["hdc"]
     },
     {
-      "id": "hdc-current", "label": "HDC그룹", "aliases": ["HDC", "HDC현대산업개발", "현대산업개발"], "year": "2018–현재", "kind": "지주회사 체제", "note": "HDC와 사업회사로 분할", "x": 2920, "y": 715, "current": true,
+      "id": "hdc-current", "label": "HDC그룹", "aliases": ["HDC", "HDC현대산업개발", "현대산업개발"], "year": "2018–현재", "kind": "지주회사 체제", "note": "HDC와 사업회사로 분할", "x": 2920, "y": 605, "current": true,
       "detail": "2018년 현대산업개발이 지주회사 HDC와 사업회사 HDC현대산업개발로 인적분할했습니다.",
       "ownership": "현대그룹·현대자동차그룹과 별도 기업집단입니다.", "sourceIds": ["hdc"]
     },
 
     {
-      "id": "hyundai-elevator", "label": "현대엘리베이터", "aliases": ["현대그룹"], "year": "1984", "kind": "설립", "note": "현재 현대그룹의 중심", "x": 680, "y": 810,
+      "id": "hyundai-elevator", "label": "현대엘리베이터", "aliases": ["현대그룹"], "year": "1984", "kind": "설립", "note": "현재 현대그룹의 중심", "x": 680, "y": 685,
       "detail": "현대엘리베이터는 1984년 설립됐습니다. 자동차·중공업·백화점·HDC 등의 계열분리와 주요 계열 변화 이후 현재 현대그룹의 핵심 회사가 됐습니다.",
       "ownership": "현재 현대그룹의 주요 상장 계열사입니다.", "sourceIds": ["hyundai-group-history", "hyundai-group-affiliates"]
     },
     {
-      "id": "hyundai-group-current", "label": "현대그룹", "aliases": ["현대엘리베이터", "현대무벡스", "현대아산", "현대경제연구원", "현대글로벌"], "year": "현재", "kind": "독립 기업집단", "note": "현대엘리베이터 중심", "x": 2920, "y": 810, "current": true,
+      "id": "hyundai-group-current", "label": "현대그룹", "aliases": ["현대엘리베이터", "현대무벡스", "현대아산", "현대경제연구원", "현대글로벌"], "year": "현재", "kind": "독립 기업집단", "note": "현대엘리베이터 중심", "x": 2920, "y": 685, "current": true,
       "detail": "자동차·중공업·백화점·HDC 등 주요 갈래가 분리된 뒤 현대엘리베이터를 중심으로 이어지는 현재의 현대그룹입니다. 아래 목록은 현대그룹 공식 계열사 소개에 실린 회사들입니다.",
       "context": "현대자동차그룹, HD현대, 현대백화점그룹, HDC그룹과 이름의 뿌리는 같지만 현재는 각각 별도 기업집단입니다.",
       "ownership": "현정은 회장 체제의 현대그룹으로, 현대엘리베이터·현대무벡스·현대아산 등을 중심으로 구성됩니다.",
@@ -223,33 +223,33 @@
     },
 
     {
-      "id": "dongbang-insurance", "label": "동방해상보험", "aliases": ["동방화재", "현대해상"], "year": "1955·1983", "kind": "설립·인수", "note": "1983 현대그룹 편입", "x": 680, "y": 905,
+      "id": "dongbang-insurance", "label": "동방해상보험", "aliases": ["동방화재", "현대해상"], "year": "1955·1983", "kind": "설립·인수", "note": "1983 현대그룹 편입", "x": 680, "y": 765,
       "detail": "1955년 동방해상보험으로 설립됐고 1983년 현대그룹에 인수됐습니다.",
       "ownership": "인수 후 현대그룹 금융 계열사로 편입됐습니다.", "sourceIds": ["marine"]
     },
     {
-      "id": "hyundai-marine", "label": "현대해상화재보험", "aliases": ["현대해상"], "year": "1985·1999", "kind": "개명·계열분리", "note": "1999 현대그룹에서 독립", "x": 1660, "y": 905,
+      "id": "hyundai-marine", "label": "현대해상화재보험", "aliases": ["현대해상"], "year": "1985·1999", "kind": "개명·계열분리", "note": "1999 현대그룹에서 독립", "x": 1660, "y": 765,
       "detail": "1985년 현대해상화재보험으로 사명을 변경했고, 1999년 현대그룹에서 계열분리했습니다.",
       "ownership": "현대그룹과 별도 지배구조로 독립했습니다.", "sourceIds": ["marine"]
     },
     {
-      "id": "marine-current", "label": "현대해상", "aliases": ["현대해상화재보험"], "year": "현재", "kind": "독립 금융회사", "note": "현대 이름을 공유", "x": 2920, "y": 905, "current": true,
+      "id": "marine-current", "label": "현대해상", "aliases": ["현대해상화재보험"], "year": "현재", "kind": "독립 금융회사", "note": "현대 이름을 공유", "x": 2920, "y": 765, "current": true,
       "detail": "현대라는 이름을 유지하지만 현재 현대그룹·현대자동차그룹과는 별도의 독립 금융회사입니다.",
       "ownership": "범현대가의 역사적 뿌리를 공유하되 현재 별도 지배구조입니다.", "sourceIds": ["marine"]
     },
 
     {
-      "id": "hyundai-electronics", "label": "현대전자산업", "aliases": ["현대전자", "하이닉스", "SK하이닉스"], "year": "1983", "kind": "설립", "note": "반도체·전자 사업", "x": 680, "y": 1000,
+      "id": "hyundai-electronics", "label": "현대전자산업", "aliases": ["현대전자", "하이닉스", "SK하이닉스"], "year": "1983", "kind": "설립", "note": "반도체·전자 사업", "x": 680, "y": 845,
       "detail": "1983년 현대전자산업으로 설립됐습니다. 이후 하이닉스반도체로 사명을 바꾸고 현대그룹에서 분리됐습니다.",
       "ownership": "현대그룹 전자 계열사에서 채권단 관리와 그룹 분리를 거쳤습니다.", "sourceIds": ["skhynix"]
     },
     {
-      "id": "hynix", "label": "하이닉스반도체", "aliases": ["하이닉스"], "year": "2001", "kind": "개명·계열이탈", "note": "현대그룹에서 최종 분리", "x": 1760, "y": 1000, "external": true,
+      "id": "hynix", "label": "하이닉스반도체", "aliases": ["하이닉스"], "year": "2001", "kind": "개명·계열이탈", "note": "현대그룹에서 최종 분리", "x": 1760, "y": 845, "external": true,
       "detail": "2001년 현대전자에서 하이닉스반도체로 사명을 바꿨고 같은 해 8월 현대그룹에서 최종 분리됐습니다.",
       "ownership": "현대그룹을 떠나 독립 경영 및 채권단 관리 단계를 거쳤습니다.", "sourceIds": ["skhynix", "skhynix-exit"]
     },
     {
-      "id": "skhynix-current", "label": "SK하이닉스", "aliases": ["SK hynix", "에스케이하이닉스", "현대전자"], "year": "2012–현재", "kind": "SK그룹 편입", "note": "현대에서 SK로 이동", "x": 2920, "y": 1000, "current": true, "external": true,
+      "id": "skhynix-current", "label": "SK하이닉스", "aliases": ["SK hynix", "에스케이하이닉스", "현대전자"], "year": "2012–현재", "kind": "SK그룹 편입", "note": "현대에서 SK로 이동", "x": 2920, "y": 845, "current": true, "external": true,
       "detail": "하이닉스반도체는 2012년 SK그룹에 편입돼 SK하이닉스로 사명을 변경했습니다.",
       "context": "현대에서 출발했지만 현재는 범현대가 기업집단이 아닙니다.",
       "ownership": "현재 SK그룹 소속입니다.", "sourceIds": ["skhynix"]
@@ -272,7 +272,7 @@
     { "from": "halla-holdings", "to": "hl-current", "type": "continuation" },
 
     { "from": "hyundai-construction", "to": "hyundai-motor", "type": "split" },
-    { "from": "hyundai-motor", "to": "hmg-current", "type": "split" },
+    { "from": "hyundai-motor", "to": "hmg-current", "type": "split", "routeY": 435 },
     { "from": "kia", "to": "hmg-current", "type": "merger" },
     { "from": "hyundai-construction", "to": "shipbuilding", "type": "split" },
     { "from": "shipbuilding", "to": "hyundai-heavy", "type": "continuation" },
