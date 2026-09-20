@@ -554,8 +554,8 @@ async function buildFinderIndex() {
   finderSummary.textContent = '네 가문의 기업·계열사 목록을 불러오는 중입니다…';
   const collections = await Promise.all(families.map(async (family) => {
     const [dataResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-10`),
-      fetch(`${family.research}?v=20260920-10`)
+      fetch(`${family.data}?v=20260920-11`),
+      fetch(`${family.research}?v=20260920-11`)
     ]);
     if (!dataResponse.ok || !researchResponse.ok) return [];
     const familyGraph = mergeEnrichment(await dataResponse.json(), family.id);
@@ -757,8 +757,8 @@ async function selectFamily(familyId, options = {}) {
   activeDepartureCategory = '전체';
   try {
     const [graphResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-10`),
-      fetch(`${family.research}?v=20260920-10`)
+      fetch(`${family.data}?v=20260920-11`),
+      fetch(`${family.research}?v=20260920-11`)
     ]);
     if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
     if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
@@ -788,8 +788,8 @@ async function selectFamily(familyId, options = {}) {
 async function loadGraph() {
   try {
     const [response, enrichmentResponse] = await Promise.all([
-      fetch('../data/families.json?v=20260920-10'),
-      fetch('../data/family-enrichment.json?v=20260920-10')
+      fetch('../data/families.json?v=20260920-11'),
+      fetch('../data/family-enrichment.json?v=20260920-11')
     ]);
     if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
     families = await response.json();

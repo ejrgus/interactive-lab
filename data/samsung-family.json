@@ -370,7 +370,7 @@
       "context": "",
       "ownership": "",
       "x": 1294,
-      "y": 734,
+      "y": 826,
       "category": "direct",
       "current": false,
       "external": false,
@@ -467,7 +467,7 @@
       "context": "",
       "ownership": "오너 일가가 경영권을 상실하고 계열사는 제3자에게 흩어짐.",
       "x": 1734,
-      "y": 734,
+      "y": 826,
       "category": "exit",
       "current": false,
       "external": true,
@@ -779,6 +779,21 @@
       "type": "continuation"
     },
     {
+      "from": "sanghoe",
+      "to": "succession-conflict",
+      "type": "family"
+    },
+    {
+      "from": "cj-origin",
+      "to": "cj-split",
+      "type": "continuation"
+    },
+    {
+      "from": "saehan-origin",
+      "to": "saehan-split",
+      "type": "continuation"
+    },
+    {
       "from": "succession-conflict",
       "to": "cj-split",
       "type": "split"
@@ -792,36 +807,6 @@
       "from": "lee-kunhee",
       "to": "samsung",
       "type": "continuation"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "hansol-split",
-      "type": "split"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "shinsegae-split",
-      "type": "split"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "cj-split",
-      "type": "split"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "saehan-split",
-      "type": "split"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "joongang-split",
-      "type": "family"
-    },
-    {
-      "from": "lee-kunhee",
-      "to": "bgf-split",
-      "type": "family"
     },
     {
       "from": "hansol-split",
@@ -842,6 +827,11 @@
       "from": "joongang-split",
       "to": "joongang",
       "type": "continuation"
+    },
+    {
+      "from": "joongang-split",
+      "to": "bgf-split",
+      "type": "family"
     },
     {
       "from": "bgf-split",
