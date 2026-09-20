@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "범현대가",
+    "schemaVersion": 1,
+    "lastVerified": "",
+    "status": "researching",
+    "eventFields": ["id", "date", "year", "title", "description", "type", "relatedCompanies", "relatedPeople", "parentGroup", "resultingGroups", "reason", "sourceIds", "confidence"],
+    "confidenceValues": ["confirmed", "probable", "disputed", "researching"]
+  },
+  "groups": [],
+  "companies": [],
+  "people": [],
+  "events": [],
+  "relationships": [],
+  "sources": []
+}
+
