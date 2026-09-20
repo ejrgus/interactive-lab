@@ -79,17 +79,67 @@ function extractMembersFromResearch(group) {
 }
 
 function mergeEnrichment(base, familyId) {
-  const extra = familyEnrichment[familyId];
-  if (!extra) return base;
+  const extra = familyEnrichment[familyId] || {};
   base.meta = { ...base.meta, ...(extra.meta || {}) };
   const overrideMap = new Map((extra.nodeOverrides || []).map((node) => [node.id, node]));
   base.nodes = base.nodes.map((node) => ({ ...node, ...(overrideMap.get(node.id) || {}) }));
   const nodeIds = new Set(base.nodes.map((node) => node.id));
   (extra.nodes || []).forEach((node) => { if (!nodeIds.has(node.id)) base.nodes.push(node); });
+  const layoutProfiles = {
+    hyundai: {
+      canvasWidth: 3400,
+      stages: { restructuring:2220, rebrand:2670, current:3120 },
+      columns: { 2450:2250, 3100:2700, 3690:3150 }
+    },
+    lg: {
+      canvasWidth: 2860,
+      stages: { third:2050, current:2530 }
+    },
+    sk: {
+      canvasWidth: 3160,
+      stages: { telecom:1100, crisis:1660, chip:2080, current:2800 }
+    }
+  }[familyId];
+  if (layoutProfiles) {
+    base.meta.canvasWidth = layoutProfiles.canvasWidth;
+    base.stages.forEach((stage) => {
+      if (Number.isFinite(layoutProfiles.stages?.[stage.id])) stage.x = layoutProfiles.stages[stage.id];
+    });
+    base.nodes.forEach((node) => {
+      if (Number.isFinite(layoutProfiles.columns?.[node.x])) node.x = layoutProfiles.columns[node.x];
+    });
+  }
   const positionFixes = {
-    samsung:{ 'new-management':{ x:1088 } },
-    lg:{ 'succession-1970':{ x:270 }, 'semicon-bigdeal':{ x:1090 }, 'gs-holdings':{ x:1510 }, 'card-crisis':{ x:1510 } },
-    sk:{ 'skt-rename':{ x:1160 }, 'sovereign-defense':{ x:1590 } }
+    samsung:{
+      'samsung-mulsan':{ x:364 }, 'saehan-paper':{ x:364 },
+      'joongang-origin':{ x:364 }, fertilizer:{ x:364 }, 'saehan-origin':{ x:364 },
+      'cj-origin':{ x:364 }, textile:{ x:364 }, life:{ x:364 },
+      electronics:{ x:674 }, 'succession-conflict':{ x:674 }, 'new-management':{ x:1088 }
+    },
+    lg:{
+      'succession-1970':{ x:270 }, 'semicon-bigdeal':{ x:1090 }, 'heesung-split':{ x:1304 },
+      'lg-holding':{ x:1604 }, 'gs-holdings':{ x:1604 },
+      'gs-split':{ x:1844 }, 'ls-split':{ x:1844 }, 'lf-split':{ x:1844 }, 'card-crisis':{ x:1844 },
+      'lig-insurance-exit':{ x:2074 }, 'siltron-exit':{ x:2074 }, 'lg-card-exit':{ x:2074 },
+      'lx-split':{ x:2074 }, 'ourhome-exit':{ x:2074 },
+      'lt-group':{ x:2304 }, 'heesung-2026':{ x:2304 }, 'koo-kwangmo':{ x:2304 },
+      'lx-renames':{ x:2304 }, 'lf-rename':{ x:2304 },
+      heesung:{ x:2554 }, lig:{ x:2554 }, gs:{ x:2554 }, lg:{ x:2554 },
+      lx:{ x:2554 }, ls:{ x:2554 }, lf:{ x:2554 }
+    },
+    sk:{
+      'oil-company':{ x:504 }, yugong:{ x:824 }, 'telecom-prep':{ x:824 },
+      'license-return':{ x:1124 }, telecom:{ x:1124 },
+      'skt-rename':{ x:1384 }, 'sk-name':{ x:1384 }, 'cousin-succession':{ x:1384 },
+      sovereign:{ x:1684 }, accounting:{ x:1684 }, 'mill-close':{ x:1684 },
+      'skglobal-network':{ x:1884 }, 'sovereign-defense':{ x:1904 },
+      hynix:{ x:2104 }, square:{ x:2104 }, discovery:{ x:2104 },
+      'discovery-stake':{ x:2324 }, 'sk-square-split':{ x:2324 }, rebalance:{ x:2324 },
+      shielders:{ x:2324 }, 'ens-merger':{ x:2544 }, 'specialty-sale':{ x:2544 },
+      'on-mergers':{ x:2544 }, 'shielders-eqt':{ x:2544 },
+      'siltron-doosan':{ x:2824 }, sk:{ x:2824 }, 'sk-discovery':{ x:2824 },
+      'sk-networks':{ x:2824 }, 'shielders-current':{ x:2824 }
+    }
   }[familyId] || {};
   base.nodes.forEach((node) => Object.assign(node, positionFixes[node.id] || {}));
   const edgeKeys = new Set(base.edges.map((edge) => `${edge.from}:${edge.to}:${edge.type}`));
@@ -554,8 +604,8 @@ async function buildFinderIndex() {
   finderSummary.textContent = '네 가문의 기업·계열사 목록을 불러오는 중입니다…';
   const collections = await Promise.all(families.map(async (family) => {
     const [dataResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-11`),
-      fetch(`${family.research}?v=20260920-11`)
+      fetch(`${family.data}?v=20260920-12`),
+      fetch(`${family.research}?v=20260920-12`)
     ]);
     if (!dataResponse.ok || !researchResponse.ok) return [];
     const familyGraph = mergeEnrichment(await dataResponse.json(), family.id);
@@ -757,8 +807,8 @@ async function selectFamily(familyId, options = {}) {
   activeDepartureCategory = '전체';
   try {
     const [graphResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-11`),
-      fetch(`${family.research}?v=20260920-11`)
+      fetch(`${family.data}?v=20260920-12`),
+      fetch(`${family.research}?v=20260920-12`)
     ]);
     if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
     if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
@@ -788,8 +838,8 @@ async function selectFamily(familyId, options = {}) {
 async function loadGraph() {
   try {
     const [response, enrichmentResponse] = await Promise.all([
-      fetch('../data/families.json?v=20260920-11'),
-      fetch('../data/family-enrichment.json?v=20260920-11')
+      fetch('../data/families.json?v=20260920-12'),
+      fetch('../data/family-enrichment.json?v=20260920-12')
     ]);
     if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
     families = await response.json();

@@ -675,7 +675,7 @@
     },
     {
       "from": "lg-holding",
-      "to": "gs-split",
+      "to": "gs-holdings",
       "type": "family"
     },
     {
@@ -695,7 +695,7 @@
     },
     {
       "from": "lg-holding",
-      "to": "lg-card-exit",
+      "to": "card-crisis",
       "type": "exit"
     },
     {
