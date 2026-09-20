@@ -8,6 +8,8 @@ const search = document.querySelector('#tree-search');
 const status = document.querySelector('#tree-status');
 const inspector = document.querySelector('#node-inspector');
 const inspectorScrim = document.querySelector('#inspector-scrim');
+const infoToggle = document.querySelector('[data-info-toggle]');
+const infoPanel = document.querySelector('#tree-info');
 let graph = null;
 let nodeMap = new Map();
 let sourceMap = new Map();
@@ -20,13 +22,17 @@ function setSidebar(open) {
   document.querySelector('[data-sidebar-open]').setAttribute('aria-expanded', String(open));
 }
 
-function edgePath(from, to) {
+function edgePath(from, to, edge) {
   const width = graph.meta.nodeWidth;
   const height = graph.meta.nodeHeight;
   const x1 = from.x + width;
   const y1 = from.y + height / 2;
   const x2 = to.x;
   const y2 = to.y + height / 2;
+  if (Number.isFinite(edge.routeY)) {
+    const lead = Math.min(160, Math.abs(x2 - x1) * .2);
+    return `M ${x1} ${y1} C ${x1 + lead} ${y1}, ${x1 + lead} ${edge.routeY}, ${x1 + lead * 2} ${edge.routeY} L ${x2 - lead * 2} ${edge.routeY} C ${x2 - lead} ${edge.routeY}, ${x2 - lead} ${y2}, ${x2} ${y2}`;
+  }
   const bend = Math.max(54, Math.min(230, Math.abs(x2 - x1) * .42));
   return `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`;
 }
@@ -142,7 +148,7 @@ function renderEdges() {
   connectorLayer.setAttribute('viewBox', `0 0 ${graph.meta.canvasWidth} ${graph.meta.canvasHeight}`);
   connectorLayer.replaceChildren(...graph.edges.map((edge) => {
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', edgePath(nodeMap.get(edge.from), nodeMap.get(edge.to)));
+    path.setAttribute('d', edgePath(nodeMap.get(edge.from), nodeMap.get(edge.to), edge));
     path.setAttribute('class', `tree-edge type-${edge.type}`);
     path.dataset.from = edge.from;
     path.dataset.to = edge.to;
@@ -205,7 +211,7 @@ function updateSearch() {
 
 async function loadGraph() {
   try {
-    const response = await fetch('../data/hyundai-family.json?v=20260920-3');
+    const response = await fetch('../data/hyundai-family.json?v=20260920-4');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     graph = await response.json();
     sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
@@ -229,17 +235,25 @@ document.querySelector('[data-sidebar-close]').addEventListener('click', () => s
 document.querySelector('[data-sidebar-open]').addEventListener('click', () => setSidebar(true));
 document.querySelector('[data-inspector-close]').addEventListener('click', closeInspector);
 inspectorScrim.addEventListener('click', closeInspector);
-document.querySelector('[data-reset-view]').addEventListener('click', () => {
-  search.value = '';
-  updateSearch();
-  closeInspector();
-  viewport.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+infoToggle.addEventListener('click', () => {
+  const willOpen = infoPanel.hidden;
+  infoPanel.hidden = !willOpen;
+  infoToggle.setAttribute('aria-expanded', String(willOpen));
+});
+document.addEventListener('click', (event) => {
+  if (!infoPanel.hidden && !infoPanel.contains(event.target) && !infoToggle.contains(event.target)) {
+    infoPanel.hidden = true;
+    infoToggle.setAttribute('aria-expanded', 'false');
+  }
 });
 search.addEventListener('input', updateSearch);
 document.addEventListener('keydown', (event) => {
   if (event.key === '/' && document.activeElement !== search) { event.preventDefault(); search.focus(); }
   if (event.key === 'Escape') {
-    if (inspector.classList.contains('is-open')) closeInspector();
+    if (!infoPanel.hidden) {
+      infoPanel.hidden = true;
+      infoToggle.setAttribute('aria-expanded', 'false');
+    } else if (inspector.classList.contains('is-open')) closeInspector();
     else { search.value = ''; updateSearch(); search.blur(); }
   }
 });
