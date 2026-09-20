@@ -6,35 +6,33 @@ const stageLayer = document.querySelector('#stage-layer');
 const connectorLayer = document.querySelector('#connector-layer');
 const search = document.querySelector('#tree-search');
 const status = document.querySelector('#tree-status');
-const openButton = document.querySelector('[data-sidebar-open]');
-const closeButton = document.querySelector('[data-sidebar-close]');
-const resetButton = document.querySelector('[data-reset-view]');
-
+const inspector = document.querySelector('#node-inspector');
 let graph = null;
 let nodeMap = new Map();
+let sourceMap = new Map();
+
 const normalize = (value) => value.toLocaleLowerCase('ko-KR').replace(/\s+/g, '');
 
 function setSidebar(open) {
   app.classList.toggle('sidebar-collapsed', !open);
-  openButton.setAttribute('aria-expanded', String(open));
-  if (open && window.matchMedia('(max-width: 820px)').matches) search.focus();
+  document.querySelector('[data-sidebar-open]').setAttribute('aria-expanded', String(open));
 }
 
 function edgePath(from, to) {
-  const nodeWidth = 248;
-  const nodeHeight = 90;
-  const x1 = from.x + nodeWidth;
-  const y1 = from.y + nodeHeight / 2;
+  const width = graph.meta.nodeWidth;
+  const height = graph.meta.nodeHeight;
+  const x1 = from.x + width;
+  const y1 = from.y + height / 2;
   const x2 = to.x;
-  const y2 = to.y + nodeHeight / 2;
-  const bend = Math.max(72, (x2 - x1) * .48);
+  const y2 = to.y + height / 2;
+  const bend = Math.max(68, Math.abs(x2 - x1) * .45);
   return `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`;
 }
 
-function renderStages(stages) {
-  stageLayer.replaceChildren(...stages.map((stage) => {
+function renderStages() {
+  stageLayer.replaceChildren(...graph.stages.map((stage) => {
     const column = document.createElement('div');
-    column.className = 'stage-column';
+    column.className = `stage-column ${stage.id === 'current' ? 'current' : ''}`;
     column.style.left = `${stage.x}px`;
     const label = document.createElement('span');
     label.textContent = stage.label;
@@ -43,43 +41,59 @@ function renderStages(stages) {
   }));
 }
 
-function renderNodes(nodes) {
-  nodeMap = new Map(nodes.map((node) => [node.id, node]));
-  nodeLayer.replaceChildren(...nodes.map((node) => {
-    const card = document.createElement('article');
-    card.className = `tree-node ${node.current ? 'is-current' : ''} ${node.placeholder ? 'is-placeholder' : ''}`;
+function openInspector(node) {
+  document.querySelector('#inspector-meta').textContent = `${node.year} · ${node.kind}`;
+  document.querySelector('#inspector-title').textContent = node.label;
+  document.querySelector('#inspector-detail').textContent = node.detail;
+  const links = (node.sourceIds || []).map((id) => sourceMap.get(id)).filter(Boolean).map((source) => {
+    const link = document.createElement('a');
+    link.href = source.url;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = `출처 · ${source.title}`;
+    return link;
+  });
+  document.querySelector('#inspector-sources').replaceChildren(...links);
+  inspector.hidden = false;
+}
+
+function renderNodes() {
+  nodeMap = new Map(graph.nodes.map((node) => [node.id, node]));
+  nodeLayer.replaceChildren(...graph.nodes.map((node) => {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = `tree-node ${node.current ? 'is-current' : ''} ${node.external ? 'is-external' : ''}`;
     card.dataset.nodeId = node.id;
     card.style.left = `${node.x}px`;
     card.style.top = `${node.y}px`;
-    const icon = document.createElement('span');
-    icon.className = 'node-icon';
-    icon.textContent = node.icon;
-    const copy = document.createElement('span');
-    copy.className = 'node-copy';
-    const stage = document.createElement('span');
-    stage.className = 'node-stage';
-    stage.textContent = node.stage;
+    card.setAttribute('aria-label', `${node.year} ${node.label}, ${node.note}. 상세 정보 보기`);
+    const top = document.createElement('span');
+    top.className = 'node-top';
+    const year = document.createElement('span');
+    year.className = 'node-year';
+    year.textContent = node.year;
+    const kind = document.createElement('span');
+    kind.className = 'node-kind';
+    kind.textContent = node.kind;
+    top.append(year, kind);
     const title = document.createElement('strong');
     title.className = 'node-title';
     title.textContent = node.label;
-    const state = document.createElement('span');
-    state.className = 'node-state';
-    state.textContent = node.note;
-    copy.append(stage, title, state);
-    card.append(icon, copy);
+    const note = document.createElement('span');
+    note.className = 'node-note';
+    note.textContent = node.note;
+    card.append(top, title, note);
+    card.addEventListener('click', () => openInspector(node));
     return card;
   }));
 }
 
-function renderEdges(edges) {
-  connectorLayer.setAttribute('viewBox', '0 0 2200 1000');
-  connectorLayer.replaceChildren(...edges.map((edge) => {
-    const from = nodeMap.get(edge.from);
-    const to = nodeMap.get(edge.to);
+function renderEdges() {
+  connectorLayer.setAttribute('viewBox', `0 0 ${graph.meta.canvasWidth} ${graph.meta.canvasHeight}`);
+  connectorLayer.replaceChildren(...graph.edges.map((edge) => {
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', edgePath(from, to));
+    path.setAttribute('d', edgePath(nodeMap.get(edge.from), nodeMap.get(edge.to)));
     path.setAttribute('class', `tree-edge type-${edge.type}`);
-    path.dataset.edgeId = edge.id;
     path.dataset.from = edge.from;
     path.dataset.to = edge.to;
     return path;
@@ -102,24 +116,23 @@ function ancestorsOf(ids) {
 }
 
 function updateSearch() {
-  if (!graph) return;
-  const rawQuery = search.value.trim();
-  const query = normalize(rawQuery);
+  const raw = search.value.trim();
+  const query = normalize(raw);
   const cards = [...nodeLayer.querySelectorAll('.tree-node')];
   const paths = [...connectorLayer.querySelectorAll('.tree-edge')];
   cards.forEach((card) => card.classList.remove('is-dimmed', 'is-highlighted', 'is-match'));
   paths.forEach((path) => path.classList.remove('is-dimmed', 'is-highlighted'));
   if (!query) {
-    status.textContent = '왼쪽은 과거, 오른쪽은 현재입니다. 가로로 움직여 전체 흐름을 살펴보세요.';
+    status.textContent = '기업을 검색하면 현재 기업까지 이어지는 경로만 강조됩니다.';
     return;
   }
   const allMatches = graph.nodes.filter((node) => normalize([node.label, ...(node.aliases || [])].join(' ')).includes(query));
-  const currentMatches = allMatches.filter((node) => node.current);
-  const matches = currentMatches.length ? currentMatches : allMatches;
+  const exactCurrent = allMatches.filter((node) => node.current && normalize(node.label).includes(query));
+  const matches = exactCurrent.length ? exactCurrent : allMatches;
   if (!matches.length) {
     cards.forEach((card) => card.classList.add('is-dimmed'));
     paths.forEach((path) => path.classList.add('is-dimmed'));
-    status.textContent = `“${rawQuery}” 검색 결과가 없습니다. 아직 준비 중인 기업일 수 있습니다.`;
+    status.textContent = `“${raw}” 검색 결과가 없습니다.`;
     return;
   }
   const matchIds = new Set(matches.map((node) => node.id));
@@ -135,9 +148,9 @@ function updateSearch() {
     path.classList.toggle('is-highlighted', active);
     path.classList.toggle('is-dimmed', !active);
   });
-  status.textContent = `${matches.map((node) => node.label).join(', ')}으로 이어지는 경로를 강조했습니다.`;
   const target = matches[0];
-  viewport.scrollTo({ left: Math.max(0, target.x - viewport.clientWidth * .58), top: Math.max(0, target.y - viewport.clientHeight * .35), behavior: 'smooth' });
+  status.textContent = `${matches.map((node) => node.label).join(', ')} 경로를 강조했습니다.`;
+  viewport.scrollTo({ left: Math.max(0, target.x - viewport.clientWidth * .66), top: Math.max(0, target.y - viewport.clientHeight * .42), behavior: 'smooth' });
 }
 
 async function loadGraph() {
@@ -145,47 +158,39 @@ async function loadGraph() {
     const response = await fetch('../data/hyundai-family.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     graph = await response.json();
-    renderStages(graph.stages);
-    renderNodes(graph.nodes);
-    renderEdges(graph.edges);
+    sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
+    canvas.style.width = `${graph.meta.canvasWidth}px`;
+    canvas.style.height = `${graph.meta.canvasHeight}px`;
+    renderStages();
+    renderNodes();
+    renderEdges();
     canvas.setAttribute('aria-busy', 'false');
-    requestAnimationFrame(() => viewport.scrollTo({ left: 0, top: 225 }));
   } catch (error) {
     canvas.setAttribute('aria-busy', 'false');
-    const message = document.createElement('p');
-    message.className = 'tree-error';
-    message.textContent = '계보 구조를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
-    canvas.append(message);
+    status.textContent = '계보 데이터를 불러오지 못했습니다.';
     console.error(error);
   }
 }
 
-openButton.addEventListener('click', () => setSidebar(true));
-closeButton.addEventListener('click', () => setSidebar(false));
-resetButton.addEventListener('click', () => {
+document.querySelector('[data-sidebar-close]').addEventListener('click', () => setSidebar(false));
+document.querySelector('[data-sidebar-open]').addEventListener('click', () => setSidebar(true));
+document.querySelector('[data-inspector-close]').addEventListener('click', () => { inspector.hidden = true; });
+document.querySelector('[data-reset-view]').addEventListener('click', () => {
   search.value = '';
   updateSearch();
-  viewport.scrollTo({ left: 0, top: 225, behavior: 'smooth' });
+  inspector.hidden = true;
+  viewport.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
 });
 search.addEventListener('input', updateSearch);
 document.addEventListener('keydown', (event) => {
-  if (event.key === '/' && document.activeElement !== search) {
-    event.preventDefault();
-    if (app.classList.contains('sidebar-collapsed')) setSidebar(true);
-    search.focus();
-  }
-  if (event.key === 'Escape' && document.activeElement === search) {
-    search.value = '';
-    updateSearch();
-    search.blur();
-  }
+  if (event.key === '/' && document.activeElement !== search) { event.preventDefault(); search.focus(); }
+  if (event.key === 'Escape') { search.value = ''; updateSearch(); inspector.hidden = true; search.blur(); }
 });
 viewport.addEventListener('wheel', (event) => {
-  if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && !event.ctrlKey) {
+  if (event.shiftKey && event.deltaY !== 0) {
     viewport.scrollLeft += event.deltaY;
     event.preventDefault();
   }
 }, { passive: false });
-if (window.matchMedia('(max-width: 820px)').matches) setSidebar(false);
 loadGraph();
 
