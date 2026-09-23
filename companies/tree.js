@@ -16,6 +16,7 @@ const researchDocument = document.querySelector('#research-document');
 const researchSearch = document.querySelector('#research-search');
 const researchResult = document.querySelector('#research-result');
 const familySwitcher = document.querySelector('#family-switcher');
+const groupSwitcher = document.querySelector('#group-switcher');
 const finder = document.querySelector('#lineage-finder');
 const finderSearch = document.querySelector('#finder-search');
 const finderFamilies = document.querySelector('#finder-families');
@@ -119,8 +120,13 @@ function nthIndexOf(text, query, occurrence = 1) {
 }
 
 function extractMembersFromMarkdown(group, markdown) {
-  if (!group.memberHeading || !markdown) return [];
-  const headingIndex = nthIndexOf(markdown, group.memberHeading, group.memberOccurrence || 1);
+  const headings = group.memberHeadings || (group.memberHeading ? [group.memberHeading] : []);
+  if (!headings.length || !markdown) return [];
+  return [...new Set(headings.flatMap((heading) => extractMembersFromHeading(heading, markdown, group.memberOccurrence || 1)))];
+}
+
+function extractMembersFromHeading(heading, markdown, occurrence) {
+  const headingIndex = nthIndexOf(markdown, heading, occurrence);
   if (headingIndex < 0) return [];
   const blockStart = markdown.indexOf('\n', headingIndex) + 1;
   const tail = markdown.slice(blockStart);
@@ -131,6 +137,7 @@ function extractMembersFromMarkdown(group, markdown) {
     let text = line.trim();
     if (!text || /^(>|\||---|#)/.test(text)) return;
     text = text.replace(/\*\*/g, '').replace(/`/g, '').trim();
+    if (/\([^)]*담당\)|\(\d+여 개\)/.test(text)) return;
     if (/^(?:금융(?:,\s*보험)?|보험|비금융|지주 및 중간지주|반도체|에너지,\s*화학|통신,\s*미디어,\s*플랫폼|바이오|건설,\s*환경,\s*소재|유통,\s*서비스|도시가스 계열|사회적기업,\s*장애인표준사업장)\s*\d*개.*$/i.test(text) && !text.includes(':')) return;
     text = text.replace(/^(?:금융(?:,\s*보험)?|보험|비금융|지주 및 중간지주|반도체|에너지,\s*화학|통신,\s*미디어,\s*플랫폼|바이오|건설,\s*환경,\s*소재|유통,\s*서비스|도시가스 계열|사회적기업,\s*장애인표준사업장)[^:]*:\s*/i, '');
     if (/^(?:금융|보험|비금융|지주|반도체|에너지|통신|바이오|건설|유통|도시가스|사회적기업)[^,]*$/i.test(text)) return;
@@ -782,19 +789,19 @@ function finderEntry(family, type, name, description, payload = {}) {
 
 async function buildFinderIndex() {
   if (finderBuilt) return;
-  finderSummary.textContent = '네 가문의 기업·계열사 목록을 불러오는 중입니다…';
+  finderSummary.textContent = '기업·계열사 목록을 불러오는 중입니다…';
   const collections = await Promise.all(families.map(async (family) => {
     const [dataResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-14`),
-      fetch(`${family.research}?v=20260920-14`)
+      fetch(`${family.data}?v=20260923-01`),
+      fetch(`${family.research}?v=20260923-01`)
     ]);
     if (!dataResponse.ok || !researchResponse.ok) return [];
     const familyGraph = mergeEnrichment(await dataResponse.json(), family.id);
     const markdown = await researchResponse.text();
-    const entries = [finderEntry(family, '가문', family.label, family.subtitle, { target:'family' })];
+    const entries = [finderEntry(family, family.kind === 'group' ? '그룹' : '가문', family.label, family.subtitle, { target:'family' })];
     familyGraph.nodes.forEach((node) => entries.push(finderEntry(
       family,
-      node.current ? '현재 그룹' : '계보 기업',
+      node.current ? '현재 기업' : '계보 기업',
       node.label,
       [node.year, node.kind, node.note, ...(node.aliases || [])].filter(Boolean).join(' · '),
       { target:'node', nodeId:node.id }
@@ -808,7 +815,7 @@ async function buildFinderIndex() {
     familyGraph.departures.forEach((item) => entries.push(finderEntry(family, '이탈 기업', item.former, `현재 ${item.now} · ${item.path}`, { target:'departure', departureName:item.former })));
     return entries;
   }));
-  const typeOrder = { '가문':0, '현재 그룹':1, '계보 기업':2, '계열사':3, '이탈 기업':4 };
+  const typeOrder = { '가문':0, '그룹':0, '현재 그룹':1, '현재 기업':1, '계보 기업':2, '계열사':3, '이탈 기업':4 };
   finderEntries = collections.flat().sort((a, b) => typeOrder[a.type] - typeOrder[b.type] || a.familyLabel.localeCompare(b.familyLabel, 'ko') || a.name.localeCompare(b.name, 'ko'));
   finderBuilt = true;
   renderFinderResults();
@@ -866,7 +873,7 @@ function renderFinderResults() {
   const raw = finderSearch.value.trim();
   const query = normalize(raw);
   const matches = query ? finderEntries.filter((entry) => normalize(`${entry.name} ${entry.description} ${entry.familyLabel}`).includes(query)) : finderEntries;
-  finderSummary.textContent = raw ? `“${raw}” 검색 결과 ${matches.length.toLocaleString('ko-KR')}개` : `네 가문에서 ${matches.length.toLocaleString('ko-KR')}개 항목을 스크롤하거나 검색할 수 있습니다.`;
+  finderSummary.textContent = raw ? `“${raw}” 검색 결과 ${matches.length.toLocaleString('ko-KR')}개` : `${families.length}개 범가·그룹의 ${matches.length.toLocaleString('ko-KR')}개 항목을 스크롤하거나 검색할 수 있습니다.`;
   if (!matches.length) {
     finderResults.innerHTML = '<p class="finder-empty">일치하는 기업이 없습니다. 옛 이름이나 그룹 이름으로도 검색해 보세요.</p>';
     return;
@@ -939,7 +946,7 @@ function updateFamilyInterface() {
 }
 
 function renderFamilySwitcher() {
-  familySwitcher.replaceChildren(...families.map((family) => {
+  const makeButton = (family) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = family.label;
@@ -948,8 +955,16 @@ function renderFamilySwitcher() {
     button.setAttribute('aria-pressed', String(family.id === activeFamily?.id));
     button.addEventListener('click', () => selectFamily(family.id));
     return button;
-  }));
+  };
+  familySwitcher.replaceChildren(...families.filter((family) => family.kind !== 'group').map(makeButton));
+  groupSwitcher.replaceChildren(...families.filter((family) => family.kind === 'group').map(makeButton));
 }
+
+groupSwitcher.addEventListener('wheel', (event) => {
+  if (groupSwitcher.scrollWidth <= groupSwitcher.clientWidth || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+  event.preventDefault();
+  groupSwitcher.scrollLeft += event.deltaY;
+}, { passive:false });
 
 function renderAll() {
   sourceMap = new Map(graph.sources.map((source) => [source.id, source]));
@@ -990,8 +1005,8 @@ async function selectFamily(familyId, options = {}) {
   activeDepartureCategory = '전체';
   try {
     const [graphResponse, researchResponse] = await Promise.all([
-      fetch(`${family.data}?v=20260920-14`),
-      fetch(`${family.research}?v=20260920-14`)
+      fetch(`${family.data}?v=20260923-01`),
+      fetch(`${family.research}?v=20260923-01`)
     ]);
     if (!graphResponse.ok) throw new Error(`계보 HTTP ${graphResponse.status}`);
     if (!researchResponse.ok) throw new Error(`원문 HTTP ${researchResponse.status}`);
@@ -1022,8 +1037,8 @@ async function selectFamily(familyId, options = {}) {
 async function loadGraph() {
   try {
     const [response, enrichmentResponse] = await Promise.all([
-      fetch('../data/families.json?v=20260920-14'),
-      fetch('../data/family-enrichment.json?v=20260920-14')
+      fetch('../data/families.json?v=20260923-01'),
+      fetch('../data/family-enrichment.json?v=20260923-01')
     ]);
     if (!response.ok) throw new Error(`목록 HTTP ${response.status}`);
     families = await response.json();
@@ -1063,7 +1078,7 @@ document.addEventListener('click', (event) => {
 search.addEventListener('input', updateSearch);
 finderSearch.addEventListener('input', renderFinderResults);
 document.querySelectorAll('[data-finder-close]').forEach((button) => button.addEventListener('click', closeFinder));
-document.querySelector('[data-open-finder]').addEventListener('click', (event) => { event.preventDefault(); openFinder(); });
+document.querySelectorAll('[data-open-finder]').forEach((button) => button.addEventListener('click', (event) => { event.preventDefault(); openFinder(); }));
 search.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') memberSearchResults.querySelector('button')?.click();
 });

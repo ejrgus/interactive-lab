@@ -1,6 +1,7 @@
 [
   {
     "id": "hyundai",
+    "kind": "family",
     "label": "범현대가",
     "subtitle": "정주영에서 갈라진 15개 흐름",
     "data": "../data/hyundai-family.json",
@@ -8,6 +9,7 @@
   },
   {
     "id": "samsung",
+    "kind": "family",
     "label": "범삼성가",
     "subtitle": "계획적 분봉과 혼맥의 계보",
     "data": "../data/samsung-family.json",
@@ -15,6 +17,7 @@
   },
   {
     "id": "lg",
+    "kind": "family",
     "label": "범LG가",
     "subtitle": "구씨·허씨 동업과 형제 분가",
     "data": "../data/lg-family.json",
@@ -22,9 +25,22 @@
   },
   {
     "id": "sk",
+    "kind": "family",
     "label": "범SK가",
     "subtitle": "분리 대신 ‘따로 또 같이’",
     "data": "../data/sk-family.json",
     "research": "../research/sk-family-complete.md"
+  },
+  {
+    "id": "lotte", "kind": "family", "label": "범롯데가", "subtitle": "롯데·농심과 독립한 방계", "data": "../data/lotte-family.json", "research": "../research/lotte-family-complete.md"
+  },
+  {
+    "id": "daewoo", "kind": "group", "label": "대우그룹", "subtitle": "해체 이후 흩어진 대우의 기업들", "data": "../data/daewoo-family.json", "research": "../research/daewoo-family-complete.md"
+  },
+  {
+    "id": "doosan", "kind": "group", "label": "두산그룹", "subtitle": "소비재에서 중공업·에너지로", "data": "../data/doosan-family.json", "research": "../research/doosan-family-complete.md"
+  },
+  {
+    "id": "hanwha", "kind": "group", "label": "한화그룹", "subtitle": "화약에서 방산·에너지·금융으로", "data": "../data/hanwha-family.json", "research": "../research/hanwha-family-complete.md"
   }
 ]
