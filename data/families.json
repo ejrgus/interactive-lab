@@ -42,5 +42,8 @@
   },
   {
     "id": "hanwha", "kind": "group", "label": "한화그룹", "subtitle": "화약에서 방산·에너지·금융으로", "data": "../data/hanwha-family.json", "research": "../research/hanwha-family-complete.md"
+  },
+  {
+    "id": "hanjin", "kind": "group", "label": "한진그룹", "subtitle": "육해공 수송과 네 갈래 분리", "data": "../data/hanjin-family.json", "research": "../research/hanjin-family-complete.md"
   }
 ]

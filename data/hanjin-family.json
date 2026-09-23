@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "schemaVersion": 6,
+    "status": "source-based-research",
+    "lastReviewed": "2026-09-24",
+    "nodeWidth": 202,
+    "nodeHeight": 72,
+    "title": "한진그룹 계보",
+    "familyName": "한진그룹",
+    "archiveKicker": "HANJIN GROUP ARCHIVE · 1945—2026",
+    "summary": "한진상사에서 시작한 육해공 수송사업과 중공업·해운·금융의 서로 다른 후속 경로를 살펴봅니다.",
+    "notice": "2026년 5월 공정위 지정 기준 한진 계열사는 44개입니다. 아시아나항공은 2024년 인수되어 현재 계열사이지만, 대한항공과의 법적 합병은 2026년 12월 17일 예정으로 아직 완료되지 않았습니다. 메리츠·HJ중공업·유수홀딩스는 현 한진 계열이 아닙니다.",
+    "canvasWidth": 2470,
+    "canvasHeight": 1440,
+    "sourceCount": 5,
+    "resetTop": 510,
+    "filterLabels": {"core":"한진 본류","direct":"독립·현 계열","branch":"사업 분기","exit":"계열이탈·소멸"}
+  },
+  "stages": [
+    {"id":"origin","label":"1945–1968 · 한진상사","x":35},
+    {"id":"transport","label":"1969–2002 · 육해공 확장","x":435},
+    {"id":"division","label":"2003–2012 · 형제 분리","x":855},
+    {"id":"restructure","label":"2013–2021 · 재편·위기","x":1285},
+    {"id":"integration","label":"2017–2024 · 각 갈래의 결과","x":1715},
+    {"id":"current","label":"2026 · 현재의 서로 다른 소속","x":2155}
+  ],
+  "nodes": [
+    {"id":"trading","label":"한진상사","year":"1945","kind":"창업","note":"조중훈 · 인천의 트럭 한 대","detail":"조중훈이 1945년 11월 1일 인천에서 한진상사를 열었다. 한진그룹 육상 운송사업의 출발점이다.","x":55,"y":590,"category":"core","aliases":["한진","조중훈"],"sourceIds":["korean-air-history","research"]},
+    {"id":"korean-air","label":"대한항공","year":"1969","kind":"국영기업 인수","note":"대한항공공사 인수 · 항공 진출","detail":"한진은 1969년 국영 대한항공공사를 인수해 대한항공을 출범시켰다. 오늘날 한진그룹의 핵심 항공 계열이다.","x":455,"y":590,"category":"core","aliases":["대한항공공사","Korean Air"],"sourceIds":["korean-air-history"]},
+    {"id":"heavy","label":"한진중공업","year":"1989","kind":"조선업 인수","note":"대한조선공사 인수 계보","detail":"대한조선공사를 인수한 중공업 계보이다. 2005년 한진그룹에서 분리되고, 이후 주력 회사의 소유권은 다시 바뀌었다.","x":455,"y":280,"category":"branch","aliases":["대한조선공사","HJ중공업"],"sourceIds":["research"]},
+    {"id":"shipping","label":"한진해운","year":"1977","kind":"해운 설립","note":"1988년 대한선주 합병","detail":"1977년 설립된 한진해운은 1988년 대한선주를 합병했다. 2005년 형제 분리 당시에는 한진그룹에 남아 있었다.","x":455,"y":970,"category":"branch","aliases":["대한선주"],"sourceIds":["korean-air-history","research"]},
+    {"id":"finance","label":"한진 금융 계열","year":"2000","kind":"사명 변경","note":"한진투자증권·동양화재 → 메리츠","detail":"한진투자증권과 동양화재가 메리츠증권·메리츠화재로 이름을 바꾼 금융 계보이다. 정확한 법인별 변경 시점은 추가 확인이 필요하다.","x":455,"y":80,"category":"branch","unverified":true,"aliases":["한진투자증권","동양화재","메리츠증권","메리츠화재"],"sourceIds":["research"]},
+    {"id":"succession","label":"조중훈 사후 4형제 계보","year":"2002–2005","kind":"승계·분리","note":"항공·중공업·해운·금융","detail":"조중훈 사후 장남 조양호의 한진 본류, 차남 조남호의 중공업, 삼남 조수호의 해운, 사남 조정호의 금융 계보가 서로 다른 길로 전개됐다. 해운은 2005년에 한진그룹에서 완전히 분리된 것은 아니다.","x":875,"y":590,"category":"core","sourceIds":["research"]},
+    {"id":"meritz-split","label":"메리츠 금융계열 분리","year":"2005","kind":"계열분리","note":"조정호 계보 · 독립 금융그룹","detail":"메리츠 금융 계열은 한진그룹에서 분리됐다. 제공된 원문에서는 분리연도의 주 근거가 위키이므로 세부 법적 시점은 재검증 대상으로 남긴다.","x":875,"y":80,"category":"direct","unverified":true,"sourceIds":["research"]},
+    {"id":"heavy-split","label":"중공업 계열분리","year":"2005","kind":"계열분리","note":"조남호 계보 · 한진 본류 이탈","detail":"한진중공업 계열이 한진그룹에서 분리됐다. 지금의 HJ중공업과 한진중공업홀딩스는 그 뒤 소유 경로가 다시 갈라졌으므로 동일 그룹으로 묶지 않는다.","x":875,"y":280,"category":"direct","unverified":true,"sourceIds":["research"]},
+    {"id":"shipping-holding","label":"한진해운홀딩스","year":"2009","kind":"지주·사업 분리","note":"최은영 계보의 지주회사","detail":"한진해운의 지주·사업회사 분리 시기다. 이후 한진해운 사업회사는 조양호 측으로 돌아가고 지주회사 계보는 유수홀딩스로 이어진다.","x":875,"y":970,"category":"branch","sourceIds":["research"]},
+    {"id":"hanjinkal","label":"한진칼 중심 본류","year":"2013–2014","kind":"지주체계","note":"항공·물류 지배구조 재편","detail":"한진칼을 중심으로 한진그룹의 지주·항공 계열 지배구조가 재편됐다. 제공된 원문은 한진칼 출범을 2014년으로 쓰므로 정확한 설립·분할 시점은 별도 확인이 필요하다.","x":1305,"y":590,"category":"core","unverified":true,"aliases":["한진칼"],"sourceIds":["research"]},
+    {"id":"heavy-loss","label":"한진중공업 경영권 상실","year":"2019","kind":"채권단 재편","note":"조남호 지분 감자 · 본류와 별개","detail":"채권단 출자전환으로 조남호 측이 한진중공업의 경영권을 잃었다. 한진중공업홀딩스라는 별도 회사는 남았으나, 주력 조선회사와 동일시하면 안 된다.","x":1305,"y":280,"category":"exit","sourceIds":["research"]},
+    {"id":"shipping-return","label":"한진해운 경영권 재편","year":"2014","kind":"사업·지주 분리","note":"조양호 측 사업회사 경영","detail":"최은영 측이 한진해운 사업회사의 경영권을 조양호 측에 넘겼고, 한진해운홀딩스 계보는 유수홀딩스로 따로 이어졌다.","x":1305,"y":970,"category":"core","sourceIds":["research"]},
+    {"id":"yusu-split","label":"한진해운홀딩스 → 유수홀딩스","year":"2014","kind":"계열분리·사명변경","note":"최은영 계보 · 해운 사업회사와 별도","detail":"한진해운홀딩스의 후신인 유수홀딩스는 한진해운 사업회사와 다른 법인 계보이다. 현재 한진그룹 계열사가 아니다.","x":1305,"y":1170,"category":"direct","aliases":["유수홀딩스"],"sourceIds":["research"]},
+    {"id":"siblings","label":"한진칼 경영권 분쟁","year":"2019–2021","kind":"지배구조","note":"조원태와 3자 연합의 표 대결","detail":"조양호 사후 한진칼을 둘러싼 조원태 측과 조현아·KCGI·반도건설 측의 경영권 대립이 있었다. 2020년 주총 표 대결 이후 연합은 해체됐다. 이후의 실시간 지분율은 이 카드에 고정 수치로 표시하지 않는다.","x":1740,"y":810,"category":"core","sourceIds":["research"]},
+    {"id":"asiana-acquisition","label":"아시아나항공 인수","year":"2024.12","kind":"지분 인수","note":"지분 63.88% 확보 · 합병과 구분","detail":"대한항공이 2024년 12월 아시아나항공 지분 63.88%를 인수했다. 아시아나항공은 한진그룹 계열이 됐으나 2026년 9월 현재 대한항공과 별도 법인이다. 양사 합병기일은 2026년 12월 17일로 예정됐다.","x":1740,"y":590,"category":"branch","aliases":["아시아나","에어부산","에어서울"],"sourceIds":["korean-air-asiana","korean-air-merger","ftc"]},
+    {"id":"hj-rename","label":"한진중공업 → HJ중공업","year":"2021","kind":"인수·사명 변경","note":"동부건설 컨소시엄 계보","detail":"한진중공업은 2021년 동부건설 컨소시엄에 인수된 뒤 HJ중공업으로 이름을 바꿨다. 조남호 일가가 남긴 한진중공업홀딩스와 현재의 HJ중공업은 별도 소유 경로이다.","x":1740,"y":280,"category":"exit","aliases":["HJ중공업"],"sourceIds":["research"]},
+    {"id":"shipping-bankruptcy","label":"한진해운 파산","year":"2017","kind":"파산","note":"법원 파산 선고 · 2025 파산폐지","detail":"법원은 2017년 2월 17일 한진해운에 파산을 선고했다. 제공된 원문은 2025년 파산폐지 결정도 기록한다. 현존 한진 계열사로 취급하지 않는다.","x":1740,"y":970,"category":"exit","sourceIds":["research"]},
+    {"id":"meritz-now","label":"메리츠금융그룹","year":"2026","kind":"현재 독립","note":"조정호 계보 · 한진 계열 아님","detail":"메리츠금융지주·메리츠증권·메리츠화재로 이어지는 독립 금융 계보이다. 원문의 116조 원 수치는 위키 참고치로 공식 공정자산총액이 아니므로 화면에 사용하지 않는다.","x":2190,"y":80,"category":"direct","current":true,"subsidiaries":["메리츠금융지주","메리츠증권","메리츠화재"],"sourceIds":["research"]},
+    {"id":"heavy-holding-now","label":"한진중공업홀딩스","year":"2026","kind":"현재 별도","note":"조남호 계보 · HJ중공업과 별개","detail":"조남호 일가가 남긴 지주회사 계보이다. 주력 조선회사 HJ중공업과 소유·지배 관계를 동일하게 표시하지 않는다. 현 규모와 지배 구조는 추가 확인이 필요하다.","x":2190,"y":230,"category":"direct","current":true,"unverified":true,"sourceIds":["research"]},
+    {"id":"hj-now","label":"HJ중공업","year":"2026","kind":"현재 별도","note":"구 한진중공업 · 현 한진 계열 아님","detail":"옛 한진중공업의 후신이지만 현재 한진그룹 소속도 조남호의 한진중공업홀딩스 소속도 아니다. 정확한 현 지배구조는 원문의 추가 확인 항목이다.","x":2190,"y":360,"category":"exit","current":true,"sourceIds":["research"]},
+    {"id":"hanjin-now","label":"한진그룹","year":"2026","kind":"현재","note":"조원태 · 44개사 · 공정위 12위","detail":"2026년 5월 공정위 지정 기준 한진그룹은 44개 계열사, 공정자산 62조 4,702억 원이다. 대한항공·아시아나항공·진에어·에어부산·에어서울과 물류기업 (주)한진 등이 함께 포함된다.","x":2190,"y":590,"category":"core","current":true,"subsidiaries":["㈜한진칼","㈜대한항공","아시아나항공㈜","㈜진에어","에어부산㈜","에어서울㈜","㈜한진","한국공항㈜","㈜칼호텔네트워크","한진정보통신㈜"],"sourceIds":["ftc","korean-air-asiana"]},
+    {"id":"asiana-now","label":"아시아나항공","year":"2026","kind":"현재 계열","note":"한진 편입 · 대한항공과 별도 법인","detail":"2026년 5월 공정위 한진 계열사 명단에 아시아나항공과 에어부산·에어서울이 각각 실려 있다. 대한항공과의 합병은 2026년 12월 17일 예정이며 아직 완료된 사실이 아니다.","x":2190,"y":740,"category":"direct","current":true,"subsidiaries":["아시아나항공㈜","에어부산㈜","에어서울㈜","아시아나아이디티㈜","아시아나에어포트㈜"],"sourceIds":["ftc","korean-air-merger"]},
+    {"id":"shipping-end","label":"한진해운 소멸","year":"2017–2025","kind":"파산·폐지","note":"현재 한진 계열사가 아님","detail":"한진해운은 2017년 파산 선고를 받았고 2025년에는 파산폐지 결정이 기록됐다. (주)한진의 항만·물류 계열이 현재 남은 것과 한진해운 법인의 존속은 다른 문제이다.","x":2190,"y":970,"category":"exit","sourceIds":["research"]},
+    {"id":"yusu-now","label":"유수홀딩스","year":"2026","kind":"현재 별도","note":"구 한진해운홀딩스 계보","detail":"최은영 측 한진해운홀딩스에서 이어진 별도 회사로, 파산한 한진해운 사업회사나 현재 한진그룹 계열사와 구분해야 한다.","x":2190,"y":1170,"category":"direct","current":true,"sourceIds":["research"]}
+  ],
+  "edges": [
+    {"from":"trading","to":"korean-air","type":"continuation"},{"from":"trading","to":"heavy","type":"merger"},{"from":"trading","to":"shipping","type":"continuation"},{"from":"trading","to":"finance","type":"continuation"},
+    {"from":"korean-air","to":"succession","type":"continuation"},{"from":"succession","to":"hanjinkal","type":"continuation"},{"from":"hanjinkal","to":"asiana-acquisition","type":"merger"},{"from":"asiana-acquisition","to":"hanjin-now","type":"continuation"},{"from":"asiana-acquisition","to":"asiana-now","type":"continuation"},{"from":"hanjinkal","to":"siblings","type":"continuation"},{"from":"siblings","to":"hanjin-now","type":"continuation"},
+    {"from":"finance","to":"meritz-split","type":"split"},{"from":"meritz-split","to":"meritz-now","type":"continuation"},
+    {"from":"heavy","to":"heavy-split","type":"split"},{"from":"heavy-split","to":"heavy-loss","type":"exit"},{"from":"heavy-loss","to":"hj-rename","type":"exit"},{"from":"hj-rename","to":"hj-now","type":"continuation"},{"from":"heavy-split","to":"heavy-holding-now","type":"continuation"},
+    {"from":"shipping","to":"shipping-holding","type":"continuation"},{"from":"shipping-holding","to":"shipping-return","type":"continuation"},{"from":"shipping-return","to":"shipping-bankruptcy","type":"exit"},{"from":"shipping-bankruptcy","to":"shipping-end","type":"exit"},{"from":"shipping-holding","to":"yusu-split","type":"split"},{"from":"yusu-split","to":"yusu-now","type":"continuation"}
+  ],
+  "groups": [
+    {"name":"한진그룹","controller":"조원태","rank":"공정위 12위","assets":"62조 4,702억 원","affiliates":"44개사","status":"현재 집단","summary":"2026년 5월 공정위 지정 기준. 대한항공과 아시아나항공은 현재 각각의 법인이며 통합 법인 출범은 아직 예정 단계입니다.","memberScope":"2026년 5월 지정 44개 전체 명단 · 조사 원문에서 추출","memberHeading":"### 7.1 전체 명단[A]","members":["㈜한진칼","㈜대한항공","아시아나항공㈜","㈜진에어","에어부산㈜","에어서울㈜","㈜한진"]},
+    {"name":"메리츠금융그룹","controller":"조정호","rank":"한진과 별도","assets":"공식 공정자산총액 미확인","affiliates":"명단 미검증","status":"독립 금융 계보","summary":"한진의 옛 금융사업에서 갈라진 계보입니다. 조사 원문의 전체 규모 수치는 위키 참고치여서 공식 수치로 제시하지 않습니다.","members":["메리츠금융지주","메리츠증권","메리츠화재"]},
+    {"name":"한진중공업홀딩스","controller":"조남호 계보","rank":"한진과 별도","assets":"미확인","affiliates":"미확인","status":"분리 후 잔존 지주사","summary":"현재 HJ중공업의 소유회사라는 의미가 아닙니다. 현 지배·계열사 규모는 추가 검증이 필요합니다.","members":["한진중공업홀딩스"]},
+    {"name":"HJ중공업","controller":"현 지배구조 추가 확인","rank":"한진과 별도","assets":"미확인","affiliates":"미확인","status":"옛 한진중공업 후신","summary":"2019년 조남호 측 경영권 상실 후 2021년 동부건설 컨소시엄이 인수한 별도 회사입니다.","members":["HJ중공업"]},
+    {"name":"유수홀딩스","controller":"최은영 계보","rank":"한진과 별도","assets":"미확인","affiliates":"미확인","status":"구 한진해운홀딩스","summary":"한진해운 사업회사의 파산과 별개로 이어진 지주회사 계보입니다.","members":["유수홀딩스"]}
+  ],
+  "timeline": [
+    {"era":"육해공 수송의 형성","range":"1945–2002","events":[{"date":"1945.11","text":"조중훈, 인천에서 한진상사 창업","grade":"B"},{"date":"1969","text":"대한항공공사 인수·대한항공 출범","grade":"B"},{"date":"1977","text":"한진해운 설립","grade":"B"},{"date":"1988","text":"한진해운, 대한선주 합병","grade":"B"},{"date":"1989","text":"대한조선공사 인수 계보에서 한진중공업","grade":"C"},{"date":"2002","text":"조중훈 별세 후 네 형제의 사업 계보가 갈라짐","grade":"D"}]},
+    {"era":"분리와 후속 경로","range":"2003–2021","events":[{"date":"2005","text":"중공업·메리츠 금융계열 분리; 해운은 이때 아직 한진 소속","grade":"D"},{"date":"2009","text":"한진해운 지주·사업회사 분리","grade":"D"},{"date":"2014","text":"한진해운 사업회사 경영권 재편, 유수홀딩스 계보 분리","grade":"C"},{"date":"2017.2","text":"한진해운 파산 선고","grade":"C"},{"date":"2019","text":"한진중공업 조남호 측 경영권 상실","grade":"C"},{"date":"2019–2021","text":"한진칼 경영권 분쟁과 3자 연합 해체","grade":"C"},{"date":"2021","text":"옛 한진중공업, HJ중공업으로 사명 변경","grade":"C"}]},
+    {"era":"아시아나 편입과 현재","range":"2024–2026","events":[{"date":"2024.12","text":"대한항공, 아시아나항공 지분 63.88% 인수","grade":"B"},{"date":"2026.5","text":"공정위 한진 44개 계열사 지정; 아시아나항공은 별도 법인으로 등재","grade":"A"},{"date":"2026.12.17 예정","text":"대한항공·아시아나항공 합병 예정일; 2026년 9월 현재 미완료","grade":"B"}]}
+  ],
+  "departures": [
+    {"category":"금융 계열분리","former":"한진투자증권·동양화재","now":"메리츠증권·메리츠화재","path":"메리츠 금융 계보 → 2005년 한진에서 분리","reason":"형제 간 사업 분화","grade":"D"},
+    {"category":"중공업 계열분리","former":"한진중공업","now":"HJ중공업","path":"2005 한진 분리 → 2019 경영권 상실 → 2021 매각·사명 변경","reason":"분리 이후 채권단 재편","grade":"C"},
+    {"category":"지주회사 분리","former":"한진해운홀딩스","now":"유수홀딩스","path":"2009 지주·사업 분리 → 2014 별도 계보","reason":"해운 사업회사 경영권 재편","grade":"C"},
+    {"category":"파산·소멸","former":"한진해운","now":"파산·폐지","path":"2017 파산 선고 → 2025 파산폐지 결정","reason":"경영난·구조조정 실패","grade":"C"}
+  ],
+  "sources": [
+    {"id":"ftc","title":"공정거래위원회 2026 기업집단 지정 자료","url":"https://www.ftc.go.kr/www/downloadBbsFile.do?atchmnflNo=53816"},
+    {"id":"korean-air-history","title":"대한항공 뉴스룸: 조중훈 창업주 100주년과 한진 연혁","url":"https://news.koreanair.com/%EC%A1%B0%EC%A4%91%ED%9B%88-%ED%95%9C%EC%A7%84%EA%B7%B8%EB%A3%B9-%EC%B0%BD%EC%97%85%EC%A3%BC-%ED%83%84%EC%83%9D-100%EC%A3%BC%EB%85%84-%EB%A7%9E%EC%95%84/"},
+    {"id":"korean-air-asiana","title":"대한항공 뉴스룸: 아시아나항공 지분 63.88% 인수","url":"https://news.koreanair.com/%EB%8C%80%ED%95%9C%ED%95%AD%EA%B3%B5-%EC%95%84%EC%8B%9C%EC%95%84%EB%82%98%ED%95%AD%EA%B3%B5-%EC%A7%80%EB%B6%84-63-88-%EC%9D%B8%EC%88%98/"},
+    {"id":"korean-air-merger","title":"대한항공 뉴스룸: 2026년 12월 17일 합병계약 체결","url":"https://news.koreanair.com/%EB%8C%80%ED%95%9C%ED%95%AD%EA%B3%B5-%EC%95%84%EC%8B%9C%EC%95%84%EB%82%98%ED%95%AD%EA%B3%B5-%ED%95%A9%EB%B3%91%EA%B3%84%EC%95%BD-%EC%B2%B4%EA%B2%B0-2026%EB%85%84-12%EC%9B%94-17%EC%9D%BC/"},
+    {"id":"research","title":"한진그룹 조사 원문 (출처·미확인 항목 포함)","url":"../research/hanjin-family-complete.md"}
+  ]
+}
