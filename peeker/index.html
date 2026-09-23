@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Peeker와 Holder의 3D 시점을 나란히 보며 핑과 반응속도가 서버 판정에 미치는 영향을 시뮬레이션합니다.">
+  <meta name="theme-color" content="#101822">
+  <title>Peeker’s Advantage — Interactive Lab</title>
+  <link rel="stylesheet" href="../assets/css/common.css?v=20260924-04">
+  <link rel="stylesheet" href="style.css?v=20260924-04">
+  <script type="module" src="../assets/js/navigation.js?v=20260924-03"></script>
+  <script type="module" src="app.js?v=20260924-04"></script>
+</head>
+<body class="peeker-page">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="../index.html" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html">홈</a><a href="../sister-sites/index.html">추천 사이트</a></nav>
+    </div>
+  </header>
+  <main id="main" class="sim-shell">
+    <div class="page-intro">
+      <div><p class="kicker">02 / FPS 네트워크 실험</p><h1>같은 순간, 다른 화면.</h1><p>Peeker는 벽에서 나오고, Holder는 지연된 모습을 봅니다. 두 시점을 천천히 재생해 보세요.</p></div>
+      <div class="model-chip">128틱 서버 <span>·</span> 60FPS 화면 <span>·</span> 양방향 지연 대칭</div>
+    </div>
+
+    <section class="preset-section" aria-labelledby="preset-title">
+      <div class="section-line"><h2 id="preset-title">예시로 시작하기</h2><p>프리셋을 고르거나 아래 바를 직접 조절하세요.</p></div>
+      <div class="preset-grid" id="presetGrid">
+        <button type="button" class="preset is-selected" data-preset="0" aria-pressed="true"><span class="preset-index">01 · 같은 핑</span><strong>Peeker가 느려도 승리</strong><small>반응 80ms 느림 · 핑 40 / 40</small></button>
+        <button type="button" class="preset" data-preset="1" aria-pressed="false"><span class="preset-index">02 · 같은 핑</span><strong>Holder가 더 빨라 승리</strong><small>반응 125ms 빠름 · 핑 40 / 40</small></button>
+        <button type="button" class="preset" data-preset="2" aria-pressed="false"><span class="preset-index">03 · 같은 반응</span><strong>Holder 핑이 높을 때</strong><small>250 / 250ms · 핑 20 / 100</small></button>
+        <button type="button" class="preset" data-preset="3" aria-pressed="false"><span class="preset-index">04 · 같은 반응</span><strong>Peeker 핑이 높을 때</strong><small>250 / 250ms · 핑 200 / 10</small></button>
+      </div>
+      <p class="preset-explain" id="presetExplain"></p>
+    </section>
+
+    <section class="simulation" aria-label="두 플레이어의 3D 시뮬레이션">
+      <div class="sim-topline"><div class="live-clock"><span class="clock-dot"></span><span id="phaseLabel">시뮬레이션 준비</span><strong id="clock">−700 ms</strong></div><p id="narration" aria-live="polite">Peeker가 벽 뒤에 숨어 있습니다.</p><div class="sim-actions"><button class="run-button" id="runButton" type="button">시뮬레이션 시작</button><button class="pause-button" id="pauseButton" type="button" disabled>일시정지</button></div></div>
+      <div class="view-grid">
+        <section class="view-panel view-peeker" aria-label="Peeker 시점"><div class="view-heading"><div><span class="player-dot"></span><strong>PEEKER</strong><span>자신의 화면</span></div><span class="view-status" id="peekerStatus">벽 뒤</span></div><canvas id="peekerView" aria-label="Peeker의 3D 시점"></canvas><div class="view-footer"><span>로컬 이동 예측</span><span>내 무기 빨강 · 상대 파랑</span></div></section>
+        <section class="view-panel view-holder" aria-label="Holder 시점"><div class="view-heading"><div><span class="player-dot"></span><strong>HOLDER</strong><span>자신의 화면</span></div><span class="view-status" id="holderStatus">Peeker 안 보임</span></div><canvas id="holderView" aria-label="Holder의 3D 시점"></canvas><div class="view-footer"><span>네트워크를 거쳐 보임</span><span>내 무기 파랑 · 상대 빨강</span></div></section>
+      </div>
+      <div class="transport"><label class="scrub-label" for="scrubber">시간 이동</label><input id="scrubber" type="range" min="-700" max="1000" value="-700" step="1" aria-label="시뮬레이션 시간 이동"><span class="speed-label">실제 시간의 1/5 속도</span></div>
+    </section>
+
+    <div class="lower-grid">
+      <section class="settings-card peeker-settings" aria-labelledby="peeker-settings-title"><h2 id="peeker-settings-title"><span class="player-dot"></span> Peeker 설정</h2><div class="slider-field"><div><label for="peekerPing">핑 (RTT)</label><output id="peekerPingValue">40 ms</output></div><input id="peekerPing" type="range" min="0" max="250" value="40" step="5"><small>0 ms <span>250 ms</span></small></div><div class="slider-field"><div><label for="peekerReaction">반응속도</label><output id="peekerReactionValue">300 ms</output></div><input id="peekerReaction" type="range" min="0" max="500" value="300" step="5"><small>즉시 0 ms <span>500 ms</span></small></div></section>
+      <section class="result-card" aria-labelledby="result-title"><h2 id="result-title">교전 결과</h2><div id="resultPlaceholder" class="result-placeholder">재생이 끝나면 승자와 승리 확률이 여기에 나타납니다.</div><div id="resultValues" hidden><strong id="winnerTitle"></strong><p id="winnerDetail"></p><div class="chance-label"><span>Peeker <b id="peekerChance">—</b></span><span>Holder <b id="holderChance">—</b></span></div><div class="chance-track"><span id="chanceFill"></span></div><small>가상 교전 10,000회 · 각 반응시간 표준편차 35ms 가정 · 양쪽 모두 명중</small></div></section>
+      <section class="settings-card holder-settings" aria-labelledby="holder-settings-title"><h2 id="holder-settings-title"><span class="player-dot"></span> Holder 설정</h2><div class="slider-field"><div><label for="holderPing">핑 (RTT)</label><output id="holderPingValue">40 ms</output></div><input id="holderPing" type="range" min="0" max="250" value="40" step="5"><small>0 ms <span>250 ms</span></small></div><div class="slider-field"><div><label for="holderReaction">반응속도</label><output id="holderReactionValue">220 ms</output></div><input id="holderReaction" type="range" min="0" max="500" value="220" step="5"><small>즉시 0 ms <span>500 ms</span></small></div></section>
+    </div>
+
+    <section class="model-note" aria-labelledby="model-title"><h2 id="model-title">이 장면을 읽는 법</h2><div class="note-grid"><p><strong>화면 격차</strong><span id="visibilityReadout">—</span><br>Peeker는 자신의 이동을 즉시 보지만, Holder는 서버와 화면 버퍼를 거쳐 뒤늦게 봅니다.</p><p><strong>Holder의 반응 한계</strong><span id="budgetReadout">—</span><br>Holder가 서버에서 먼저 처리되려면 이 시간보다 빠르게 반응해야 합니다.</p><p><strong>승리 확률의 범위</strong><br>표시된 값은 반응시간에 임의의 변동을 준 설명용 추정치입니다. 실제 게임의 명중률, 선조준, 코너 거리, 패킷 손실과 되감기 정책은 포함하지 않습니다.</p></div><p class="model-formula" id="formulaReadout"></p></section>
+  </main>
+</body>
+</html>
