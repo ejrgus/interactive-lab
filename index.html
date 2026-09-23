@@ -6,24 +6,40 @@
   <meta name="description" content="역사와 과학을 직접 탐색하는 인터랙티브 시각화 실험실">
   <meta name="theme-color" content="#f5f5f7">
   <title>Interactive Lab</title>
-  <link rel="stylesheet" href="assets/css/common.css">
-  <script type="module" src="assets/js/navigation.js?v=20260920-15"></script>
+  <link rel="stylesheet" href="assets/css/common.css?v=20260924-03">
+  <script type="module" src="assets/js/navigation.js?v=20260924-03"></script>
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header" data-header>
     <div class="nav-shell">
-      <a class="brand" href="index.html?v=20260924-02" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
+      <a class="brand" href="index.html?v=20260924-03" aria-label="Interactive Lab 홈"><span class="brand-mark" aria-hidden="true"></span><span>Interactive Lab</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
-      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a class="is-active" href="index.html?v=20260924-02" aria-current="page">홈</a><a href="companies/index.html?finder=1&amp;v=20260924-02">기업 계보</a><a href="sister-sites/index.html?v=20260924-02">추천 사이트</a></nav>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a class="is-active" href="index.html?v=20260924-03" aria-current="page">홈</a><a href="sister-sites/index.html?v=20260924-03">추천 사이트</a></nav>
     </div>
   </header>
   <main id="main" class="home-main">
     <section class="hero page-shell">
       <p class="eyebrow reveal">Interactive knowledge atlas</p>
       <h1 class="display-title reveal"><span class="title-primary">복잡한 이야기를</span><span class="title-secondary">직접 탐색하는 경험으로.</span></h1>
-      <p class="hero-copy reveal">기업의 탄생과 분리, 우리 몸의 방어 체계처럼 한눈에 보기 어려운 흐름을 움직이고 펼쳐보며 이해합니다.</p>
+      <p class="hero-copy reveal">복잡한 주제를 직접 움직이고 비교하며 이해하는 인터랙티브 실험실입니다.</p>
       <div class="hero-orbit" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span></div>
+    </section>
+    <section class="experiments section page-shell" id="experiments" aria-labelledby="experiments-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">Explore the lab</p><h2 id="experiments-title">실험을 선택하세요.</h2></div>
+        <p>관계와 시간의 흐름부터 게임 속 짧은 순간까지, 주제마다 다른 방식으로 탐색합니다.</p>
+      </div>
+      <div class="experiment-list">
+        <a class="experiment-banner experiment-banner-company reveal" href="companies/index.html?finder=1&amp;v=20260924-03" aria-label="기업 계보 탐색하기">
+          <div class="experiment-banner-copy"><span class="experiment-number">01 / 탐색 가능</span><h3>기업 계보</h3><p>기업의 탄생과 분리, 합병을 시간의 흐름을 따라 살펴보세요.</p><span class="experiment-link">계보 탐색하기 <span aria-hidden="true">↗</span></span></div>
+          <div class="experiment-graphic company-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </a>
+        <article class="experiment-banner experiment-banner-peeker reveal" aria-labelledby="peeker-title">
+          <div class="experiment-banner-copy"><span class="experiment-number">02 / 준비 중</span><h3 id="peeker-title">Peeker’s Advantage</h3><p>FPS에서 먼저 나오는 사람과 지키는 사람의 화면은 얼마나 다르게 보일까요?</p><span class="experiment-pending">인터랙티브 실험 준비 중</span></div>
+          <div class="experiment-graphic peeker-graphic" aria-hidden="true"><span class="peeker-wall"></span><span class="peeker-player"></span><span class="peeker-sight"></span><span class="peeker-delay">+ ms</span></div>
+        </article>
+      </div>
     </section>
   </main>
 </body>
