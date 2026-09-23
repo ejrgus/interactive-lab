@@ -1,9 +1,9 @@
-const PEEKER = { x: -1.2, z: 1.8 };
+const PEEKER = { x: -1.2, z: 2.5 };
 const HOLDER = { x: 3, z: -1.8 };
 
 function peekerZ(time) {
-  if (time <= 0) return -2.4 + Math.max(0, Math.min(1, (time + 700) / 700)) * 4.2;
-  return PEEKER.z + Math.min(time / 360, 1) * 0.4;
+  if (time <= 0) return -2.4 + Math.max(0, Math.min(1, (time + 700) / 700)) * 4.9;
+  return PEEKER.z + Math.min(time / 320, 1) * 1.3;
 }
 
 function color(hex, factor) {
@@ -12,22 +12,38 @@ function color(hex, factor) {
   return `rgb(${channels.map(n => Math.min(255, Math.round(n * factor))).join(",")})`;
 }
 
-function cameraProject(point, camera, width, height) {
+function cameraPoint(point, camera) {
   const dx = point[0] - camera.x;
   const dz = point[2] - camera.z;
   const forward = dx * Math.sin(camera.yaw) + dz * Math.cos(camera.yaw);
-  if (forward < 0.12) return null;
   const right = dx * Math.cos(camera.yaw) - dz * Math.sin(camera.yaw);
-  const focal = height * 0.86;
-  return [width / 2 + right / forward * focal, height * 0.53 - (point[1] - camera.y) / forward * focal, forward];
+  return [right, point[1] - camera.y, forward];
+}
+
+function clipNear(points) {
+  const near = 0.12;
+  const result = [];
+  for (let i = 0; i < points.length; i++) {
+    const a = points[i], b = points[(i + 1) % points.length];
+    const aIn = a[2] >= near, bIn = b[2] >= near;
+    if (aIn) result.push(a);
+    if (aIn !== bIn) {
+      const t = (near - a[2]) / (b[2] - a[2]);
+      result.push(a.map((value, axis) => value + (b[axis] - value) * t));
+    }
+  }
+  return result;
 }
 
 function makeScene(camera, width, height) {
   const faces = [];
   const quad = (points, fill, stroke = null) => {
-    const projected = points.map(point => cameraProject(point, camera, width, height));
-    if (projected.some(point => !point)) return;
-    faces.push({ points: projected, depth: projected.reduce((n, point) => n + point[2], 0) / 4, fill, stroke });
+    const visible = clipNear(points.map(point => cameraPoint(point, camera)));
+    if (visible.length < 3) return;
+    const focal = height * 0.86;
+    const projected = visible.map(([right, up, forward]) =>
+      [width / 2 + right / forward * focal, height * .53 - up / forward * focal]);
+    faces.push({ points: projected, depth: visible.reduce((n, point) => n + point[2], 0) / visible.length, fill, stroke });
   };
   const box = (x, y, z, w, h, d, base) => {
     const x0 = x - w / 2, x1 = x + w / 2;
@@ -39,15 +55,28 @@ function makeScene(camera, width, height) {
     quad([[x1,y0,z0],[x1,y0,z1],[x1,y1,z1],[x1,y1,z0]],color(base,1.08));
     quad([[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]],color(base,1.2));
   };
-  const actor = (x, z, base) => {
-    box(x,0,z-.13,.24,.75,.32,base);
-    box(x-.2,0,z+.05,.18,.78,.21,base);
-    box(x+.2,0,z+.05,.18,.78,.21,base);
-    box(x,.78,z,.68,.88,.36,base);
-    box(x-.43,.84,z,.18,.72,.24,base);
-    box(x+.43,.84,z,.18,.72,.24,base);
-    box(x,1.7,z,.38,.37,.34,"#d7d9dd");
-    box(x,1.81,z-.19,.44,.14,.16,base);
+  const actor = (x, z, base, targetX, targetZ) => {
+    const yaw = Math.atan2(targetX - x, targetZ - z);
+    const rotated = (localX, localZ) => [x + localX * Math.cos(yaw) + localZ * Math.sin(yaw), z - localX * Math.sin(yaw) + localZ * Math.cos(yaw)];
+    const part = (localX, y, localZ, w, h, d, tint) => {
+      const x0 = localX - w / 2, x1 = localX + w / 2;
+      const z0 = localZ - d / 2, z1 = localZ + d / 2;
+      const corners = [[x0,z0],[x1,z0],[x1,z1],[x0,z1]].map(([px,pz]) => rotated(px,pz));
+      const face = (indices, shade) => quad(indices.map(([corner, top]) => [corners[corner][0],y + (top ? h : 0),corners[corner][1]]),color(tint,shade));
+      face([[0,0],[1,0],[1,1],[0,1]],.82);
+      face([[2,0],[3,0],[3,1],[2,1]],1.12);
+      face([[3,0],[0,0],[0,1],[3,1]],.72);
+      face([[1,0],[2,0],[2,1],[1,1]],.92);
+      face([[0,1],[1,1],[2,1],[3,1]],1.18);
+    };
+    part(-.18,0,0,.21,.75,.27,base);
+    part(.18,0,0,.21,.75,.27,base);
+    part(0,.76,0,.65,.84,.35,base);
+    part(-.42,.86,.02,.17,.69,.24,base);
+    part(.42,.86,.02,.17,.69,.24,base);
+    part(0,1.62,0,.4,.36,.34,"#d7d9dd");
+    part(0,1.75,.195,.43,.13,.055,"#273748");
+    part(0,1.15,.205,.33,.12,.055,"#f7faff");
   };
 
   for (let x = -6; x < 6; x++) {
@@ -60,9 +89,9 @@ function makeScene(camera, width, height) {
   box(6.1,0,-1, .25,3,14.5,"#46586d");
   box(0,0,-8.2,12.5,3,.25,"#3e5063");
   box(0,0,6.1,12.5,3,.25,"#3e5063");
-  box(0,0,-3.86,.5,2.9,8.5,"#637589");
-  box(0,2.02,-3.86,.55,.1,8.5,"#9aafc2");
-  box(0,.05,.35,.65,.12,.28,"#f3a15a");
+  box(0,0,-3.05,.5,2.9,8.5,"#637589");
+  box(0,2.02,-3.05,.55,.1,8.5,"#9aafc2");
+  box(0,.05,1.2,.65,.12,.28,"#f3a15a");
   return { faces, actor, box };
 }
 
@@ -124,11 +153,16 @@ export class View3D {
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     const width = Math.max(1, Math.round(rect.width * ratio));
     const height = Math.max(1, Math.round(rect.height * ratio));
-    if (this.canvas.width !== width) this.canvas.width = width;
-    if (this.canvas.height !== height) this.canvas.height = height;
+    if (this.canvas.width !== width || this.canvas.height !== height) {
+      this.canvas.width = width;
+      this.canvas.height = height;
+      if (this.lastModel) this.render(this.lastTime,this.lastModel);
+    }
   }
 
   render(time, model) {
+    this.lastTime = time;
+    this.lastModel = model;
     const width = this.canvas.width, height = this.canvas.height;
     const ctx = this.context;
     const sky = ctx.createLinearGradient(0,0,0,height);
@@ -139,12 +173,12 @@ export class View3D {
       ? { x: PEEKER.x, z: peekerZ(time), y: 1.68, yaw: Math.atan2(HOLDER.x - PEEKER.x, HOLDER.z - PEEKER.z) }
       : { x: HOLDER.x, z: HOLDER.z, y: 1.68, yaw: Math.atan2(PEEKER.x - HOLDER.x, PEEKER.z - HOLDER.z) };
     const scene = makeScene(camera,width,height);
-    if (side === "peeker" && time >= 0) scene.actor(HOLDER.x,HOLDER.z,"#4d9bea");
-    if (side === "holder" && time >= model.holderSees) scene.actor(PEEKER.x,peekerZ(time - model.holderSees),"#e3505c");
+    if (side === "peeker") scene.actor(HOLDER.x,HOLDER.z,"#4d9bea",PEEKER.x,peekerZ(time));
+    if (side === "holder") scene.actor(PEEKER.x,peekerZ(time - model.holderSees),"#e3505c",HOLDER.x,HOLDER.z);
     scene.faces.sort((a,b) => b.depth - a.depth);
     for (const face of scene.faces) {
       ctx.beginPath(); ctx.moveTo(face.points[0][0],face.points[0][1]);
-      for (let i=1;i<4;i++) ctx.lineTo(face.points[i][0],face.points[i][1]);
+      for (let i=1;i<face.points.length;i++) ctx.lineTo(face.points[i][0],face.points[i][1]);
       ctx.closePath(); ctx.fillStyle = face.fill; ctx.fill();
       if (face.stroke) { ctx.strokeStyle = face.stroke; ctx.lineWidth = 1; ctx.stroke(); }
     }
@@ -156,3 +190,4 @@ export class View3D {
     drawHud(ctx,width,height,side,shooting,down);
   }
 }
+
