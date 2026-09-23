@@ -1,0 +1,24 @@
+.sister-page { min-height: 100dvh; background: #f8f9fc; }
+.sister-main { padding-block: clamp(64px, 9vh, 108px) 90px; }
+.sister-heading { display: flex; justify-content: space-between; align-items: end; gap: 48px; padding-bottom: 40px; }
+.sister-heading .eyebrow { margin-bottom: 20px; }
+.sister-heading h1 { margin: 0; font-size: clamp(3.4rem, 6.2vw, 6.2rem); line-height: 1; letter-spacing: -.075em; }
+.sister-heading > p { width: min(360px, 100%); margin: 0 0 6px; color: var(--muted); font-size: 1.08rem; }
+.sister-directory { border-top: 1px solid rgba(29,29,31,.15); }
+.directory-label { display: flex; justify-content: space-between; margin: 0; padding: 18px 2px 22px; color: var(--muted); font-size: .82rem; font-weight: 690; }
+.sister-card { min-height: 338px; display: flex; justify-content: space-between; align-items: end; gap: 28px; padding: clamp(28px, 3vw, 40px); border: 1px solid rgba(255,255,255,.86); border-radius: 30px; background: radial-gradient(circle at 87% 18%, rgba(96,184,255,.22), transparent 28%), linear-gradient(145deg, #eaf4ff, #fff 65%); box-shadow: 0 26px 70px rgba(34,67,109,.08); }
+.sister-index { display: block; margin-bottom: 20px; color: #536b85; font-size: .78rem; font-weight: 720; letter-spacing: .025em; }
+.sister-logo { width: 60px; height: 60px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 17px; color: white; background: linear-gradient(145deg, #112844, #1d74c7); box-shadow: 0 12px 25px rgba(25,88,153,.18); font-size: 1.65rem; font-weight: 760; }
+.sister-card h2 { margin: 0; font-size: clamp(2.5rem, 4.3vw, 4.25rem); line-height: 1.03; letter-spacing: -.06em; }
+.sister-card-copy > p { margin: 10px 0; color: #626c76; font-size: 1.07rem; }
+.sister-url { color: #40699b; font-size: .93rem; font-weight: 640; }
+.sister-open { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; flex: 0 0 auto; padding: 0 21px; border-radius: 999px; color: white; background: var(--blue); font-weight: 680; transition: background .2s ease, transform .2s ease; }
+.sister-open:hover { background: var(--blue-dark); transform: translateY(-2px); }
+.sister-open span { font-size: 1.2rem; line-height: 1; }
+@media (max-width: 760px) {
+  .sister-main { padding-block: 72px 80px; }
+  .sister-heading { display: block; padding-bottom: 48px; }
+  .sister-heading > p { margin-top: 22px; }
+  .sister-card { min-height: 480px; display: flex; flex-direction: column; align-items: stretch; padding: 30px; }
+  .sister-open { align-self: flex-start; }
+}
