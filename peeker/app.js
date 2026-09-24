@@ -1,5 +1,6 @@
 import { calculate, estimateWinChance, START_TIME, SERVER_BUFFER, CLIENT_BUFFER } from "./model.js";
-import { View3D } from "./scene.js?v=20260924-06";
+import { View3D } from "./scene.js?v=20260924-07";
+import { playbackRateAt, nextEventBetween } from "./playback.js";
 
 const presets = [
   { peekerPing:40, holderPing:40, peekerReaction:300, holderReaction:220,
@@ -23,6 +24,7 @@ const pauseButton = document.getElementById("pauseButton");
 const scrubber = document.getElementById("scrubber");
 const speedSelect = document.getElementById("speedSelect");
 const markerRail = document.getElementById("timelineMarkers");
+const eventList = document.getElementById("timelineEvents");
 const simulation = document.querySelector(".simulation");
 let settings = { ...presets[0] };
 let model = calculate(settings);
@@ -33,6 +35,8 @@ let finished = false;
 let lastFrame = 0;
 let animation = 0;
 let markers = [];
+let activeEventTimes = [];
+let holdUntil = 0;
 
 function fmt(value) { return `${Math.round(value * 10) / 10}ms`; }
 function clockText(time) { return `${time < 0 ? "−" : "+"}${Math.round(Math.abs(time))} ms`; }
@@ -99,25 +103,34 @@ function updateMarkers() {
     ["Holder 사망", model.holderDeathNotice, "holder", model.peekerWins],
   ];
   markerRail.replaceChildren();
-  markers = events.map(([label,time,side,occurs],index) => {
-    const marker = document.createElement("button");
-    marker.type = "button";
+  eventList.replaceChildren();
+  markers = events.map(([label,time,side,occurs]) => {
+    const marker = document.createElement("span");
     marker.className = `timeline-marker is-${side}${occurs ? "" : " is-inactive"}`;
     marker.style.left = `${(time - START_TIME) / (model.endTime - START_TIME) * 100}%`;
-    marker.style.top = `${index % 3 * 15}px`;
-    marker.textContent = label.replace("Peeker","P").replace("Holder","H");
     marker.title = `${label}: ${occurs ? clockText(time) : "미발생 (가상 시각 " + clockText(time) + ")"}`;
-    marker.setAttribute("aria-label",marker.title);
-    if (occurs) marker.addEventListener("click",() => {
+    markerRail.append(marker);
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = `timeline-event is-${side}${occurs ? "" : " is-inactive"}`;
+    chip.title = marker.title;
+    chip.setAttribute("aria-label",marker.title);
+    const name = document.createElement("span");
+    name.textContent = label.replace("Peeker","P").replace("Holder","H");
+    const stamp = document.createElement("small");
+    stamp.textContent = occurs ? clockText(time) : "미발생";
+    chip.append(name,stamp);
+    if (occurs) chip.addEventListener("click",() => {
       stop();
       currentTime = time;
       hideResult();
       render();
     });
-    else marker.disabled = true;
-    markerRail.append(marker);
-    return { element:marker,time,occurs };
+    else chip.disabled = true;
+    eventList.append(chip);
+    return { element:marker,chip,time,occurs };
   });
+  activeEventTimes = [...new Set(markers.filter(marker => marker.occurs).map(marker => marker.time))].sort((a,b) => a-b);
 }
 
 function render() {
@@ -126,7 +139,13 @@ function render() {
   scrubber.value = String(Math.round(currentTime));
   document.getElementById("clock").textContent = clockText(currentTime);
   updatePhase();
-  for (const marker of markers) marker.element.classList.toggle("is-active",marker.occurs && Math.abs(currentTime - marker.time) < 18);
+  const closest = markers.filter(marker => marker.occurs)
+    .reduce((best,marker) => !best || Math.abs(marker.time-currentTime) < Math.abs(best.time-currentTime) ? marker : best,null);
+  for (const marker of markers) {
+    const active = marker === closest && Math.abs(currentTime - marker.time) <= 30;
+    marker.element.classList.toggle("is-active",active);
+    marker.chip.classList.toggle("is-active",active);
+  }
 }
 
 function showResult() {
@@ -154,6 +173,7 @@ function hideResult() {
 
 function stop() {
   playing = false;
+  holdUntil = 0;
   simulation.classList.remove("is-playing");
   pauseButton.disabled = true;
   pauseButton.textContent = "일시정지";
@@ -175,10 +195,14 @@ function reset() {
 
 function frame(timestamp) {
   if (!playing) return;
-  if (lastFrame) {
-    const rate = currentTime < -120 ? .35 : currentTime < model.holderSees ? .045 :
-      currentTime < Math.max(model.peekerFires,model.holderFires) ? .11 : .16;
-    currentTime = Math.min(model.endTime, currentTime + Math.min(timestamp - lastFrame,60) * rate * Number(speedSelect.value));
+  if (lastFrame && timestamp >= holdUntil) {
+    const speed = Number(speedSelect.value);
+    const nextTime = Math.min(model.endTime,currentTime + Math.min(timestamp - lastFrame,60) * playbackRateAt(currentTime,activeEventTimes) * speed);
+    const event = nextEventBetween(currentTime,nextTime,activeEventTimes);
+    if (event !== null) {
+      currentTime = event;
+      holdUntil = timestamp + 550 / Math.sqrt(speed);
+    } else currentTime = nextTime;
   }
   lastFrame = timestamp;
   render();
@@ -236,5 +260,6 @@ scrubber.addEventListener("input",() => {
 });
 window.addEventListener("resize",render);
 choosePreset(0);
+
 
 

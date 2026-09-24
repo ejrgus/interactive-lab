@@ -137,12 +137,6 @@ function drawWeapon(ctx, width, height, side) {
 
 function drawHud(ctx, width, height, side, shooting, down) {
   ctx.save();
-  ctx.strokeStyle = down ? "#ff7777" : "rgba(238,247,255,.9)";
-  ctx.lineWidth = 2;
-  const x = width / 2, y = height * .53;
-  for (const [x0,y0,x1,y1] of [[-18,0,-7,0],[7,0,18,0],[0,-18,0,-7],[0,7,0,18]]) {
-    ctx.beginPath(); ctx.moveTo(x+x0,y+y0); ctx.lineTo(x+x1,y+y1); ctx.stroke();
-  }
   drawWeapon(ctx,width,height,side);
   if (shooting) {
     const flashX = width * .515, flashY = height * .65;
@@ -210,5 +204,6 @@ export class View3D {
     drawHud(ctx,width,height,side,shooting,down);
   }
 }
+
 
 
