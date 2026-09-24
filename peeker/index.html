@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f5f5f7">
   <title>Peeker’s Advantage — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css?v=20260924-04">
-  <link rel="stylesheet" href="style.css?v=20260924-06">
+  <link rel="stylesheet" href="style.css?v=20260924-07">
   <script type="module" src="../assets/js/navigation.js?v=20260924-03"></script>
-  <script type="module" src="app.js?v=20260924-06"></script>
+  <script type="module" src="app.js?v=20260924-07"></script>
 </head>
 <body class="peeker-page">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -48,7 +48,7 @@
       </div>
       <section class="result-card" id="resultCard" aria-labelledby="result-title" hidden><h2 id="result-title">교전 결과</h2><div id="resultValues"><strong id="winnerTitle"></strong><p id="winnerDetail"></p><div class="chance-label"><span>Peeker <b id="peekerChance">—</b></span><span>Holder <b id="holderChance">—</b></span></div><div class="chance-track"><span id="chanceFill"></span></div><small>가상 교전 10,000회 · 반응시간 표준편차 35ms · 양쪽 모두 명중 가정</small></div></section>
       </div>
-      <div class="transport"><label class="scrub-label" for="scrubber">시간 이동</label><div class="timeline"><input id="scrubber" type="range" min="-700" max="1000" value="-700" step="1" aria-label="시뮬레이션 시간 이동"><div class="timeline-markers" id="timelineMarkers" aria-label="주요 사건 시각"></div></div><label class="speed-control" for="speedSelect">재생 속도 <select id="speedSelect"><option value="0.5">느리게</option><option value="1" selected>기본</option><option value="2">빠르게</option></select></label></div>
+      <div class="transport"><label class="scrub-label" for="scrubber">시간 이동</label><div class="timeline"><input id="scrubber" type="range" min="-700" max="1000" value="-700" step="1" aria-label="시뮬레이션 시간 이동"><div class="timeline-markers" id="timelineMarkers" aria-hidden="true"></div><div class="timeline-events" id="timelineEvents" aria-label="주요 사건"></div></div><label class="speed-control" for="speedSelect">재생 속도 <select id="speedSelect"><option value="0.5">느리게</option><option value="1" selected>기본</option><option value="2">빠르게</option></select><small>사건 근처 자동 감속</small></label></div>
     </section>
 
       <section class="settings-card holder-settings" aria-labelledby="holder-settings-title"><h2 id="holder-settings-title"><span class="player-dot"></span> Holder 설정</h2><div class="slider-field"><div><label for="holderPing">핑 (RTT)</label><output id="holderPingValue">40 ms</output></div><input id="holderPing" type="range" min="0" max="250" value="40" step="5"><small>0 ms <span>250 ms</span></small></div><div class="slider-field"><div><label for="holderReaction">반응속도</label><output id="holderReactionValue">220 ms</output></div><input id="holderReaction" type="range" min="0" max="500" value="220" step="5"><small>즉시 0 ms <span>500 ms</span></small></div></section>
@@ -58,5 +58,6 @@
   </main>
 </body>
 </html>
+
 
 
