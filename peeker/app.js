@@ -1,5 +1,5 @@
 import { calculate, estimateWinChance, START_TIME, SERVER_BUFFER, CLIENT_BUFFER } from "./model.js";
-import { View3D } from "./scene.js?v=20260924-07";
+import { View3D } from "./scene.js?v=20260924-08";
 import { playbackRateAt, nextEventBetween } from "./playback.js";
 
 const presets = [
@@ -260,6 +260,7 @@ scrubber.addEventListener("input",() => {
 });
 window.addEventListener("resize",render);
 choosePreset(0);
+
 
 
 
