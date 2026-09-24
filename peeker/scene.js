@@ -89,30 +89,50 @@ function makeScene(camera, width, height) {
   box(6.1,0,-1, .25,3,14.5,"#46586d");
   box(0,0,-8.2,12.5,3,.25,"#3e5063");
   box(0,0,6.1,12.5,3,.25,"#3e5063");
-  box(0,0,-3.05,.5,2.9,8.5,"#637589");
-  box(0,2.02,-3.05,.55,.1,8.5,"#9aafc2");
+  // Short sections keep painter ordering stable while the camera moves beside the wall.
+  const wallStart = -7.3, wallEnd = 1.2;
+  for (let z0 = wallStart; z0 < wallEnd; z0 += .5) {
+    const z1 = Math.min(wallEnd,z0 + .515);
+    if (camera.x < 0) quad([[-.25,0,z0],[-.25,0,z1],[-.25,2.9,z1],[-.25,2.9,z0]],color("#637589",.65));
+    else quad([[.25,0,z0],[.25,0,z1],[.25,2.9,z1],[.25,2.9,z0]],color("#637589",1.08));
+    quad([[-.25,2.9,z0],[.25,2.9,z0],[.25,2.9,z1],[-.25,2.9,z1]],color("#637589",1.2));
+    if (camera.x < 0) quad([[-.28,2.02,z0],[-.28,2.02,z1],[-.28,2.12,z1],[-.28,2.12,z0]],"#9aafc2");
+    else quad([[.28,2.02,z0],[.28,2.02,z1],[.28,2.12,z1],[.28,2.12,z0]],"#9aafc2");
+  }
+  quad([[-.25,0,wallStart],[.25,0,wallStart],[.25,2.9,wallStart],[-.25,2.9,wallStart]],color("#637589",.8));
+  quad([[-.25,0,wallEnd],[.25,0,wallEnd],[.25,2.9,wallEnd],[-.25,2.9,wallEnd]],color("#637589",.91));
   box(0,.05,1.2,.65,.12,.28,"#f3a15a");
   return { faces, actor, box };
 }
 
 function drawWeapon(ctx, width, height, side) {
-  const tint = side === "peeker" ? "#9c3642" : "#255b90";
-  const glow = side === "peeker" ? "#ee6770" : "#6fbcff";
-  const x = width * .56, y = height;
-  ctx.fillStyle = "#101b29";
-  ctx.beginPath();
-  ctx.moveTo(x - 58,y); ctx.lineTo(x - 40,y - 68); ctx.lineTo(x + 14,y - 106);
-  ctx.lineTo(x + 67,y - 62); ctx.lineTo(x + 94,y); ctx.closePath(); ctx.fill();
-  ctx.fillStyle = tint;
-  ctx.beginPath();
-  ctx.moveTo(x - 35,y); ctx.lineTo(x - 16,y - 58); ctx.lineTo(x + 24,y - 77);
-  ctx.lineTo(x + 54,y - 43); ctx.lineTo(x + 67,y); ctx.closePath(); ctx.fill();
-  ctx.fillStyle = glow;
-  ctx.fillRect(x + 12,y - 101,10,34);
-  ctx.fillStyle = "#0b111b";
-  ctx.fillRect(x + 2,y - 128,30,34);
-  ctx.fillStyle = "#bacbd8";
-  ctx.fillRect(x + 9,y - 131,16,8);
+  const tint = side === "peeker" ? "#a83d4b" : "#326da8";
+  const light = side === "peeker" ? "#ef7780" : "#81bfff";
+  const polygon = (points, fill) => {
+    ctx.beginPath();
+    ctx.moveTo(...points[0]);
+    for (const point of points.slice(1)) ctx.lineTo(...point);
+    ctx.closePath();
+    ctx.fillStyle = fill;
+    ctx.fill();
+  };
+  ctx.save();
+  ctx.scale(width / 500,height / 300);
+  // First-person forearms and a side-mounted rifle, clear of the center sight line.
+  polygon([[360,300],[392,252],[445,251],[494,300]],"#172433");
+  polygon([[390,300],[410,260],[458,257],[500,282],[500,300]],tint);
+  polygon([[301,300],[323,254],[349,238],[379,257],[380,300]],"#172433");
+  polygon([[316,300],[331,260],[351,249],[365,261],[359,300]],tint);
+  polygon([[250,194],[270,189],[362,224],[366,237],[270,206],[250,207]],"#111b28");
+  polygon([[268,190],[296,197],[350,216],[350,224],[272,202]],"#718193");
+  polygon([[337,219],[385,218],[426,234],[424,262],[361,252],[340,238]],"#1d2a39");
+  polygon([[347,222],[386,222],[414,234],[391,242],[354,237]],tint);
+  polygon([[361,252],[388,256],[377,296],[349,287]],"#0d1723");
+  polygon([[365,258],[380,260],[374,282],[355,277]],light);
+  polygon([[414,237],[463,243],[481,260],[430,267],[412,256]],"#111b28");
+  polygon([[251,191],[262,190],[263,204],[251,205]],"#8799a9");
+  polygon([[313,204],[329,209],[331,219],[317,215]],"#0d1723");
+  ctx.restore();
 }
 
 function drawHud(ctx, width, height, side, shooting, down) {
@@ -125,7 +145,7 @@ function drawHud(ctx, width, height, side, shooting, down) {
   }
   drawWeapon(ctx,width,height,side);
   if (shooting) {
-    const flashX = width * .56 + 18, flashY = height - 135;
+    const flashX = width * .515, flashY = height * .65;
     const gradient = ctx.createRadialGradient(flashX,flashY,2,flashX,flashY,76);
     gradient.addColorStop(0,"rgba(255,250,214,.95)");
     gradient.addColorStop(.22,"rgba(255,190,84,.8)");
@@ -190,4 +210,5 @@ export class View3D {
     drawHud(ctx,width,height,side,shooting,down);
   }
 }
+
 

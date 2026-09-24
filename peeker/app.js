@@ -1,5 +1,5 @@
 import { calculate, estimateWinChance, START_TIME, SERVER_BUFFER, CLIENT_BUFFER } from "./model.js";
-import { View3D } from "./scene.js?v=20260924-05";
+import { View3D } from "./scene.js?v=20260924-06";
 
 const presets = [
   { peekerPing:40, holderPing:40, peekerReaction:300, holderReaction:220,
@@ -9,7 +9,7 @@ const presets = [
   { peekerPing:20, holderPing:100, peekerReaction:250, holderReaction:250,
     explanation:"반응속도가 같아도 Holder의 핑이 100ms면 Peeker의 사격이 약 165.6ms 앞섭니다." },
   { peekerPing:200, holderPing:10, peekerReaction:250, holderReaction:250,
-    explanation:"Peeker의 핑이 200ms여도 그 지연은 이동 정보와 사격에 함께 적용됩니다. Holder 핑이 10ms여도 Peeker가 약 75.6ms 앞섭니다." },
+    explanation:"이 단순 모형에서는 Peeker의 대칭 핑이 이동과 사격에 함께 적용돼 상쇄됩니다. 기준값 판정은 Peeker가 75.6ms 앞서지만, 실제로 높은 핑이 유리하다는 뜻은 아닙니다." },
 ];
 
 const fields = ["peekerPing","holderPing","peekerReaction","holderReaction"];
@@ -47,7 +47,7 @@ function updateLabels() {
   const budget = settings.peekerReaction - model.advantage;
   document.getElementById("budgetReadout").textContent = budget <= 0 ? "즉시 반응해도 어려움" : `${fmt(budget)} 미만`;
   document.getElementById("formulaReadout").textContent =
-    `서버 처리 차이 = Holder 반응 ${settings.holderReaction}ms − Peeker 반응 ${settings.peekerReaction}ms + Holder 핑 ${settings.holderPing}ms + 서버 버퍼 ${fmt(SERVER_BUFFER)} + 화면 버퍼 ${fmt(CLIENT_BUFFER)} = ${fmt(model.serverGap)}. 양수면 Peeker가 먼저 처리됩니다.`;
+    `기준값의 서버 처리 차이 = Holder 반응 ${settings.holderReaction}ms − Peeker 반응 ${settings.peekerReaction}ms + Holder 핑 ${settings.holderPing}ms + 서버 버퍼 ${fmt(SERVER_BUFFER)} + 화면 버퍼 ${fmt(CLIENT_BUFFER)} = ${fmt(model.serverGap)}. 양수면 Peeker가 먼저 처리됩니다. 대칭 지연 가정에서는 Peeker 핑이 이 차이에서 상쇄됩니다.`;
 }
 
 function updatePhase() {
@@ -134,7 +134,7 @@ function showResult() {
   finished = true;
   const chance = estimateWinChance(settings);
   const title = document.getElementById("winnerTitle");
-  title.textContent = model.simultaneous ? "서버 처리 시각 동일" : model.peekerWins ? "Peeker 승리" : "Holder 승리";
+  title.textContent = model.simultaneous ? "기준값: 동시 처리" : model.peekerWins ? "기준값: Peeker 선착" : "기준값: Holder 선착";
   title.className = model.simultaneous ? "tie" : model.peekerWins ? "pwin" : "hwin";
   document.getElementById("winnerDetail").textContent = model.simultaneous
     ? "이 조건의 동시 처리는 게임 규칙에 따라 달라집니다."
@@ -236,4 +236,5 @@ scrubber.addEventListener("input",() => {
 });
 window.addEventListener("resize",render);
 choosePreset(0);
+
 
