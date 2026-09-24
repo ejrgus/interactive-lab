@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f5f5f7">
   <title>Peeker’s Advantage — Interactive Lab</title>
   <link rel="stylesheet" href="../assets/css/common.css?v=20260924-04">
-  <link rel="stylesheet" href="style.css?v=20260924-07">
+  <link rel="stylesheet" href="style.css?v=20260924-09">
   <script type="module" src="../assets/js/navigation.js?v=20260924-03"></script>
-  <script type="module" src="app.js?v=20260924-08"></script>
+  <script type="module" src="app.js?v=20260924-09"></script>
 </head>
 <body class="peeker-page">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -26,11 +26,13 @@
       <div class="model-chip">128틱 서버 <span>·</span> 60FPS 화면 <span>·</span> 양방향 지연 대칭</div>
     </div>
 
+    <aside class="scope-note" aria-label="시뮬레이션 주의사항"><strong>주의 · 실제 승률 예측이 아닙니다</strong><span>이 실험은 두 화면의 가시성과 서버 사격 처리 순서를 단순화해 보여줍니다. 첫발 명중을 가정하며 사전 조준, 상대 위치 파악, 조준 이동, 이동 중 정확도는 반영하지 않습니다.</span></aside>
+
     <section class="preset-section" aria-labelledby="preset-title">
       <div class="section-line"><h2 id="preset-title">예시로 시작하기</h2><p>프리셋을 고르거나 아래 바를 직접 조절하세요.</p></div>
       <div class="preset-grid" id="presetGrid">
-        <button type="button" class="preset is-selected" data-preset="0" aria-pressed="true"><span class="preset-index">01 · 같은 핑</span><strong>Peeker가 느려도 승리</strong><small>반응 80ms 느림 · 핑 40 / 40</small></button>
-        <button type="button" class="preset" data-preset="1" aria-pressed="false"><span class="preset-index">02 · 같은 핑</span><strong>Holder가 더 빨라 승리</strong><small>반응 125ms 빠름 · 핑 40 / 40</small></button>
+        <button type="button" class="preset is-selected" data-preset="0" aria-pressed="true"><span class="preset-index">01 · 같은 핑</span><strong>Peeker가 느려도 선착</strong><small>반응 80ms 느림 · 핑 40 / 40</small></button>
+        <button type="button" class="preset" data-preset="1" aria-pressed="false"><span class="preset-index">02 · 같은 핑</span><strong>Holder가 더 빨라 선착</strong><small>반응 125ms 빠름 · 핑 40 / 40</small></button>
         <button type="button" class="preset" data-preset="2" aria-pressed="false"><span class="preset-index">03 · 같은 반응</span><strong>Holder 핑이 높을 때</strong><small>250 / 250ms · 핑 20 / 100</small></button>
         <button type="button" class="preset" data-preset="3" aria-pressed="false"><span class="preset-index">04 · 같은 반응</span><strong>Peeker 핑이 높을 때</strong><small>250 / 250ms · 핑 200 / 10</small></button>
       </div>
@@ -46,7 +48,7 @@
         <section class="view-panel view-peeker" aria-label="Peeker 시점"><div class="view-heading"><div><span class="player-dot"></span><strong>PEEKER</strong><span>자신의 화면</span></div><span class="view-status" id="peekerStatus">벽 뒤</span></div><canvas id="peekerView" aria-label="Peeker의 3D 시점"></canvas><div class="view-footer"><span>로컬 이동 예측</span><span>내 무기 빨강 · 상대 파랑</span></div></section>
         <section class="view-panel view-holder" aria-label="Holder 시점"><div class="view-heading"><div><span class="player-dot"></span><strong>HOLDER</strong><span>자신의 화면</span></div><span class="view-status" id="holderStatus">Peeker 안 보임</span></div><canvas id="holderView" aria-label="Holder의 3D 시점"></canvas><div class="view-footer"><span>네트워크를 거쳐 보임</span><span>내 무기 파랑 · 상대 빨강</span></div></section>
       </div>
-      <section class="result-card" id="resultCard" aria-labelledby="result-title" hidden><h2 id="result-title">교전 결과</h2><div id="resultValues"><strong id="winnerTitle"></strong><p id="winnerDetail"></p><div class="chance-label"><span>Peeker <b id="peekerChance">—</b></span><span>Holder <b id="holderChance">—</b></span></div><div class="chance-track"><span id="chanceFill"></span></div><small>가상 교전 10,000회 · 반응시간 표준편차 35ms · 양쪽 모두 명중 가정</small></div></section>
+      <section class="result-card" id="resultCard" aria-labelledby="result-title" hidden><h2 id="result-title">서버 사격 선착 결과</h2><div id="resultValues"><strong id="winnerTitle"></strong><p id="winnerDetail"></p><div class="chance-label"><span>Peeker 선착 <b id="peekerChance">—</b></span><span>Holder 선착 <b id="holderChance">—</b></span></div><div class="chance-track"><span id="chanceFill"></span></div><p class="result-warning">실제 교전 승률이 아닙니다.</p><small>가상 반응시간 10,000회 · 표준편차 35ms · 첫발 반드시 명중 · 조준 시간 미반영</small></div></section>
       </div>
       <div class="transport"><label class="scrub-label" for="scrubber">시간 이동</label><div class="timeline"><input id="scrubber" type="range" min="-700" max="1000" value="-700" step="1" aria-label="시뮬레이션 시간 이동"><div class="timeline-markers" id="timelineMarkers" aria-hidden="true"></div><div class="timeline-events" id="timelineEvents" aria-label="주요 사건"></div></div><label class="speed-control" for="speedSelect">재생 속도 <select id="speedSelect"><option value="0.5">느리게</option><option value="1" selected>기본</option><option value="2">빠르게</option></select><small>사건 근처 자동 감속</small></label></div>
     </section>
@@ -54,7 +56,7 @@
       <section class="settings-card holder-settings" aria-labelledby="holder-settings-title"><h2 id="holder-settings-title"><span class="player-dot"></span> Holder 설정</h2><div class="slider-field"><div><label for="holderPing">핑 (RTT)</label><output id="holderPingValue">40 ms</output></div><input id="holderPing" type="range" min="0" max="250" value="40" step="5"><small>0 ms <span>250 ms</span></small></div><div class="slider-field"><div><label for="holderReaction">반응속도</label><output id="holderReactionValue">220 ms</output></div><input id="holderReaction" type="range" min="0" max="500" value="220" step="5"><small>즉시 0 ms <span>500 ms</span></small></div></section>
     </div>
 
-    <section class="model-note" aria-labelledby="model-title"><h2 id="model-title">이 장면을 읽는 법</h2><div class="note-grid"><p><strong>화면 격차</strong><span id="visibilityReadout">—</span><br>Peeker는 자신의 이동을 즉시 보지만, Holder는 서버와 화면 버퍼를 거쳐 뒤늦게 봅니다.</p><p><strong>Holder의 반응 한계</strong><span id="budgetReadout">—</span><br>Holder가 서버에서 먼저 처리되려면 이 시간보다 빠르게 반응해야 합니다.</p><p><strong>결과의 범위</strong><br>같은 반응속도면 이 단순 모형의 기준값에서는 Peeker가 선착합니다. 실제 승리는 보장되지 않습니다. 확률은 반응시간 변동만 가정하며 명중률, 선조준, 코너 거리, 패킷 손실과 게임별 판정은 포함하지 않습니다. <a href="https://playvalorant.com/ko-kr/news/game-updates/04-on-peeker-s-advantage-ranked/" target="_blank" rel="noopener noreferrer">Riot의 설명 ↗</a></p></div><p class="model-formula" id="formulaReadout"></p></section>
+    <section class="model-note" aria-labelledby="model-title"><h2 id="model-title">이 장면을 읽는 법</h2><div class="note-grid"><p><strong>화면 격차</strong><span id="visibilityReadout">—</span><br>Peeker는 자신의 이동을 즉시 보지만, Holder는 서버와 화면 버퍼를 거쳐 뒤늦게 봅니다.</p><p><strong>Holder의 반응 한계</strong><span id="budgetReadout">—</span><br>Holder가 서버에서 먼저 처리되려면 이 시간보다 빠르게 반응해야 합니다.</p><p><strong>결과의 범위</strong><br>같은 반응속도에서는 이 모형의 기준값상 Peeker의 사격이 먼저 처리됩니다. 실제 교전에서는 Holder가 각도를 미리 조준할 수 있고 Peeker는 상대 위치를 찾거나 조준점을 옮겨야 할 수 있습니다. Peeker도 위치를 예상해 미리 조준할 수 있으므로 결과는 상황마다 다릅니다. <a href="https://playvalorant.com/ko-kr/news/game-updates/04-on-peeker-s-advantage-ranked/" target="_blank" rel="noopener noreferrer">Riot의 설명 ↗</a></p></div><p class="model-formula" id="formulaReadout"></p></section>
   </main>
 </body>
 </html>

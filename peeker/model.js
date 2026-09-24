@@ -43,15 +43,15 @@ function normal(random) {
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-export function estimateWinChance(settings, rounds = 10000) {
+export function estimateFirstProcessedChance(settings, rounds = 10000) {
   const seed = Object.values(settings).reduce((n, v) => Math.imul(n ^ v, 16777619), 2166136261);
   const random = mulberry32(seed);
   const advantage = settings.holderPing + SERVER_BUFFER + CLIENT_BUFFER;
-  let peekerWins = 0;
+  let peekerFirst = 0;
   for (let i = 0; i < rounds; i++) {
     const peekerReaction = Math.max(0, settings.peekerReaction + normal(random) * REACTION_VARIATION);
     const holderReaction = Math.max(0, settings.holderReaction + normal(random) * REACTION_VARIATION);
-    if (peekerReaction < advantage + holderReaction) peekerWins++;
+    if (peekerReaction < advantage + holderReaction) peekerFirst++;
   }
-  return { peeker: peekerWins / rounds, holder: 1 - peekerWins / rounds, rounds };
+  return { peeker: peekerFirst / rounds, holder: 1 - peekerFirst / rounds, rounds };
 }

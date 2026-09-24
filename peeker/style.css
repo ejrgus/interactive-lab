@@ -123,6 +123,10 @@
 .note-grid span{color:#a95328}
 .model-note a{color:#006bc9;text-decoration:underline;text-underline-offset:2px}
 .model-formula{border-color:#e3e7eb;color:#68727d;font-size:.69rem;margin-top:10px;padding-top:8px}
+.scope-note{display:flex;align-items:center;gap:11px;margin:-3px 0 12px;padding:9px 12px;border:1px solid #e9d2a8;border-left:4px solid #d38a2a;border-radius:9px;background:#fff8e9;color:#594528;font-size:.74rem;line-height:1.35}
+.scope-note strong{flex:none;color:#855518;font-size:.76rem}
+.result-card .result-warning{margin:10px 0 0;color:#9a4a13;font-size:.77rem;font-weight:760}
+.result-card .result-warning+small{margin-top:3px}
 
 
 

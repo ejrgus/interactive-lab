@@ -118,63 +118,44 @@ function drawWeapon(ctx, width, height, side) {
   };
   ctx.save();
   ctx.scale(width / 500,height / 300);
-  // An angled first-person rifle: hands, stock, barrel, handguard, receiver and magazine.
-  polygon([[270,300],[299,263],[328,235],[346,250],[326,300]],"#14212d");
-  polygon([[280,300],[311,261],[331,249],[340,262],[318,300]],sleeve);
-  polygon([[408,300],[410,269],[437,254],[500,279],[500,300]],"#14212d");
-  polygon([[424,300],[425,273],[449,266],[500,290],[500,300]],sleeve);
+  // Two hands hold a compact side-profile pistol, leaving the sight line clear.
+  polygon([[331,300],[349,271],[370,247],[390,258],[379,300]],"#172431");
+  polygon([[342,300],[359,270],[375,258],[389,267],[373,300]],sleeve);
+  polygon([[416,300],[423,271],[449,253],[500,273],[500,300]],"#172431");
+  polygon([[430,300],[435,275],[455,264],[500,284],[500,300]],sleeve);
 
-  // Stock and buttpad sit behind the receiver.
-  polygon([[404,227],[460,238],[481,260],[425,268],[408,254]],"#111b26");
-  polygon([[416,228],[458,238],[468,248],[422,241]],"#536574");
-  polygon([[465,239],[481,242],[488,269],[472,268]],"#0b121a");
-  polygon([[471,243],[481,245],[483,262],[473,261]],"#677887");
-
-  // Steel barrel and a distinct muzzle brake.
-  polygon([[230,175],[278,188],[284,202],[230,189]],"#121c27");
-  polygon([[235,177],[278,188],[278,193],[235,183]],"#7b8b99");
-  polygon([[218,171],[238,174],[239,193],[218,190]],"#0d151e");
-  polygon([[219,172],[236,175],[236,179],[219,177]],"#8c9dab");
-  polygon([[221,184],[235,186],[235,190],[221,189]],"#4a5d6d");
-
-  // Ventilated handguard and the raised Picatinny rail.
-  polygon([[261,184],[346,205],[358,232],[267,210]],"#172431");
-  polygon([[261,184],[345,205],[341,212],[264,194]],"#788a99");
-  polygon([[267,195],[343,213],[351,230],[270,207]],"#314352");
-  polygon([[266,181],[345,201],[346,207],[264,187]],"#101922");
-  for (let i = 0; i < 4; i++) {
-    const x = 284 + i * 15;
-    polygon([[x,201+i*3.6],[x+8,203+i*3.6],[x+10,210+i*3.6],[x+2,208+i*3.6]],"#101b26");
+  // The slide and barrel form the short horizontal stroke of the pistol.
+  polygon([[281,190],[302,190],[304,211],[281,207]],"#0c151e");
+  polygon([[282,192],[290,193],[290,203],[282,202]],"#687b8b");
+  polygon([[297,181],[405,202],[429,219],[432,240],[301,212],[295,204]],"#121d28");
+  polygon([[301,184],[403,205],[423,219],[310,197]],"#899aa7");
+  polygon([[301,197],[425,222],[428,235],[303,209]],"#3b4e5d");
+  polygon([[384,205],[405,209],[414,224],[389,217]],"#1c2c39");
+  for (let i = 0; i < 3; i++) {
+    const x = 395 + i * 7;
+    polygon([[x,211+i*1.4],[x+3,212+i*1.4],[x+6,224+i*1.4],[x+3,223+i*1.4]],"#0e1822");
   }
+  polygon([[301,178],[306,179],[306,186],[300,184]],"#0e1822");
+  polygon([[397,193],[414,197],[415,204],[396,200]],"#0e1822");
 
-  // Receiver, ejection port and sight give the weapon a readable rifle profile.
-  polygon([[341,202],[410,218],[427,257],[350,242]],"#101a25");
-  polygon([[345,203],[407,218],[410,228],[348,214]],"#8292a0");
-  polygon([[350,215],[411,230],[419,255],[353,238]],"#354957");
-  polygon([[372,222],[401,230],[403,240],[375,233]],"#0b141c");
-  polygon([[377,224],[397,229],[397,232],[378,227]],"#7f919f");
-  polygon([[347,187],[370,192],[375,205],[341,198]],"#111b26");
-  polygon([[351,183],[367,187],[369,192],[348,188]],"#728493");
-  polygon([[353,176],[365,179],[368,188],[350,184]],"#0a1119");
-  polygon([[264,175],[268,176],[269,185],[263,183]],"#131e29");
-
-  // Pistol grip, trigger guard and curved magazine.
-  polygon([[396,250],[416,254],[438,300],[415,300]],"#0b141e");
-  polygon([[400,254],[410,256],[424,290],[415,290]],"#4b5f6f");
-  polygon([[351,238],[379,245],[382,294],[352,286]],"#0b141e");
-  polygon([[355,244],[371,247],[374,282],[354,278]],"#405564");
-  polygon([[369,250],[375,251],[378,288],[370,286]],"#6a7e8e");
-  ctx.strokeStyle = "#0b141e";
-  ctx.lineWidth = 4;
+  // Frame, trigger guard and angled magazine grip form the vertical stroke.
+  polygon([[319,212],[405,230],[425,244],[410,257],[366,243],[328,231]],"#172532");
+  polygon([[328,214],[399,230],[405,238],[336,223]],"#617687");
+  polygon([[365,243],[393,250],[407,263],[387,272],[363,262]],"#0d1721");
+  polygon([[389,248],[420,254],[449,300],[407,300],[382,264]],"#0e1823");
+  polygon([[395,255],[415,258],[438,295],[412,295]],"#465b6c");
+  polygon([[416,259],[421,260],[443,297],[437,296]],"#748797");
+  ctx.strokeStyle = "#0b151e";
+  ctx.lineWidth = 5;
   ctx.beginPath();
-  ctx.moveTo(385,251); ctx.lineTo(390,269); ctx.lineTo(408,268);
+  ctx.moveTo(366,246); ctx.lineTo(370,266); ctx.lineTo(392,269);
   ctx.stroke();
 
-  // Gloves wrap around the fore-end and firing grip.
-  polygon([[311,235],[331,226],[348,239],[339,254],[318,253]],"#13202d");
-  polygon([[314,237],[329,230],[343,240],[335,247]],sleeveLight);
-  polygon([[420,256],[442,258],[454,274],[432,280],[416,269]],"#172533");
-  polygon([[422,259],[437,260],[448,270],[432,272]],sleeveLight);
+  // Gloved hands stay below the slide.
+  polygon([[359,251],[375,242],[392,252],[387,269],[367,270]],"#152330");
+  polygon([[359,255],[373,247],[386,253],[380,263]],sleeveLight);
+  polygon([[412,261],[437,254],[452,266],[444,286],[421,283]],"#172634");
+  polygon([[416,264],[435,257],[446,267],[437,274]],sleeveLight);
   ctx.restore();
 }
 
@@ -182,12 +163,12 @@ function drawHud(ctx, width, height, side, shooting, down) {
   ctx.save();
   drawWeapon(ctx,width,height,side);
   if (shooting) {
-    const flashX = width * .445, flashY = height * .6;
-    const gradient = ctx.createRadialGradient(flashX,flashY,2,flashX,flashY,76);
+    const flashX = width * .565, flashY = height * .66;
+    const gradient = ctx.createRadialGradient(flashX,flashY,2,flashX,flashY,52);
     gradient.addColorStop(0,"rgba(255,250,214,.95)");
     gradient.addColorStop(.22,"rgba(255,190,84,.8)");
     gradient.addColorStop(1,"rgba(255,135,54,0)");
-    ctx.fillStyle = gradient; ctx.fillRect(flashX-80,flashY-80,160,160);
+    ctx.fillStyle = gradient; ctx.fillRect(flashX-54,flashY-54,108,108);
   }
   if (down) {
     ctx.fillStyle = "rgba(95,20,31,.38)"; ctx.fillRect(0,0,width,height);
