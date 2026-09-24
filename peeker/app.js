@@ -1,5 +1,5 @@
-import { calculate, estimateWinChance, START_TIME, SERVER_BUFFER, CLIENT_BUFFER } from "./model.js";
-import { View3D } from "./scene.js?v=20260924-08";
+import { calculate, estimateFirstProcessedChance, START_TIME, SERVER_BUFFER, CLIENT_BUFFER } from "./model.js?v=20260924-09";
+import { View3D } from "./scene.js?v=20260924-09";
 import { playbackRateAt, nextEventBetween } from "./playback.js";
 
 const presets = [
@@ -40,6 +40,7 @@ let holdUntil = 0;
 
 function fmt(value) { return `${Math.round(value * 10) / 10}ms`; }
 function clockText(time) { return `${time < 0 ? "−" : "+"}${Math.round(Math.abs(time))} ms`; }
+function chanceText(value) { return value < .005 ? "<1%" : value > .995 ? ">99%" : `${Math.round(value * 100)}%`; }
 
 function readInputs() {
   return Object.fromEntries(fields.map(id => [id, Number(inputs[id].value)]));
@@ -89,7 +90,7 @@ function updatePhase() {
   } else {
     phaseBanner.dataset.phase = "finished";
     phaseLabel.textContent = "시뮬레이션 종료";
-    narration.textContent = "화면 위의 교전 결과에서 승리 확률을 확인하세요.";
+    narration.textContent = "화면 위에서 서버 사격 선착 확률을 확인하세요. 실제 교전 승률은 아닙니다.";
   }
 }
 
@@ -151,7 +152,7 @@ function render() {
 function showResult() {
   if (finished) return;
   finished = true;
-  const chance = estimateWinChance(settings);
+  const chance = estimateFirstProcessedChance(settings);
   const title = document.getElementById("winnerTitle");
   title.textContent = model.simultaneous ? "기준값: 동시 처리" : model.peekerWins ? "기준값: Peeker 선착" : "기준값: Holder 선착";
   title.className = model.simultaneous ? "tie" : model.peekerWins ? "pwin" : "hwin";
@@ -159,8 +160,8 @@ function showResult() {
     ? "이 조건의 동시 처리는 게임 규칙에 따라 달라집니다."
     : `서버 사격 처리 차이 ${fmt(Math.abs(model.serverGap))} · ${model.peekerWins ? "Peeker" : "Holder"} 선착`;
   const peekerPercent = Math.round(chance.peeker * 100);
-  document.getElementById("peekerChance").textContent = `${peekerPercent}%`;
-  document.getElementById("holderChance").textContent = `${100 - peekerPercent}%`;
+  document.getElementById("peekerChance").textContent = chanceText(chance.peeker);
+  document.getElementById("holderChance").textContent = chanceText(chance.holder);
   document.getElementById("chanceFill").style.width = `${peekerPercent}%`;
   document.getElementById("resultCard").hidden = false;
   runButton.textContent = "다시 재생";
