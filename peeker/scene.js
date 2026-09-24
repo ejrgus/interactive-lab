@@ -106,8 +106,8 @@ function makeScene(camera, width, height) {
 }
 
 function drawWeapon(ctx, width, height, side) {
-  const tint = side === "peeker" ? "#a83d4b" : "#326da8";
-  const light = side === "peeker" ? "#ef7780" : "#81bfff";
+  const sleeve = side === "peeker" ? "#a83d4b" : "#326da8";
+  const sleeveLight = side === "peeker" ? "#da6270" : "#5aa7e9";
   const polygon = (points, fill) => {
     ctx.beginPath();
     ctx.moveTo(...points[0]);
@@ -118,20 +118,63 @@ function drawWeapon(ctx, width, height, side) {
   };
   ctx.save();
   ctx.scale(width / 500,height / 300);
-  // First-person forearms and a side-mounted rifle, clear of the center sight line.
-  polygon([[360,300],[392,252],[445,251],[494,300]],"#172433");
-  polygon([[390,300],[410,260],[458,257],[500,282],[500,300]],tint);
-  polygon([[301,300],[323,254],[349,238],[379,257],[380,300]],"#172433");
-  polygon([[316,300],[331,260],[351,249],[365,261],[359,300]],tint);
-  polygon([[250,194],[270,189],[362,224],[366,237],[270,206],[250,207]],"#111b28");
-  polygon([[268,190],[296,197],[350,216],[350,224],[272,202]],"#718193");
-  polygon([[337,219],[385,218],[426,234],[424,262],[361,252],[340,238]],"#1d2a39");
-  polygon([[347,222],[386,222],[414,234],[391,242],[354,237]],tint);
-  polygon([[361,252],[388,256],[377,296],[349,287]],"#0d1723");
-  polygon([[365,258],[380,260],[374,282],[355,277]],light);
-  polygon([[414,237],[463,243],[481,260],[430,267],[412,256]],"#111b28");
-  polygon([[251,191],[262,190],[263,204],[251,205]],"#8799a9");
-  polygon([[313,204],[329,209],[331,219],[317,215]],"#0d1723");
+  // An angled first-person rifle: hands, stock, barrel, handguard, receiver and magazine.
+  polygon([[270,300],[299,263],[328,235],[346,250],[326,300]],"#14212d");
+  polygon([[280,300],[311,261],[331,249],[340,262],[318,300]],sleeve);
+  polygon([[408,300],[410,269],[437,254],[500,279],[500,300]],"#14212d");
+  polygon([[424,300],[425,273],[449,266],[500,290],[500,300]],sleeve);
+
+  // Stock and buttpad sit behind the receiver.
+  polygon([[404,227],[460,238],[481,260],[425,268],[408,254]],"#111b26");
+  polygon([[416,228],[458,238],[468,248],[422,241]],"#536574");
+  polygon([[465,239],[481,242],[488,269],[472,268]],"#0b121a");
+  polygon([[471,243],[481,245],[483,262],[473,261]],"#677887");
+
+  // Steel barrel and a distinct muzzle brake.
+  polygon([[230,175],[278,188],[284,202],[230,189]],"#121c27");
+  polygon([[235,177],[278,188],[278,193],[235,183]],"#7b8b99");
+  polygon([[218,171],[238,174],[239,193],[218,190]],"#0d151e");
+  polygon([[219,172],[236,175],[236,179],[219,177]],"#8c9dab");
+  polygon([[221,184],[235,186],[235,190],[221,189]],"#4a5d6d");
+
+  // Ventilated handguard and the raised Picatinny rail.
+  polygon([[261,184],[346,205],[358,232],[267,210]],"#172431");
+  polygon([[261,184],[345,205],[341,212],[264,194]],"#788a99");
+  polygon([[267,195],[343,213],[351,230],[270,207]],"#314352");
+  polygon([[266,181],[345,201],[346,207],[264,187]],"#101922");
+  for (let i = 0; i < 4; i++) {
+    const x = 284 + i * 15;
+    polygon([[x,201+i*3.6],[x+8,203+i*3.6],[x+10,210+i*3.6],[x+2,208+i*3.6]],"#101b26");
+  }
+
+  // Receiver, ejection port and sight give the weapon a readable rifle profile.
+  polygon([[341,202],[410,218],[427,257],[350,242]],"#101a25");
+  polygon([[345,203],[407,218],[410,228],[348,214]],"#8292a0");
+  polygon([[350,215],[411,230],[419,255],[353,238]],"#354957");
+  polygon([[372,222],[401,230],[403,240],[375,233]],"#0b141c");
+  polygon([[377,224],[397,229],[397,232],[378,227]],"#7f919f");
+  polygon([[347,187],[370,192],[375,205],[341,198]],"#111b26");
+  polygon([[351,183],[367,187],[369,192],[348,188]],"#728493");
+  polygon([[353,176],[365,179],[368,188],[350,184]],"#0a1119");
+  polygon([[264,175],[268,176],[269,185],[263,183]],"#131e29");
+
+  // Pistol grip, trigger guard and curved magazine.
+  polygon([[396,250],[416,254],[438,300],[415,300]],"#0b141e");
+  polygon([[400,254],[410,256],[424,290],[415,290]],"#4b5f6f");
+  polygon([[351,238],[379,245],[382,294],[352,286]],"#0b141e");
+  polygon([[355,244],[371,247],[374,282],[354,278]],"#405564");
+  polygon([[369,250],[375,251],[378,288],[370,286]],"#6a7e8e");
+  ctx.strokeStyle = "#0b141e";
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(385,251); ctx.lineTo(390,269); ctx.lineTo(408,268);
+  ctx.stroke();
+
+  // Gloves wrap around the fore-end and firing grip.
+  polygon([[311,235],[331,226],[348,239],[339,254],[318,253]],"#13202d");
+  polygon([[314,237],[329,230],[343,240],[335,247]],sleeveLight);
+  polygon([[420,256],[442,258],[454,274],[432,280],[416,269]],"#172533");
+  polygon([[422,259],[437,260],[448,270],[432,272]],sleeveLight);
   ctx.restore();
 }
 
@@ -139,7 +182,7 @@ function drawHud(ctx, width, height, side, shooting, down) {
   ctx.save();
   drawWeapon(ctx,width,height,side);
   if (shooting) {
-    const flashX = width * .515, flashY = height * .65;
+    const flashX = width * .445, flashY = height * .6;
     const gradient = ctx.createRadialGradient(flashX,flashY,2,flashX,flashY,76);
     gradient.addColorStop(0,"rgba(255,250,214,.95)");
     gradient.addColorStop(.22,"rgba(255,190,84,.8)");
@@ -204,6 +247,7 @@ export class View3D {
     drawHud(ctx,width,height,side,shooting,down);
   }
 }
+
 
 
 
