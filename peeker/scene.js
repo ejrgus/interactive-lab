@@ -105,7 +105,7 @@ function makeScene(camera, width, height) {
   return { faces, actor, box };
 }
 
-function drawWeapon(ctx, width, height, side) {
+function drawWeapon(ctx, width, height, side, aimX) {
   const sleeve = side === "peeker" ? "#a83d4b" : "#326da8";
   const sleeveLight = side === "peeker" ? "#da6270" : "#5aa7e9";
   const polygon = (points, fill) => {
@@ -118,52 +118,48 @@ function drawWeapon(ctx, width, height, side) {
   };
   ctx.save();
   ctx.scale(width / 500,height / 300);
-  // Two hands hold a compact side-profile pistol, leaving the sight line clear.
-  polygon([[331,300],[349,271],[370,247],[390,258],[379,300]],"#172431");
-  polygon([[342,300],[359,270],[375,258],[389,267],[373,300]],sleeve);
-  polygon([[416,300],[423,271],[449,253],[500,273],[500,300]],"#172431");
-  polygon([[430,300],[435,275],[455,264],[500,284],[500,300]],sleeve);
+  ctx.translate((aimX / width - .5) * 500,0);
+  // Rear first-person view: the barrel recedes toward the center of the scene.
+  polygon([[105,300],[175,265],[208,252],[230,273],[224,300]],"#152330");
+  polygon([[118,300],[181,271],[205,261],[220,281],[210,300]],sleeve);
+  polygon([[395,300],[325,265],[292,252],[270,273],[276,300]],"#152330");
+  polygon([[382,300],[319,271],[295,261],[280,281],[290,300]],sleeve);
 
-  // The slide and barrel form the short horizontal stroke of the pistol.
-  polygon([[281,190],[302,190],[304,211],[281,207]],"#0c151e");
-  polygon([[282,192],[290,193],[290,203],[282,202]],"#687b8b");
-  polygon([[297,181],[405,202],[429,219],[432,240],[301,212],[295,204]],"#121d28");
-  polygon([[301,184],[403,205],[423,219],[310,197]],"#899aa7");
-  polygon([[301,197],[425,222],[428,235],[303,209]],"#3b4e5d");
-  polygon([[384,205],[405,209],[414,224],[389,217]],"#1c2c39");
-  for (let i = 0; i < 3; i++) {
-    const x = 395 + i * 7;
-    polygon([[x,211+i*1.4],[x+3,212+i*1.4],[x+6,224+i*1.4],[x+3,223+i*1.4]],"#0e1822");
-  }
-  polygon([[301,178],[306,179],[306,186],[300,184]],"#0e1822");
-  polygon([[397,193],[414,197],[415,204],[396,200]],"#0e1822");
+  // Grip and hands sit behind the slide, rather than beside the barrel.
+  polygon([[220,260],[280,260],[286,300],[214,300]],"#0e1924");
+  polygon([[226,272],[274,272],[278,300],[222,300]],"#3d5262");
+  polygon([[183,269],[208,249],[232,258],[235,286],[211,296]],"#172533");
+  polygon([[191,271],[208,257],[225,267],[224,283],[210,290]],sleeveLight);
+  polygon([[317,269],[292,249],[268,258],[265,286],[289,296]],"#172533");
+  polygon([[309,271],[292,257],[275,267],[276,283],[290,290]],sleeveLight);
 
-  // Frame, trigger guard and angled magazine grip form the vertical stroke.
-  polygon([[319,212],[405,230],[425,244],[410,257],[366,243],[328,231]],"#172532");
-  polygon([[328,214],[399,230],[405,238],[336,223]],"#617687");
-  polygon([[365,243],[393,250],[407,263],[387,272],[363,262]],"#0d1721");
-  polygon([[389,248],[420,254],[449,300],[407,300],[382,264]],"#0e1823");
-  polygon([[395,255],[415,258],[438,295],[412,295]],"#465b6c");
-  polygon([[416,259],[421,260],[443,297],[437,296]],"#748797");
-  ctx.strokeStyle = "#0b151e";
-  ctx.lineWidth = 5;
-  ctx.beginPath();
-  ctx.moveTo(366,246); ctx.lineTo(370,266); ctx.lineTo(392,269);
-  ctx.stroke();
+  // The top plane narrows into the distance so the muzzle faces the opponent.
+  polygon([[201,248],[230,178],[270,178],[299,248],[295,278],[205,278]],"#101c28");
+  polygon([[202,248],[230,178],[238,181],[224,250]],"#41586a");
+  polygon([[262,181],[270,178],[298,248],[276,250]],"#263948");
+  polygon([[237,181],[263,181],[278,249],[222,249]],"#738798");
+  polygon([[240,186],[260,186],[271,239],[229,239]],"#536879");
+  polygon([[239,212],[261,212],[266,230],[234,230]],"#263846");
+  polygon([[242,215],[258,215],[261,220],[239,220]],"#91a3af");
+  polygon([[202,249],[298,249],[295,278],[205,278]],"#283b4b");
+  polygon([[210,253],[290,253],[288,258],[212,258]],"#738798");
+  polygon([[241,266],[259,266],[258,270],[242,270]],"#566c7d");
 
-  // Gloved hands stay below the slide.
-  polygon([[359,251],[375,242],[392,252],[387,269],[367,270]],"#152330");
-  polygon([[359,255],[373,247],[386,253],[380,263]],sleeveLight);
-  polygon([[412,261],[437,254],[452,266],[444,286],[421,283]],"#172634");
-  polygon([[416,264],[435,257],[446,267],[437,274]],sleeveLight);
+  // Front and rear sights share the same center line.
+  polygon([[245,167],[255,167],[257,185],[243,185]],"#0a141d");
+  polygon([[248,171],[252,171],[252,177],[248,177]],"#a5b9c6");
+  polygon([[207,236],[230,236],[232,254],[204,254]],"#101a25");
+  polygon([[270,236],[293,236],[296,254],[268,254]],"#101a25");
+  polygon([[209,238],[225,238],[226,242],[208,242]],"#6b7e8d");
+  polygon([[275,238],[291,238],[292,242],[274,242]],"#6b7e8d");
   ctx.restore();
 }
 
-function drawHud(ctx, width, height, side, shooting, down) {
+function drawHud(ctx, width, height, side, shooting, down, aimX) {
   ctx.save();
-  drawWeapon(ctx,width,height,side);
+  drawWeapon(ctx,width,height,side,aimX);
   if (shooting) {
-    const flashX = width * .565, flashY = height * .66;
+    const flashX = aimX, flashY = height * .57;
     const gradient = ctx.createRadialGradient(flashX,flashY,2,flashX,flashY,52);
     gradient.addColorStop(0,"rgba(255,250,214,.95)");
     gradient.addColorStop(.22,"rgba(255,190,84,.8)");
@@ -225,7 +221,14 @@ export class View3D {
     const loses = side === "peeker" ? !model.peekerWins && !model.simultaneous : model.peekerWins;
     const down = loses && time >= deathAt;
     const shooting = time >= firedAt && time < firedAt + 90 && (!loses || firedAt < deathAt);
-    drawHud(ctx,width,height,side,shooting,down);
+    const target = side === "peeker"
+      ? [HOLDER.x,1.2,HOLDER.z]
+      : [PEEKER.x,1.2,peekerZ(time - model.holderSees)];
+    const [targetRight,,targetForward] = cameraPoint(target,camera);
+    const seesTarget = side === "peeker" ? time >= 0 : time >= model.holderSees;
+    const targetX = width / 2 + targetRight / Math.max(.12,targetForward) * height * .86;
+    const aimX = seesTarget ? Math.max(width * .12,Math.min(width * .88,targetX)) : width / 2;
+    drawHud(ctx,width,height,side,shooting,down,aimX);
   }
 }
 
