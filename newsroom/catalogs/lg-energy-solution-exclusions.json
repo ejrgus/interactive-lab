@@ -1,0 +1,90 @@
+{
+  "since": "2025-10-22",
+  "until": "2026-10-22",
+  "excluded": [
+    {
+      "title": "LG에너지솔루션, 산∙학∙관 협력으로 지역인재 육성 나선다",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8775",
+      "date": "2026-07-23",
+      "reason": "인사·인재 양성 제외"
+    },
+    {
+      "title": "LG에너지솔루션 제4회 산학협력 컨퍼런스 개최",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8774",
+      "date": "2026-07-22",
+      "reason": "기술 상세보다 산학 교류 행사 안내 중심"
+    },
+    {
+      "title": "LG에너지솔루션 2026년 2분기 잠정실적 발표",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8772",
+      "date": "2026-07-07",
+      "reason": "잠정 실적 중복. 같은 분기 실적발표 원문 수집"
+    },
+    {
+      "title": "배터리 기술 혁신 이끌 인재 한자리에,  LG에너지솔루션 'BTC in Chicago' 개최",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8766",
+      "date": "2026-06-15",
+      "reason": "채용 연계 행사 제외"
+    },
+    {
+      "title": "LG에너지솔루션 차세대 LMR 배터리 ‘명품특허’ 확보 - ‘2026 발명왕·출원왕 시상식’ 개최",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8763",
+      "date": "2026-05-18",
+      "reason": "임직원 포상 제외. LMR 기술 자체는 연구 인터뷰로 별도 수집"
+    },
+    {
+      "title": "‘역대 최대규모’ 연구∙전문위원 선임,  인재 육성 및 기술리더십 선도 의지",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8757",
+      "date": "2026-04-15",
+      "reason": "인사·전문위원 선임 제외"
+    },
+    {
+      "title": "LG에너지솔루션 2026년 1분기 잠정실적 발표",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8755",
+      "date": "2026-04-07",
+      "reason": "잠정 실적 중복. 같은 분기 실적발표 원문 수집"
+    },
+    {
+      "title": "LG에너지솔루션, ‘2026 파트너스 데이’ 개최",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8725",
+      "date": "2026-01-27",
+      "reason": "파트너 행사 중심. 실제 파트너십 협약은 별도 수집"
+    },
+    {
+      "title": "LG에너지솔루션 2025년 4분기 잠정실적 발표",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8724",
+      "date": "2026-01-09",
+      "reason": "잠정 실적 중복. 연간 및 4분기 실적발표 원문 수집"
+    },
+    {
+      "title": "LG에너지솔루션, 2026년 정기 임원인사",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8721",
+      "date": "2025-11-27",
+      "reason": "임원 인사 제외"
+    },
+    {
+      "title": "폴란드 지역 경제 활성화를 위한 브로츠와프 법인의 다양한 활동들을 소개합니다!",
+      "url": "https://inside.lgensol.com/2025/11/wroclaw-corporation-to-revitalize-the-local-economy",
+      "date": "2025-11-27",
+      "reason": "사회공헌·지역 홍보 제외"
+    },
+    {
+      "title": "LG에너지솔루션, 금감원 ‘2025 재무공시 우수법인’ 선정",
+      "url": "https://www.lgensol.com/kr/company/newsroom-detail?seq=8719",
+      "date": "2025-11-20",
+      "reason": "재무공시 수상 홍보 제외"
+    },
+    {
+      "title": "인재 선순환 구조를 갖춘 LG에너지솔루션 브로츠와프 법인 HR 프로그램은?",
+      "url": "https://inside.lgensol.com/2025/11/poland-wroclaw-corporation-hrprogram",
+      "date": "2025-11-06",
+      "reason": "인사·채용 프로그램 제외"
+    },
+    {
+      "title": "“세계 어디서든 무한한 가능성을 실현하는 차세대 리더들”_글로벌 앰버서더 프로그램 배터리더스의 모든 것",
+      "url": "https://inside.lgensol.com/2025/10/all-about-betterleaders",
+      "date": "2025-10-30",
+      "reason": "인재·앰배서더 프로그램 제외"
+    }
+  ]
+}
