@@ -1,0 +1,90 @@
+{
+  "since": "2025-10-22",
+  "until": "2026-10-22",
+  "excluded": [
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6603&locale=ko",
+      "title": "LG이노텍 조지태 전무, 제21회 ‘전자·IT의 날’ 은탑산업훈장 수상",
+      "date": "2026-10-13",
+      "reason": "인물 포상 중심. 패키지 생산·공정 기술은 별도 원문에서 수집"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6599&locale=ko",
+      "title": "LG이노텍 “피지컬 AI 시대 이끌  글로벌 인재 모십니다“",
+      "date": "2026-08-25",
+      "reason": "인재 채용·채용 행사 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6596&locale=ko",
+      "title": "LG이노텍, 상반기 매출 첫 10조 돌파… 2분기 영업이익은 2,458억",
+      "date": "2026-07-27",
+      "reason": "공식 제목은 2분기 실적이나 본문은 1분기 실적으로 불일치. 잘못된 분기 요약을 방지하기 위해 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6595&locale=ko",
+      "title": "대학생이 그린 ‘피지컬 AI’, 현실로 만드는 LG이노텍",
+      "date": "2026-07-01",
+      "reason": "대학생 숏폼 광고 공모전·브랜드 홍보 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6589&locale=ko",
+      "title": "문혁수 사장, 어플라이드 인튜이션 CEO 회동 “로봇·드론 등 피지컬 AI 협력 확대”",
+      "date": "2026-04-30",
+      "reason": "기존 파트너십의 경영진 회동·협력 방안 논의. 실제 파트너십 체결 및 플릿 운영 원문 우선 수집"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6585&locale=ko",
+      "title": "“피지컬 AI가 만드는 미래” 대학생이 그리는 LG이노텍",
+      "date": "2026-04-13",
+      "reason": "대학생 숏폼 광고 공모전·채용 브랜딩 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6584&locale=ko",
+      "title": "“임직원 건강과 안전이 최우선” LG이노텍 노경(勞經), 안전한 일터 조성 ‘맞손’",
+      "date": "2026-04-09",
+      "reason": "노경 관계·직원 건강·조직문화 선언 중심. 구체적인 공정 안전 기술 자료가 아니므로 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6583&locale=ko",
+      "title": "LG이노텍, 사회공헌 활동 ‘아이 Dream Up’ 베트남으로 확대",
+      "date": "2026-04-03",
+      "reason": "아동 지원·사회공헌 사업 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6577&locale=ko",
+      "title": "의결권 대리행사 권유 및 위임장 교부 안내",
+      "date": "2026-02-27",
+      "reason": "의결권 대리행사 위임장 안내. 직무 기술·운영 자료 수집 범위 밖"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/insightsView.do?idx=226&locale=ko",
+      "title": "모빌리티의 눈 ‘LiDAR’, 정밀성과 보안을 한 번에",
+      "date": "2026-02-03",
+      "reason": "기술백서 도입 안내로 공개 본문은 센서 개관에 그침. 구체적인 센싱·실증·시뮬레이션 원문 우선 수집; 첨부 백서는 이번 범위 밖"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6570&locale=ko",
+      "title": "문혁수 LG이노텍 사장, 고수익 사업 포트폴리오 앞세워 수익성 강화 사활 건다!",
+      "date": "2026-01-05",
+      "reason": "신년 경영방침·조직 메시지 중심. 구체적인 기술·투자·실적 원문 우선 수집"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6569&locale=ko",
+      "title": "아이들 미래 위해 LG이노텍 임직원 2만6천 명 팔 걷었다!",
+      "date": "2025-12-29",
+      "reason": "임직원 봉사·사회공헌 사업 제외"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6564&locale=ko",
+      "title": "LG이노텍, CES 2026서 ADV 시대 여는 ‘미래車 혁신 솔루션’ 대거 공개",
+      "date": "2025-12-03",
+      "reason": "CES 사전 전시 예고. 실제 전시와 개별 신제품 기술 원문으로 중복 축소"
+    },
+    {
+      "url": "https://www.lginnotek.com/news/pressView.do?idx=6561&locale=ko",
+      "title": "LG이노텍, 9년 연속 동반성장 최우수 기업 선정",
+      "date": "2025-10-31",
+      "reason": "동반성장 평가 수상 중심. 구체적인 협력사 협약·지원 운영은 2026년 원문에서 수집"
+    }
+  ]
+}

@@ -8,6 +8,38 @@ const catalog=JSON.parse(await read('newsroom/catalogs/hankook-tire.json'));
 const lg=JSON.parse(await read('newsroom/catalogs/lg-energy-solution.json'));
 const asml=JSON.parse(await read('newsroom/catalogs/asml.json'));
 const lge=JSON.parse(await read('newsroom/catalogs/lg-electronics.json'));
+const innotek=JSON.parse(await read('newsroom/catalogs/lg-innotek.json'));
+
+test('LG Innotek accounts for its verified year, excludes conflicting data and shares contracts',async()=>{
+  const excluded=JSON.parse(await read('newsroom/catalogs/lg-innotek-exclusions.json')).excluded;
+  assert.equal(innotek.coverage.since,'2025-10-22');
+  assert.equal(innotek.coverage.until,'2026-10-22');
+  assert.equal(innotek.articles.length,28);
+  assert.equal(innotek.articles.length+excluded.length,42);
+  assert.equal(innotek.coverage.selected_originals_verified,28);
+  for(const boundary of Object.values(innotek.coverage.oldest_boundary_dates))assert.ok(boundary<innotek.coverage.since);
+  assert.equal(new Set(innotek.articles.map(a=>a.url)).size,28);
+  assert.equal(new Set(innotek.articles.map(a=>a.id)).size,28);
+  const used=new Set();
+  for(const a of innotek.articles){
+    assert.ok(a.date>=innotek.coverage.since&&a.date<=innotek.coverage.until);
+    assert.equal(canonicalUrl(a.url),a.url);
+    assert.match(a.url,/^https:\/\/www\.lginnotek\.com\/news\/(press|insights)View\.do\?idx=\d+&locale=ko$/);
+    assert.ok(a.is_official&&a.verified&&a.summary&&a.study.startsWith('공부 질문:'));
+    assert.ok(!/광고 공모전|인재 모십니다|사회공헌|은탑산업훈장/.test(a.title));
+    assert.equal(new Set([a.category,...a.topics]).size,1+a.topics.length);
+    for(const f of [a.category,...a.topics])used.add(f);
+  }
+  assert.equal(used.size,17);
+  assert.ok([...used].every(f=>!/마케팅|영업|인사|사회공헌/.test(f)));
+  assert.ok(excluded.some(a=>a.url.includes('idx=6596')&&a.reason.includes('불일치')));
+  assert.ok(!innotek.articles.some(a=>a.source_post_id==='press-6596'));
+  assert.equal(innotek.articles.filter(a=>inCategory(a,'공급 / 계약')).length,11);
+  const glass=innotek.articles.find(a=>a.source_post_id==='press-6572');
+  for(const f of ['공급 / 계약','유리기판','소재 / 표면처리','시험 / 품질검증'])assert.ok(inCategory(glass,f));
+  assert.equal(innotek.articles.filter(a=>a.url===glass.url).length,1);
+  assert.notEqual(topicId(innotek.company.id,'공급 / 계약'),topicId(lge.company.id,'공급 / 계약'));
+});
 
 test('LG Electronics uses the relocated official newsroom and verified one-year originals',async()=>{
   const exclusions=JSON.parse(await read('newsroom/catalogs/lg-electronics-exclusions.json')).excluded;
@@ -46,9 +78,12 @@ test('LG Electronics shares contract identity across fields and includes body-co
   assert.notEqual(topicId(lge.company.id,'공급 / 계약'),topicId(lg.company.id,'공급 / 계약'));
 });
 
-test('the separate reader is restricted to ASML investor originals',()=>{
+test('the separate reader is restricted to sites confirmed to reject embedding',()=>{
   assert.equal(usesSeparateReader('https://investor.asml.com/news-releases/news-release-details/example'),true);
   assert.equal(usesSeparateReader('https://www.investor.asml.com/news-releases/news-release-details/example'),true);
+  assert.equal(usesSeparateReader('https://www.lginnotek.com/news/pressView.do?idx=6601&locale=ko'),true);
+  assert.equal(usesSeparateReader('https://lginnotek.com/news/insightsView.do?idx=245&locale=ko'),true);
+  assert.equal(usesSeparateReader('https://www.lginnotek.com.example.org/story'),false);
   for(const url of ['','not a URL','https://investor.asml.com.example.org/story','https://www.asml.com/en/company/stories/2026/machines-behind-machines','https://inside.lgensol.com/story','https://www.hyundaimotorgroup.com/ko/story/test'])assert.equal(usesSeparateReader(url),false);
 });
 
@@ -167,6 +202,9 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
     await db.exec(`insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-asml-article','existing ASML private text');`);
     await db.query(`insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-lge-article',$1,'existing LGE title','existing-lge','existing category')`,[lge.articles[0].url]);
     await db.exec(`insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-lge-article','existing LGE private text');`);
+    await db.exec("insert into public.newsroom_companies(id,name) values('existing-innotek','LG이노텍');");
+    await db.query("insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-innotek-article',$1,'existing Innotek title','existing-innotek','existing category')",[innotek.articles[0].url]);
+    await db.exec("insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-innotek-article','existing Innotek private text');");
     const before=(await db.query('select * from public.newsroom_notes')).rows;
     const seed=await read('supabase/07-seed-company-news.sql');
     await db.exec(seed);await db.exec(seed);
@@ -181,6 +219,9 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
     assert.equal((await db.query("select id from public.newsroom_companies where name='LG전자'")).rows[0].id,'existing-lge');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-lge'")).rows[0].n,lge.articles.length);
     assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[lge.articles[0].url])).rows[0].id,'existing-lge-article');
+    assert.equal((await db.query("select id from public.newsroom_companies where name='LG이노텍'")).rows[0].id,'existing-innotek');
+    assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-innotek'")).rows[0].n,28);
+    assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[innotek.articles[0].url])).rows[0].id,'existing-innotek-article');
     assert.equal((await db.query('select id,title from public.newsroom_articles where url=$1',[first.url])).rows[0].id,'existing-article');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='hyundai-motor-group'")).rows[0].n,71);
     assert.deepEqual((await db.query('select * from public.newsroom_notes')).rows,before);

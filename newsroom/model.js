@@ -6,9 +6,9 @@ export function canonicalUrl(value) {
   return url.href.replace(/\/$/, '');
 }
 
-// ASML's investor originals fail in an embedded reader. Keep the study visible.
+// These official sites reject embedded readers. Keep the study visible.
 export function usesSeparateReader(value) {
-  try { return ['investor.asml.com','www.investor.asml.com'].includes(new URL(value).hostname); }
+  try { return ['investor.asml.com','www.investor.asml.com','www.lginnotek.com','lginnotek.com'].includes(new URL(value).hostname); }
   catch { return false; }
 }
 
