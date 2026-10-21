@@ -1,5 +1,8 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
 import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-01';
+import { setupNoteLayout } from './layout.js?v=20261022-02';
+import { createPresence } from './presence.js?v=20261022-02';
+import { createNoteImages } from './images.js?v=20261022-02';
 
 // Keep the desktop application's DOM and style selectors intact.
 const legacyIds={ 'article-list':'articleList', 'article-count':'listCount', 'list-title':'listTitle', 'reader-title':'articleTitle', 'reader-category':'articleCategory', 'reader-date':'articleDate', 'note-editor':'noteEditor', 'note-context':'noteContext', 'note-count':'noteChars', 'save-status':'noteSaveStatus', 'add-open':'addNews', 'add-dialog':'addDialog', 'add-form':'addForm', 'add-url':'addUrl', 'add-title':'addTitle', 'add-category':'addCategory', 'add-date':'addDate', 'add-status':'addError', 'category-suggestions':'fieldSuggestions' };
@@ -9,6 +12,7 @@ const companyArticles = () => state.articles.filter(a=>a.company_id===state.comp
 const currentCompany = () => state.companies.find(c=>c.id===state.companyId);
 const FIELD_ORDER=['열관리 / 충전','섀시 / NVH','차체 / 충돌','차량전자 / E/E','품질 / 신뢰성','시험 / 가상개발','프레스 / 차체','스마트제조','도장 / 의장','소재 / 경량화','하이브리드','ADAS / 자율주행','전동화 구동','SDV / IVI','배터리 / BMS','수소 / 연료전지','구매 / 공급망','상품 / 사업전략'];
 let client, authMode='login', timer, saving=null, importData=null, recoveryMode=false;
+let presence,ownImages,adminImages,profileNickname='회원';
 let adminNotes=[], adminSelected=null, adminTab='takeaway';
 const emptyNote = id => ({ article_id:id, memo:'', qa:'', takeaway:'', origin:'', favorite:false, read:false, user_edited:false, revision:0 });
 const note = id => state.notes.get(id) || emptyNote(id);
@@ -41,6 +45,7 @@ function setAuthMode(mode) {
   message('auth-status','');
 }
 function lockView() {
+  presence?.stop();ownImages?.clear();adminImages?.clear();
   clearTimeout(timer); state.generation++; state.user=null; state.articles=[]; state.notes.clear(); state.dirty.clear(); state.selected=null; state.admin=false;
   $('workspace').hidden=true; $('auth-panel').hidden=false; $('recovery-panel').hidden=true;
   $('app-topbar').hidden=true;document.body.classList.remove('signed-in','reader-focus');
@@ -49,7 +54,7 @@ function lockView() {
   $('notePreview').textContent='';$('notePreview').hidden=true;$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';
   $('search').value='';$('category').value='';state.filter='all';state.preview=false;
   state.companies=[];state.companyId=DEFAULT_COMPANY;$('company-menu').hidden=true;
-  for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog']) if($(id).open)$(id).close();
+  for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog','online-dialog','image-dialog']) if($(id).open)$(id).close();
   $('import-file').value=''; importData=null;
   setToolsMenu(false);$('account-label').textContent='';setReaderFocus(false);
 }
@@ -92,6 +97,7 @@ async function reloadWorkspace() {
   }
   if(generation!==state.generation)return;
   $('account-label').textContent=`${profile.nickname}${state.admin?' · 관리자':''}`;
+  profileNickname=profile.nickname;presence.start(user,profileNickname);
   renderCompany();refreshCategories();
   const previous=state.selected;
   renderList();
@@ -138,6 +144,7 @@ function renderCompany() {
   if(company.newsroom_url)$('company-newsroom-link').href=canonicalUrl(company.newsroom_url);else $('company-newsroom-link').removeAttribute('href');
 }
 function clearReader() {
+  ownImages?.clear();
   state.selected=null;$('reader-content').hidden=false;$('note-editor').value='';$('note-editor').disabled=true;$('save-note').disabled=true;$('admin-load').disabled=true;
   $('reader-empty').hidden=false;$('reader-empty').textContent='아직 등록된 뉴스가 없어요.\n뉴스를 추가하거나 주제 노트를 열어보세요.';
   for(const selector of ['.article-top','#browserToolbar','#webSurface','#summaryContent','.reader-footer'])$('reader-content').querySelector(selector).hidden=true;
@@ -176,6 +183,12 @@ function setReaderFocus(open) {
   document.body.classList.toggle('reader-focus',open);
   $('readerFocus').textContent=open?'✕ 넓게 보기 닫기':'⤢ 뉴스 넓게';
   setToolsMenu(false);
+}
+function renderOnline(value) {
+  const connected=value.status==='connected';
+  $('online-button').textContent=connected?`● 접속 ${value.members.length}명`:value.status==='error'?'○ 접속 확인 불가':'○ 접속 확인 중';
+  $('online-status').textContent=connected?`현재 ${value.members.length}명 · 같은 계정의 여러 탭은 한 명으로 표시합니다.`:value.status==='error'?'접속 목록을 연결하지 못했어요. 다시 연결해주세요.':'접속 목록을 연결하는 중…';
+  $('online-list').replaceChildren(...value.members.map(member=>{const row=document.createElement('li');row.textContent=`${member.nickname}${member.id===state.user?.id?' (나)':''}`;return row;}));
 }
 function renderList() {
   const query=$('search').value.trim().toLowerCase(), category=$('category').value;
@@ -261,6 +274,7 @@ function renderNote() {
   if(state.preview)$('notePreview').textContent=n[state.tab]||'아직 작성한 내용이 없습니다.';
   message('save-status',state.dirty.has(n.article_id)?'저장 대기 중…':n.revision?'계정에 저장됨':'자동 저장 켜짐');
   document.querySelectorAll('[data-note]').forEach(b=>b.classList.toggle('active',b.dataset.note===state.tab));
+  ownImages?.load();
 }
 function changeNote(patch, edited=true) {
   if(!state.selected || !state.user)return;
@@ -313,19 +327,23 @@ async function loadAdminNotes() {
   resetAdminNotes();adminTab='takeaway';$('admin-dialog-title').textContent=state.selected.title;
   $('admin-status').textContent='회원 메모를 불러오는 중…';$('admin-dialog').showModal();
   message('workspace-status','회원 메모를 조회하는 중…');
-  const [notes,profiles]=await Promise.all([
+  const [notes,profiles,images]=await Promise.all([
     allRows('newsroom_notes','*',q=>q.eq('article_id',id).order('user_id')),
-    allRows('newsroom_profiles','user_id,nickname',q=>q.order('user_id'))
+    allRows('newsroom_profiles','user_id,nickname',q=>q.order('user_id')),
+    allRows('newsroom_note_images','user_id',q=>q.eq('article_id',id).order('user_id'))
   ]);
   if(generation!==state.generation || state.selected?.id!==id || !$('admin-dialog').open)return;
   const names=new Map(profiles.map(p=>[p.user_id,p.nickname]));
-  adminNotes=notes.filter(n=>n.memo||n.qa||n.takeaway).map(n=>({...n,author:names.get(n.user_id)||'회원'}));
+  const imageAuthors=new Set(images.map(i=>i.user_id)),allNotes=new Map(notes.map(n=>[n.user_id,n]));
+  for(const user_id of imageAuthors)if(!allNotes.has(user_id))allNotes.set(user_id,{user_id});
+  adminNotes=[...allNotes.values()].filter(n=>n.memo||n.qa||n.takeaway||imageAuthors.has(n.user_id)).map(n=>({...n,author:names.get(n.user_id)||'회원'}));
   adminSelected=adminNotes[0]?.user_id||null;
   $('admin-status').textContent=adminNotes.length?`작성자 ${adminNotes.length}명 · 열람 전용`:'이 항목에 작성된 회원 메모가 없습니다.';
   renderAdminNotes();
   message('workspace-status','관리자 권한으로 조회했습니다. 회원 메모는 여기서 수정할 수 없습니다.');
 }
 function resetAdminNotes() {
+  adminImages?.clear();
   adminNotes=[];adminSelected=null;
   $('admin-results').replaceChildren();$('admin-author').textContent='작성자를 선택해주세요.';$('admin-note-body').textContent='';
   if($('admin-dialog').open)$('admin-dialog').close();
@@ -342,8 +360,16 @@ function renderAdminNotes() {
   $('admin-author').textContent=selected?`${selected.author} · ${selected.user_id.slice(0,8)}`:'작성자를 선택해주세요.';
   $('admin-note-body').textContent=selected?(selected[adminTab]||'이 메모에는 작성된 내용이 없습니다.'):'왼쪽에서 작성자를 선택하면 메모를 볼 수 있어요.';
   document.querySelectorAll('[data-admin-note]').forEach(b=>{const active=b.dataset.adminNote===adminTab;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+  adminImages?.load();
 }
 function wireEvents() {
+  setupNoteLayout();
+  presence=createPresence(client,renderOnline);
+  ownImages=createNoteImages(client,{gallery:$('note-images'),status:$('image-status'),input:$('image-file'),upload:$('attach-image'),context:()=>state.user&&state.selected?{userId:state.user.id,articleId:state.selected.id,noteKey:state.tab}:null});
+  adminImages=createNoteImages(client,{gallery:$('admin-images'),status:$('admin-image-status'),context:()=>state.user&&state.selected&&adminSelected?{userId:adminSelected,articleId:state.selected.id,noteKey:adminTab}:null});
+  $('online-button').onclick=()=>$('online-dialog').showModal();
+  $('online-retry').onclick=()=>{if(state.user){presence.stop();presence.start(state.user,profileNickname);}};
+  $('image-dialog').addEventListener('close',()=>{$('image-original').removeAttribute('src');$('image-original').alt='';});
   $('login-tab').onclick=()=>setAuthMode('login');$('signup-tab').onclick=()=>setAuthMode('signup');
   $('auth-form').addEventListener('submit',async event=>{
     event.preventDefault();$('auth-submit').disabled=true;message('auth-status','계정을 확인하고 있어요…');
@@ -378,7 +404,7 @@ function wireEvents() {
   $('leaveWorkspace').onclick=async event=>{
     if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
     event.preventDefault();
-    try{await saveAll();location.assign($('leaveWorkspace').href);}catch(e){message('workspace-status',errorText(e),true);}
+    try{await saveAll();await presence.stop();location.assign($('leaveWorkspace').href);}catch(e){message('workspace-status',errorText(e),true);}
   };
   $('company-button').onclick=()=>{const open=$('company-menu').hidden;setToolsMenu(false);$('company-menu').hidden=!open;$('company-button').setAttribute('aria-expanded',String(open));};
   $('company-add').onclick=()=>openCompanyForm();$('company-edit').onclick=()=>openCompanyForm(true);
