@@ -1,8 +1,9 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
 import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-01';
-import { setupNoteLayout } from './layout.js?v=20261022-04';
-import { createPresence } from './presence.js?v=20261022-04';
-import { createNoteImages } from './images.js?v=20261022-04';
+import { setupNoteLayout } from './layout.js?v=20261022-05';
+import { createPresence } from './presence.js?v=20261022-05';
+import { createNoteImages } from './images.js?v=20261022-05';
+import { noteText, noteMarkdown } from './note-document.js?v=20261022-05';
 
 // Keep the desktop application's DOM and style selectors intact.
 const legacyIds={ 'article-list':'articleList', 'article-count':'listCount', 'list-title':'listTitle', 'reader-title':'articleTitle', 'reader-category':'articleCategory', 'reader-date':'articleDate', 'note-editor':'noteEditor', 'note-context':'noteContext', 'note-count':'noteChars', 'save-status':'noteSaveStatus', 'add-open':'addNews', 'add-dialog':'addDialog', 'add-form':'addForm', 'add-url':'addUrl', 'add-title':'addTitle', 'add-category':'addCategory', 'add-date':'addDate', 'add-status':'addError', 'category-suggestions':'fieldSuggestions' };
@@ -54,7 +55,7 @@ function lockView() {
   $('notePreview').textContent='';$('notePreview').hidden=true;$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';
   $('search').value='';$('category').value='';state.filter='all';state.preview=false;
   state.companies=[];state.companyId=DEFAULT_COMPANY;$('company-menu').hidden=true;
-  for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog','online-dialog','image-dialog']) if($(id).open)$(id).close();
+  for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog','online-dialog']) if($(id).open)$(id).close();
   $('import-file').value=''; importData=null;
   setToolsMenu(false);$('account-label').textContent='';setReaderFocus(false);
 }
@@ -195,7 +196,7 @@ function renderList() {
   const source=state.filter==='topics'?topicArticles():state.filter==='all'&&query?[...companyArticles(),...topicArticles().filter(a=>[note(a.id).memo,note(a.id).qa,note(a.id).takeaway].some(Boolean))]:companyArticles();
   const items=source.filter(a=>(!category || inCategory(a,category) || state.filter==='topics') &&
     (state.filter!=='favorites' || note(a.id).favorite) && (state.filter!=='read' || note(a.id).read) && (state.filter!=='mine' || a.created_by===state.user?.id) &&
-    (!query || [a.title,a.company,a.category,...a.tags,a.summary,note(a.id).memo,note(a.id).qa,note(a.id).takeaway].join(' ').toLowerCase().includes(query)));
+    (!query || [a.title,a.company,a.category,...a.tags,a.summary,...[note(a.id).memo,note(a.id).qa,note(a.id).takeaway].map(noteText)].join(' ').toLowerCase().includes(query)));
   $('list-title').textContent=$('category').value || ({topics:'내 주제 노트',favorites:'즐겨찾기',read:'읽은 뉴스',mine:'내가 추가한 뉴스',all:'전체 뉴스'}[state.filter]);
   $('article-count').textContent=`${items.length}건`;
   $('article-list').replaceChildren();
@@ -266,13 +267,12 @@ function renderNote() {
   if(!state.selected)return;
   const n=note(state.selected.id);$('note-editor').value=n[state.tab]||'';
   $('note-context').textContent=state.selected.title;
-  $('note-count').textContent=`${$('note-editor').value.length.toLocaleString()}자`;
+  $('note-count').textContent=`${noteText($('note-editor').value).length.toLocaleString()}자`;
   $('favorite').textContent=n.favorite?'★':'☆';$('favorite').classList.toggle('selected',n.favorite);
   $('readToggle').textContent=n.read?'✓':'○';$('readToggle').classList.toggle('selected',n.read);
   $('readToggle').title=n.read?'읽음 표시 해제':'읽음 표시';
-  $('note-editor').hidden=state.preview;$('notePreview').hidden=!state.preview;
+  $('notePreview').hidden=true;
   $('previewNote').textContent=state.preview?'편집 모드':'읽기 모드';
-  if(state.preview)$('notePreview').textContent=n[state.tab]||'아직 작성한 내용이 없습니다.';
   message('save-status',state.dirty.has(n.article_id)?'저장 대기 중…':n.revision?'계정에 저장됨':'자동 저장 켜짐');
   document.querySelectorAll('[data-note]').forEach(b=>b.classList.toggle('active',b.dataset.note===state.tab));
   ownImages?.load();
@@ -294,6 +294,7 @@ async function saveAll() {
   saving=(async()=>{
     while(state.dirty.size && generation===state.generation) {
       const [id,version]=state.dirty.entries().next().value, snapshot={...note(id)};
+      if([snapshot.memo,snapshot.qa,snapshot.takeaway].some(value=>value.length>200000))throw new Error('메모가 저장 한도인 20만 자를 넘었어요. 현재 내용을 복사해 보관한 뒤 줄여주세요.');
       const payload={memo:snapshot.memo,qa:snapshot.qa,takeaway:snapshot.takeaway,origin:snapshot.origin,favorite:snapshot.favorite,read:snapshot.read,user_edited:snapshot.user_edited,updated_at:new Date().toISOString()};
       if(state.selected?.id===id)message('save-status','계정에 저장 중…');
       const request=snapshot.revision
@@ -360,18 +361,16 @@ function renderAdminNotes() {
   }
   const selected=adminNotes.find(n=>n.user_id===adminSelected);
   $('admin-author').textContent=selected?`${selected.author} · ${selected.user_id.slice(0,8)}`:'작성자를 선택해주세요.';
-  $('admin-note-body').textContent=selected?(selected[adminTab]||'이 메모에는 작성된 내용이 없습니다.'):'왼쪽에서 작성자를 선택하면 메모를 볼 수 있어요.';
   document.querySelectorAll('[data-admin-note]').forEach(b=>{const active=b.dataset.adminNote===adminTab;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
   adminImages?.load();
 }
 function wireEvents() {
   setupNoteLayout();
   presence=createPresence(client,renderOnline);
-  ownImages=createNoteImages(client,{gallery:$('note-images'),status:$('image-status'),pasteTarget:$('note-editor'),context:()=>state.user&&state.selected?{userId:state.user.id,articleId:state.selected.id,noteKey:state.tab}:null});
-  adminImages=createNoteImages(client,{gallery:$('admin-images'),status:$('admin-image-status'),context:()=>state.user&&state.selected&&adminSelected?{userId:adminSelected,articleId:state.selected.id,noteKey:adminTab}:null});
+  ownImages=createNoteImages(client,{editor:$('rich-note-editor'),recovery:$('note-images'),status:$('image-status'),source:()=>$('note-editor').value,onChange:value=>{$('note-editor').value=value;$('note-editor').dispatchEvent(new Event('input',{bubbles:true}));},editable:()=>!!state.user&&!!state.selected&&!state.preview,context:()=>state.user&&state.selected?{userId:state.user.id,articleId:state.selected.id,noteKey:state.tab}:null});
+  adminImages=createNoteImages(client,{editor:$('admin-note-body'),recovery:$('admin-images'),status:$('admin-image-status'),source:()=>adminNotes.find(n=>n.user_id===adminSelected)?.[adminTab]||'',context:()=>state.user&&state.selected&&adminSelected?{userId:adminSelected,articleId:state.selected.id,noteKey:adminTab}:null});
   $('online-button').onclick=()=>$('online-dialog').showModal();
   $('online-retry').onclick=()=>{if(state.user){presence.stop();presence.start(state.user,profileNickname);}};
-  $('image-dialog').addEventListener('close',()=>{$('image-original').removeAttribute('src');$('image-original').alt='';});
   $('login-tab').onclick=()=>setAuthMode('login');$('signup-tab').onclick=()=>setAuthMode('signup');
   $('auth-form').addEventListener('submit',async event=>{
     event.preventDefault();$('auth-submit').disabled=true;message('auth-status','계정을 확인하고 있어요…');
@@ -432,16 +431,16 @@ function wireEvents() {
   };
   document.addEventListener('click',event=>{if(!event.target.closest('#toolsMenu')&&!event.target.closest('#toolsButton')&&!event.target.closest('#readerMenu'))setToolsMenu(false);if(!event.target.closest('.company-picker')){$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}});
   $('topicNote').onclick=()=>selectTopic($('category').value||'면접 연결');
-  $('previewNote').onclick=()=>{state.preview=!state.preview;renderNote();};
+  $('previewNote').onclick=async()=>{await ownImages.flush();state.preview=!state.preview;renderNote();};
   $('readerFocus').onclick=()=>setReaderFocus(!document.body.classList.contains('reader-focus'));
   $('webTab').onclick=()=>{state.view='web';renderReaderView();};$('summaryTab').onclick=()=>{state.view='summary';renderReaderView();};
   $('external').title='새 탭에서 원문 열기';$('external').onclick=()=>{if(state.selected?.url)window.open(canonicalUrl(state.selected.url),'_blank','noopener,noreferrer');};
   for(const id of ['reload','homeArticle'])$(id).onclick=()=>{if(state.selected?.url){$('articleFrame').dataset.source='';state.view='web';renderReaderView();}};
   $('currentAdd').onclick=()=>{$('add-open').click();if(state.selected?.url){$('add-url').value=state.selected.url;$('add-title').value=state.selected.title;if(state.selected.category!==EXTERNAL_CATEGORY)$('add-category').value=state.selected.category;}};
   $('refresh').onclick=async()=>{try{await saveAll();await reloadWorkspace();}catch(e){message('workspace-status',errorText(e),true);}};
-  document.querySelectorAll('[data-note]').forEach(button=>button.onclick=()=>{state.tab=button.dataset.note;renderNote();});
+  document.querySelectorAll('[data-note]').forEach(button=>button.onclick=async()=>{await ownImages.flush();state.tab=button.dataset.note;renderNote();});
   $('note-editor').maxLength=200000;
-  $('note-editor').oninput=()=>{changeNote({[state.tab]:$('note-editor').value});$('note-count').textContent=`${$('note-editor').value.length.toLocaleString()}자`;};
+  $('note-editor').oninput=()=>{changeNote({[state.tab]:$('note-editor').value});$('note-count').textContent=`${noteText($('note-editor').value).length.toLocaleString()}자`;};
   $('save-note').onclick=()=>saveAll().catch(e=>message('save-status',errorText(e),true));
   $('favorite').onclick=()=>{if(!state.selected)return;changeNote({favorite:!note(state.selected.id).favorite});renderNote();renderList();};
   $('readToggle').onclick=()=>{if(!state.selected)return;changeNote({read:!note(state.selected.id).read},false);renderNote();renderList();};
@@ -496,7 +495,7 @@ function wireEvents() {
   };
   $('export-notes').onclick=async()=>{try{await saveAll();downloadBackup();}catch(e){message('workspace-status',errorText(e),true);}};
   $('export-markdown').onclick=async()=>{
-    try {await saveAll();const sections=[...state.notes].filter(([,n])=>n.memo||n.qa||n.takeaway).map(([id,n])=>{const article=state.articles.find(a=>a.id===id)||topicArticles().find(a=>a.id===id);const content=Object.entries(NOTE_LABELS).map(([key,label])=>`### ${label}\n\n${n[key]||''}`).join('\n\n');return `## ${article?.title||id}\n\n${article?.url||''}\n\n${content}`;});const url=URL.createObjectURL(new Blob([sections.join('\n\n---\n\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='내공부기록.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+    try {await saveAll();const sections=[...state.notes].filter(([,n])=>n.memo||n.qa||n.takeaway).map(([id,n])=>{const article=state.articles.find(a=>a.id===id)||topicArticles().find(a=>a.id===id);const content=Object.entries(NOTE_LABELS).map(([key,label])=>`### ${label}\n\n${noteMarkdown(n[key]||'')}`).join('\n\n');return `## ${article?.title||id}\n\n${article?.url||''}\n\n${content}`;});const url=URL.createObjectURL(new Blob([sections.join('\n\n---\n\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='내공부기록.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
     catch(e){message('workspace-status',errorText(e),true);}
   };
   window.addEventListener('beforeunload',event=>{if(state.dirty.size){event.preventDefault();event.returnValue='';}});
