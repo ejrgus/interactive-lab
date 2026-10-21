@@ -1,0 +1,18 @@
+.home-page .experiments { padding-block: clamp(36px,7vh,84px) 70px; }
+.home-page .section-heading { display:block; margin-bottom:32px; }
+.home-page .section-heading h1 { margin:0 0 12px; font-size:clamp(1.8rem,3.5vw,3rem); letter-spacing:-.055em; line-height:1.2; }
+.home-page .section-heading > p { max-width:none; margin:0; }
+.home-page .experiment-list { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.home-page .experiment-banner { display:flex; flex-direction:column; align-items:stretch; padding:clamp(26px,4vw,48px); min-height:480px; }
+.home-page .experiment-banner h3 { font-size:clamp(2rem,4vw,3rem); margin-top:30px; }
+.home-page .experiment-banner p { font-size:1rem; }
+.home-page .experiment-graphic { width:100%; height:150px; order:-1; margin-bottom:16px; }
+.experiment-banner-newsroom { background:linear-gradient(145deg,#e9f5ef,#fff 78%); transition:transform .2s,box-shadow .2s; }
+.experiment-banner-newsroom:hover { transform:translateY(-5px); box-shadow:0 36px 90px #22683d18; }
+.experiment-banner-newsroom .experiment-number,.experiment-banner-newsroom .experiment-link { color:#247356; }
+.news-graphic > div { width:155px; height:135px; margin:0 auto; padding:22px; border:1px solid #dbe9df; background:#fff; border-radius:13px; box-shadow:0 12px 24px #22683d0b; transform:rotate(-6deg); }
+.news-graphic b,.news-graphic i { display:block; height:5px; border-radius:5px; background:#d9e7df; margin:12px 0; }
+.news-graphic b { width:63%; height:10px; background:#72a78e; }
+.news-graphic span { position:absolute; left:52%; bottom:7px; padding:13px 22px; border-radius:12px; border:1px solid #d4e5da; background:#f3faf6; color:#397558; font-size:.8rem; box-shadow:0 7px 17px #22683d0b; transform:rotate(5deg); }
+@media(max-width:680px) { .home-page .experiment-list { grid-template-columns:1fr; } .home-page .experiment-banner { min-height:430px; } }
+@media(prefers-reduced-motion:reduce) { .experiment-banner-newsroom { transition:none; } .experiment-banner-newsroom:hover { transform:none; } }
