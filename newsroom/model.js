@@ -6,6 +6,21 @@ export function canonicalUrl(value) {
   return url.href.replace(/\/$/, '');
 }
 
+export const DEFAULT_COMPANY = 'hyundai-motor-group';
+export const EXTERNAL_CATEGORY = '외부링크';
+export const NOTE_LABELS = { memo:'메모1', qa:'메모2', takeaway:'메모3' };
+export const topicId = (companyId, category) => companyId === DEFAULT_COMPANY ? `topic:${category}` : `company:${companyId}:topic:${category}`;
+export function topicCompany(id) {
+  return id.startsWith('company:') ? id.split(':')[1] : DEFAULT_COMPANY;
+}
+export function articleFields(articles) {
+  return [...new Set(articles.filter(a=>a.is_official !== false).flatMap(a=>[a.category,...a.topics]))].filter(c=>c!==EXTERNAL_CATEGORY);
+}
+export function inCategory(article, category) {
+  if (article.is_official === false) return category === EXTERNAL_CATEGORY;
+  return category !== EXTERNAL_CATEGORY && (article.category === category || article.topics.includes(category));
+}
+
 export function parseBackup(input) {
   if (!input || typeof input !== 'object' || !input.records || Array.isArray(input.records) || typeof input.records !== 'object') throw new Error('records 항목이 있는 공부 기록 JSON을 선택하세요.');
   const entries = Object.entries(input.records);
@@ -38,7 +53,9 @@ export function parseBackup(input) {
     };
     const date = a.date || null;
     if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('게시일은 YYYY-MM-DD 형식이어야 합니다.');
-    return { id: a.id, url, title: a.title.trim(), company: text('company',100), category: text('category',100,'기타') || '기타', date, summary:text('summary',5000), study:text('study',5000) };
+    const official = a.is_official === true;
+    const companyId = text('company_id',100);
+    return { id: a.id, url, title: a.title.trim(), company: text('company',100), ...(companyId ? {company_id:companyId} : {}), is_official:official, category: official ? text('category',100,'기타') || '기타' : EXTERNAL_CATEGORY, date, summary:text('summary',5000), study:text('study',5000) };
   });
   return { records, customArticles:articles };
 }
