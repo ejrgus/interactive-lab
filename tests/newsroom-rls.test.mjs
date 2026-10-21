@@ -16,12 +16,24 @@ let checks=0;
 async function as(role,id,fn){await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[id||'']);await db.exec(`set role ${role}`);return fn();}
 async function fails(fn){await assert.rejects(fn);checks++;}
 await as('anon',null,async()=>{
+  await fails(()=>db.query('select * from public.newsroom_companies'));
   await fails(()=>db.query('select * from public.newsroom_articles'));
   await fails(()=>db.query('select * from public.newsroom_notes'));
   await fails(()=>db.query('select public.newsroom_is_admin()'));
 });
 await as('authenticated',A,async()=>{
-  assert.equal((await db.query('select count(*)::int n from public.newsroom_articles')).rows[0].n,71);checks++;
+  assert.equal((await db.query('select count(*)::int n from public.newsroom_articles where company_id=$1',['hyundai-motor-group'])).rows[0].n,71);checks++;
+  await db.query("insert into public.newsroom_companies(id,name) values('kia','기아')");
+  await fails(()=>db.query("insert into public.newsroom_companies(name,logo_url) values('fake','https://example.test/logo.png')"));
+  assert.equal((await db.query("update public.newsroom_companies set logo_url='https://example.test/forged.png' where id='kia' returning id")).rows.length,0);checks++;
+  await db.query("insert into public.newsroom_articles(id,url,title,company_id,is_official,category,topics) values('external','https://example.test/external','외부 뉴스','kia',false,'섀시',ARRAY['시험'])");
+  const external=(await db.query("select company,category,topics from public.newsroom_articles where id='external'")).rows[0];
+  assert.equal(external.company,'기아');assert.equal(external.category,'외부링크');assert.deepEqual(external.topics,[]);checks+=3;
+  await fails(()=>db.query("insert into public.newsroom_articles(url,title,company_id,is_official,category) values('https://example.test/bad-category','잘못된 공식 분야','kia',true,'외부링크')"));
+  await db.query('select public.newsroom_import_records($1::jsonb,$2::jsonb)',['{}',JSON.stringify([{id:'imported-external',title:'외부 뉴스 백업',url:'https://example.test/imported-external',company:'기아',company_id:'kia',is_official:false,category:'섀시'}])]);
+  const importedLink=(await db.query("select company_id,is_official,category from public.newsroom_articles where id='imported-external'")).rows[0];
+  assert.deepEqual(importedLink,{company_id:'kia',is_official:false,category:'외부링크'});checks++;
+  assert.equal((await db.query('select count(*)::int n from public.newsroom_articles')).rows[0].n,73);checks++;
   assert.equal((await db.query('select public.newsroom_is_admin() a')).rows[0].a,false);checks++;
   await db.query("insert into public.newsroom_profiles(user_id,nickname) values($1,'A')",[A]);
   await db.query("insert into public.newsroom_notes(article_id,memo) values('topic:test','A private')");
@@ -39,6 +51,7 @@ await as('authenticated',B,async()=>{
 });
 await db.exec('reset role');await db.query('insert into newsroom_private.admins(user_id) values($1)',[C]);
 await as('authenticated',C,async()=>{
+  assert.equal((await db.query("update public.newsroom_companies set logo_url='https://example.test/logo.png',newsroom_url='https://example.test/newsroom' where id='kia' returning id")).rows.length,1);checks++;
   assert.equal((await db.query('select public.newsroom_is_admin() a')).rows[0].a,true);checks++;
   assert.equal((await db.query('select * from public.newsroom_notes')).rows.length,2);checks++;
   assert.equal((await db.query("update public.newsroom_notes set memo='admin edit' where user_id=$1 returning memo",[A])).rows.length,0);checks++;
