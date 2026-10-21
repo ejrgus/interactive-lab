@@ -1,0 +1,1084 @@
+{
+  "updated": "2026-10-22",
+  "company": {
+    "id": "kia",
+    "name": "기아",
+    "newsroom_url": "https://worldwide.kia.com/ko/newsroom-korea",
+    "logo_url": "https://ejrgus.github.io/interactive-lab/newsroom/assets/kia.svg",
+    "logo_source": "https://www.kia.com/etc.clientlibs/kwp-global/clientlibs/clientlib-site/resources/images/common/logo.svg"
+  },
+  "coverage": {
+    "since": "2025-10-22",
+    "until": "2026-10-22",
+    "listed": 125,
+    "selected": 38,
+    "excluded": 87,
+    "pages_checked": 2,
+    "oldest_boundary_date": "2025-04-01",
+    "selected_originals_verified": 38,
+    "all_originals_checked": 125,
+    "scope": "공식 글로벌 브랜드 사이트의 한국어 뉴스룸 공개 목록 2페이지에서 최근 1년 125건을 확인. 프런트엔드가 사용하는 공개 목록·상세 API의 전체 본문, 제목, 공개일을 대조해 38건 선별. 영문 글로벌 뉴스·SNS·첨부 보고서·PDF 전체는 이번 범위 밖.",
+    "identity_policy": "기아 공식 한국어 원문을 대표 URL로 사용하고 그룹 PR 원문 주소를 출처 메타데이터에 보존. 기존 현대자동차그룹의 기사 ID나 회사 연결을 변경하지 않음. DB의 기존 기아 기업 ID는 이름 조회로 재사용.",
+    "policy": "기술·개발·설계·재료·생산·설비·시험·품질·소프트웨어·물류·구매·환경·에너지·재무를 포함. 마케팅·영업·인사·사회공헌 제외. 신차 계약 개시는 구매 접수 안내이므로 그 자체로 공급 / 계약에 넣지 않고 실제 공급·업무협약·협력 체결만 별도 분류. 일반 어워즈 대신 구체적인 시험·설계 근거가 있는 자료를 수집.",
+    "sources": [
+      "https://worldwide.kia.com/ko/newsroom-korea",
+      "https://worldwide.kia.com/api/newsroom"
+    ],
+    "verification_note": "기아 공개 컴포넌트의 newsroom.list4·detail1을 통해 실제 화면의 title·publicatedAt·content 사용을 확인. 1559 원문 화면 제목·날짜와 대조; 최종 선정 자료 전체는 상세 API 본문과 일치."
+  },
+  "fields": [
+    "공급 / 계약",
+    "PBV / 특장",
+    "설계 / 공간·접근성",
+    "ADAS / 자율·원격운전",
+    "차량전자 / 소프트웨어",
+    "시험 / 품질검증",
+    "물류 / 플릿 운영",
+    "차체 / 재료·충돌",
+    "전동화 구동 / 배터리",
+    "열관리 / 충전",
+    "스마트제조 / 자동화",
+    "생산공정 / 조립·컨버전",
+    "구매 / 공급망",
+    "재무 / 사업전략",
+    "설비 / 산업안전",
+    "섀시 / 주행제어",
+    "정비 / 서비스 운영",
+    "하이브리드 / 에너지 제어",
+    "환경 / 에너지·자원순환"
+  ],
+  "articles": [
+    {
+      "id": "kia-1566",
+      "title": "기아, ‘2026 국제치안산업대전’ 참가",
+      "date": "2026-10-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1566",
+      "category": "PBV / 특장",
+      "topics": [
+        "설계 / 공간·접근성",
+        "ADAS / 자율·원격운전",
+        "차량전자 / 소프트웨어"
+      ],
+      "tags": [
+        "PV5",
+        "순찰차",
+        "저상 플로어",
+        "AI 카메라"
+      ],
+      "summary": "경찰 업무용 PV5·EV5 콘셉트의 공간·적재 설계와 운용 사례를 소개한다. PV5 기반 AI 순찰차에는 카메라·드론 스테이션 등을 적용하고 실증 운용을 진행한다.",
+      "study": "공부 질문: 치안 장비를 탑재할 때 적재 공간·승하차 동선·차량 전력 사용을 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1566",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000228256"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1565",
+      "title": "기아, 판교서 PV5 기반 원격 운전 카셰어링 시범 서비스 개시",
+      "date": "2026-10-16",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1565",
+      "category": "공급 / 계약",
+      "topics": [
+        "ADAS / 자율·원격운전",
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증",
+        "물류 / 플릿 운영"
+      ],
+      "tags": [
+        "원격 운전",
+        "PV5",
+        "삼중 통신망",
+        "카셰어링"
+      ],
+      "summary": "판교에서 PV5 기반 원격 운전 카셰어링 시범 서비스를 시작했다. 참여사별 차량·솔루션·운영 역할을 나누고 통신망 다중화와 긴급 대응 체계를 통해 실제 서비스 안정성을 검증한다.",
+      "study": "공부 질문: 통신 지연·단절 상황에서 차량의 안전 상태 전환과 긴급 출동 절차를 어떻게 시험할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1565",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000227321"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1561",
+      "title": "기아, '더 기아 PV7' 세계 최초 공개",
+      "date": "2026-09-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1561",
+      "category": "PBV / 특장",
+      "topics": [
+        "차체 / 재료·충돌",
+        "전동화 구동 / 배터리",
+        "열관리 / 충전",
+        "차량전자 / 소프트웨어",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "PV7",
+        "E-GMP.S",
+        "플렉시블 바디",
+        "800V",
+        "플레오스"
+      ],
+      "summary": "PV7의 전용 전동화 플랫폼과 유연한 차체 구성을 공개했다. 고효율 구동·충전 시스템과 인포테인먼트·플릿 관리 소프트웨어를 결합해 다양한 운송 업무에 대응한다.",
+      "study": "공부 질문: 차체 길이와 높이가 달라져도 공용화할 수 있는 구조·전장 인터페이스는 어디까지일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1561",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000224063"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1560",
+      "title": "기아, 집배 현장 맞춤형 PBV 개발해 우정사업본부에 공급",
+      "date": "2026-09-10",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1560",
+      "category": "공급 / 계약",
+      "topics": [
+        "PBV / 특장",
+        "설계 / 공간·접근성",
+        "시험 / 품질검증",
+        "물류 / 플릿 운영"
+      ],
+      "tags": [
+        "우정사업본부",
+        "PV5 카고",
+        "운영 실증",
+        "적재함 평탄화"
+      ],
+      "summary": "우정사업본부에 집배 업무용 PV5 카고를 공급한다. 실제 집배 현장 실증에서 나온 의견을 반영해 도어 보호·바닥·적재함을 개선하고 충전·정비 운영도 지원한다.",
+      "study": "공부 질문: 집배원의 반복 승하차와 적재 작업을 어떤 사용성·내구성 지표로 차량 요구사항에 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1560",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000223617"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1559",
+      "title": "기아, ‘PBV 생산 허브 테크 데이’ 개최",
+      "date": "2026-09-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1559",
+      "category": "스마트제조 / 자동화",
+      "topics": [
+        "생산공정 / 조립·컨버전",
+        "시험 / 품질검증",
+        "물류 / 플릿 운영",
+        "차량전자 / 소프트웨어",
+        "PBV / 특장"
+      ],
+      "tags": [
+        "4-벅",
+        "LSS 용접",
+        "비전 보정",
+        "AGV",
+        "스마트 태그"
+      ],
+      "summary": "PBV 공장의 순차 차체 조립·레이저 용접·비전 기반 자동 장착과 물류 자동화 기술을 설명한다. 차량별 사양 추적과 간격·단차 검사, 컨버전 개발 체계로 다품종 생산 품질을 관리한다.",
+      "study": "공부 질문: 다차종 생산에서 부품 위치 보정과 차량 사양 추적을 연결해 오조립을 어떻게 차단할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1559",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000223258"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1550",
+      "title": "기아, 고객 맞춤형 전기차 솔루션으로 전동화 시대 이끈다",
+      "date": "2026-07-31",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1550",
+      "category": "PBV / 특장",
+      "topics": [
+        "차체 / 재료·충돌",
+        "생산공정 / 조립·컨버전",
+        "차량전자 / 소프트웨어",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "PV5 샤시캡",
+        "카고 컴팩트",
+        "도너모델",
+        "컨버전"
+      ],
+      "summary": "PV5의 카고 컴팩트·샤시캡 도너·다인승 파생 모델 구조를 소개한다. 특장 작업에 불필요한 부품 제거와 전기·전자 연동을 고려한 컨버전 모델 등 사용 목적별 구성을 설명한다.",
+      "study": "공부 질문: 도너모델의 부품 구성과 전장 연동을 표준화하면 후속 특장 작업의 재작업을 얼마나 줄일 수 있을까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1550",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000220182"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1545",
+      "title": "기아, 2026년 2분기 경영실적 발표",
+      "date": "2026-07-24",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1545",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "구매 / 공급망"
+      ],
+      "tags": [
+        "2026년 2분기",
+        "원가",
+        "환율",
+        "판매보증충당금"
+      ],
+      "summary": "2026년 2분기 연결 경영실적과 수익성 변동 요인을 공개했다. 차종 구성·관세·인센티브·판매보증충당금 및 비용 절감 노력을 설명한다.",
+      "study": "공부 질문: 생산 원가와 제품 구성, 환율에 따른 이익 변화를 어떻게 분리해 분석할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1545",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000219506"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1544",
+      "title": "기아, 원격 운전 기술 사업화 추진을 위한 다자간 업무협약 체결",
+      "date": "2026-07-23",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1544",
+      "category": "공급 / 계약",
+      "topics": [
+        "ADAS / 자율·원격운전",
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "KT",
+        "SUM",
+        "원격 운전",
+        "MOU"
+      ],
+      "summary": "KT·에스유엠과 원격 운전 사업화를 위한 MOU를 체결했다. 기아는 차량·기술, KT는 통신 인프라·망 품질, 에스유엠은 원격 제어를 담당해 서비스 출시와 데이터 기반 고도화를 추진한다.",
+      "study": "공부 질문: 차량 제어·통신망·관제 시스템 간 안전 요구사항과 장애 대응 책임을 어떻게 정의할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1544",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000219278"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1542",
+      "title": "기아, 카카오모빌리티와 자율주행 서비스 전용 PBV 개발 협력",
+      "date": "2026-07-16",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1542",
+      "category": "공급 / 계약",
+      "topics": [
+        "ADAS / 자율·원격운전",
+        "PBV / 특장",
+        "차량전자 / 소프트웨어",
+        "열관리 / 충전",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "카카오모빌리티",
+        "DevKit",
+        "RVA",
+        "무선 충전"
+      ],
+      "summary": "카카오모빌리티와 자율주행 서비스 전용 PBV 개발·공급 MOU를 체결했다. 외부 제어 소프트웨어를 연동하는 데브키트와 실증 데이터를 활용하고 원격 지원·충전 등 운영 기술도 검증한다.",
+      "study": "공부 질문: 외부 자율주행 소프트웨어와 차량을 연결하는 인터페이스의 제어 권한과 이상 상태 처리를 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1542",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000218543"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1540",
+      "title": "기아 오토랜드 광주, ‘AI·스마트 산업안전기술 우수사례 챌린지’ 대상 수상",
+      "date": "2026-07-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1540",
+      "category": "설비 / 산업안전",
+      "topics": [
+        "스마트제조 / 자동화",
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "AI LOTO",
+        "NFC",
+        "재실 감지",
+        "인터록"
+      ],
+      "summary": "광주 공장의 AI LOTO는 출입 인증·안전문 잠금·AI 비전 재실 감지를 결합한다. 공정 안의 작업자와 출입 기록을 비교하고 설비 재가동을 차단하는 시스템으로 안전관리를 개선했다.",
+      "study": "공부 질문: AI 감지 누락과 인증 오류에도 설비의 안전 정지가 유지되도록 어떤 독립적인 검증이 필요할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1540",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000217828"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1535",
+      "title": "기아, ‘The 2027 타스만’·‘더 기아 타스만 오픈베드’ 계약 개시",
+      "date": "2026-07-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1535",
+      "category": "PBV / 특장",
+      "topics": [
+        "차체 / 재료·충돌",
+        "섀시 / 주행제어",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "타스만 오픈베드",
+        "3면 개폐",
+        "적재 중량",
+        "4WD"
+      ],
+      "summary": "타스만 오픈베드의 3면 개폐 적재함과 상용 적재 구성을 공개했다. 파생 모델의 동력·험로 주행 사양과 적재 활용성을 설명한다.",
+      "study": "공부 질문: 최대 적재 조건에서 프레임 하중·제동·조향 안정성을 어떤 조건으로 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1535",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000216839"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1533",
+      "title": "기아 PV5 WAV 기반 UD택시 서울 시내 달린다",
+      "date": "2026-06-26",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1533",
+      "category": "공급 / 계약",
+      "topics": [
+        "PBV / 특장",
+        "설계 / 공간·접근성",
+        "시험 / 품질검증",
+        "물류 / 플릿 운영"
+      ],
+      "tags": [
+        "PV5 WAV",
+        "UD택시",
+        "측면 탑승",
+        "휠체어 고정"
+      ],
+      "summary": "서울 UD택시 시범운영에 PV5 WAV가 도입된다. 저상 플랫폼·측면 탑승·휠체어 고정 구조를 적용하고 실제 이용 데이터로 후속 운영 확대를 검토한다.",
+      "study": "공부 질문: 택시 운영에서 휠체어 고정·승하차 시간·동승 공간을 어떤 실사용 시나리오로 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1533",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000216283"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1532",
+      "title": "기아, PV5 신규 라인업 앞세워  전동화 모빌리티 확장 비전 제시",
+      "date": "2026-06-26",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1532",
+      "category": "PBV / 특장",
+      "topics": [
+        "설계 / 공간·접근성",
+        "생산공정 / 조립·컨버전",
+        "물류 / 플릿 운영"
+      ],
+      "tags": [
+        "PV5 하이루프",
+        "워크스루",
+        "컨버전",
+        "산업별 협업"
+      ],
+      "summary": "PV5 하이루프와 다인승·프리미엄 컨버전 등 업무별 신규 구성을 공개했다. 적재 높이와 워크스루 동선, 산업별 파트너와의 맞춤형 모델을 설명한다.",
+      "study": "공부 질문: 적재 용량 확대와 운전자 이동 동선 개선이 차체 설계·안전·업무 효율에 어떤 영향을 줄까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1532",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000216149"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1530",
+      "title": "기아, ‘Eurosatory 2026’ 방산전시회 참가",
+      "date": "2026-06-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1530",
+      "category": "PBV / 특장",
+      "topics": [
+        "섀시 / 주행제어",
+        "열관리 / 충전",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "KLTV",
+        "스노클",
+        "엔진 냉각",
+        "험지 주행"
+      ],
+      "summary": "특수차량의 지형·저온 대응 및 운송 성능을 소개한다. 카고 파생차의 높은 공기 흡입구와 냉각 시스템 등 환경 대응 설계를 설명한다.",
+      "study": "공부 질문: 상용 차량의 온도·분진·침수·경사 조건을 내구 시험 요구사항으로 어떻게 변환할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1530",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000214675"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1529",
+      "title": "기아, ‘더 기아 카니발 하이루프’ 출시",
+      "date": "2026-06-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1529",
+      "category": "차체 / 재료·충돌",
+      "topics": [
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "카니발 하이루프",
+        "스틸 루프",
+        "헤드룸"
+      ],
+      "summary": "카니발 하이루프의 스틸 소재 루프와 높아진 실내 공간 구성을 설명한다. 차체 파생 설계에서 내구성·안전성과 후석 공간 활용을 함께 고려한다.",
+      "study": "공부 질문: 루프 형상 변경 시 차체 강성·기밀·풍절음 검증 항목은 어떻게 달라질까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1529",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000214657"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1519",
+      "title": "기아, PV5 일본 시장 출시",
+      "date": "2026-05-13",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1519",
+      "category": "PBV / 특장",
+      "topics": [
+        "열관리 / 충전",
+        "차체 / 재료·충돌",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "일본 사양",
+        "CHAdeMO",
+        "V2H",
+        "플렉서블 바디"
+      ],
+      "summary": "일본형 PV5에 적용한 모듈화 차체와 현지 충전 방식, V2L·V2H 기능을 소개한다. 좁은 도로 조건을 고려한 회전 성능 등 지역별 사용 환경 대응을 설명한다.",
+      "study": "공부 질문: 충전 규격과 지역 도로 환경이 달라질 때 공용 플랫폼의 변경·검증 범위를 어떻게 정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1519",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000211304"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1517",
+      "title": "기아-신한은행, 오토큐·판매대리점 전용 금융지원 업무협약 체결",
+      "date": "2026-05-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1517",
+      "category": "공급 / 계약",
+      "topics": [
+        "구매 / 공급망",
+        "재무 / 사업전략",
+        "정비 / 서비스 운영"
+      ],
+      "tags": [
+        "신한은행",
+        "오토큐",
+        "시설 투자",
+        "MOU"
+      ],
+      "summary": "신한은행과 오토큐·대리점 전용 금융지원 협약을 체결했다. 시설 확충과 운영자금 조달을 지원하고 동의받은 보증수리 매출 등 운영 데이터를 심사에 활용한다.",
+      "study": "공부 질문: 정비 협력망의 시설 투자와 운영 안정성을 어떤 서비스 공급망 지표로 점검할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1517",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000211142"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1513",
+      "title": "기아, 2026년 1분기 경영실적 발표",
+      "date": "2026-04-24",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1513",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "구매 / 공급망"
+      ],
+      "tags": [
+        "2026년 1분기",
+        "공급 차질",
+        "관세",
+        "충당부채"
+      ],
+      "summary": "2026년 1분기 경영실적과 수익성 요인을 설명한다. 관세·보증충당부채·물량 전환 등의 영향과 친환경차·고부가 차종 구성 변화를 다룬다.",
+      "study": "공부 질문: 외부 공급 차질과 환율 변화가 생산 배분·재고·보증 비용에 미치는 영향을 어떻게 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1513",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000209995"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1506",
+      "title": "기아, 『2026 CEO 인베스터 데이』 개최 : 친환경차 풀라인업, 미래 사업 강화로 초과 성장∙제조 혁신 달성한다",
+      "date": "2026-04-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1506",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "스마트제조 / 자동화",
+        "전동화 구동 / 배터리",
+        "하이브리드 / 에너지 제어",
+        "PBV / 특장",
+        "ADAS / 자율·원격운전"
+      ],
+      "tags": [
+        "CEO 인베스터 데이",
+        "생산거점",
+        "EV",
+        "HEV",
+        "PBV"
+      ],
+      "summary": "2026 CEO 인베스터 데이에서 전동화·하이브리드·PBV·자율주행 중심의 중장기 전략을 공개했다. 생산거점과 공급망 운영 및 미래 사업 투자 방향을 제시한다.",
+      "study": "공부 질문: 제품군별 수요 변화와 기술 전환 속도를 생산능력·설비 투자 계획에 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1506",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000208326"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1494",
+      "title": "기아-토탈에너지스, 글로벌 파트너십 2031년까지 연장",
+      "date": "2026-03-16",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1494",
+      "category": "공급 / 계약",
+      "topics": [
+        "구매 / 공급망",
+        "정비 / 서비스 운영"
+      ],
+      "tags": [
+        "토탈에너지스",
+        "윤활유",
+        "글로벌 파트너십"
+      ],
+      "summary": "토탈에너지스와 엔진오일 공급 등을 위한 글로벌 파트너십을 2031년까지 연장했다. 글로벌 서비스망에 대한 윤활유 제공과 전동화·하이브리드 관련 협력 방향을 설명한다.",
+      "study": "공부 질문: 장기 윤활유 공급 계약에서 품질 규격·공급 연속성·차종 변화 대응을 어떻게 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1494",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000205842"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1493",
+      "title": "기아, ‘더 뉴 니로’ 계약 개시",
+      "date": "2026-03-10",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1493",
+      "category": "하이브리드 / 에너지 제어",
+      "topics": [
+        "섀시 / 주행제어",
+        "차량전자 / 소프트웨어",
+        "열관리 / 충전",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "니로",
+        "회생제동",
+        "예측 제어",
+        "스테이 모드"
+      ],
+      "summary": "니로의 하이브리드 파워트레인과 회생제동·경로 기반 배터리 제어를 소개한다. 정차 전력 사용, 승차감·정숙성과 안전·편의 기능 개선도 설명한다.",
+      "study": "공부 질문: 경로 예측을 활용한 배터리 충전량 제어가 연비와 회생제동 기회에 어떻게 연결될까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1493",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000205281"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1488",
+      "title": "기아, ‘EV3 GT’·‘EV4 GT’·‘EV5 GT’ 및 EV3·EV4·EV9 연식변경 모델 출시",
+      "date": "2026-02-02",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1488",
+      "category": "전동화 구동 / 배터리",
+      "topics": [
+        "섀시 / 주행제어",
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "GT",
+        "듀얼 모터",
+        "토크 벡터링",
+        "프리뷰 서스펜션"
+      ],
+      "summary": "EV3·EV4·EV5 GT의 듀얼 모터와 토크 벡터링·프리뷰 전자 제어 서스펜션을 소개한다. 가상 변속과 조향 제어 등 고성능 전기차의 통합 주행 제어 구성을 설명한다.",
+      "study": "공부 질문: 전후륜 구동력 배분과 서스펜션 제어를 함께 보정할 때 평가해야 할 안정성 지표는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1488",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000201700"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1487",
+      "title": "기아, 2025년 4분기 경영실적 발표",
+      "date": "2026-01-28",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1487",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "구매 / 공급망"
+      ],
+      "tags": [
+        "2025년 4분기",
+        "연간 실적",
+        "비용 절감"
+      ],
+      "summary": "2025년 4분기 실적과 2026년 사업계획을 공개했다. 친환경차 구성과 평균판매가격, 관세·경쟁 비용·환율 및 비용 절감 영향을 설명한다.",
+      "study": "공부 질문: 수익성 회복 계획을 평가할 때 원가 절감과 가격·환율 효과를 어떤 지표로 나눌까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1487",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000201389"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1486",
+      "title": "기아, ‘더 기아 PV5’ WAV·오픈베드·패신저 도너모델 계약 개시",
+      "date": "2026-01-28",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1486",
+      "category": "PBV / 특장",
+      "topics": [
+        "설계 / 공간·접근성",
+        "생산공정 / 조립·컨버전",
+        "차체 / 재료·충돌",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "PV5 WAV",
+        "인플로어 슬로프",
+        "도너모델",
+        "오픈베드"
+      ],
+      "summary": "PV5 WAV의 측면 출입과 바닥 수납식 슬로프, 휠체어 고정 구조를 공개했다. 오픈베드·패신저 도너모델 등 업무별 파생 구조도 설명한다.",
+      "study": "공부 질문: 수납식 슬로프의 하중·반복 작동·고정 장치와 차체 공간을 어떤 조건으로 함께 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1486",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000201311"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1485",
+      "title": "기아, ‘디 올 뉴 셀토스’ 계약 개시",
+      "date": "2026-01-26",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1485",
+      "category": "하이브리드 / 에너지 제어",
+      "topics": [
+        "차체 / 재료·충돌",
+        "섀시 / 주행제어",
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "셀토스",
+        "K3 플랫폼",
+        "회생제동 3.0",
+        "예측 제어"
+      ],
+      "summary": "신형 셀토스의 하이브리드 추가와 K3 플랫폼 차체 강성 개선을 설명한다. 회생제동·경로 기반 배터리 제어 및 전동화 전력 사용 기능을 소개한다.",
+      "study": "공부 질문: 차체 강성 강화와 하이브리드 시스템 추가가 승차감·충돌 성능·중량에 미치는 영향을 어떻게 조정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1485",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000200712"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1478",
+      "title": "‘더 기아 EV2’ 세계 최초 공개",
+      "date": "2026-01-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1478",
+      "category": "전동화 구동 / 배터리",
+      "topics": [
+        "열관리 / 충전",
+        "섀시 / 주행제어",
+        "차량전자 / 소프트웨어",
+        "설계 / 공간·접근성"
+      ],
+      "tags": [
+        "EV2",
+        "플러그 앤 차지",
+        "충전 경로",
+        "조향"
+      ],
+      "summary": "EV2의 도심형 차체·실내 구성과 구동·충전 기능을 공개했다. 충전 경로 안내·자동 인증 충전과 조향 최적화 등 도심 운행을 고려한 기술을 설명한다.",
+      "study": "공부 질문: 도심형 전기차에서 배터리 용량·충전 속도·실내 공간·회전 성능의 우선순위를 어떻게 정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1478",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000198987"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1477",
+      "title": "기아 오토랜드 화성, ‘폐기물 매립 제로’ 골드등급 획득",
+      "date": "2026-01-08",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1477",
+      "category": "환경 / 에너지·자원순환",
+      "topics": [
+        "스마트제조 / 자동화",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "오토랜드 화성",
+        "자원순환",
+        "ZWTL"
+      ],
+      "summary": "오토랜드 화성이 공정 폐기물의 재활용을 통해 폐기물 매립 제로 골드 인증을 받았다. 원문은 재활용 비율에 따른 인증 기준과 공장 자원순환 관리 방향을 설명한다.",
+      "study": "공부 질문: 공정별 폐기물의 재활용 경로와 최종 처리 증빙을 어떻게 추적하고 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1477",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000198449"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1473",
+      "title": "기아 오토랜드 광주, ‘폐기물 매립 제로’ 2년 연속 최고 등급 획득",
+      "date": "2025-12-17",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1473",
+      "category": "환경 / 에너지·자원순환",
+      "topics": [
+        "스마트제조 / 자동화",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "오토랜드 광주",
+        "자원순환",
+        "ZWTL"
+      ],
+      "summary": "오토랜드 광주가 폐기물 매립 제로 플래티넘 검증을 갱신했다. 생산 공정 폐기물의 재활용과 자원 효율적 생산체계 관리 결과를 소개한다.",
+      "study": "공부 질문: 폐기물 재활용률 집계에서 처리 방식 변경과 생산량 변화를 어떻게 구분해 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1473",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000196396"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1469",
+      "title": "기아, ‘더 기아 PV5’ 유럽 안전성 평가서 최고 안전 등급(★★★★★) 획득",
+      "date": "2025-12-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1469",
+      "category": "시험 / 품질검증",
+      "topics": [
+        "차체 / 재료·충돌",
+        "ADAS / 자율·원격운전",
+        "PBV / 특장"
+      ],
+      "tags": [
+        "PV5 카고",
+        "유로 NCAP",
+        "핫스탬핑",
+        "충돌방지"
+      ],
+      "summary": "PV5 카고의 유로 NCAP 상용 밴 안전 평가 항목과 결과를 설명한다. 운전자 감시·충돌방지·차로 지원 및 차체 골격·강판 적용을 안전 성능과 연결한다.",
+      "study": "공부 질문: 상용 밴의 적재 조건과 운전자 보조 기능을 충돌 예방·충돌 후 보호 시험에 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1469",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000195714"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1465",
+      "title": "기아, 오토랜드 화성에 대규모 태양광 발전 설비 구축",
+      "date": "2025-12-04",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1465",
+      "category": "공급 / 계약",
+      "topics": [
+        "환경 / 에너지·자원순환",
+        "스마트제조 / 자동화"
+      ],
+      "tags": [
+        "오토랜드 화성",
+        "태양광",
+        "ESS",
+        "RE100"
+      ],
+      "summary": "경기도·화성시·캠코와 국유지 활용 태양광 투자 MOU를 체결했다. 공장 유휴 부지에 태양광과 ESS를 구축하고 인허가·부지 활용을 협력해 재생에너지 도입을 확대한다.",
+      "study": "공부 질문: 태양광 발전 변동성과 공장 부하를 고려해 ESS 용량·운전 계획을 어떻게 정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1465",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000195410"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1458",
+      "title": "기아, 2025 글로벌 PBV 컨버전 파트너스 데이 개최",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1458",
+      "category": "공급 / 계약",
+      "topics": [
+        "PBV / 특장",
+        "생산공정 / 조립·컨버전",
+        "구매 / 공급망",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "컨버전 파트너십",
+        "도너모델",
+        "기술 지원",
+        "인증"
+      ],
+      "summary": "국내 PBV 컨버전 파트너와 공식 체결식을 진행했다. 차량 제작·인증 정보와 기술 지원을 제공하고 샤시캡·도너모델을 활용하는 특장 협력체계를 설명한다.",
+      "study": "공부 질문: 외부 특장업체의 설계 변경이 기본차 안전·인증·품질 책임에 미치는 영향을 어떻게 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1458",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000194841"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1457",
+      "title": "기아, 국내 최초 일반 도로 원격 운전 실증 시연 성공",
+      "date": "2025-11-27",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1457",
+      "category": "ADAS / 자율·원격운전",
+      "topics": [
+        "차량전자 / 소프트웨어",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "원격 운전",
+        "제주 실증",
+        "이중 통신망",
+        "PV5"
+      ],
+      "summary": "PV5 기반 원격 운전을 일반 도로에서 실증했다. 통신망 다중화·교육·긴급 대응 체계를 마련하고 정해진 도로 구간의 주행 데이터로 기술 안정성을 확인했다.",
+      "study": "공부 질문: 제한된 실증 주행 결과를 확대 운영에 적용할 때 추가해야 할 실패·통신 장애 시나리오는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1457",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000194590"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1454",
+      "title": "기아, ‘2025 LA 오토쇼’ 참가, 북미 시장의 핵심 차급 3열 SUV의 표준, ‘올 뉴 텔루라이드’ 세계 최초 공개",
+      "date": "2025-11-20",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1454",
+      "category": "하이브리드 / 에너지 제어",
+      "topics": [
+        "차체 / 재료·충돌",
+        "섀시 / 주행제어",
+        "설계 / 공간·접근성",
+        "차량전자 / 소프트웨어"
+      ],
+      "tags": [
+        "텔루라이드",
+        "차세대 하이브리드",
+        "북미 사양"
+      ],
+      "summary": "신형 텔루라이드의 하이브리드 파워트레인과 차체·공간·안전·편의 기술을 공개했다. 현지 도로·지형과 사용 요구에 맞춘 개발 및 생산 구성을 설명한다.",
+      "study": "공부 질문: 대형 SUV에 하이브리드를 적용할 때 견인·열관리·적재 상태별 동력 성능을 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1454",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000193755"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1450",
+      "title": "기아, 화성 EVO Plant East 준공식 및 West 기공식 개최 … ‘미래형 PBV 생산 허브’ 구축",
+      "date": "2025-11-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1450",
+      "category": "스마트제조 / 자동화",
+      "topics": [
+        "생산공정 / 조립·컨버전",
+        "물류 / 플릿 운영",
+        "시험 / 품질검증",
+        "환경 / 에너지·자원순환",
+        "PBV / 특장"
+      ],
+      "tags": [
+        "EVO Plant",
+        "이포레스트",
+        "셀 생산",
+        "건식부스",
+        "AGV"
+      ],
+      "summary": "화성 EVO Plant의 자동화·친환경·작업자 중심 생산체계를 공개했다. 차체 물류와 건식 도장, 컨베이어·셀 혼합 조립 및 품질 관리로 다품종 PBV 생산에 대응한다.",
+      "study": "공부 질문: 셀 생산과 컨베이어를 결합할 때 공정 균형·물류·사양별 품질 추적성을 어떻게 설계할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1450",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000193173"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1448",
+      "title": "기아, 英 ‘모타빌리티’와 PBV 보급 확대 위한 업무협약 체결",
+      "date": "2025-11-04",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1448",
+      "category": "공급 / 계약",
+      "topics": [
+        "PBV / 특장",
+        "설계 / 공간·접근성",
+        "열관리 / 충전",
+        "환경 / 에너지·자원순환"
+      ],
+      "tags": [
+        "모타빌리티",
+        "PV5 WAV",
+        "V2H",
+        "V2G"
+      ],
+      "summary": "모타빌리티와 영국 PBV 보급 MOU를 체결하고 PV5·WAV 공급을 추진한다. 접근성을 고려한 차량 개발과 스마트 충전·차세대 에너지 관리 기술 협력도 계획한다.",
+      "study": "공부 질문: 휠체어 승하차 요구와 양방향 충전 요구를 지역별 차량 개발·검증 계획에 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1448",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000191815"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1446",
+      "title": "기아, 2025년 3분기 경영실적 발표",
+      "date": "2025-10-31",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1446",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "스마트제조 / 자동화",
+        "구매 / 공급망"
+      ],
+      "tags": [
+        "2025년 3분기",
+        "전동화 전환",
+        "생산 조정",
+        "원가"
+      ],
+      "summary": "2025년 3분기 실적에서 제품 구성·관세·충당부채 영향을 설명한다. 슬로바키아 공장의 전동화 전환과 생산 조정 등 운영 변화도 다룬다.",
+      "study": "공부 질문: 공장 전동화 전환 기간의 생산 공백과 원가 변화를 어떤 공급·재고 계획으로 흡수할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1446",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000191641"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1443",
+      "title": "기아, ‘더 기아 PV5’ 카고 기네스 세계 기록 등재",
+      "date": "2025-10-29",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1443",
+      "category": "시험 / 품질검증",
+      "topics": [
+        "전동화 구동 / 배터리",
+        "PBV / 특장",
+        "물류 / 플릿 운영"
+      ],
+      "tags": [
+        "PV5 카고",
+        "최대 적재",
+        "주행 효율",
+        "GPS 검증"
+      ],
+      "summary": "최대 적재 상태의 PV5 카고로 공도 장거리 주행 기록을 수립했다. 배터리·적재 조건·코스·주행 기록 방법을 명시해 실제 물류 조건의 효율 검증 사례를 설명한다.",
+      "study": "공부 질문: 특정 주행 기록과 인증 전비를 구분하고 실제 배송 업무에 적용하려면 어떤 운행 조건을 맞춰야 할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1443",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000191148"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    },
+    {
+      "id": "kia-1442",
+      "title": "기아-쿠팡파트너스연합회, 친환경 택배 생태계 조성 위한 MOU",
+      "date": "2025-10-28",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1442",
+      "category": "공급 / 계약",
+      "topics": [
+        "PBV / 특장",
+        "물류 / 플릿 운영",
+        "열관리 / 충전",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "쿠팡파트너스연합회",
+        "PV5",
+        "운영 실증",
+        "충전 컨설팅"
+      ],
+      "summary": "쿠팡파트너스연합회와 PBV 기반 택배 전동화 MOU를 체결했다. 현장 실증 의견을 반영한 차량 공급과 충전 운영 지원, 후속 모델 검증 협력을 추진한다.",
+      "study": "공부 질문: 배송 구간·적재량·정차 빈도 데이터를 차량 개발과 충전 인프라 요구사항으로 어떻게 바꿀까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "1442",
+      "alternate_urls": [
+        "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000190809"
+      ],
+      "source": "2026-10-22 기아 공식 한국어 목록·상세 API의 제목·공개일·전체 본문 대조"
+    }
+  ]
+}

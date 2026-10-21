@@ -1,0 +1,528 @@
+{
+  "since": "2025-10-22",
+  "until": "2026-10-22",
+  "excluded": [
+    {
+      "title": "기아, 2026년 9월 28만 1,984대 판매",
+      "date": "2026-10-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1564",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 제2회 ‘초록여행 x 런피아노’ 개최",
+      "date": "2026-09-30",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1563",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, ‘하모니움 교육 프로그램’ 3기 수료식 및 4기 입학식 개최",
+      "date": "2026-09-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1562",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 2026 하반기 집중 채용 실시",
+      "date": "2026-09-08",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1558",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 2026년 8월 26만 6,675대 판매",
+      "date": "2026-09-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1557",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 대형 전동화 PBV ‘더 기아 PV7’ 티저 공개",
+      "date": "2026-08-31",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1556",
+      "reason": "PV7 티저. 차체·전동화·소프트웨어를 구체적으로 설명하는 정식 공개 원문 1561 수집"
+    },
+    {
+      "title": "기아, 스포티지·쏘렌토·카니발 ‘블랙 에디션’ 출시",
+      "date": "2026-08-27",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1555",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아 김형수 선임 오토컨설턴트 4천대 판매 ‘그랜드 마스터’ 등극",
+      "date": "2026-08-26",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1554",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, ‘EV 트렌드 코리아 2026’ 참가",
+      "date": "2026-08-25",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1553",
+      "reason": "전시 참가와 차량 체험 중심. 개별 신차·생산·실증 기술 원문 우선 수집"
+    },
+    {
+      "title": "기아, 제5회 ‘PBV 아이디어 공모전’ 개최",
+      "date": "2026-08-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1552",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, 2026년 7월 29만 8,037대 판매",
+      "date": "2026-08-03",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1551",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 알바니아·짐바브웨 지역사회 자립 위한 ‘그린라이트 프로젝트’ 현지 이양 완료",
+      "date": "2026-07-31",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1549",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, ‘서천갯벌 블루카본 생태복원사업’ 추진을 위한 다자간 업무협약 체결",
+      "date": "2026-07-28",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1548",
+      "reason": "갯벌 생태복원·사회공헌 활동 제외. 공장 환경·에너지 자료는 별도 수집"
+    },
+    {
+      "title": "기아, 2026년 하반기 엔지니어 대규모 채용",
+      "date": "2026-07-27",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1547",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 브랜드를 일상으로 확장하는 ‘Kia Collection’ 2026 신규 라인업 공개",
+      "date": "2026-07-24",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1546",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아 황경하 선임 오토컨설턴트 4천 대 판매 ‘그랜드 마스터’ 등극",
+      "date": "2026-07-22",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1543",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아 김수곤 선임 오토컨설턴트 4천 대 판매 ‘그랜드 마스터’ 등극",
+      "date": "2026-07-15",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1541",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 신규 사회공헌사업 ‘무브투유’ 전개",
+      "date": "2026-07-06",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1539",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, 오션클린업에 해양 환경 보호 협력을 위한 전기차 지원",
+      "date": "2026-07-03",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1538",
+      "reason": "해양 환경 보호 단체 차량 지원·사회공헌 목적 후원 제외"
+    },
+    {
+      "title": "기아, ‘The 2027 K5’ 출시",
+      "date": "2026-07-02",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1537",
+      "reason": "연식변경 사양 구성·가격 중심. 구체적인 제어·설계 기술 자료 우선 수집"
+    },
+    {
+      "title": "기아, 2026년 6월 29만 5,720대 판매",
+      "date": "2026-07-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1536",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 2026년 지속가능경영 보고서 ‘MOVE’ 발간",
+      "date": "2026-07-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1534",
+      "reason": "지속가능경영 보고서 발간 안내. 첨부 보고서 전체는 이번 수집 범위 밖; 공장 자원순환·에너지 원문 별도 수집"
+    },
+    {
+      "title": "기아, 한국지체장애인협회와 ‘PV5 WAV’ 연계 교통약자 이동권 향상 위한 MOU 체결",
+      "date": "2026-06-24",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1531",
+      "reason": "교통약자 이동 지원·구매 지원 등 사회공헌 목적 협약 제외. 차량 구조·실제 택시 운용 자료는 별도 수집"
+    },
+    {
+      "title": "기아, FIFA 월드컵 2026™ 공식 파트너로서 팬들과 함께하는 글로벌 캠페인 전개",
+      "date": "2026-06-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1528",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘여행하는 선율: 초록여행 x 런피아노’ 개최",
+      "date": "2026-06-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1527",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, 2026년 5월 27만 7,715대 판매",
+      "date": "2026-06-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1526",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 제12회 스킬 월드컵 성료",
+      "date": "2026-05-22",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1524",
+      "reason": "정비사 경연·교육·포상 행사 중심. 구체적인 정비 기술 원문이 아니므로 제외"
+    },
+    {
+      "title": "기아, 세계인의 날 맞아  다문화 인식 개선 캠페인 영상 공개",
+      "date": "2026-05-19",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1523",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘배틀그라운드 모바일’과 협업, 온·오프라인 통합 브랜드 체험 선봬",
+      "date": "2026-05-19",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1522",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, FIFA 월드컵 2026 ™ 차량 지원 글로벌 모빌리티 파트너십 강화",
+      "date": "2026-05-19",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1521",
+      "reason": "월드컵 파트너십에 따른 행사 차량 지원·마케팅 제외"
+    },
+    {
+      "title": "기아, ‘The 2027 모닝’ 출시",
+      "date": "2026-05-15",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1520",
+      "reason": "연식변경 편의사양·가격 구성 중심. 구체적인 기술 원문 우선 수집"
+    },
+    {
+      "title": "기아, 루마니아 ‘BSDA 2026’ 방산전시회 첫 참가",
+      "date": "2026-05-13",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1518",
+      "reason": "군용차 전시 반복 소개. 동일 차종의 환경 대응 설계와 성능을 설명하는 1530 수집"
+    },
+    {
+      "title": "기아, ‘2027 호주오픈’ 볼키즈 한국대표 선발",
+      "date": "2026-05-08",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1516",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "디 올 뉴 셀토스, 인도 〈2026 타임스 드라이브 오토 서밋 & 어워즈〉 ‘올해의 SUV’ 선정",
+      "date": "2026-05-07",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1515",
+      "reason": "올해의 SUV 수상 홍보. 상세 플랫폼·제어 기술 원문 1485 수집"
+    },
+    {
+      "title": "기아, 2026년 4월 27만 7,188대 판매",
+      "date": "2026-05-04",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1514",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, ‘밀라노 디자인 위크’ 참가",
+      "date": "2026-04-23",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1512",
+      "reason": "밀라노 디자인 행사·브랜드 철학 전시 중심. 구체적인 차량 설계 원문 우선 수집"
+    },
+    {
+      "title": "기아, 장애인의 날 맞아 ‘PV5 WAV’ 연계 프로그램 진행",
+      "date": "2026-04-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1511",
+      "reason": "장애인의 날 연계 체험·지원 프로그램 제외. WAV 차량 구조·실제 운용 원문은 별도 수집"
+    },
+    {
+      "title": "기아, ‘The 2027 K8’ 출시",
+      "date": "2026-04-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1510",
+      "reason": "연식변경 옵션·가격 구성 중심. 구체적인 기술 원문 우선 수집"
+    },
+    {
+      "title": "기아 송호성 사장, ‘장애인 고용 촉진’ 고용노동부장관 표창 수상",
+      "date": "2026-04-16",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1509",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, FIFA 월드컵 2026™ 연계 유소년 축구 대회 'OMBC 컵' 성료",
+      "date": "2026-04-15",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1508",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, 국내 야구팬을 위한 ‘KBO 디스플레이 테마 시즌2’ 출시",
+      "date": "2026-04-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1507",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘2026 뉴욕 국제 오토쇼’ 참가",
+      "date": "2026-04-02",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1505",
+      "reason": "오토쇼 전시·기존 차종 소개 반복. 셀토스·PV5 WAV의 상세 기술 원문 우선 수집"
+    },
+    {
+      "title": "기아, 2026년 3월 28만 5,854대 판매",
+      "date": "2026-04-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1504",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 英 ‘탑기어 EV 어워즈’ 선정 '최고의 제조사' 수상",
+      "date": "2026-04-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1503",
+      "reason": "제조사 대상·상품성 평가 홍보 중심. 구체적인 기술·공정 원문 우선 수집"
+    },
+    {
+      "title": "기아, 청년인재 대규모 채용 실시",
+      "date": "2026-04-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1502",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, ‘하모니움 교육 프로그램’ 2기 수료식 및 3기 입학식 개최",
+      "date": "2026-03-30",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1501",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아 김학준 선임 오토컨설턴트, 4천대 판매 ‘그랜드 마스터’ 등극",
+      "date": "2026-03-27",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1500",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 행정안전부와 지방소멸 위기 대응 나선다",
+      "date": "2026-03-25",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1499",
+      "reason": "지역사회·지방소멸 대응 지원 사업 제외"
+    },
+    {
+      "title": "기아, 오토랜드(AutoLand) 광주에 고객 체험 공간 조성",
+      "date": "2026-03-25",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1498",
+      "reason": "공장 고객 체험 공간·브랜드 경험 운영 제외"
+    },
+    {
+      "title": "기아, FIFA 월드컵 2026™ 기념 국가별 디스플레이 테마 출시",
+      "date": "2026-03-25",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1497",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아-서울시, 'PV5 WAV' 활용해 교통약자 특화 모빌리티 보급 확대 협력",
+      "date": "2026-03-24",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1496",
+      "reason": "교통약자 차량 구매 지원금·충전기 무상 설치 지원 중심의 파트너십 제외. 차량 기술·UD택시 실제 도입 원문 우선 수집"
+    },
+    {
+      "title": "기아, 디플러스 기아 권재혁 선수에 '더 기아 PV5 WAV' 전달",
+      "date": "2026-03-16",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1495",
+      "reason": "홍보대사·선수 대상 차량 전달·마케팅 제외"
+    },
+    {
+      "title": "기아, 2026년 2월 24만 7,401대 판매",
+      "date": "2026-03-03",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1492",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, ‘대한민국 일하기 좋은 100대 기업’ 선정",
+      "date": "2026-02-26",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1491",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "'기아 시흥 플래그십 스토어' 개관",
+      "date": "2026-02-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1490",
+      "reason": "플래그십 스토어·브랜드 체험 거점 개관 제외"
+    },
+    {
+      "title": "기아, 2026년 1월 24만 5,557대 판매",
+      "date": "2026-02-02",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1489",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, 국내 전기차 진입장벽 낮춰 대중화 가속",
+      "date": "2026-01-22",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1484",
+      "reason": "전기차 가격·구매 지원·혜택 중심의 판매 촉진 제외"
+    },
+    {
+      "title": "기아, 글로벌 사회공헌활동 ‘부트캠프’ 성장 다큐멘터리 공개",
+      "date": "2026-01-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1483",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, ‘더 뉴 니로’ 디자인 공개",
+      "date": "2026-01-20",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1482",
+      "reason": "니로 디자인 사전 공개. 제어·승차감·플랫폼을 설명하는 정식 원문 1493 수집"
+    },
+    {
+      "title": "기아, ‘하모니움 교육 프로그램’ 3기 참여자 모집",
+      "date": "2026-01-19",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1481",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 호주오픈 파트너십 25주년 기념 ‘Move Different’ 특별 캠페인 전개",
+      "date": "2026-01-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1480",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘디 올 뉴 셀토스 얼리 체크인’ 이벤트 실시",
+      "date": "2026-01-14",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1479",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘The 2026 봉고 Ⅲ’ 출시",
+      "date": "2026-01-06",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1476",
+      "reason": "봉고 연식변경 사양·가격 중심. 구체적인 설계·공정 기술 원문 우선 수집"
+    },
+    {
+      "title": "기아, 2025년 313만 5,803대 판매",
+      "date": "2026-01-05",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1475",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아 PV5, 글로벌 어워즈 석권하며 전기 밴 시장 게임체인저 등극",
+      "date": "2025-12-18",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1474",
+      "reason": "일반 자동차 어워즈 수상 모음. 구체적인 안전 시험·실주행 검증 원문 별도 수집"
+    },
+    {
+      "title": "기아, '더 기아 EV5 x 나이브스 아웃: 웨이크 업 데드 맨' 글로벌 파트너십 캠페인 시행",
+      "date": "2025-12-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1472",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘디 올 뉴 셀토스’ 세계 최초 공개",
+      "date": "2025-12-10",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1471",
+      "reason": "셀토스 정식 출시와 내용 중복. 차체 플랫폼·회생제동·하이브리드 제어를 설명하는 1485 우선 수집"
+    },
+    {
+      "title": "기아, FIFA 월드컵 2026™ 연계 글로벌 브랜드 캠페인 전개",
+      "date": "2025-12-09",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1470",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, 전 국민 참여형 캠페인 ‘기아 트레저 헌트’ 전개",
+      "date": "2025-12-08",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1468",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, 창립 80주년 기념 행사 개최",
+      "date": "2025-12-05",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1467",
+      "reason": "창립 기념 행사·브랜드 역사 소개 제외"
+    },
+    {
+      "title": "기아, 제4회 ‘PBV 아이디어 공모전’ 시상식 개최",
+      "date": "2025-12-05",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1466",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "더 기아 PV5, 영국 〈2026 왓 밴 어워즈〉 ‘올해의 밴’ 선정",
+      "date": "2025-12-04",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1464",
+      "reason": "올해의 밴 선정 홍보. 구체적인 안전 평가·실주행 시험 자료 별도 수집"
+    },
+    {
+      "title": "기아, 2025년 11월 26만 2,065대 판매",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1463",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, ‘디 올 뉴 셀토스’ 티저 공개",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1462",
+      "reason": "셀토스 티저. 상세 기술을 설명하는 1485 수집"
+    },
+    {
+      "title": "기아, 오토랜드(AutoLand) 화성에 고객체험 공간 조성",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1461",
+      "reason": "공장 고객 체험 공간·브랜드 경험 운영 제외"
+    },
+    {
+      "title": "기아, ‘더 기아 EV5’ 광고 캠페인, ‘2025 대한민국광고대상’ 2관왕 쾌거",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1460",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, ‘한일 드림 플레이어즈 게임 2025’에서 PV5 전시",
+      "date": "2025-12-01",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1459",
+      "reason": "스포츠 행사 차량 전시·브랜드 홍보 제외"
+    },
+    {
+      "title": "더 기아 PV5, 英 ‘탑기어 어워즈’ 선정, ‘올해의 패밀리카’ 수상",
+      "date": "2025-11-27",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1456",
+      "reason": "패밀리카 수상 홍보. 구체적인 차량 설계·검증 원문 별도 수집"
+    },
+    {
+      "title": "기아 신경헌 선임 오토컨설턴트, 4천대 판매 ‘그랜드 마스터’ 등극",
+      "date": "2025-11-21",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1455",
+      "reason": "채용·인사·직원 포상·조직문화·인재 교육 소식 제외"
+    },
+    {
+      "title": "기아, 임직원과 함께 사회공헌사업 ‘Move & Connect’ 성료",
+      "date": "2025-11-20",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1453",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, 더 기아 PV5 ‘2026 세계 올해의 밴’ 수상 쾌거",
+      "date": "2025-11-20",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1452",
+      "reason": "올해의 밴 수상 홍보. 구체적인 안전 평가·실주행 시험 원문 별도 수집"
+    },
+    {
+      "title": "기아, '인증중고차 센터 평택 직영점' 및 'PBV 익스피리언스 센터' 개소",
+      "date": "2025-11-17",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1451",
+      "reason": "중고차·PBV 체험 거점 개소 중심의 영업·브랜드 경험 운영 제외"
+    },
+    {
+      "title": "기아, '노사 합동 사랑나누기' 기부 캠페인 실시",
+      "date": "2025-11-12",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1449",
+      "reason": "기부·사회공헌·지역사회 지원 사업 제외"
+    },
+    {
+      "title": "기아, 2025년 10월 26만 3,904대 판매",
+      "date": "2025-11-03",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1447",
+      "reason": "월별·연간 판매대수 공지 제외. 재무·원가 요인은 분기 경영실적에서 수집"
+    },
+    {
+      "title": "기아, PV5 앞세워 일본 EV 밴 시장 본격 공략",
+      "date": "2025-10-29",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1445",
+      "reason": "일본 시장 진출 선언. 현재 발표한 공급 계약이 아닌 과거 계약 언급이며 현지 기술 상세는 1519에서 수집"
+    },
+    {
+      "title": "기아, 월트디즈니와 협업한 신규 디스플레이 테마 출시",
+      "date": "2025-10-29",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1444",
+      "reason": "광고·마케팅·협찬·브랜드 경험·판촉·외장 스타일 패키지 소개 제외"
+    },
+    {
+      "title": "기아, 글로벌 홍보대사 라파엘 나달과의 파트너십 연장하며 동행 이어가",
+      "date": "2025-10-23",
+      "url": "https://worldwide.kia.com/ko/newsroom-korea/view?id=1441",
+      "reason": "홍보대사·스포츠 마케팅 파트너십 연장 제외"
+    }
+  ]
+}
