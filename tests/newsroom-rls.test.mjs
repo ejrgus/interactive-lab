@@ -19,6 +19,7 @@ await db.exec(`create schema realtime;create table realtime.messages(id integer,
   grant usage on schema storage to authenticated,anon;grant select,insert,delete on storage.objects to authenticated,anon;`);
 const schema=await readFile(root+'/supabase/setup.sql','utf8');
 await db.exec(schema);await db.exec(schema);
+const initialArticleCount=(await db.query('select count(*)::int n from public.newsroom_articles')).rows[0].n;
 const A='00000000-0000-4000-8000-000000000001',B='00000000-0000-4000-8000-000000000002',C='00000000-0000-4000-8000-000000000003';
 await db.query('insert into auth.users(id,email) values ($1,$2),($3,$4),($5,$6)',[A,'member-a@example.test',B,'member-b@example.test',C,'admin@example.test']);
 let checks=0;
@@ -42,7 +43,7 @@ await as('authenticated',A,async()=>{
   await db.query('select public.newsroom_import_records($1::jsonb,$2::jsonb)',['{}',JSON.stringify([{id:'imported-external',title:'외부 뉴스 백업',url:'https://example.test/imported-external',company:'기아',company_id:'kia',is_official:false,category:'섀시'}])]);
   const importedLink=(await db.query("select company_id,is_official,category from public.newsroom_articles where id='imported-external'")).rows[0];
   assert.deepEqual(importedLink,{company_id:'kia',is_official:false,category:'외부링크'});checks++;
-  assert.equal((await db.query('select count(*)::int n from public.newsroom_articles')).rows[0].n,73);checks++;
+  assert.equal((await db.query('select count(*)::int n from public.newsroom_articles')).rows[0].n,initialArticleCount+2);checks++;
   assert.equal((await db.query('select public.newsroom_is_admin() a')).rows[0].a,false);checks++;
   await db.query("insert into public.newsroom_profiles(user_id,nickname) values($1,'A')",[A]);
   await db.query("insert into public.newsroom_notes(article_id,memo) values('topic:test','A private')");

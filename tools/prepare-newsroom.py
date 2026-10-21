@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+from importlib.util import spec_from_file_location, module_from_spec
 
 ROOT = Path(__file__).resolve().parents[1]
 catalog = json.loads((ROOT / 'newsroom/catalog.json').read_text(encoding='utf-8-sig'))
@@ -14,7 +15,7 @@ for article in catalog['articles']:
              if not k.lower().startswith('utm_') and k.lower() not in ('fbclid', 'gclid')]
     articles.append({
         'id': article['id'], 'url': urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), '')).rstrip('/'),
-        'title': article['title'], 'company': '현대자동차그룹', 'category': article['category'],
+        'title': article['title'], 'company': catalog.get('company', {}).get('name', '현대자동차그룹'), 'category': article['category'],
         'date': article.get('date'), 'topics': article.get('topics', []), 'tags': article.get('tags', []),
         'summary': article.get('summary', ''), 'study': article.get('study', '')
     })
@@ -32,5 +33,9 @@ on conflict do nothing;
 schema = (ROOT / 'supabase/01-newsroom.sql').read_text(encoding='utf-8')
 migration = (ROOT / 'supabase/04-companies.sql').read_text(encoding='utf-8')
 extras = '\n'.join((ROOT / f'supabase/{name}').read_text(encoding='utf-8') for name in ['05-presence.sql','06-note-images.sql'])
-(ROOT / 'supabase/setup.sql').write_text('-- Run this entire file in Supabase SQL Editor.\n' + schema + '\n' + seed + '\n' + migration + '\n' + extras, encoding='utf-8')
-print(f'Prepared {len(articles)} shared articles. Personal notes excluded.')
+spec = spec_from_file_location('company_news', ROOT / 'tools/prepare-company-news.py')
+company_news = module_from_spec(spec)
+spec.loader.exec_module(company_news)
+company_seed, additional = company_news.build_all()
+(ROOT / 'supabase/setup.sql').write_text('-- Run this entire file in Supabase SQL Editor.\n' + schema + '\n' + seed + '\n' + migration + '\n' + extras + '\n' + company_seed, encoding='utf-8')
+print(f'Prepared {len(articles)} existing + {additional} additional shared articles. Personal notes excluded.')

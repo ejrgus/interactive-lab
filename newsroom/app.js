@@ -125,7 +125,7 @@ function companyIcon(company) {
   if(company.logo_url) {
     try {
       const url=canonicalUrl(company.logo_url),img=document.createElement('img');img.alt='';img.referrerPolicy='no-referrer';img.src=url;
-      img.onload=()=>{fallback.hidden=true;};img.onerror=()=>{img.remove();fallback.hidden=false;};span.append(img);
+      img.onload=()=>{fallback.hidden=true;span.classList.add('has-logo');};img.onerror=()=>{img.remove();fallback.hidden=false;span.classList.remove('has-logo');};span.append(img);
     } catch { /* Keep the name initials if a stored logo cannot be displayed. */ }
   }
   return span;
@@ -223,7 +223,8 @@ function renderNavigation() {
     $('quickNav').append(nav(label,count,state.filter===key&&!$('category').value,()=>{state.filter=key;$('category').value='';renderList();},id));
   }
   const available=articleFields(companyArticles());
-  const fields=[...FIELD_ORDER.filter(f=>available.includes(f)),...available.filter(f=>!FIELD_ORDER.includes(f))];
+  const preferred=state.companyId===DEFAULT_COMPANY?FIELD_ORDER:[];
+  const fields=[...preferred.filter(f=>available.includes(f)),...available.filter(f=>!preferred.includes(f))];
   $('fieldCount').textContent=fields.length+1;$('categories').replaceChildren();
   $('categories').append(nav('↗ 외부링크',companyArticles().filter(a=>a.is_official===false).length,$('category').value===EXTERNAL_CATEGORY,()=>{state.filter='all';$('category').value=EXTERNAL_CATEGORY;renderList();},'external-filter'));
   for(const field of fields)$('categories').append(nav(field,companyArticles().filter(a=>inCategory(a,field)).length,$('category').value===field,()=>{state.filter='all';$('category').value=field;renderList();}));

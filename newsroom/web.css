@@ -26,6 +26,9 @@ body.reader-focus .tools-menu { left:auto; right:calc(var(--note) + 10px); top:4
 .tools-menu p.menu-caption { color:#6782a3; font-size:10px; margin:10px 0 3px; }
 .company-icon { display:grid; place-items:center; position:relative; width:37px; height:37px; border-radius:10px; background:#edf3fb; color:#28557e; font-size:12px; font-weight:700; flex-shrink:0; overflow:hidden; }
 .company-icon img { position:absolute; inset:3px; width:calc(100% - 6px); height:calc(100% - 6px); object-fit:contain; }
+.company-icon.has-logo,.company-logo .company-icon.has-logo { width:68px; background:transparent; border-radius:0; }
+.nav-item>span:first-child { min-width:0; white-space:normal; line-height:1.55; }
+.nav-item .count { flex-shrink:0; margin-left:6px; }
 .company-menu { position:absolute; top:46px; left:0; z-index:30; width:280px; max-height:65vh; overflow:auto; background:white; border:1px solid var(--line); border-radius:12px; box-shadow:0 12px 40px #13273b26; padding:9px; }
 .company-menu-heading { font-size:11px; color:#8291a4; padding:8px; }
 .company-menu button { display:flex; align-items:center; width:100%; gap:10px; border:0; white-space:normal; text-align:left; font-size:12px; padding:8px; }
