@@ -1,0 +1,8 @@
+node_modules/
+test-results/
+.env
+.env.*
+!.env.example
+*내공부기록*
+*개인메모*
+*private*.json
