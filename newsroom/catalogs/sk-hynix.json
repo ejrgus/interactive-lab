@@ -1,0 +1,1547 @@
+{
+  "updated": "2026-10-22",
+  "company": {
+    "id": "sk-hynix",
+    "name": "SK하이닉스",
+    "newsroom_url": "https://news.skhynix.co.kr/",
+    "logo_url": "https://ejrgus.github.io/interactive-lab/newsroom/assets/sk-hynix.png",
+    "logo_source": "https://www.skhynix.com/img/common/img_logo.png"
+  },
+  "coverage": {
+    "since": "2025-10-22",
+    "until": "2026-10-22",
+    "listed": 202,
+    "selected": 64,
+    "excluded": 138,
+    "inventory_total": 1179,
+    "inventory_pages": 12,
+    "text_pages": 3,
+    "non_text_posts": 977,
+    "selected_originals_verified": 64,
+    "scope": "공식 한국어 WordPress 공개 목록의 기간 내 전체 1,179개 게시물 메타데이터를 확인. PRESS·FACT·STORY·TECH&AI 및 기술·문화·지속가능성 본문 분류 202건의 전체 텍스트를 확보해 64건 선별. 선정 원문 64건의 정식 URL·화면 제목·게시일·본문을 HTML과 대조. 사진·영상·SNS·IR 등 별도 분류 977건은 중복·미디어 구분을 위해 목록만 확인했으며 개별 내용은 수집하지 않음.",
+    "policy": "최근 1년 기술·설계·소자·공정·패키징·양산·품질·소프트웨어·구매·물류·산업안전·환경·재무 자료. 채용 행사·인물 포상·임원 선임·조직문화·마케팅·사회공헌 제외. 기술 원리·실무를 설명하는 직무 인터뷰는 포함. 공급·협약·공동 개발은 별도 분류하되 단순 CEO 회동·협의 진행·양산 발표만으로 확정 계약이라 표시하지 않음.",
+    "sources": [
+      "https://news.skhynix.co.kr/",
+      "https://news.skhynix.co.kr/wp-json/wp/v2/posts"
+    ],
+    "limitations": "영문 뉴스룸·첨부 논문 전체·사진 및 영상 본문 전체는 범위 밖. 연구 성과는 공식 뉴스룸의 설명을 요약하며 논문 전체를 검증했다는 의미가 아님."
+  },
+  "fields": [
+    "공급 / 계약",
+    "HBM / 고대역폭 메모리",
+    "D램 / 저전력·서버 메모리",
+    "낸드 / 3D 적층",
+    "SSD / 스토리지",
+    "패키징 / TSV·본딩",
+    "소자 / 신소재",
+    "마스크 / 계측·분석",
+    "공정 / 수율",
+    "양산관리 / 생산계획",
+    "스마트팩토리 / 자동화",
+    "시험 / 신뢰성",
+    "시스템 아키텍처 / CXL",
+    "PIM / 차세대 컴퓨팅",
+    "소프트웨어 / AI",
+    "열관리 / 전력효율",
+    "팹 / 유틸리티",
+    "설비 / 산업안전",
+    "환경 / 자원순환",
+    "구매 / 공급망",
+    "물류 / 통관",
+    "재무 / 사업전략",
+    "광인터커넥트 / CPO"
+  ],
+  "articles": [
+    {
+      "id": "sk-hynix-67813",
+      "title": "[AI Ecosystem] 반도체 패러다임의 이동: 메모리 중심으로",
+      "date": "2026-10-21",
+      "url": "https://news.skhynix.co.kr/ai-ecosystem-series-ep4",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "패키징 / TSV·본딩",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "메모리 중심 설계",
+        "데이터 이동",
+        "AI 가속기"
+      ],
+      "summary": "AI 반도체의 병목을 데이터 공급 관점에서 살피고 칩·패키지·메모리의 공동 설계 필요성을 설명한다.",
+      "study": "공부 질문: 연산 성능과 메모리 대역폭 중 어느 쪽이 병목인지 어떻게 판단할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67813",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67797",
+      "title": "SK하이닉스, 2조 원 규모 ‘수출공급망 강화보증’ 출범… 정부 · 무보 · 시중은행 손잡아",
+      "date": "2026-10-19",
+      "url": "https://news.skhynix.co.kr/export-supply-chain-fund-2026",
+      "category": "공급 / 계약",
+      "topics": [
+        "구매 / 공급망",
+        "재무 / 사업전략",
+        "팹 / 유틸리티"
+      ],
+      "tags": [
+        "수출공급망",
+        "보증",
+        "소부장",
+        "트리니티 팹"
+      ],
+      "summary": "정부·무역보험공사·은행과 수출공급망 강화보증 협약을 맺고 소부장 기업의 자금 조달과 생태계 지원을 추진한다.",
+      "study": "공부 질문: 협력사 자금 안정성과 장비·소재 공급 연속성을 어떻게 연결해 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67797",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67555",
+      "title": "“메모리 중심 서버 시스템이 미래”… SK하이닉스, ‘OCP 글로벌 서밋 2026’서 차세대 AI 인프라 기술 비전 제시",
+      "date": "2026-10-16",
+      "url": "https://news.skhynix.co.kr/ocp-global-summit-2026",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "D램 / 저전력·서버 메모리",
+        "SSD / 스토리지",
+        "소프트웨어 / AI"
+      ],
+      "tags": [
+        "CXL 풀드 메모리",
+        "CMM-DDR5",
+        "MARS",
+        "CMM-Ax"
+      ],
+      "summary": "OCP에서 메모리 풀링과 시스템 데모를 통해 서버 간 자원 활용 및 AI 데이터 병목 개선 방안을 소개한다.",
+      "study": "공부 질문: 메모리 풀링의 자원 활용 효과와 접근 지연의 상충관계는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67555",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67489",
+      "title": "[하이피디아] 극한 환경도 문제없다, 완벽한 반도체를 완성하는 ‘신뢰성’",
+      "date": "2026-10-15",
+      "url": "https://news.skhynix.co.kr/ambassador-hypidia-5",
+      "category": "시험 / 신뢰성",
+      "topics": [
+        "공정 / 수율",
+        "패키징 / TSV·본딩"
+      ],
+      "tags": [
+        "가속 시험",
+        "고온",
+        "온도 변화",
+        "고습"
+      ],
+      "summary": "반도체 신뢰성의 의미와 고온·습도·진동·전압 등 스트레스를 이용한 가속 시험을 설명한다.",
+      "study": "공부 질문: 가속 시험 결과를 실제 사용 수명과 연결할 때 어떤 가정이 필요할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67489",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67463",
+      "title": "[SK하이닉스 JOB리포트] 개발부터 고객까지 End-to-End, 반도체 전 생애주기 품질을 책임지는 ‘품질보증’",
+      "date": "2026-10-14",
+      "url": "https://news.skhynix.co.kr/ambassador-job-report-ep5",
+      "category": "시험 / 신뢰성",
+      "topics": [
+        "공정 / 수율",
+        "양산관리 / 생산계획"
+      ],
+      "tags": [
+        "품질보증",
+        "출하 판단",
+        "제조 이력",
+        "불량 재현"
+      ],
+      "summary": "개발부터 고객 사용까지 품질 위험을 관리하는 업무를 설명한다. 양산 데이터·시험·제조 이력을 종합해 출하와 개선을 판단한다.",
+      "study": "공부 질문: 단일 불량에서 다른 제품까지 영향 범위를 어떻게 추적할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67463",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67426",
+      "title": "[Research Inside] AI 시대, 저장하던 낸드가 연산을 시작했다∙∙∙ IEEE 논문으로 입증한 3D FeNAND Co-optimization이 여는 AI 메모리의 새로운 차원",
+      "date": "2026-10-14",
+      "url": "https://news.skhynix.co.kr/research-inside-ep2",
+      "category": "낸드 / 3D 적층",
+      "topics": [
+        "소자 / 신소재",
+        "PIM / 차세대 컴퓨팅",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "3D FeNAND",
+        "A-CiM",
+        "셀·비셀·페이지",
+        "공동 최적화"
+      ],
+      "summary": "3D FeNAND 기반 아날로그 메모리 연산에서 셀·비셀·페이지 방식을 공동 최적화한 연구를 소개한다.",
+      "study": "공부 질문: 연산 정확도와 에너지 효율을 소자·회로 수준에서 어떻게 함께 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67426",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-67118",
+      "title": "[AI Ecosystem] 인프라 재설계: 구조가 성능을 결정한다",
+      "date": "2026-10-02",
+      "url": "https://news.skhynix.co.kr/ai-ecosystem-series-ep3",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "PIM / 차세대 컴퓨팅",
+        "소프트웨어 / AI",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "데이터 이동",
+        "공동 설계",
+        "추론",
+        "메모리 중심 컴퓨팅"
+      ],
+      "summary": "AI 인프라를 구성 요소 간 데이터 이동 관점에서 재설계해야 하는 이유와 메모리 중심 컴퓨팅의 역할을 설명한다.",
+      "study": "공부 질문: 데이터를 덜 이동시키는 구조가 유리한 워크로드는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "67118",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-66865",
+      "title": "[AI Infrastructure Insight] 왜 전력과 냉각이 AI 데이터센터의 새로운 과제가 되었는가?",
+      "date": "2026-09-30",
+      "url": "https://news.skhynix.co.kr/ai-infrastructure-insight-ep3",
+      "category": "열관리 / 전력효율",
+      "topics": [
+        "팹 / 유틸리티",
+        "시스템 아키텍처 / CXL"
+      ],
+      "tags": [
+        "데이터센터",
+        "전력 공급",
+        "냉각",
+        "고집적 랙"
+      ],
+      "summary": "고집적 AI 장비의 전력과 냉각을 초기 인프라 설계 조건으로 다루고 안정적 운영·확장성과 연결한다.",
+      "study": "공부 질문: 전력·냉각 한계가 랙의 실제 처리 성능을 어떻게 제한할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "66865",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-66775",
+      "title": "[미래인재 CLASS] AI 시대의 전력난(難), 해법은 메모리로부터…",
+      "date": "2026-09-23",
+      "url": "https://news.skhynix.co.kr/future-talents-class-ep4",
+      "category": "열관리 / 전력효율",
+      "topics": [
+        "D램 / 저전력·서버 메모리",
+        "PIM / 차세대 컴퓨팅"
+      ],
+      "tags": [
+        "저전력 메모리",
+        "추론",
+        "온디바이스 AI"
+      ],
+      "summary": "전문가 인터뷰에서 AI의 전력 문제와 데이터 이동 비용, 메모리 효율 개선의 중요성을 살펴본다.",
+      "study": "공부 질문: 메모리 접근량 감소와 저전압 동작의 에너지 절감 효과를 어떻게 구분할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "66775",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-66374",
+      "title": "SK하이닉스, 지난해 하루 용수 사용 17만 톤 절감…”2030년까지 6억 톤 아낀다”",
+      "date": "2026-09-10",
+      "url": "https://news.skhynix.co.kr/korea-international-water-week-2026",
+      "category": "환경 / 자원순환",
+      "topics": [
+        "팹 / 유틸리티",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "용수 재이용",
+        "폐수 처리",
+        "오존산화",
+        "활성탄"
+      ],
+      "summary": "국내 공장의 용수 재이용과 절감 성과를 설명한다. 사업장별 재이용수 공급과 고도 폐수 처리 공정도 소개한다.",
+      "study": "공부 질문: 공정별 수질 요구와 재이용률을 함께 만족하는 물 순환 체계를 어떻게 설계할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "66374",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-66035",
+      "title": "[하이피디아] 팹의 생산 흐름을 조율하는 핵심 지표, 완벽한 양산관리를 위한 ‘TAT’",
+      "date": "2026-09-08",
+      "url": "https://news.skhynix.co.kr/ambassador-hypidia-4",
+      "category": "양산관리 / 생산계획",
+      "topics": [
+        "스마트팩토리 / 자동화",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "TAT",
+        "Q-TIME",
+        "WIP",
+        "병목"
+      ],
+      "summary": "웨이퍼 생산 총소요 시간인 TAT와 공정 간 대기 제한 Q-TIME을 설명하고 병목·라인 균형 관리와 연결한다.",
+      "study": "공부 질문: TAT를 줄이면서 Q-TIME 초과 불량을 막으려면 무엇을 우선 제어할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "66035",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-66042",
+      "title": "[SK하이닉스 JOB리포트] 제조 현장의 마스터키, 생산 효율과 수율을 극대화하는 ‘양산관리’",
+      "date": "2026-09-07",
+      "url": "https://news.skhynix.co.kr/ambassador-job-report-ep4",
+      "category": "양산관리 / 생산계획",
+      "topics": [
+        "스마트팩토리 / 자동화",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "양산관리",
+        "생산능력",
+        "WIP",
+        "스케줄링"
+      ],
+      "summary": "팹 전체의 대기 물량·장비 생산능력·목표 물량을 분석해 운영 계획을 조율하는 양산관리 업무를 설명한다.",
+      "study": "공부 질문: 개별 설비 가동률과 팹 전체 생산성을 어떻게 구분해 최적화할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "66042",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-65982",
+      "title": "[AI Ecosystem] 병목의 실체: 연산이 아닌 데이터",
+      "date": "2026-09-03",
+      "url": "https://news.skhynix.co.kr/ai-ecosystem-series-ep2",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "D램 / 저전력·서버 메모리",
+        "HBM / 고대역폭 메모리",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "메모리 병목",
+        "추론",
+        "대역폭",
+        "데이터 흐름"
+      ],
+      "summary": "추론·에이전틱 AI로 바뀌는 워크로드에서 데이터 저장 위치와 공급 경로가 성능을 좌우하는 이유를 설명한다.",
+      "study": "공부 질문: 메모리 대역폭과 데이터 재사용률을 어떤 지표로 함께 분석할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "65982",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-65824",
+      "title": "SK하이닉스, 美 인디애나 HBM 생산거점 기공식 “한미 AI의 새로운 미래 시작”",
+      "date": "2026-08-28",
+      "url": "https://news.skhynix.co.kr/groundbreaking-ceremony-in-indiana",
+      "category": "공급 / 계약",
+      "topics": [
+        "팹 / 유틸리티",
+        "패키징 / TSV·본딩",
+        "HBM / 고대역폭 메모리",
+        "재무 / 사업전략"
+      ],
+      "tags": [
+        "인디애나 팹",
+        "퍼듀대",
+        "R&D MOU",
+        "첨단 패키징"
+      ],
+      "summary": "인디애나 HBM 패키징 생산거점 건설과 퍼듀대 연구개발 MOU를 발표했다. 생산 인프라와 현지 연구 생태계 연계를 추진한다.",
+      "study": "공부 질문: 패키징 연구와 신공장 양산 이관 사이의 검증 단계를 어떻게 구성할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "65824",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57701",
+      "title": "[Tech Note] ‘반도체 성능 향상을 위한 기본 기술’로의 진화, 하이브리드 본딩",
+      "date": "2026-08-25",
+      "url": "https://news.skhynix.co.kr/tech-note-series-ep2",
+      "category": "패키징 / TSV·본딩",
+      "topics": [
+        "소자 / 신소재",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "하이브리드 본딩",
+        "범프리스",
+        "3D 적층",
+        "접합"
+      ],
+      "summary": "칩 간 범프를 줄이는 하이브리드 본딩을 적층·전기 연결 관점에서 설명하고 향후 적용 과제를 살핀다.",
+      "study": "공부 질문: 접합면 청정도·정렬·평탄도가 본딩 수율에 미치는 영향은 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57701",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-65200",
+      "title": "AI 전장은 ‘칩’에서 ‘시스템’으로… SK하이닉스, 네이처 일렉트로닉스 논문으로 ‘랙 · 포드 · 시스템’ CPO 상용화 청사진 증명",
+      "date": "2026-08-20",
+      "url": "https://news.skhynix.co.kr/cpo-in-nature-electronics",
+      "category": "광인터커넥트 / CPO",
+      "topics": [
+        "시스템 아키텍처 / CXL",
+        "패키징 / TSV·본딩",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "CPO",
+        "광 인터커넥트",
+        "랙·포드",
+        "공동 설계"
+      ],
+      "summary": "글로벌 연구진과 발표한 CPO 논문을 소개하며 칩을 넘어 랙·포드 수준의 광 연결과 공동 설계 로드맵을 설명한다.",
+      "study": "공부 질문: 광 연결이 유리해지는 거리·대역폭·전력 조건은 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "65200",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-65410",
+      "title": "SK하이닉스, 40조 원 자사주 취득 ∙ 소각 조기 집행… 주주환원 규모 ‘FCF 50% 이상’ 추진",
+      "date": "2026-08-19",
+      "url": "https://news.skhynix.co.kr/share-buyback-and-retirement",
+      "category": "재무 / 사업전략",
+      "topics": [],
+      "tags": [
+        "자사주",
+        "잉여현금흐름",
+        "주주환원"
+      ],
+      "summary": "이사회가 결정한 자기주식 취득·소각과 잉여현금흐름 기반 주주환원 정책을 설명한다.",
+      "study": "공부 질문: 설비 투자·현금 보유·주주환원의 균형을 어떤 재무 지표로 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "65410",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-65090",
+      "title": "[AI Ecosystem] AI 연산의 패러다임 시프트",
+      "date": "2026-08-18",
+      "url": "https://news.skhynix.co.kr/ai-ecosystem-series-ep1",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "소프트웨어 / AI",
+        "D램 / 저전력·서버 메모리"
+      ],
+      "tags": [
+        "학습·추론",
+        "에이전틱 AI",
+        "워크로드"
+      ],
+      "summary": "AI가 학습 중심에서 추론·행동 중심으로 변화하는 흐름과 반도체·메모리 인프라 요구의 변화를 설명한다.",
+      "study": "공부 질문: 학습과 긴 문맥 추론의 메모리 접근 패턴은 어떻게 다를까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "65090",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64838",
+      "title": "[미래인재 CLASS] 미래 AI 경쟁의 주인공, 로봇에게 지능을 입히는 ‘피지컬 AI’",
+      "date": "2026-08-14",
+      "url": "https://news.skhynix.co.kr/future-talents-class-ep3",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "소프트웨어 / AI",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "피지컬 AI",
+        "로봇",
+        "메모리",
+        "온디바이스"
+      ],
+      "summary": "피지컬 AI의 개념과 로봇·자율 시스템에서 지능 구현 및 메모리 효율이 중요한 이유를 설명한다.",
+      "study": "공부 질문: 지연·전력 제약이 있는 로봇에서 온디바이스와 서버 처리를 어떻게 나눌까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64838",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64798",
+      "title": "SK하이닉스, 용인 Y2 ∙ 청주 M17에 54조 원 투자… AI 시대 메모리 수요 대응 위한 중장기 생산 기반 확보",
+      "date": "2026-08-07",
+      "url": "https://news.skhynix.co.kr/fab-facility-investment-2026",
+      "category": "팹 / 유틸리티",
+      "topics": [
+        "양산관리 / 생산계획",
+        "D램 / 저전력·서버 메모리",
+        "낸드 / 3D 적층",
+        "재무 / 사업전략"
+      ],
+      "tags": [
+        "용인 Y2",
+        "청주 M17",
+        "클린룸",
+        "생산능력"
+      ],
+      "summary": "용인 D램 팹과 청주 낸드 팹 투자를 결정하고 클린룸을 단계적으로 확보해 중장기 수요에 대응하는 계획을 공개했다.",
+      "study": "공부 질문: 클린룸 구축과 장비 투입 시점을 수요·공정 전환과 어떻게 맞출까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64798",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64588",
+      "title": "SK하이닉스, 샌디스크와 HBF 첫 표준 규격 공개…‘FMS 2026’서 AI 메모리 해법 알린다",
+      "date": "2026-08-04",
+      "url": "https://news.skhynix.co.kr/hbf-at-fms-2026",
+      "category": "공급 / 계약",
+      "topics": [
+        "SSD / 스토리지",
+        "낸드 / 3D 적층",
+        "시스템 아키텍처 / CXL",
+        "패키징 / TSV·본딩"
+      ],
+      "tags": [
+        "HBF",
+        "샌디스크",
+        "UCIe",
+        "OCP 표준"
+      ],
+      "summary": "샌디스크와 HBF 첫 표준 규격을 공개했다. HBM과 SSD 사이의 계층을 구현하기 위한 적층 구성·대역폭·인터페이스를 설명한다.",
+      "study": "공부 질문: HBF를 기존 메모리 계층에 추가할 때 데이터 배치 정책은 어떻게 달라질까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64588",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64500",
+      "title": "SK하이닉스, 2026년 2분기 경영실적 발표",
+      "date": "2026-07-29",
+      "url": "https://news.skhynix.co.kr/q2-2026-business-results",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "양산관리 / 생산계획",
+        "HBM / 고대역폭 메모리",
+        "SSD / 스토리지"
+      ],
+      "tags": [
+        "2026년 2분기",
+        "AI 수요",
+        "장기공급 협의",
+        "설비 투자"
+      ],
+      "summary": "2분기 실적과 메모리 제품 구성·생산능력·재무 여력을 설명했다. 진행 중인 장기공급계약과 수요 대응 방향도 공개한다.",
+      "study": "공부 질문: 공급 협의 진행과 확정 계약을 구분해 생산계획에 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64500",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64436",
+      "title": "[하이피디아] 데이터 이동의 한계를 넘어서다, 메모리에서 연산하는 ‘PIM’",
+      "date": "2026-07-27",
+      "url": "https://news.skhynix.co.kr/ambassador-hypidia-3",
+      "category": "PIM / 차세대 컴퓨팅",
+      "topics": [
+        "시스템 아키텍처 / CXL",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "PIM",
+        "폰 노이만",
+        "데이터 이동",
+        "메모리 연산"
+      ],
+      "summary": "메모리 안에서 일부 연산을 수행하는 PIM을 전통적인 분리형 컴퓨팅과 비교하고 데이터 이동·전력 병목과 연결한다.",
+      "study": "공부 질문: PIM으로 옮길 연산을 고를 때 병렬성·정확도·데이터 이동량을 어떻게 따질까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64436",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-64420",
+      "title": "[SK하이닉스 JOB리포트] 차세대 메모리를 완성하다, AI 시대의 새로운 기준 System Architecture & Software Solution",
+      "date": "2026-07-24",
+      "url": "https://news.skhynix.co.kr/ambassador-job-report-ep3",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "소프트웨어 / AI",
+        "PIM / 차세대 컴퓨팅",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "System Architecture",
+        "Software Solution",
+        "CXL",
+        "Custom HBM"
+      ],
+      "summary": "시스템 아키텍처·소프트웨어 직무가 차세대 메모리의 서버 활용 구조와 성능 최적화를 함께 설계하는 과정을 설명한다.",
+      "study": "공부 질문: 하드웨어 성능과 소프트웨어 병목을 어떤 실험으로 분리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "64420",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63593",
+      "title": "[Research Inside] 목표는 고성능 초고층 3D 낸드… CTI 혁신 기술, 연구를 넘어 양산으로 확장",
+      "date": "2026-07-22",
+      "url": "https://news.skhynix.co.kr/research-inside-ep1",
+      "category": "낸드 / 3D 적층",
+      "topics": [
+        "소자 / 신소재",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "CTI",
+        "전하 트랩",
+        "3D 낸드",
+        "전하 보존"
+      ],
+      "summary": "초고층 낸드의 셀 간 간섭을 줄이기 위한 전하 트랩 절연 기술 연구를 소개하고 미세화·전하 보존과 연결한다.",
+      "study": "공부 질문: 적층 밀도 증가가 문턱전압 분포와 데이터 보존에 미치는 영향을 어떻게 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63593",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63836",
+      "title": "SK하이닉스, 美 나스닥 입성… 자본시장 심장부에서 ‘글로벌 컴퍼니’ 위상 드높인다",
+      "date": "2026-07-10",
+      "url": "https://news.skhynix.co.kr/skhynix-lists-adrs-on-nasdaq",
+      "category": "재무 / 사업전략",
+      "topics": [],
+      "tags": [
+        "ADR",
+        "나스닥",
+        "자본시장"
+      ],
+      "summary": "나스닥 ADR 거래 개시와 글로벌 투자자 기반 확대를 발표하고 예탁증서 구조와 상장 의미를 설명한다.",
+      "study": "공부 질문: 예탁증서 상장과 본국 주식의 관계를 재무·공시 관점에서 어떻게 이해할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63836",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63484",
+      "title": "AI 경쟁의 다음 과제, 메모리 계층 구조",
+      "date": "2026-07-03",
+      "url": "https://news.skhynix.co.kr/ai-competition-next-challenge",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "D램 / 저전력·서버 메모리",
+        "SSD / 스토리지"
+      ],
+      "tags": [
+        "메모리 계층",
+        "HBM",
+        "SOCAMM2",
+        "eSSD"
+      ],
+      "summary": "AI 인프라가 여러 메모리·스토리지 계층을 함께 활용하는 방향으로 바뀌는 흐름과 제품별 역할을 설명한다.",
+      "study": "공부 질문: 용량·대역폭·접근 지연을 기준으로 데이터를 어떤 계층에 배치할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63484",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63643",
+      "title": "협력회사와의 상생 정책에 대해 설명드립니다",
+      "date": "2026-07-02",
+      "url": "https://news.skhynix.co.kr/fact-08",
+      "category": "공급 / 계약",
+      "topics": [
+        "구매 / 공급망",
+        "시험 / 신뢰성",
+        "팹 / 유틸리티"
+      ],
+      "tags": [
+        "상생 협약",
+        "R&D 지원",
+        "트리니티 팹",
+        "소부장"
+      ],
+      "summary": "협력사 상생 협약에 따른 개발·시험·양산 지원을 설명한다. 초기 연구비 지원과 실증 인프라 개방으로 공급망 역량을 높인다.",
+      "study": "공부 질문: 신규 소재·장비 협력사의 기술 검증과 구매 승인 단계를 어떻게 연결할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63643",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63337",
+      "title": "[하이피디아] HBM을 완성한 핵심 패키지 기술, 데이터 이동을 위한 초고속 엘리베이터 ‘TSV’",
+      "date": "2026-06-24",
+      "url": "https://news.skhynix.co.kr/ambassador-hypidia-2",
+      "category": "패키징 / TSV·본딩",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "열관리 / 전력효율",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "TSV",
+        "수직 연결",
+        "휨",
+        "적층"
+      ],
+      "summary": "칩 내부 수직 관통 연결인 TSV를 와이어 본딩과 비교하고 HBM의 고속·저전력 연결과 적층 과제를 설명한다.",
+      "study": "공부 질문: TSV 연결 밀도와 적층 높이를 높일 때 휨·발열·검사 문제를 어떻게 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63337",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63353",
+      "title": "[SK하이닉스 JOB리포트] 반도체 기술 한계를 돌파하다, 차세대 AI 메모리의 완성 ‘PKG개발’",
+      "date": "2026-06-23",
+      "url": "https://news.skhynix.co.kr/ambassador-job-report-ep2",
+      "category": "패키징 / TSV·본딩",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "PKG개발",
+        "패키지 설계",
+        "발열",
+        "신뢰성"
+      ],
+      "summary": "새 패키지 구조·공정의 설계와 검증을 맡는 PKG개발 업무를 소개하고 양산기술과의 역할 차이를 설명한다.",
+      "study": "공부 질문: 패키지 개발 시 전기·열·기계 신뢰성 요구를 어떻게 통합할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63353",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-63161",
+      "title": "SK하이닉스, 차세대 AI 메모리 ‘HBM4E’ 12단 샘플 공급",
+      "date": "2026-06-18",
+      "url": "https://news.skhynix.co.kr/12-layer-hbm4e-sample",
+      "category": "공급 / 계약",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "패키징 / TSV·본딩",
+        "열관리 / 전력효율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "HBM4E",
+        "12단 샘플",
+        "MR-MUF",
+        "열저항"
+      ],
+      "summary": "주요 고객사에 HBM4E 12단 샘플을 공급했다. 인터페이스·설계와 MR-MUF 공정을 통해 성능·전력·구조 안정성을 개선한다.",
+      "study": "공부 질문: 샘플 평가에서 고속 신호·발열·적층 신뢰성을 어떤 순서로 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "63161",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-62898",
+      "title": "SK하이닉스, ‘안전보건 상생협력 행사’ 개최… “협력업체의 안전이 곧 SK하이닉스의 안전”",
+      "date": "2026-06-09",
+      "url": "https://news.skhynix.co.kr/safety-and-health-partnership-2026",
+      "category": "설비 / 산업안전",
+      "topics": [
+        "구매 / 공급망",
+        "소프트웨어 / AI"
+      ],
+      "tags": [
+        "협력업체",
+        "위험성 평가",
+        "AI 안전 데이터"
+      ],
+      "summary": "협력업체 안전보건 운영 방안과 AI를 활용한 위험성 평가·안전 데이터 구축 사례를 공유했다.",
+      "study": "공부 질문: 작업별 위험성 평가의 개선 효과를 실제 현장 점검으로 어떻게 확인할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "62898",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-62951",
+      "title": "SK하이닉스, 엔비디아와 AI 팩토리용 메모리 발전을 위한 장기 기술 파트너십 발표",
+      "date": "2026-06-08",
+      "url": "https://news.skhynix.co.kr/multi-year-tech-partnership-with-nvidia",
+      "category": "공급 / 계약",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "시스템 아키텍처 / CXL",
+        "소프트웨어 / AI",
+        "스마트팩토리 / 자동화"
+      ],
+      "tags": [
+        "엔비디아",
+        "장기 기술 파트너십",
+        "디지털 트윈",
+        "제조 시뮬레이션"
+      ],
+      "summary": "엔비디아와 차세대 메모리 공동 개발 및 장기 기술 파트너십을 강화한다. 설계·제조 시뮬레이션과 팹 디지털 트윈 협력도 추진한다.",
+      "study": "공부 질문: 제품 공동 개발과 팹 시뮬레이션에 필요한 데이터·모델 검증 범위는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "62951",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-62356",
+      "title": "SK하이닉스, 발열 잡는 메모리 설루션 ‘iHBM’ 기술 공개… AI 시스템 효율 높인다",
+      "date": "2026-05-26",
+      "url": "https://news.skhynix.co.kr/ihbm-solution",
+      "category": "HBM / 고대역폭 메모리",
+      "topics": [
+        "패키징 / TSV·본딩",
+        "열관리 / 전력효율",
+        "소자 / 신소재"
+      ],
+      "tags": [
+        "iHBM",
+        "ICE",
+        "D2D PHY",
+        "MR-MUF"
+      ],
+      "summary": "HBM 패키지 내부에 냉각 요소를 넣어 발열 집중 구간에 전용 열 경로를 만드는 iHBM 기술을 공개했다.",
+      "study": "공부 질문: 국부 열저항 감소와 패키지 전체 온도 변화를 어떤 조건에서 비교할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "62356",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61977",
+      "title": "[하이피디아] 분석 · 계측 · 검사, 완벽한 반도체를 위한 종합검진 DMI",
+      "date": "2026-05-22",
+      "url": "https://news.skhynix.co.kr/ambassador-hypidia-1",
+      "category": "마스크 / 계측·분석",
+      "topics": [
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "DMI",
+        "불량 분석",
+        "계측",
+        "검사"
+      ],
+      "summary": "공정의 결함 원인 분석·치수 측정·결함 검사를 하나의 데이터 흐름으로 연결하는 DMI 기술을 설명한다.",
+      "study": "공부 질문: 검사 결과와 계측·분석 데이터를 연결해 원인 공정을 어떻게 역추적할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61977",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61973",
+      "title": "[SK하이닉스 JOB리포트] 차세대 반도체 혁신의 기반을 세우다, 기술 경쟁력의 근간 ‘기반기술’",
+      "date": "2026-05-21",
+      "url": "https://news.skhynix.co.kr/ambassador-job-report-ep1",
+      "category": "마스크 / 계측·분석",
+      "topics": [
+        "소자 / 신소재",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "기반기술",
+        "마스크",
+        "소재",
+        "공정 안정성"
+      ],
+      "summary": "계측·장비·소재·마스크 등 기반기술 직무가 개발과 양산 전반의 공정 안정성을 확인하고 개선하는 역할을 설명한다.",
+      "study": "공부 질문: 마스크·소재·장비 변화의 영향을 분리해 수율 저하 원인을 어떻게 찾을까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61973",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61513",
+      "title": "SK하이닉스, 2026년 1분기 경영실적 발표",
+      "date": "2026-04-23",
+      "url": "https://news.skhynix.co.kr/q1-2026-business-results",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "D램 / 저전력·서버 메모리",
+        "낸드 / 3D 적층"
+      ],
+      "tags": [
+        "2026년 1분기",
+        "메모리 수요",
+        "제품 구성"
+      ],
+      "summary": "1분기 실적과 고부가 제품 구성을 공개하고 HBM·D램·낸드의 수요와 공급·투자 대응 방향을 설명한다.",
+      "study": "공부 질문: 제품 구성 변화와 가격·생산량 효과를 재무 성과에서 어떻게 구분할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61513",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61463",
+      "title": "“기술 한계 극복 위해선, 메모리와 로직 통합 필요”… SK하이닉스, TSMC 심포지엄서 비전 제시",
+      "date": "2026-04-23",
+      "url": "https://news.skhynix.co.kr/tsmc-technology-symposium-2026",
+      "category": "시스템 아키텍처 / CXL",
+      "topics": [
+        "패키징 / TSV·본딩",
+        "HBM / 고대역폭 메모리",
+        "소자 / 신소재"
+      ],
+      "tags": [
+        "메모리·로직 통합",
+        "TSMC",
+        "첨단 패키징"
+      ],
+      "summary": "TSMC 심포지엄에서 메모리와 로직의 통합 및 패키징 혁신 방향을 제시하고 AI 시스템 최적화 과제를 설명한다.",
+      "study": "공부 질문: 메모리와 로직 공동 설계의 성능 이득과 공정·패키지 제약은 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61463",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61164",
+      "title": "SK하이닉스, SOCAMM2 192GB 본격 양산 개시, ‘AI 서버 메모리 성능의 새로운 기준 수립’",
+      "date": "2026-04-20",
+      "url": "https://news.skhynix.co.kr/mass-production-socamm2-192gb",
+      "category": "D램 / 저전력·서버 메모리",
+      "topics": [
+        "시스템 아키텍처 / CXL",
+        "열관리 / 전력효율",
+        "패키징 / TSV·본딩"
+      ],
+      "tags": [
+        "SOCAMM2",
+        "1c LPDDR5X",
+        "압착식 커넥터",
+        "서버 모듈"
+      ],
+      "summary": "AI 서버용 SOCAMM2 양산을 발표했다. 저전력 D램과 압착식 모듈 구조를 활용해 서버의 대역폭·전력·교체 편의성을 개선한다.",
+      "study": "공부 질문: 모듈 연결 구조가 신호 무결성·냉각·교체 작업에 미치는 영향을 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61164",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-61034",
+      "title": "SK하이닉스, ‘321단 QLC 낸드’ 기반 cSSD 공급 개시… AI PC 스토리지 리더십 공고히",
+      "date": "2026-04-08",
+      "url": "https://news.skhynix.co.kr/begin-supply-321-layer-qlc-nand-cssd",
+      "category": "공급 / 계약",
+      "topics": [
+        "낸드 / 3D 적층",
+        "SSD / 스토리지",
+        "소프트웨어 / AI"
+      ],
+      "tags": [
+        "321단 QLC",
+        "PQC21",
+        "Dell",
+        "SLC 캐싱"
+      ],
+      "summary": "321단 QLC 낸드 기반 PQC21의 개발 완료와 델 대상 공급을 발표했다. 고용량 낸드와 SLC 캐싱으로 PC 저장 성능을 구현한다.",
+      "study": "공부 질문: QLC 저장 밀도와 쓰기 성능·수명 간 상충관계를 캐싱 정책으로 어떻게 조정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "61034",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-60178",
+      "title": "SK하이닉스, 10나노급 6세대 D램 ‘1c LPDDR6’ 개발",
+      "date": "2026-03-10",
+      "url": "https://news.skhynix.co.kr/1c-lpddr6-development-2026",
+      "category": "D램 / 저전력·서버 메모리",
+      "topics": [
+        "소자 / 신소재",
+        "열관리 / 전력효율",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "1c LPDDR6",
+        "DVFS",
+        "서브채널",
+        "온디바이스 AI"
+      ],
+      "summary": "1c 공정 LPDDR6 개발을 발표하고 대역폭 확장·서브채널·동적 전압 및 주파수 제어로 속도와 전력 특성을 개선한다.",
+      "study": "공부 질문: 워크로드에 따른 전압·주파수 제어가 응답 지연과 소비 전력에 주는 영향은 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "60178",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-59949",
+      "title": "SK하이닉스, ‘대 ∙ 중소기업안전보건 상생협력사업’ 3년 연속 우수기업 선정 쾌거",
+      "date": "2026-02-26",
+      "url": "https://news.skhynix.co.kr/excellent-safety-and-health-enterprise",
+      "category": "설비 / 산업안전",
+      "topics": [
+        "구매 / 공급망",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "협력업체",
+        "안전보건 컨설팅",
+        "위험성 평가"
+      ],
+      "summary": "협력업체 안전관리체계의 평가 결과와 코칭·위험성 평가·현장 개선 중심의 운영 지원을 설명한다.",
+      "study": "공부 질문: 서로 다른 협력업체에 공통 안전 기준을 적용하면서 현장별 위험을 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "59949",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-59943",
+      "title": "SK하이닉스, 샌디스크와 차세대 메모리 ‘HBF’ 글로벌 표준화 본격 시동",
+      "date": "2026-02-26",
+      "url": "https://news.skhynix.co.kr/hbf-standardization-with-sandisk",
+      "category": "공급 / 계약",
+      "topics": [
+        "SSD / 스토리지",
+        "시스템 아키텍처 / CXL",
+        "낸드 / 3D 적층"
+      ],
+      "tags": [
+        "샌디스크",
+        "HBF",
+        "OCP",
+        "표준화 컨소시엄"
+      ],
+      "summary": "샌디스크와 HBF 표준화 컨소시엄을 출범하고 OCP 공동 워크스트림을 구성했다. 추론용 메모리 계층의 용량·전력 요구에 대응한다.",
+      "study": "공부 질문: 개방형 표준에서 인터페이스 호환성과 구현 차별화를 어떻게 함께 확보할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "59943",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-59821",
+      "title": "용인 반도체클러스터 신규시설투자비 관련 설명드립니다",
+      "date": "2026-02-25",
+      "url": "https://news.skhynix.co.kr/fact-04",
+      "category": "팹 / 유틸리티",
+      "topics": [
+        "양산관리 / 생산계획",
+        "재무 / 사업전략"
+      ],
+      "tags": [
+        "용인 1기 팹",
+        "클린룸",
+        "단계별 투자"
+      ],
+      "summary": "용인 1기 팹의 골조·클린룸 구축 투자와 가동 일정 조정을 설명하고 생산 기반의 단계별 확충 계획을 공개했다.",
+      "study": "공부 질문: 건물·클린룸·장비 투자 범위를 구분해 생산능력 확보 일정을 어떻게 관리할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "59821",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-59379",
+      "title": "SK하이닉스, 가우스랩스와 ‘SPIE AL 2026’ 참가… AI 기반 반도체 가상계측 관련 기술 논문 발표",
+      "date": "2026-02-19",
+      "url": "https://news.skhynix.co.kr/spie-al-2026-with-gauss-labs",
+      "category": "마스크 / 계측·분석",
+      "topics": [
+        "소프트웨어 / AI",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "가우스랩스",
+        "가상계측",
+        "Panoptes VM",
+        "공정 데이터"
+      ],
+      "summary": "가우스랩스와 실제 생산 데이터를 활용한 AI 가상계측 연구를 발표한다. 직접 측정을 보완하는 예측·계측 효율 개선을 다룬다.",
+      "study": "공부 질문: 가상계측 모델의 예측 오차와 공정 변화에 따른 성능 저하를 어떻게 감시할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "59379",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-58369",
+      "title": "SK하이닉스, ‘세미콘 코리아 2026’서 AI 기반 R&D 혁신 방향성 공유… ”글로벌 기술 리더십 재확인”",
+      "date": "2026-02-12",
+      "url": "https://news.skhynix.co.kr/semicon-korea-2026",
+      "category": "공정 / 수율",
+      "topics": [
+        "소프트웨어 / AI",
+        "마스크 / 계측·분석",
+        "스마트팩토리 / 자동화"
+      ],
+      "tags": [
+        "SEMICON",
+        "AI R&D",
+        "공정 최적화"
+      ],
+      "summary": "세미콘 코리아에서 AI 기반 연구개발 혁신과 공정 최적화 방향을 공유하고 분야별 연구·기술 과제를 소개했다.",
+      "study": "공부 질문: 공정 연구에 AI를 적용할 때 실험 데이터와 모델 예측의 검증 절차는 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "58369",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-58349",
+      "title": "SK하이닉스, AI 산업 중심지 미국에 AI 설루션 회사 설립 추진",
+      "date": "2026-01-28",
+      "url": "https://news.skhynix.co.kr/launch-of-ai-company",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "시스템 아키텍처 / CXL",
+        "SSD / 스토리지"
+      ],
+      "tags": [
+        "AI Company",
+        "솔리다임",
+        "전략적 투자"
+      ],
+      "summary": "미국 AI 설루션 회사 설립 추진과 솔리다임 개편 구상을 공개하며 메모리와 데이터센터 생태계 투자 방향을 설명한다.",
+      "study": "공부 질문: 기존 스토리지 사업과 신규 AI 투자의 역할·성과 지표를 어떻게 구분할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "58349",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-58337",
+      "title": "SK하이닉스, 2025년 경영실적 발표… ”역대 최대 실적 달성∙최대 주주환원 단행”",
+      "date": "2026-01-28",
+      "url": "https://news.skhynix.co.kr/2025-business-results",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "D램 / 저전력·서버 메모리",
+        "SSD / 스토리지"
+      ],
+      "tags": [
+        "2025년 실적",
+        "고부가 제품",
+        "현금흐름"
+      ],
+      "summary": "2025년 연간·4분기 실적과 제품 구성·수요 대응·주주환원 정책을 설명한다.",
+      "study": "공부 질문: 설비 전환과 제품 구성 변화의 이익 기여를 어떻게 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "58337",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57884",
+      "title": "SK하이닉스 LPDDR5X, 차량용 메모리 기능 안전 최고 등급 ASIL-D 인증 획득",
+      "date": "2026-01-19",
+      "url": "https://news.skhynix.co.kr/asil-d-lpddr5x",
+      "category": "D램 / 저전력·서버 메모리",
+      "topics": [
+        "시험 / 신뢰성",
+        "소자 / 신소재"
+      ],
+      "tags": [
+        "LPDDR5X",
+        "ASIL-D",
+        "ISO 26262",
+        "기능 안전"
+      ],
+      "summary": "차량용 LPDDR5X의 기능 안전 인증을 발표했다. 개발·설계·검증·품질 관리 전반의 안전 체계 평가를 설명한다.",
+      "study": "공부 질문: 고장 검출·제어 메커니즘과 일반 신뢰성 시험은 어떤 점이 다를까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57884",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57925",
+      "title": "첨단 패키징 P&T 신규 투자 관련 설명드립니다",
+      "date": "2026-01-13",
+      "url": "https://news.skhynix.co.kr/fact-02",
+      "category": "팹 / 유틸리티",
+      "topics": [
+        "패키징 / TSV·본딩",
+        "양산관리 / 생산계획",
+        "물류 / 통관",
+        "재무 / 사업전략"
+      ],
+      "tags": [
+        "P&T7",
+        "청주",
+        "첨단 패키징",
+        "전후공정 연계"
+      ],
+      "summary": "청주 P&T7 투자 계획을 공개하고 전공정과 패키징·시험 시설의 근접성이 물류·운영 안정성에 주는 의미를 설명한다.",
+      "study": "공부 질문: 전후공정 거점의 거리와 재공품 이동이 생산 일정·품질에 주는 영향을 어떻게 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57925",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57769",
+      "title": "SK하이닉스, CES 2026에서 차세대 AI 메모리 혁신 선보인다",
+      "date": "2026-01-06",
+      "url": "https://news.skhynix.co.kr/ces2026",
+      "category": "HBM / 고대역폭 메모리",
+      "topics": [
+        "패키징 / TSV·본딩",
+        "D램 / 저전력·서버 메모리",
+        "시스템 아키텍처 / CXL"
+      ],
+      "tags": [
+        "HBM4 16단",
+        "Custom HBM",
+        "SOCAMM2",
+        "LPDDR6"
+      ],
+      "summary": "CES에서 HBM4 고단 적층과 서버·모바일 메모리 제품, 커스텀 HBM 구조 데모를 공개할 계획을 설명한다.",
+      "study": "공부 질문: 고단 적층과 고객 맞춤 구조에서 공용화·검증 범위를 어떻게 정할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57769",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57130",
+      "title": "SK하이닉스, ‘2025 AEO 활용성과 우수사례 시상식’ 대상 수상… AEO 제도를 활용한 AI 메모리 HBM 공급망 안정화",
+      "date": "2025-12-23",
+      "url": "https://news.skhynix.co.kr/2025-aeo-day-award",
+      "category": "물류 / 통관",
+      "topics": [
+        "구매 / 공급망",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "AEO",
+        "통관",
+        "내부통제",
+        "공급망 안정화"
+      ],
+      "summary": "AEO 제도를 활용한 수출입 내부통제와 신속 통관 운영을 소개하고 AI 메모리 공급망 안정화와 연결한다.",
+      "study": "공부 질문: 출하 승인·통관·운송 이력을 어떤 데이터로 연결해야 공급 지연 원인을 추적할 수 있을까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57130",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-57087",
+      "title": "SK하이닉스 32Gb 256GB DDR5 서버용 D램, 업계 최초 인텔 최신 서버 플랫폼 호환성 인증 획득",
+      "date": "2025-12-18",
+      "url": "https://news.skhynix.co.kr/32gb-256gb-ddr5-intel",
+      "category": "D램 / 저전력·서버 메모리",
+      "topics": [
+        "시험 / 신뢰성",
+        "시스템 아키텍처 / CXL"
+      ],
+      "tags": [
+        "DDR5 RDIMM",
+        "인텔 제온 6",
+        "호환성"
+      ],
+      "summary": "고용량 DDR5 모듈의 인텔 서버 플랫폼 인증을 발표했다. 다면 평가를 통해 성능·호환성·품질을 검증한 사례다.",
+      "study": "공부 질문: 메모리 단품 검증과 서버 플랫폼 호환성 시험의 범위는 어떻게 다를까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "57087",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55899",
+      "title": "[패키징X파일 2편] 반도체 기술의 대항해시대, 웨이퍼라는 대륙의 공간적 제약을 뛰어넘는 ‘3D 이종집적기술’",
+      "date": "2025-11-19",
+      "url": "https://news.skhynix.co.kr/packaging-x-files-ep2",
+      "category": "패키징 / TSV·본딩",
+      "topics": [
+        "소자 / 신소재",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "3D 이종집적",
+        "모놀리식",
+        "층간 연결"
+      ],
+      "summary": "3D 이종집적의 발전 과정과 소자층 형성·접합 기술을 설명하며 평면 미세화 이후의 구조 혁신을 살펴본다.",
+      "study": "공부 질문: 3D 집적 방식별 공정 온도·결함·연결 밀도의 제약은 무엇일까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55899",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55748",
+      "title": "[DECODE AI] 황철성 교수가 알려주는 AI를 혁신할 ‘뉴로모픽 반도체’",
+      "date": "2025-11-18",
+      "url": "https://news.skhynix.co.kr/decode-ai-6",
+      "category": "PIM / 차세대 컴퓨팅",
+      "topics": [
+        "소자 / 신소재",
+        "시스템 아키텍처 / CXL",
+        "열관리 / 전력효율"
+      ],
+      "tags": [
+        "뉴로모픽",
+        "신경망",
+        "메모리 연산"
+      ],
+      "summary": "뉴로모픽 반도체의 배경과 AI 연산 구조를 설명하고 메모리·연산 통합을 통한 효율 개선 방향을 살핀다.",
+      "study": "공부 질문: 신경망 연산을 소자 특성으로 구현할 때 정확도·변동성·전력은 어떻게 평가할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55748",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55655",
+      "title": "[SK하이닉스 앰버서더 JOB로그 7편] 고객의 무대에서 완벽을 증명하다, 최적의 성능을 책임지는 ‘AE’",
+      "date": "2025-11-18",
+      "url": "https://news.skhynix.co.kr/ambassador-job-log-ep7",
+      "category": "시험 / 신뢰성",
+      "topics": [
+        "시스템 아키텍처 / CXL",
+        "D램 / 저전력·서버 메모리"
+      ],
+      "tags": [
+        "AE",
+        "실장평가",
+        "고객 시스템",
+        "불량 분석"
+      ],
+      "summary": "메모리를 고객 환경과 유사한 시스템에 장착해 성능·동작을 확인하는 AE 업무와 불량 분석 과정을 설명한다.",
+      "study": "공부 질문: 고객 환경에서만 나타나는 불량의 재현 조건을 어떻게 좁힐까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55655",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55630",
+      "title": "[히든닉스 5편] 제조 흐름을 개선해 생산성을 극대화하는 자동화의 마법사 ‘FAB제조자동화 팀’",
+      "date": "2025-11-12",
+      "url": "https://news.skhynix.co.kr/hidden_nix_ep5",
+      "category": "스마트팩토리 / 자동화",
+      "topics": [
+        "양산관리 / 생산계획",
+        "HBM / 고대역폭 메모리",
+        "소프트웨어 / AI"
+      ],
+      "tags": [
+        "FAB제조자동화",
+        "LOT 분기",
+        "HBM 운영"
+      ],
+      "summary": "HBM의 복잡한 제조 흐름과 고객별 LOT 분기를 자동화하는 과정 및 조직 간 운영 규칙 조율 사례를 소개한다.",
+      "study": "공부 질문: 재작업·분기·예외 흐름까지 포함한 자동화의 정합성을 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55630",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55492",
+      "title": "SK하이닉스, HBM 등 제품 15종에 글로벌 친환경 인증 획득",
+      "date": "2025-11-05",
+      "url": "https://news.skhynix.co.kr/carbon-footprint-certification-2025",
+      "category": "환경 / 자원순환",
+      "topics": [
+        "시험 / 신뢰성",
+        "공정 / 수율"
+      ],
+      "tags": [
+        "탄소발자국",
+        "카본트러스트",
+        "탄소 저감"
+      ],
+      "summary": "HBM·D램·낸드·스토리지의 탄소발자국 및 탄소 저감 인증과 제품 생애주기 배출 관리 기준을 설명한다.",
+      "study": "공부 질문: 제품 간 탄소 배출을 비교할 때 공정·전력·기능 단위를 어떻게 맞출까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55492",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55435",
+      "title": "[히든닉스 4편] 전 세계와 반도체를 잇는 허브(Hub) ‘물류 팀’",
+      "date": "2025-11-04",
+      "url": "https://news.skhynix.co.kr/hidden_nix_ep4",
+      "category": "물류 / 통관",
+      "topics": [
+        "구매 / 공급망",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "물류",
+        "원자재·장비",
+        "출하 승인",
+        "운송"
+      ],
+      "summary": "원자재·장비 반입부터 샘플·제품 출하까지 물류 업무를 소개한다. 품질 승인과 운송 일정·협력사 관리가 연결되는 과정을 다룬다.",
+      "study": "공부 질문: 출하 품질 승인과 운송 마감을 연결할 때 예외 상황을 어떻게 통제할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55435",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55225",
+      "title": "[Introduce: GaiA 1편] AI로 일하는 시대, SK하이닉스 ‘Biz 특화 AI Agent’가 만든 변화",
+      "date": "2025-10-31",
+      "url": "https://news.skhynix.co.kr/gaia_ep1_biz_ai_agent",
+      "category": "소프트웨어 / AI",
+      "topics": [
+        "스마트팩토리 / 자동화",
+        "공정 / 수율",
+        "시험 / 신뢰성"
+      ],
+      "tags": [
+        "GaiA",
+        "장비 보전",
+        "EDA 스크립트",
+        "로그 분석"
+      ],
+      "summary": "반도체 업무용 AI 에이전트를 소개한다. 장비 보전 안내·설계 스크립트·테스트 로그 분석 등에 현장 데이터를 활용한다.",
+      "study": "공부 질문: AI가 제안한 정비·코드·분석 결과를 현업에서 어떻게 확인하고 추적할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55225",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-55088",
+      "title": "SK하이닉스, 2025년 3분기 경영실적 발표",
+      "date": "2025-10-29",
+      "url": "https://news.skhynix.co.kr/3q-2025-business-results",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "HBM / 고대역폭 메모리",
+        "D램 / 저전력·서버 메모리",
+        "SSD / 스토리지"
+      ],
+      "tags": [
+        "2025년 3분기",
+        "고부가 메모리",
+        "공급 협의"
+      ],
+      "summary": "3분기 실적과 고부가 메모리 수요·생산 전환을 설명하고 다음 해 공급 협의 및 제품 출하 계획을 공개했다.",
+      "study": "공부 질문: 공급 계획과 실제 출하·매출 인식의 차이를 어떻게 추적할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "55088",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-54934",
+      "title": "SK하이닉스, 美 OCP서 차세대 낸드 스토리지 제품 전략 공개",
+      "date": "2025-10-27",
+      "url": "https://news.skhynix.co.kr/next-generation-nand-strategy-2025",
+      "category": "SSD / 스토리지",
+      "topics": [
+        "낸드 / 3D 적층",
+        "시스템 아키텍처 / CXL",
+        "소프트웨어 / AI"
+      ],
+      "tags": [
+        "AIN Family",
+        "HBF",
+        "성능·대역폭·용량"
+      ],
+      "summary": "차세대 낸드 스토리지를 성능·대역폭·용량별로 구분한 제품 전략과 AI 추론 데이터 처리 역할을 설명한다.",
+      "study": "공부 질문: 워크로드별 입출력 특성을 스토리지 계층 선택에 어떻게 반영할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "54934",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-54586",
+      "title": "반도체가 받는 건강검진 ‘PE’, 하닉어사전만 있으면 이해가 쏙쏙!",
+      "date": "2025-10-27",
+      "url": "https://news.skhynix.co.kr/skhynix-ambassador-hy-dictionary-ep5",
+      "category": "시험 / 신뢰성",
+      "topics": [
+        "공정 / 수율",
+        "소자 / 신소재"
+      ],
+      "tags": [
+        "PE",
+        "Shmoo Plot",
+        "전압·주파수",
+        "수율"
+      ],
+      "summary": "PE의 테스트 설계·불량 기준·데이터 분석 역할을 설명하고 전압·주파수 조건별 동작 영역을 확인하는 방법을 소개한다.",
+      "study": "공부 질문: 동작 영역 측정에서 설계 한계와 공정 편차를 어떻게 구분할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "54586",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    },
+    {
+      "id": "sk-hynix-54721",
+      "title": "SK하이닉스, 자사 반도체 전 제품 탄소배출량 산정 가능한 ‘HyLCA 시스템’ 글로벌 검증 완료",
+      "date": "2025-10-24",
+      "url": "https://news.skhynix.co.kr/2025-hylca-certification-ceremony",
+      "category": "환경 / 자원순환",
+      "topics": [
+        "소프트웨어 / AI",
+        "공정 / 수율",
+        "물류 / 통관"
+      ],
+      "tags": [
+        "HyLCA",
+        "전 과정 평가",
+        "유틸리티",
+        "배출 데이터"
+      ],
+      "summary": "제품·전후공정·유틸리티·포장·물류의 탄소 데이터를 통합하는 HyLCA 시스템의 산정 로직과 정합성 검증을 설명한다.",
+      "study": "공부 질문: 공정 변경과 데이터 누락이 제품 탄소 산정에 미치는 영향을 어떻게 검증할까?",
+      "is_official": true,
+      "verified": true,
+      "source_post_id": "54721",
+      "source": "2026-10-22 SK하이닉스 공식 원문·정식 URL·게시일·전체 본문 대조"
+    }
+  ]
+}

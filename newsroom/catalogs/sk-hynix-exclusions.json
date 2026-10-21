@@ -1,0 +1,834 @@
+{
+  "since": "2025-10-22",
+  "until": "2026-10-22",
+  "excluded": [
+    {
+      "title": "SK하이닉스, ‘ThanksFULL Day’ 개최… 협력사 구성원과 가족에게 감사의 마음을 전하다",
+      "date": "2026-10-16",
+      "url": "https://news.skhynix.co.kr/2026-thanksfull-day-story",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "“AI가 있는 모든 곳에 SK하이닉스가 있다”… ‘SEDEX 2026’서 빛난 AI 메모리 기술 리더십",
+      "date": "2026-10-15",
+      "url": "https://news.skhynix.co.kr/skhynix-sedex-2026",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스가 43년의 기록으로 ‘초심’을 만든 이유",
+      "date": "2026-10-15",
+      "url": "https://news.skhynix.co.kr/initial-aspiration-crafted-2026",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "광주 부지 찾은 SK그룹 최태원 회장, “호남권 반도체 클러스터 속도감 있게 추진할 것”",
+      "date": "2026-10-09",
+      "url": "https://news.skhynix.co.kr/southwestern-region-investment",
+      "reason": "부지 방문·추진 의지 소개. 팹·클린룸 규모와 투자 범위가 구체적인 공식 자료 우선 수집"
+    },
+    {
+      "title": "[상생 IN사이드] ‘지역의 이주민이 AI 산업 인재로’… SK하이닉스 ‘AI 어노테이터 양성 사업’이 지역에 만든 새로운 일자리",
+      "date": "2026-10-08",
+      "url": "https://news.skhynix.co.kr/shared-growth-inside-ep3",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "솔리다임 관련 최근 보도에 대해 설명드립니다",
+      "date": "2026-10-01",
+      "url": "https://news.skhynix.co.kr/fact-11",
+      "reason": "최근 보도 관련 사실관계 공지. 직무 기술·운영 정보 범위 밖"
+    },
+    {
+      "title": "“신뢰로 함께 걸어온 25년, 다음 25년의 가능성을 열다”… SK하이닉스, ‘2026 파트너스데이’서 협력사와 ‘원팀(One-Team)’ 결속력 재확인",
+      "date": "2026-09-29",
+      "url": "https://news.skhynix.co.kr/2026-partners-day",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "[상생 IN사이드] “배우던 어르신, 이제는 가르치는 선생님…” SK하이닉스 ‘ICT해피에이징’이 만든 배움의 선순환",
+      "date": "2026-09-29",
+      "url": "https://news.skhynix.co.kr/shared-growth-inside-ep2",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "“AI의 급격한 성장 뒤에는 메모리가 있다”… SK하이닉스, ‘TSMC OIP Conference’서 차세대 메모리 포트폴리오 공유",
+      "date": "2026-09-28",
+      "url": "https://news.skhynix.co.kr/tsmc-oip-conference-2026",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "[상생 IN사이드] “첫 본사가 생기고 제품이 나왔습니다”… SK하이닉스 ‘하이로컬이천’에서 성장한 두 창업가",
+      "date": "2026-09-28",
+      "url": "https://news.skhynix.co.kr/shared-growth-inside-ep1",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘제3회 대한민국 사회적가치 페스타’ 참가… 협력기업과 함께 사회문제 해결 성과 공유",
+      "date": "2026-09-23",
+      "url": "https://news.skhynix.co.kr/korea-social-value-festa-2026",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스, AI 실전 역량 겨루는 해커톤 개최",
+      "date": "2026-09-21",
+      "url": "https://news.skhynix.co.kr/ai-hackathon-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 글로벌 포럼’ 개최… AI 시대 기술 비전과 미래 전략 공유",
+      "date": "2026-09-21",
+      "url": "https://news.skhynix.co.kr/2026-global-forum",
+      "reason": "글로벌 인재 교류·기술 비전 행사 중심. 구체적인 연구·공정·제품 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘AI Infra Summit 2026’ 참가… AI 인프라의 ‘New Spectrum’ 제시",
+      "date": "2026-09-17",
+      "url": "https://news.skhynix.co.kr/ai-infra-summit-2026",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스, 협력사 구성원 · 가족 3만 명 초청 ‘ThanksFULL Day’ 연다",
+      "date": "2026-09-17",
+      "url": "https://news.skhynix.co.kr/2026-thanksfull-day",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "’SK하이닉스, 사상 첫 미국 내 메모리칩 생산 위해 인텔과 협상 중‘이라는 보도는 확정된 사실이 아닙니다",
+      "date": "2026-09-16",
+      "url": "https://news.skhynix.co.kr/fact-10",
+      "reason": "미확정 보도에 대한 부인. 공급·투자 확정 사실로 취급하지 않음"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 산학연구과제 우수발명 시상식’ 개최… 기술 혁신 이끈 연구 성과 격려",
+      "date": "2026-09-16",
+      "url": "https://news.skhynix.co.kr/excellent-industry-academic-research-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 미래포럼’에서 사업 · 기술 방향성 모색 “지금이 도약의 골든 타임”",
+      "date": "2026-09-09",
+      "url": "https://news.skhynix.co.kr/future-forum-2026",
+      "reason": "내부 미래포럼·비전 논의 중심. 구체적인 연구·설비·시스템 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 기업열전展’ 개최… 문화와 기술로 이천 시민과 만나다",
+      "date": "2026-09-07",
+      "url": "https://news.skhynix.co.kr/skhynix-chronicles-2026",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "[AI Infrastructure Insight] 왜 더 빠른 GPU만으로는 AI 성능이 완성되지 않는가?",
+      "date": "2026-08-31",
+      "url": "https://news.skhynix.co.kr/ai-infrastructure-insight-ep2",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "미국 AI 혁신의 새 거점, SK하이닉스 인디애나 팹 첫 삽 뜨다",
+      "date": "2026-08-28",
+      "url": "https://news.skhynix.co.kr/indiana-groundbreaking-ceremony-sketch",
+      "reason": "인디애나 기공식 현장 스케치 중복. 투자와 R&D MOU를 명시한 65824 수집"
+    },
+    {
+      "title": "[VOD] SK하이닉스 미국 인디애나 팹(Indiana Fab) 기공식",
+      "date": "2026-08-27",
+      "url": "https://news.skhynix.co.kr/indiana-fab-groundbreaking",
+      "reason": "본문이 없는 기공식 영상. 정식 기공 보도자료 65824 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘DTF 2026’서 AI 인프라에 최적화된 메모리 설루션 총망라",
+      "date": "2026-08-26",
+      "url": "https://news.skhynix.co.kr/dtf-2026",
+      "reason": "전시 포트폴리오 반복 소개. 개별 제품·규격·시스템 데모 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 Tech Day’서 기술 리더십 각인…“AI Memory의 중심은 SK하이닉스”",
+      "date": "2026-08-24",
+      "url": "https://news.skhynix.co.kr/2026-tech-day",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "“AGI 시대, ‘생각하는 힘’이 반도체 영토 넓힌다“ 전국 4,000여 구직자 몰린 SK하이닉스 ‘Talent hy-way’ 현장 스케치",
+      "date": "2026-08-20",
+      "url": "https://news.skhynix.co.kr/talent-hy-way-recruiting-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[AI Infrastructure Insight] AI 데이터센터 안에서는 무엇이 달라지고 있는가?",
+      "date": "2026-08-10",
+      "url": "https://news.skhynix.co.kr/ai-infrastructure-insigh-ep1",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "AI 시대, 차세대 메모리 아키텍처는?… SK하이닉스, ‘FMS 2026’서 방향성 제시",
+      "date": "2026-08-07",
+      "url": "https://news.skhynix.co.kr/fms-2026",
+      "reason": "FMS 현장 후속 소개. HBF 규격·차세대 낸드 발표 원문 64588 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 하인슈타인 올림피아드-AI챌린지&플레이’ 개최… AI와 함께 도전하고 즐기다",
+      "date": "2026-08-03",
+      "url": "https://news.skhynix.co.kr/2026-heinstein-olympiad",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "“스펙 보다 ‘생각 근육’ 본다”… AI 시대 맞춤형 인재 선발 SK하이닉스, ‘반나절 심층면접’ 도입",
+      "date": "2026-07-30",
+      "url": "https://news.skhynix.co.kr/ai-talent-recruit-2026-02",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK, 美 실리콘밸리서 글로벌 빅테크와 AI 인프라 협력 확대",
+      "date": "2026-07-25",
+      "url": "https://news.skhynix.co.kr/k-ai-summit-2026",
+      "reason": "그룹 경영진의 빅테크 회동·협력 논의 중심. 구체적인 체결·공동 개발 원문 우선 수집"
+    },
+    {
+      "title": "[미래인재 CLASS] 뇌를 닮은 메모리가 있다? 연산하는 메모리 ‘PIM’의 현재와 미래",
+      "date": "2026-07-15",
+      "url": "https://news.skhynix.co.kr/future-talents-class-ep2",
+      "reason": "PIM 강의·개념 반복. 구조 설명 64436과 소자·연구·시스템 직무 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스 대학생 앰버서더, 이천캠퍼스 투어 진행… 반도체 현장과 기업 경영 철학을 배우다",
+      "date": "2026-07-14",
+      "url": "https://news.skhynix.co.kr/ambassador-icheon-tour",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, 뉴욕 한복판에 새긴 브랜드 철학… “기술로 지켜낼 아름다운 기억”",
+      "date": "2026-07-10",
+      "url": "https://news.skhynix.co.kr/celebrating-adr-trading",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스 곽노정 대표이사 사장, 美 나스닥 오프닝 벨(Opening Bell) 타종식 기념사",
+      "date": "2026-07-10",
+      "url": "https://news.skhynix.co.kr/fact-09",
+      "reason": "나스닥 타종 기념사 중복. ADR 거래 개시 공식 보도자료 63836 수집"
+    },
+    {
+      "title": "“AI, 어르신들의 일상을 바꾸다”… SK하이닉스, 충북 SR 포럼서 고령화 시대 AI 활용 방안 논의",
+      "date": "2026-07-09",
+      "url": "https://news.skhynix.co.kr/2026-chungbuk-sr-forum",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "HBM에서 eSSD까지, SK하이닉스가 그리는 풀 스택 AI 메모리",
+      "date": "2026-07-08",
+      "url": "https://news.skhynix.co.kr/hbm-to-essd",
+      "reason": "풀 스택 메모리 종합 소개. 계층 구조 및 개별 제품 기술 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 충청권 투자 계획 발표",
+      "date": "2026-07-02",
+      "url": "https://news.skhynix.co.kr/fact-07",
+      "reason": "지역 투자 계획 설명. 실제 팹 투자·클린룸·패키징 계획 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 서남권 투자 계획 발표",
+      "date": "2026-06-30",
+      "url": "https://news.skhynix.co.kr/fact-06",
+      "reason": "지역 투자 계획 설명. 실제 팹 투자·클린룸·패키징 계획 원문 우선 수집"
+    },
+    {
+      "title": "SK, 전국 AI 인프라 구축 본격화… “AI 소비국서 수출국으로”",
+      "date": "2026-06-29",
+      "url": "https://news.skhynix.co.kr/sk-ai-infra-build",
+      "reason": "그룹 AI 인프라 종합 발표. SK하이닉스 직접 생산·연구·공동 개발 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스 중장기 투자 전략에 대해 설명드립니다",
+      "date": "2026-06-29",
+      "url": "https://news.skhynix.co.kr/fact-05",
+      "reason": "중장기 투자 방향 설명. 팹별 투자 범위·일정이 구체적인 후속 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스와 AI 메모리의 미래: 꼭 알아야 할 5가지",
+      "date": "2026-06-23",
+      "url": "https://news.skhynix.co.kr/5-things-about-skhynix",
+      "reason": "입문용 종합 요약. 개별 메모리 제품·직무·기술 구조 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, HPED 2026서 AI 시대 이끌 ‘풀 스택 AI 메모리 크리에이터’로서 기술 역량 입증… HPE와 공고한 파트너십도 재확인",
+      "date": "2026-06-19",
+      "url": "https://news.skhynix.co.kr/hpe-discover-2026",
+      "reason": "HPE 행사·기존 파트너십 재확인. 구체적인 신규 공급·체결 자료가 아니며 제품 기술은 별도 수집"
+    },
+    {
+      "title": "“AI 시대에 걸맞는 실력 중심 채용 혁신” SK하이닉스, 채용서 ‘학력 제한’ 전면 철폐",
+      "date": "2026-06-17",
+      "url": "https://news.skhynix.co.kr/ai-talent-recruit-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[SOD’s Review] COMPUTEX 2026: AI 팩토리 시대, AI 인프라 기업으로 확장하는 SK하이닉스",
+      "date": "2026-06-11",
+      "url": "https://news.skhynix.co.kr/computex-2026-review",
+      "reason": "COMPUTEX 관람·해설 중복. iHBM·HBM4E 등 개별 기술 원문 우선 수집"
+    },
+    {
+      "title": "메~에에~모리! AI 시대를 움직이는 양떼들의 비밀, 신규 광고 ‘메몰이소녀’ 제작기",
+      "date": "2026-06-10",
+      "url": "https://news.skhynix.co.kr/brand-film-memory-girl",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "[미래인재 CLASS] “HBM의 진화는 계속된다” TSV · MR-MUF 그다음 경쟁력은?",
+      "date": "2026-06-08",
+      "url": "https://news.skhynix.co.kr/future-talents-class-ep1",
+      "reason": "HBM·패키징 강의 반복. TSV·MR-MUF·하이브리드 본딩 전용 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 기후에너지환경부와 함께 ‘AI for Green Impact’ 개최… 미래 AI 환경 과학자와 함께 지구의 미래 고민",
+      "date": "2026-06-05",
+      "url": "https://news.skhynix.co.kr/ai-for-green-impact-2026",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "‘반도체에서 시스템 전반으로’… 최 회장, 폭스콘과 파트너십 강화 행보",
+      "date": "2026-06-04",
+      "url": "https://news.skhynix.co.kr/ai-partnership-foxconn-2026",
+      "reason": "폭스콘 경영진 회동·협력 논의. 확정 공급 계약으로 취급하지 않음"
+    },
+    {
+      "title": "최태원 SK회장, TSMC 수장과 대만서 회동… ‘글로벌 AI 반도체 동맹’ 굳힌다",
+      "date": "2026-06-03",
+      "url": "https://news.skhynix.co.kr/ai-partnership-tsmc-2026",
+      "reason": "TSMC 경영진 회동·협력 논의. 실제 기술 구조를 다룬 심포지엄 원문 별도 수집"
+    },
+    {
+      "title": "COMPUTEX 2026서 다시 만난 최태원 회장과 젠슨 황 CEO",
+      "date": "2026-06-02",
+      "url": "https://news.skhynix.co.kr/computex-2026-booth-tour",
+      "reason": "경영진 COMPUTEX 회동 스케치. 정식 장기 기술 파트너십 62951 수집"
+    },
+    {
+      "title": "AI 웨이브 한 가운데 우뚝 선 메모리 설루션, COMPUTEX 2026서 존재감 각인한 SK하이닉스",
+      "date": "2026-06-02",
+      "url": "https://news.skhynix.co.kr/computex-2026",
+      "reason": "COMPUTEX 전시 종합 소개. 신제품·패키징 기술 원문 우선 수집"
+    },
+    {
+      "title": "최태원 SK회장, GTC Taipei 2026 키노트 참석… ‘차세대 AI 아키텍처를 함께 완성할 혁신 파트너로’",
+      "date": "2026-06-01",
+      "url": "https://news.skhynix.co.kr/gtc-taipei-2026-keynote",
+      "reason": "키노트 참석·전략 비전 소개. 구체적인 기술·체결 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 The 캠퍼스 비긴어게인’ 개최… 구성원에게 선물한 봄날의 ‘쉼표’",
+      "date": "2026-05-29",
+      "url": "https://news.skhynix.co.kr/2026-spring-the-campus-begin-again",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "라스베이거스에서 델과 SK하이닉스가 만난 사연은?… HBM부터 cSSD까지 “AI 메모리가 가진 무한한 확장성’ 재확인",
+      "date": "2026-05-20",
+      "url": "https://news.skhynix.co.kr/dtw-2026",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘제61회 발명의 날’ 기념식서 금탑산업훈장∙대통령표창 수훈… AI 메모리 기술력 입증",
+      "date": "2026-05-20",
+      "url": "https://news.skhynix.co.kr/invention-day-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[Tech Note 1편] 기억하고 성장하는 AI 시대, 메모리 반도체의 다음 과제",
+      "date": "2026-05-13",
+      "url": "https://news.skhynix.co.kr/tech-note-series-ep1",
+      "reason": "차세대 메모리 입문·전망. 시스템 계층·메모리 연산의 상세 원문 우선 수집"
+    },
+    {
+      "title": "내일의 지구를 위해 황금빛 씨앗을 심다… ‘2026 청주가 그린 Green 페스티벌’ 현장을 가다",
+      "date": "2026-05-11",
+      "url": "https://news.skhynix.co.kr/cheongju-green-festival-2026",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "‘연어의 강’ 남대천 살린다 SK하이닉스, 워터 포지티브 사업 민·관 협력 나선다",
+      "date": "2026-05-08",
+      "url": "https://news.skhynix.co.kr/water-positive-2026",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "[시선:時 6편] 소버린 AI와 용인 반도체 클러스터가 가르는 대한민국의 미래",
+      "date": "2026-04-28",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep6",
+      "reason": "지역 클러스터·국가 산업 전망 칼럼. 실제 팹·유틸리티 투자 원문 우선 수집"
+    },
+    {
+      "title": "한계 로컬과 기업 주도의 부활 경제학",
+      "date": "2026-04-27",
+      "url": "https://news.skhynix.co.kr/opinion-local-economy-pt7",
+      "reason": "지역 경제·부활 전략 칼럼. 이번 직무 기술·운영 자료 선별 범위 밖"
+    },
+    {
+      "title": "SK하이닉스, 2026 IEEE 기업 혁신상 수상 쾌거… “HBM 혁신으로 AI 컴퓨팅 확산”",
+      "date": "2026-04-26",
+      "url": "https://news.skhynix.co.kr/2026-ieee-awards-recipient",
+      "reason": "기업 혁신상 수상 홍보. 구체적인 HBM 구조·공정·검증 원문 별도 수집"
+    },
+    {
+      "title": "제56회 「지구의 날」, 자원 순환으로 그리는 SK하이닉스의 지구의 날",
+      "date": "2026-04-22",
+      "url": "https://news.skhynix.co.kr/2026-56th-earthday",
+      "reason": "지구의 날 종합 캠페인. 용수 재이용·HyLCA·제품 탄소 검증 원문 우선 수집"
+    },
+    {
+      "title": "청주에 P&T7이 들어서면?… AI 메모리 생산 거점 세우고, 지역 경제 깨우고",
+      "date": "2026-04-22",
+      "url": "https://news.skhynix.co.kr/skhynix-chungju-pt7",
+      "reason": "P&T7 지역 경제 효과 소개. 시설·전후공정 연계 설명 57925 수집"
+    },
+    {
+      "title": "SK하이닉스 정우표 부사장, ‘과학 · 정보 통신의 날 기념식’서 과학기술훈장 도약장 수훈… 반도체 기술 초격차 견인한 공로 인정받아",
+      "date": "2026-04-21",
+      "url": "https://news.skhynix.co.kr/award-on-science-and-ict-day-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[시선:時 5편] 용인 반도체 클러스터, 한국판 실리콘밸리로 떠오르다",
+      "date": "2026-04-21",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep5",
+      "reason": "지역 클러스터 전망 칼럼. 구체적인 투자·클린룸 계획 원문 우선 수집"
+    },
+    {
+      "title": "“AI 시대 함께 열어가자”… SK하이닉스, 협력사와 동반성장 전략 제시",
+      "date": "2026-04-20",
+      "url": "https://news.skhynix.co.kr/win-win-partnership-committee-2026",
+      "reason": "동반성장협의회 행사·운영 방향 논의. 실제 상생 협약·금융 지원 63643·67797 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2026 행복나눔기금 전달식’ 개최… 함께 뛰며 되새긴 나눔의 가치",
+      "date": "2026-04-16",
+      "url": "https://news.skhynix.co.kr/fund-to-share-happiness-2026",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "[시선:時 4편] AI 반도체에서 AI 서비스까지, 생태계는 어떻게 진화하는가",
+      "date": "2026-04-14",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep4",
+      "reason": "AI 산업 생태계 전망 칼럼. 구체적인 시스템·메모리 공동 설계 원문 우선 수집"
+    },
+    {
+      "title": "[시선:時 3편] AI 반도체 경쟁의 승부처, 자본과 에너지 인프라",
+      "date": "2026-04-07",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep3",
+      "reason": "국가 산업 자본·에너지 정책 전망 칼럼. 구체적인 공장·냉각 운영 원문 우선 수집"
+    },
+    {
+      "title": "[2026 The Leaders] “글로벌 인재 전략으로 지속가능한 성장 토대 다진다”, Global Talent 박한울 부사장",
+      "date": "2026-04-06",
+      "url": "https://news.skhynix.co.kr/2026-new-executive-parkhanul",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, 2년 연속 WMEC 선정… 세계 무대에서 윤리경영 역량 입증",
+      "date": "2026-04-01",
+      "url": "https://news.skhynix.co.kr/2026-wmec-awards",
+      "reason": "윤리경영 선정 홍보. 구체적인 직무 기술·운영 자료 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘제53회 상공의 날’ 정부포상 2관왕 영예… 글로벌 메모리 시장 선도 공로 인정",
+      "date": "2026-03-31",
+      "url": "https://news.skhynix.co.kr/award-on-commerce-and-industry-day-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[시선:時 2편] AI 강대국으로의 전환점, 투자를 위한 법제 정비가 필요한 순간",
+      "date": "2026-03-31",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep2",
+      "reason": "투자 법제에 관한 전망 칼럼. 실제 설비 투자 원문 우선 수집"
+    },
+    {
+      "title": "[2026 The Leaders] “미세화의 ‘마스터 키’로 AI 메모리 경쟁력 그린다”, Photo기술 김현석 부사장",
+      "date": "2026-03-30",
+      "url": "https://news.skhynix.co.kr/2026-new-executive-kimhyunseok",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[SOD’s Review] GTC 2026: AI 산업의 재편 ‘모델에서 인프라로, AI 경쟁의 변화와 SK하이닉스의 역할’",
+      "date": "2026-03-27",
+      "url": "https://news.skhynix.co.kr/gtc-2026-review",
+      "reason": "GTC 관람·전망 해설. 제품·시스템 및 공동 개발 원문 우선 수집"
+    },
+    {
+      "title": "[시선:時 1편] AI 반도체 국가 대항전, 피지컬 AI 주도권을 향한 총력전에 돌입하다",
+      "date": "2026-03-24",
+      "url": "https://news.skhynix.co.kr/2026-expert-column-series-ep1",
+      "reason": "국가 산업 정책·피지컬 AI 전망 칼럼. 구체적인 기술 설명 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 2026년 대학생 앰버서더 발대식 개최… “미래 인재의 시각으로 반도체 기술 가치 알린다”",
+      "date": "2026-03-23",
+      "url": "https://news.skhynix.co.kr/2026-ambassador-launching-ceremony",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[2026 The Leaders] “기술을 연결하는 힘이 AI 메모리 경쟁력을 만든다”, Device Tech Solution 손윤익 부사장",
+      "date": "2026-03-23",
+      "url": "https://news.skhynix.co.kr/2026-new-executive-sonyunik",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "최태원 회장, ‘GTC 2026’ 첫 참석…‘AI 생태계 혁신 파트너’ 위상 강화",
+      "date": "2026-03-17",
+      "url": "https://news.skhynix.co.kr/gtc-2026-ai-partnership",
+      "reason": "GTC 경영진 참석·위상 홍보. 실제 기술 파트너십 62951 수집"
+    },
+    {
+      "title": "SK하이닉스, GTC 2026서 엔비디아와 파트너십 재확인…최신 AI 메모리 제품 포트폴리오도 공개",
+      "date": "2026-03-17",
+      "url": "https://news.skhynix.co.kr/gtc-2026-exhibition-booth",
+      "reason": "GTC 제품 포트폴리오·파트너십 재확인. 제품·공동 개발 전용 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 엔비디아 GTC 2026 참가…AI 인프라 핵심 ‘메모리 경쟁력’ 선보인다",
+      "date": "2026-03-17",
+      "url": "https://news.skhynix.co.kr/skhynix-at-gtc2026",
+      "reason": "GTC 전시 예고 반복. 개별 기술 원문 우선 수집"
+    },
+    {
+      "title": "[2026 The Leaders] “SK하이닉스, 1등 DNA로 차세대 D램 기술 리더십 이어간다”, 미래기술연구원 VG TD 장경철 부사장",
+      "date": "2026-03-16",
+      "url": "https://news.skhynix.co.kr/2026-new-executive-jangkyoungchul",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, 2025 CDP Korea Awards서 기후변화 · 수자원 관리 부문 2관왕 달성… 지속가능경영 분야 글로벌 경쟁력 입증",
+      "date": "2026-03-11",
+      "url": "https://news.skhynix.co.kr/2025-cdp-korea-awards",
+      "reason": "환경 평가 수상 홍보. 구체적인 물 재이용·탄소 검증 자료 별도 수집"
+    },
+    {
+      "title": "[2026 The Leaders] “기술 리더십을 압도적 성과로… ‘풀스택 AI 메모리 크리에이터’ 나침반 될 것”, DRAM마케팅 박준덕 부사장",
+      "date": "2026-03-11",
+      "url": "https://news.skhynix.co.kr/2026-new-executive-bakjundeok",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, MWC 2026서 최신 AI 메모리 설루션 대거 공개… ’풀 스택 AI 메모리 크리에이터’로서 기술 역량 뽐내",
+      "date": "2026-03-05",
+      "url": "https://news.skhynix.co.kr/mwc-2026",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스 김재범 부사장, ‘국가전략기술 확인서 및 유공 표창 수여식’서 부총리 표창 수훈…”플랫폼 기반 R&D 체계 확립해 AI 반도체 기술 혁신 기여”",
+      "date": "2026-02-26",
+      "url": "https://news.skhynix.co.kr/national-strategic-technology-awards-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "최태원 회장, 구글 피차이와 맞손… “TPU 설계부터 HBM을 심는다”",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/global-bigtech-ai-partnership-google",
+      "reason": "구글 경영진 회동·협력 논의. 확정 계약으로 취급하지 않음"
+    },
+    {
+      "title": "최태원 회장, 저커버그와 맞손… “AI 칩부터 AI 글라스까지, 메모리로 연결한다”",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/global-bigtech-ai-partnership-meta",
+      "reason": "메타 경영진 회동·협력 논의. 확정 계약으로 취급하지 않음"
+    },
+    {
+      "title": "“칩부터 클라우드까지, SK·MS가 잇는다”… 최태원 회장, 시애틀서 AI 협력 확대",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/global-bigtech-ai-partnership-ms",
+      "reason": "마이크로소프트 경영진 회동·협력 논의. 확정 계약으로 취급하지 않음"
+    },
+    {
+      "title": "“AI 칩의 미래, 설계부터 함께 만든다”… 최태원 회장·혹 탄 CEO, ‘원팀’ 선언",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/global-bigtech-ai-partnership-broadcom",
+      "reason": "브로드컴 경영진 회동·협력 논의. 확정 계약으로 취급하지 않음"
+    },
+    {
+      "title": "최태원 회장, 젠슨 황 엔비디아 CEO 미팅… ‘AI 원팀 회동 가져’",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/global-bigtech-ai-partnership-nvidia",
+      "reason": "엔비디아 경영진 회동. 정식 장기 기술 파트너십 62951 수집"
+    },
+    {
+      "title": "SK하이닉스, 채용 패러다임의 혁신 「Talent hy-way」 공개…“국경과 지역을 넘어, 미래로 가는 길을 닦다”",
+      "date": "2026-02-13",
+      "url": "https://news.skhynix.co.kr/recruit-talent-hy-way",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "AI 혁명의 엔진 HBM, 그 역사의 기록 「슈퍼 모멘텀: SK하이닉스의 언더독 스토리」 서평",
+      "date": "2026-02-12",
+      "url": "https://news.skhynix.co.kr/super-momentum-review-2",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "AI의 심장을 만들어 낸, SK하이닉스의 역전 드라마 「슈퍼 모멘텀: SK하이닉스의 언더독 스토리」 서평",
+      "date": "2026-02-11",
+      "url": "https://news.skhynix.co.kr/super-momentum-review-1",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, 행복GPS 실종예방 네트워크 세미나 개최… “실종취약계층 사회안전망 구축 방안 모색”",
+      "date": "2026-02-06",
+      "url": "https://news.skhynix.co.kr/launch-of-the-happy-gps-network",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "아무도 가보지 않은 길에서 증명한 AI 리더십, HBM으로 쓴 ‘슈퍼 모멘텀’의 기록",
+      "date": "2026-02-02",
+      "url": "https://news.skhynix.co.kr/ai-leadership-super-momentum",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "피·땀·칩으로 만든 SK하이닉스의 ‘슈퍼 모멘텀’… 집필진이 전하는 비하인드 스토리",
+      "date": "2026-02-02",
+      "url": "https://news.skhynix.co.kr/super-momentum-interview",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "AI 설루션 회사, AI Company 설립 관련 설명드립니다",
+      "date": "2026-01-28",
+      "url": "https://news.skhynix.co.kr/fact-03",
+      "reason": "AI 회사 설명 중복. 회사 개편·투자 구상을 상세히 설명하는 58349 수집"
+    },
+    {
+      "title": "SK하이닉스, 2026 대학생 앰버서더 모집… 미래 인재와 소통 확대",
+      "date": "2026-01-19",
+      "url": "https://news.skhynix.co.kr/skhynix-ambassador-recruit-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "곽노정 SK하이닉스 사장, CES 현장서 AI 메모리가 나아갈 길을 찾다",
+      "date": "2026-01-08",
+      "url": "https://news.skhynix.co.kr/ces2026-in-skhynix",
+      "reason": "CES 경영진 현장 스케치. HBM·패키징·메모리 전용 기술 원문 우선 수집"
+    },
+    {
+      "title": "2026년 시장 전망… “HBM이 이끄는 메모리 슈퍼사이클에 주목”",
+      "date": "2026-01-05",
+      "url": "https://news.skhynix.co.kr/2026-market-outlook",
+      "reason": "시장·투자기관 전망 종합. 실제 제품·양산·분기 실적 원문 우선 수집"
+    },
+    {
+      "title": "2026년 SK하이닉스 곽노정 대표이사 사장 신년사",
+      "date": "2026-01-02",
+      "url": "https://news.skhynix.co.kr/2026-new-year-message",
+      "reason": "신년 경영방침·조직 메시지 제외"
+    },
+    {
+      "title": "SK하이닉스 발달장애인 핸드볼 지원사업, ‘2025 유네스코 ESD 공식 프로젝트’ 인증",
+      "date": "2025-12-29",
+      "url": "https://news.skhynix.co.kr/handball-unesco-esd-2025",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스 HBM 모티브 캐릭터 ‘하빔이’ 탄생… 코드네임 ‘에이전트 660 하임스 본딩’으로 임무 본격화",
+      "date": "2025-12-26",
+      "url": "https://news.skhynix.co.kr/agent-660-habimi",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, 여주시에 ‘행복AI스터디랩 5호’ 개소… AI 교육·체험 기반 지역 상생협력 확대",
+      "date": "2025-12-24",
+      "url": "https://news.skhynix.co.kr/5th-happy-ai-studylab-open",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "반도체 공장 투자 관련 설명드립니다",
+      "date": "2025-12-24",
+      "url": "https://news.skhynix.co.kr/fact-01",
+      "reason": "공장 투자 관련 설명. 더 구체적인 팹별 투자·클린룸 계획 원문 우선 수집"
+    },
+    {
+      "title": "‘2025 SK하이닉스 대상 시상식’ 개최… 한 해의 성과를 이끈 구성원들 격려",
+      "date": "2025-12-18",
+      "url": "https://news.skhynix.co.kr/skhynix-awards-2025",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "HE·DE·마스터·명장 한 자리에… SK하이닉스 ‘2026 기술전문가 임명식’ 개최",
+      "date": "2025-12-16",
+      "url": "https://news.skhynix.co.kr/technical-experts-investiture-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스 송해룡 팀장, ‘2025 임베디드소프트웨어산업 유공 포상’ 산업부장관표창 수상… “SSD 펌웨어 플랫폼 사업화·기술 국산화 성과”",
+      "date": "2025-12-12",
+      "url": "https://news.skhynix.co.kr/2025-embedded-software-awards",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "[DECODE AI] ‘AI 사피엔스’로 진화 중인 인류, 최재붕 교수가 알려주는 AI 시대, 대한민국의 생존 전략",
+      "date": "2025-12-10",
+      "url": "https://news.skhynix.co.kr/decode-ai-7",
+      "reason": "일반 AI 사회·생존 전략 강연. 반도체 기술 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 업계 최고 권위 ‘GSA 어워즈 2025’ 2개 부문 수상",
+      "date": "2025-12-07",
+      "url": "https://news.skhynix.co.kr/gsa-awards-2025-winner",
+      "reason": "일반 기업 어워즈 수상 홍보. 기술·성능 근거가 구체적인 원문 우선 수집"
+    },
+    {
+      "title": "SK하이닉스, 제62회 무역의 날 ‘350억불 수출의 탑’ 및 개인포상 수상… AI 메모리 수출 경쟁력 입증",
+      "date": "2025-12-05",
+      "url": "https://news.skhynix.co.kr/62nd-trade-day",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스 2026년 조직개편 및 임원인사 단행",
+      "date": "2025-12-04",
+      "url": "https://news.skhynix.co.kr/executive-personnel-and-organizational-reorganization-2026",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "D램 미세 패터닝 혁신 이끈 SK하이닉스 김태한 팀장, ‘2025 산업기술진흥 유공 시상식’ 산업포장 수상",
+      "date": "2025-12-04",
+      "url": "https://news.skhynix.co.kr/industrial-technology-award-2025",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, 기술로 어르신과 세상을 이어주는 디지털 복합문화공간 광주시 ‘ICT사랑방’ 개관",
+      "date": "2025-12-03",
+      "url": "https://news.skhynix.co.kr/ict-study-room-open-gwangju-si",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘대학생 앰버서더 어워즈’ 개최… “반도체 미래 인재와의 소통 넓히다”",
+      "date": "2025-12-01",
+      "url": "https://news.skhynix.co.kr/ambassador-awards-2025",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2025 대한민국 일·생활 균형 우수기업’ 선정… 근무·휴가·돌봄 전반의 혁신 성과 인정 받아",
+      "date": "2025-11-28",
+      "url": "https://news.skhynix.co.kr/excellent-work-life-balance-2025",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, ‘2025 이주민 AI 어노테이터 미래 심포지엄’ 개최… 지역사회와 함께 만든 포용적 AI∙디지털 일자리 창출 성과",
+      "date": "2025-11-27",
+      "url": "https://news.skhynix.co.kr/2025-ai-annotator-symposium",
+      "reason": "직무 공부에 구체적인 원리·공정·시험·운영 정보를 제공하는 원문을 우선해 선별. 이 종합 소개·행사·전망 자료는 제외"
+    },
+    {
+      "title": "SK하이닉스의 달콤한 혁신… 반도체 콘셉트 스낵 ‘허니바나나맛 HBM 칩스(Chips)’ 출시로 여는 새로운 브랜드 경험",
+      "date": "2025-11-26",
+      "url": "https://news.skhynix.co.kr/hbm-chips-launching-story",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, 이번 신제품은 먹는 반도체? 반도체 콘셉트 스낵 ‘HBM 칩스(Chips)’ 출시",
+      "date": "2025-11-26",
+      "url": "https://news.skhynix.co.kr/hbm-chips-launching",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "구성원의 목소리를 담아 혁신을 만들어가다: 2025 SK하이닉스 주니어보드 연말 결산 ‘Journey to Better’",
+      "date": "2025-11-25",
+      "url": "https://news.skhynix.co.kr/2025-juniorboard",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘하인슈타인 AI 진로콘서트’ 개최… AI 시대, 청소년의 꿈과 미래를 열다",
+      "date": "2025-11-25",
+      "url": "https://news.skhynix.co.kr/2025-heinstein-career-counseling",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘슈퍼컴퓨팅 2025’서 HBM4·차세대 스토리지 등 AI 메모리 라인업 공개",
+      "date": "2025-11-24",
+      "url": "https://news.skhynix.co.kr/sc25-ai-hpc-exhibition",
+      "reason": "슈퍼컴퓨팅 제품 전시 반복. 스토리지 전략·제품 기술 원문 우선 수집"
+    },
+    {
+      "title": "반도체를 고객과 연결하는 가교 ‘AE’, 하닉어사전으로 알아보기",
+      "date": "2025-11-24",
+      "url": "https://news.skhynix.co.kr/skhynix-ambassador-hy-dictionary-ep6",
+      "reason": "AE 용어 개관. 실제 실장평가 업무 원문 55655 수집"
+    },
+    {
+      "title": "‘Together for Tomorrow’로 하나 된 개막전, SK하이닉스 대학생 앰버서더와 함께한 ‘H리그’ 새 시즌 출발",
+      "date": "2025-11-17",
+      "url": "https://news.skhynix.co.kr/25-26-hleague-opening-ceremony",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "[세미의 시대 2편] 당신이 사랑하는 존재가 로봇이라면?",
+      "date": "2025-11-14",
+      "url": "https://news.skhynix.co.kr/the-semiconductor-era-ep2",
+      "reason": "로봇과 사회·관계에 대한 일반 칼럼. 기술 직무 자료 우선 수집"
+    },
+    {
+      "title": "SK하이닉스 AI 사명 로고플레이",
+      "date": "2025-11-10",
+      "url": "https://news.skhynix.co.kr/ai-in-your-area-10",
+      "reason": "본문이 없는 로고플레이. 브랜드 홍보 미디어 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘제14회 대한민국 나눔국민대상’ 보건복지부 장관 표창 수상… “기술과 나눔으로 함께 성장”",
+      "date": "2025-11-07",
+      "url": "https://news.skhynix.co.kr/national-awards-for-sharing-2025",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "SK하이닉스, ‘SK AI Summit 2025’서 ‘풀 스택 AI 메모리 크리에이터(Full Stack AI Memory Creator)’ 비전 제시",
+      "date": "2025-11-05",
+      "url": "https://news.skhynix.co.kr/sk-ai-summit-2025",
+      "reason": "AI Summit 종합 비전 소개. 개별 제품·구조·연구 자료 우선 수집"
+    },
+    {
+      "title": "SK하이닉스 이승동 팀장, ‘제49회 국가생산성대회’서 산업통상부장관 표창 수상… ‘생산효율 높여 HBM 경쟁 우위 확보 기여’",
+      "date": "2025-11-05",
+      "url": "https://news.skhynix.co.kr/national-productivity-award-2025",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스 김우현 부사장, 제8회 회계의 날 기념식서 산업포장 수상… “투명한 회계와 지속가능경영 기반 다졌다”",
+      "date": "2025-11-03",
+      "url": "https://news.skhynix.co.kr/8th-accounting-day-award",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "SK하이닉스, 이천시에 AI 기술로 마음껏 상상하고 체험하는 ‘행복AI스터디랩 4호’ 개소",
+      "date": "2025-10-31",
+      "url": "https://news.skhynix.co.kr/4th-happy-ai-studylab-open",
+      "reason": "사회공헌·지역사회 지원·교육·생태보전 목적의 활동 제외"
+    },
+    {
+      "title": "2025 기업 PR 광고 ‘위대한 여정’을 위한 위대한 여정",
+      "date": "2025-10-30",
+      "url": "https://news.skhynix.co.kr/great-journey-interview-2025",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스 송부섭 팀장, ‘2025 소재·부품·장비 산업 발전 유공’ 대통령표창 수상… ‘소재 국산화·재활용 기술로 산업 경쟁력 강화’",
+      "date": "2025-10-30",
+      "url": "https://news.skhynix.co.kr/tech-inside-show-2025-award",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    },
+    {
+      "title": "“음식이 아니라 행복을 주는 공간” SK하이닉스 분당캠퍼스 카페테리아 ‘비원’ 탐방기",
+      "date": "2025-10-28",
+      "url": "https://news.skhynix.co.kr/ambassador-experience-report-cafeteria-2025",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "“첨단 기술과 전통의 만남”…SK하이닉스, ‘제24회 이천쌀문화축제’서 AI 반도체 체험존 운영",
+      "date": "2025-10-27",
+      "url": "https://news.skhynix.co.kr/2025-icheon-rice-festival",
+      "reason": "광고·브랜드 경험·일반 행사·독서·복지·조직문화 소식 제외"
+    },
+    {
+      "title": "SK하이닉스, SEDEX 2025 참가…메모리 반도체로 만들어갈 ‘AI의 미래’ 공유",
+      "date": "2025-10-24",
+      "url": "https://news.skhynix.co.kr/skhynix-sedex-2025",
+      "reason": "전시 포트폴리오 종합 소개. 상세 제품·패키징·시스템 원문 우선 수집"
+    },
+    {
+      "title": "“기술로 증명한 자부심”…AI 시대 이끄는 SK하이닉스, ‘제18회 반도체의 날’ 정부 포상 6관왕 영예",
+      "date": "2025-10-23",
+      "url": "https://news.skhynix.co.kr/18th-semiconductor-day",
+      "reason": "채용·인사·리더 선임·직원 포상·조직문화 행사 중심. 기술 원문은 별도 수집"
+    }
+  ]
+}
