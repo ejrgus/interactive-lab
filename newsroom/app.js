@@ -1,5 +1,5 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
-import { canonicalUrl, usesSeparateReader, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-07';
+import { canonicalUrl, usesSeparateReader, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-08';
 import { setupNoteLayout } from './layout.js?v=20261022-05';
 import { createPresence } from './presence.js?v=20261022-05';
 import { createNoteImages } from './images.js?v=20261022-05';
@@ -246,7 +246,7 @@ function renderReaderView() {
   $('currentUrl').textContent=article.url||'';$('currentUrl').title=article.url||'';
   if(web&&$('articleFrame').dataset.source!==article.url){$('articleFrame').src=canonicalUrl(article.url);$('articleFrame').dataset.source=article.url;}
   if(!web){$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';}
-  $('webStatus').textContent=separate?'ASML 원문은 새 탭에서 열립니다. 요약과 메모는 여기서 함께 보세요.':web?'내부 원문이 표시되지 않으면 ↗ 버튼으로 새 탭에서 열어주세요.':'뉴스는 함께 공유하고, 메모는 내 계정에 저장됩니다.';
+  $('webStatus').textContent=separate?'이 사이트의 원문은 새 탭에서 열립니다. 요약과 메모는 여기서 함께 보세요.':web?'내부 원문이 표시되지 않으면 ↗ 버튼으로 새 탭에서 열어주세요.':'뉴스는 함께 공유하고, 메모는 내 계정에 저장됩니다.';
 }
 async function selectArticle(article, flush=true) {
   if(flush)await saveAll();
