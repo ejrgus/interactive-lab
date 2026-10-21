@@ -31,5 +31,6 @@ on conflict do nothing;
 (ROOT / 'supabase/02-seed-news.sql').write_text(seed, encoding='utf-8')
 schema = (ROOT / 'supabase/01-newsroom.sql').read_text(encoding='utf-8')
 migration = (ROOT / 'supabase/04-companies.sql').read_text(encoding='utf-8')
-(ROOT / 'supabase/setup.sql').write_text('-- Run this entire file in Supabase SQL Editor.\n' + schema + '\n' + seed + '\n' + migration, encoding='utf-8')
+extras = '\n'.join((ROOT / f'supabase/{name}').read_text(encoding='utf-8') for name in ['05-presence.sql','06-note-images.sql'])
+(ROOT / 'supabase/setup.sql').write_text('-- Run this entire file in Supabase SQL Editor.\n' + schema + '\n' + seed + '\n' + migration + '\n' + extras, encoding='utf-8')
 print(f'Prepared {len(articles)} shared articles. Personal notes excluded.')
