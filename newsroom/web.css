@@ -151,3 +151,16 @@ body.resizing-note{cursor:col-resize;user-select:none}body.resizing-note iframe{
  body.reader-focus #workspace{display:flex;flex-direction:column}body.reader-focus .reader{min-height:70vh}body.reader-focus .notes{min-height:500px}
  .tools-menu,body.reader-focus .tools-menu{position:fixed;left:auto;right:10px;top:50px}
 }
+
+/* Keep all article controls in the address toolbar, leaving the title out of the visual layout. */
+h2#articleTitle.reader-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#browserToolbar{height:40px;min-height:40px;gap:4px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+#browserToolbar>button{flex:0 0 auto}
+#browserToolbar #currentUrl{flex:1 1 auto;min-width:0}
+#browserToolbar .reader-actions{display:flex;flex:0 0 auto;flex-wrap:nowrap;gap:4px;margin-left:auto}
+#browserToolbar .segmented{flex-shrink:0;padding:2px}
+#browserToolbar .segmented button{font-size:10px;padding:4px 6px}
+#browserToolbar .segmented button.active{background:white;box-shadow:0 1px 4px #12345614;color:#2166c8}
+#browserToolbar .reader-flags{flex-shrink:0;gap:3px}
+#browserToolbar .reader-flags button{height:25px;min-width:25px;padding:2px 5px}
+#browserToolbar .focus-menu-button,#browserToolbar #readerFocus{font-size:10px;padding:4px 6px}

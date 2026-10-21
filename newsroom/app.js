@@ -147,7 +147,7 @@ function clearReader() {
   ownImages?.clear();
   state.selected=null;$('reader-content').hidden=false;$('note-editor').value='';$('note-editor').disabled=true;$('save-note').disabled=true;$('admin-load').disabled=true;
   $('reader-empty').hidden=false;$('reader-empty').textContent='아직 등록된 뉴스가 없어요.\n뉴스를 추가하거나 주제 노트를 열어보세요.';
-  for(const selector of ['.article-top','#browserToolbar','#webSurface','#summaryContent','.reader-footer'])$('reader-content').querySelector(selector).hidden=true;
+  for(const selector of ['#browserToolbar','#webSurface','#summaryContent','.reader-footer'])$('reader-content').querySelector(selector).hidden=true;
   $('note-context').textContent='뉴스를 추가하거나 주제 노트를 열어보세요.';$('note-count').textContent='0자';
   message('save-status','뉴스를 선택해주세요.');
   $('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';$('notePreview').hidden=true;$('note-editor').hidden=false;
@@ -236,7 +236,8 @@ function selectTopic(category) {
 function renderReaderView() {
   const article=state.selected;if(!article)return;
   const web=!!article.url&&state.view==='web';
-  $('webSurface').hidden=!web;$('summaryContent').hidden=web;$('browserToolbar').hidden=!article.url;
+  $('webSurface').hidden=!web;$('summaryContent').hidden=web;$('browserToolbar').hidden=false;
+  for(const id of ['reload','homeArticle','currentUrl','currentAdd','external'])$(id).hidden=!article.url;
   $('webTab').disabled=!article.url;$('webTab').classList.toggle('active',web);$('summaryTab').classList.toggle('active',!web);
   $('currentUrl').textContent=article.url||'';$('currentUrl').title=article.url||'';
   if(web&&$('articleFrame').dataset.source!==article.url){$('articleFrame').src=canonicalUrl(article.url);$('articleFrame').dataset.source=article.url;}
@@ -247,7 +248,7 @@ async function selectArticle(article, flush=true) {
   if(flush)await saveAll();
   if(!state.user)return;
   state.selected=article; $('reader-empty').hidden=true; $('reader-content').hidden=false;
-  $('reader-content').querySelector('.article-top').hidden=false;$('reader-content').querySelector('.reader-footer').hidden=false;$('admin-load').disabled=false;
+  $('reader-content').querySelector('.reader-footer').hidden=false;$('admin-load').disabled=false;
   $('reader-title').textContent=article.title; $('reader-category').textContent=article.company?`${article.company} · ${article.category}`:article.category;
   $('reader-date').textContent=article.date||'게시일 미확인';
   $('reader-tags').replaceChildren(...article.tags.map(t=>{const el=document.createElement('span');el.className='tag';el.textContent=t;return el;}));
