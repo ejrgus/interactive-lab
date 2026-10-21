@@ -1,0 +1,54 @@
+{
+  "since": "2025-10-22",
+  "until": "2026-10-22",
+  "excluded": [
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-discloses-2026-agm-results",
+      "title": "ASML discloses 2026 AGM results",
+      "date": "2026-04-22",
+      "reason": "주주총회 의결·임원 선임·배당 안내 중심. 기술·운영 학습 정보가 부족한 일반 공시 제외"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-publishes-agenda-annual-general-meeting-2026",
+      "title": "ASML publishes agenda Annual General Meeting 2026",
+      "date": "2026-03-09",
+      "reason": "주주총회 일정·임원 인사 안내 제외"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-publishes-2025-annual-report",
+      "title": "ASML publishes 2025 Annual Reports",
+      "date": "2026-02-25",
+      "reason": "보고서 발간 안내 중심. 원문 기사에 구체적인 기술 설명이 부족하고 실적은 연간 실적발표로 수집"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-ceo-christophe-fouquet-co-signed-opinion-piece-european-technology-companies",
+      "title": "ASML CEO Christophe Fouquet co-signed opinion piece with European technology companies",
+      "date": "2026-05-05",
+      "reason": "정책 촉구 기고문으로 기술·제조 직무의 구체적인 내용이 부족해 제외"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/strengthening-focus-on-engineering-and-innovation",
+      "title": "ASML statement on strengthening focus on engineering and innovation",
+      "date": "2026-01-28",
+      "reason": "조직 개편·인력 운영에 관한 인사 공지 제외"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/improved-accessibility-and-future-proof-mobility-for-mre",
+      "title": "ASML makes substantial financial contribution to improved accessibility and future-proof mobility in the Brainport region",
+      "date": "2025-12-18",
+      "reason": "지역사회 교통 인프라 재정 지원으로 사회공헌 범위 제외"
+    },
+    {
+      "url": "https://investor.asml.com/news-releases/news-release-details/statement-relating-to-recent-book-publication",
+      "title": "Statement relating to recent book publication",
+      "date": "2025-11-20",
+      "reason": "서적 내용에 관한 입장문으로 직무 기술 자료에 해당하지 않아 제외"
+    },
+    {
+      "url": "https://www.asml.com/en/company/stories/2026/marco-pieters-asml-cto",
+      "title": "Introducing Marco Pieters, ASML’s new CTO",
+      "date": "2026-05-12",
+      "reason": "CTO 소개·인사 인터뷰 제외"
+    }
+  ]
+}

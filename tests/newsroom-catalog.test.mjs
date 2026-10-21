@@ -2,10 +2,55 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
-import {canonicalUrl,inCategory,topicId} from '../newsroom/model.js';
+import {canonicalUrl,inCategory,topicId,usesSeparateReader} from '../newsroom/model.js';
 const read=name=>readFile(new URL('../'+name,import.meta.url),'utf8');
 const catalog=JSON.parse(await read('newsroom/catalogs/hankook-tire.json'));
 const lg=JSON.parse(await read('newsroom/catalogs/lg-energy-solution.json'));
+const asml=JSON.parse(await read('newsroom/catalogs/asml.json'));
+
+test('the separate reader is restricted to ASML investor originals',()=>{
+  assert.equal(usesSeparateReader('https://investor.asml.com/news-releases/news-release-details/example'),true);
+  assert.equal(usesSeparateReader('https://www.investor.asml.com/news-releases/news-release-details/example'),true);
+  for(const url of ['','not a URL','https://investor.asml.com.example.org/story','https://www.asml.com/en/company/stories/2026/machines-behind-machines','https://inside.lgensol.com/story','https://www.hyundaimotorgroup.com/ko/story/test'])assert.equal(usesSeparateReader(url),false);
+});
+
+test('ASML originals follow the year and account for the full verified discovery scope',async()=>{
+  const excluded=JSON.parse(await read('newsroom/catalogs/asml-exclusions.json')).excluded;
+  assert.equal(asml.coverage.since,'2025-10-22');
+  assert.equal(asml.coverage.until,'2026-10-22');
+  assert.equal(asml.articles.length,11);
+  assert.equal(excluded.length,8);
+  assert.equal(asml.articles.length+excluded.length,asml.coverage.listed);
+  assert.equal(new Set(asml.articles.map(a=>a.id)).size,asml.articles.length);
+  assert.equal(new Set(asml.articles.map(a=>a.url)).size,asml.articles.length);
+  const usedFields=new Set();
+  for(const a of asml.articles){
+    assert.ok(a.date>=asml.coverage.since&&a.date<=asml.coverage.until);
+    assert.equal(canonicalUrl(a.url),a.url);
+    assert.ok(['investor.asml.com','www.asml.com'].includes(new URL(a.url).hostname));
+    assert.ok(a.verified&&a.is_official&&a.summary&&a.study);
+    assert.ok(!/AGM|appoints|Introducing Marco|opinion piece|book publication|Annual Reports/.test(a.title));
+    assert.ok(!/마케팅|영업|인사|사회공헌/.test([a.category,...a.topics].join(' ')));
+    assert.equal(new Set([a.category,...a.topics]).size,1+a.topics.length);
+    for(const f of [a.category,...a.topics])usedFields.add(f);
+  }
+  assert.equal(usedFields.size,11);
+  assert.ok(excluded.every(a=>a.reason));
+  const source=await read('newsroom/assets/asml-source.svg');
+  const logo=await read('newsroom/assets/asml.svg');
+  assert.equal(source.match(/<path d="([^"]+)"/)[1],logo.match(/<path d="([^"]+)"/)[1]);
+  assert.match(logo,/<svg[^>]+viewBox="0 0 108 30"/);
+  assert.match(logo,/<use href="#logo"/); // Official file is a symbol sprite: an img needs an explicit use.
+});
+
+test('ASML partnerships appear in technical sections with one article identity',()=>{
+  const contracts=asml.articles.filter(a=>inCategory(a,'공급 / 계약'));
+  assert.equal(contracts.length,4);
+  const intel=contracts.find(a=>a.source_key.startsWith('intel-foundry'));
+  for(const f of ['공급 / 계약','노광 / High NA EUV','마스크 / 공정통합','시험 / 품질검증'])assert.ok(inCategory(intel,f));
+  assert.equal(asml.articles.filter(a=>a.url===intel.url).length,1);
+  assert.notEqual(topicId(asml.company.id,'공급 / 계약'),topicId(lg.company.id,'공급 / 계약'));
+});
 
 test('LGES catalog covers the year, merges official channels, and records every exclusion',async()=>{
   const excluded=JSON.parse(await read('newsroom/catalogs/lg-energy-solution-exclusions.json')).excluded;
@@ -73,13 +118,15 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
       create table auth.users(id uuid primary key,email text);
       create function auth.uid() returns uuid language sql stable as $$select null::uuid$$;`);
     for(const file of ['01-newsroom.sql','02-seed-news.sql','04-companies.sql'])await db.exec(await read('supabase/'+file));
-    await db.exec(`insert into public.newsroom_companies(id,name) values('existing-hankook','한국타이어'),('existing-lg','LG에너지솔루션');
+    await db.exec(`insert into public.newsroom_companies(id,name) values('existing-hankook','한국타이어'),('existing-lg','LG에너지솔루션'),('existing-asml','ASML');
       insert into auth.users(id,email) values('00000000-0000-4000-8000-000000000001','owner@example.test');`);
     const first=catalog.articles[0];
     await db.query(`insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-article',$1,'existing title','existing-hankook','existing category')`,[first.url]);
     await db.exec(`insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-article','existing private text');`);
     await db.query(`insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-lg-article',$1,'existing LG title','existing-lg','existing category')`,[lg.articles[0].url]);
     await db.exec(`insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-lg-article','existing LG private text');`);
+    await db.query(`insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-asml-article',$1,'existing ASML title','existing-asml','existing category')`,[asml.articles[0].url]);
+    await db.exec(`insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-asml-article','existing ASML private text');`);
     const before=(await db.query('select * from public.newsroom_notes')).rows;
     const seed=await read('supabase/07-seed-company-news.sql');
     await db.exec(seed);await db.exec(seed);
@@ -88,6 +135,9 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
     assert.equal((await db.query("select id from public.newsroom_companies where name='LG에너지솔루션'")).rows[0].id,'existing-lg');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-lg'")).rows[0].n,lg.articles.length);
     assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[lg.articles[0].url])).rows[0].id,'existing-lg-article');
+    assert.equal((await db.query("select id from public.newsroom_companies where name='ASML'")).rows[0].id,'existing-asml');
+    assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-asml'")).rows[0].n,asml.articles.length);
+    assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[asml.articles[0].url])).rows[0].id,'existing-asml-article');
     assert.equal((await db.query('select id,title from public.newsroom_articles where url=$1',[first.url])).rows[0].id,'existing-article');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='hyundai-motor-group'")).rows[0].n,71);
     assert.deepEqual((await db.query('select * from public.newsroom_notes')).rows,before);
