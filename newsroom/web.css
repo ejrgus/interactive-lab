@@ -133,13 +133,8 @@ body.resizing-note{cursor:col-resize;user-select:none}body.resizing-note iframe{
 .note-images{flex:0 1 auto;min-height:0;max-height:40vh;overflow:auto;overscroll-behavior:contain}
 .note-image{margin:12px 0;padding:10px 0;border-top:1px solid var(--line)}
 .note-image img{display:block;height:auto;max-width:100%;margin:10px auto 0;border-radius:5px}
-.note-image figcaption{font-size:10px;color:#8291a4;overflow-wrap:anywhere;margin:7px 0}
-.image-controls{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.image-controls button{font-size:10px;padding:4px 7px}
-.image-controls label{display:flex;flex:1;align-items:center;gap:5px;min-width:140px;font-size:10px;color:#6782a3}
-.image-controls input[type=range]{width:80px;min-width:40px;flex:1;padding:0;accent-color:#3978d1}
-.image-controls output{min-width:30px}.image-status{font-size:10px;color:#8291a4;line-height:1.6;margin:4px 0;flex-shrink:0}
-.image-status:empty,.note-images:empty{display:none}#image-dialog{width:1000px}#image-dialog h2{overflow-wrap:anywhere;font-size:15px}
-#image-original{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:15px auto}
+.image-status{font-size:10px;color:#8291a4;line-height:1.6;margin:4px 0;flex-shrink:0}
+.image-status:empty,.note-images:empty{display:none}
 #admin-images{max-height:28vh}.admin-note-reader{overflow:auto}#admin-note-body{flex:1 0 100px}
 @media(max-width:900px){
  body.signed-in{overflow:auto}.topbar{position:sticky;width:100%;height:60px;border-right:0}
@@ -166,3 +161,25 @@ h2#articleTitle.reader-label{position:absolute;width:1px;height:1px;margin:-1px;
 #browserToolbar .focus-menu-button,#browserToolbar #readerFocus{font-size:10px;padding:4px 6px}
 
 .note-tools{justify-content:flex-end}
+
+/* One scrollable document mixes text and image blocks at the caret. */
+#noteEditor{display:none!important}
+.mixed-note-editor{flex:1;min-height:100px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.95;font-size:12px;color:#45576e;padding:17px 2px;outline:none;cursor:text;tab-size:2}
+.mixed-note-editor:empty::before{content:attr(data-placeholder);color:#9aa6b6;pointer-events:none}
+.mixed-note-editor:focus-visible{outline:1px solid #a5c4ee;outline-offset:2px}
+
+.mixed-note-editor .note-image img{max-width:100%;height:auto;user-select:none}
+.pending-image{opacity:.7}.pending-image img{width:100%}
+#admin-note-body{font-size:13px;min-height:100px;flex:1 1 0;overflow:auto}
+
+/* Images behave like selected objects, without a visible attachment toolbar. */
+.mixed-note-editor .note-image{position:relative;display:block;max-width:100%;padding:0;border:0;border-radius:0;background:transparent;margin:12px 0;outline:none;cursor:default}
+.mixed-note-editor .note-image img{display:block;width:100%;max-width:100%;height:auto;margin:0;border-radius:0}
+.mixed-note-editor .note-image.image-selected{outline:2px solid #3b82f6;outline-offset:2px;background:#e7f1ff}
+.image-resize-handle{position:absolute;width:9px;height:9px;background:#fff;border:1px solid #2872d4;z-index:2;opacity:0;touch-action:none}
+.note-image:hover .image-resize-handle,.note-image.image-selected .image-resize-handle{opacity:1}
+.image-resize-handle.nw{left:-5px;top:-5px;cursor:nwse-resize}.image-resize-handle.ne{right:-5px;top:-5px;cursor:nesw-resize}
+.image-resize-handle.sw{left:-5px;bottom:-5px;cursor:nesw-resize}.image-resize-handle.se{right:-5px;bottom:-5px;cursor:nwse-resize}
+.image-resizing{user-select:none}.mixed-note-editor{padding-left:6px;padding-right:6px}
+
+[data-reading=true] .image-resize-handle{display:none}
