@@ -1,0 +1,287 @@
+{
+  "updated": "2026-10-22",
+  "company": {
+    "id": "asml",
+    "name": "ASML",
+    "newsroom_url": "https://investor.asml.com/news/press-releases-and-announcements",
+    "logo_url": "https://ejrgus.github.io/interactive-lab/newsroom/assets/asml.svg",
+    "logo_source": "https://www.asml.com/images/icons/asml-logo.svg"
+  },
+  "coverage": {
+    "since": "2025-10-22",
+    "until": "2026-10-22",
+    "listed": 19,
+    "selected": 11,
+    "excluded": 8,
+    "originals_checked": 19,
+    "unavailable_originals": 0,
+    "scope": "공식 보도자료 공개 목록 1·2페이지의 해당 기간 12건, 공지 목록 해당 기간 5건, 현재 공식 사이트맵의 해당 기간 스토리 2건을 원문 확인. Stories 검색 목록은 결과를 반환하지 않아 사이트맵으로 대조. 현재 목록·사이트맵에서 확인한 범위이며 비공개·검색 미노출 자료의 전수 수집을 보장하지 않음.",
+    "policy": "최근 1년. 마케팅·영업·인사·사회공헌·기술 설명이 부족한 일반 공지 제외. 실제 공급·기술 협력은 공급 / 계약 및 관련 기술 목차에 교차 분류. 계획·협약과 양산 실적을 구분.",
+    "sources": [
+      "https://investor.asml.com/news/press-releases",
+      "https://investor.asml.com/news/announcements",
+      "https://www.asml.com/sitemap.xml"
+    ]
+  },
+  "fields": [
+    "공급 / 계약",
+    "노광 / High NA EUV",
+    "마스크 / 공정통합",
+    "광원 / 장비 제어",
+    "소프트웨어 / AI",
+    "계측 / 결함검사",
+    "시험 / 품질검증",
+    "장비 제조 / 생산운영",
+    "고객지원 / 유지보수",
+    "구매 / 공급망",
+    "재무 / 사업전략"
+  ],
+  "articles": [
+    {
+      "id": "asml-9b06d9ff88dc176b",
+      "title": "ASML reports €11.7 billion total net sales and €5.0 billion net income in Q3 2026",
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+      "date": "2026-10-14",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "장비 제조 / 생산운영",
+        "고객지원 / 유지보수"
+      ],
+      "tags": [
+        "분기실적",
+        "생산능력",
+        "생산성 업그레이드"
+      ],
+      "summary": "2026년 3분기 실적과 장비 생산능력 확충 검토, 설치 장비의 생산성 업그레이드 방향을 설명한다. 실적과 향후 계획을 구분해 읽는다.",
+      "study": "공부 질문: 신규 장비 출하와 기존 장비 업그레이드가 고객의 웨이퍼 생산능력에 기여하는 경로는 어떻게 다를까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-f76d591696ab4c5d",
+      "title": "Samsung Electronics and ASML expand strategic collaboration for next-generation semiconductor manufacturing",
+      "url": "https://investor.asml.com/news-releases/news-release-details/samsung-electronics-and-asml-expand-strategic-collaboration-next-generation-semiconductor-manufacturing",
+      "date": "2026-09-08",
+      "category": "공급 / 계약",
+      "topics": [
+        "노광 / High NA EUV",
+        "마스크 / 공정통합"
+      ],
+      "tags": [
+        "삼성전자",
+        "DRAM",
+        "12인치 마스크"
+      ],
+      "summary": "삼성과 High NA 및 차세대 마스크 분야의 협력을 확대한다. 향후 DRAM 적용 계획과 현재 확보한 생산 역량을 구분해서 읽어야 한다.",
+      "study": "공부 질문: 메모리 공정에 High NA를 도입할 때 해상도 개선이 공정 단계·마스크·양산성 요구를 어떻게 바꿀까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "samsung-electronics-and-asml-expand-strategic-collaboration-next-generation-semiconductor-manufacturing",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-bebff9d1108d2c20",
+      "title": "Intel Foundry and ASML Collaborate to Accelerate Industry Readiness for High-NA EUV",
+      "url": "https://investor.asml.com/news-releases/news-release-details/intel-foundry-and-asml-collaborate-accelerate-industry-readiness-high-na-euv",
+      "date": "2026-09-08",
+      "category": "공급 / 계약",
+      "topics": [
+        "노광 / High NA EUV",
+        "마스크 / 공정통합",
+        "시험 / 품질검증"
+      ],
+      "tags": [
+        "Intel Foundry",
+        "레티클 스티칭",
+        "High NA"
+      ],
+      "summary": "Intel과 High NA의 현재 양산 적용 및 마스크 전환 협력을 설명한다. 기존 6인치 마스크에서 스티칭을 활용하는 접근도 다룬다.",
+      "study": "공부 질문: 반쪽 노광 필드를 이어 붙일 때 경계 정합과 오버레이 오차를 어떤 지표와 시험으로 검증해야 할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "intel-foundry-and-asml-collaborate-accelerate-industry-readiness-high-na-euv",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-89e63e816e0925b2",
+      "title": "ASML begins construction of new Eindhoven campus, strengthening its presence in the Brainport region",
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-begins-construction-new-eindhoven-campus-strengthening-its-presence-brainport-region",
+      "date": "2026-09-08",
+      "category": "장비 제조 / 생산운영",
+      "topics": [
+        "시험 / 품질검증",
+        "재무 / 사업전략"
+      ],
+      "tags": [
+        "BIC North",
+        "flow factory",
+        "모듈 생산"
+      ],
+      "summary": "새 산업 캠퍼스에 생산·물류 활동을 통합하고 모듈 생산과 설치 흐름을 개선하는 flow factory 운영 모델을 도입할 계획이다.",
+      "study": "공부 질문: 장비 모듈의 물류·조립·검사 흐름을 바꾸면 재공품·리드타임·품질 추적성을 어떻게 함께 관리해야 할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "asml-begins-construction-new-eindhoven-campus-strengthening-its-presence-brainport-region",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-16f3a93d0c21e74c",
+      "title": "ASML and TSMC Announce Initiative to Pioneer Industry Transition to Large-Format Photomasks for High NA EUV",
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-and-tsmc-announce-initiative-pioneer-industry-transition-large-format-photomasks-high-na-euv",
+      "date": "2026-09-08",
+      "category": "공급 / 계약",
+      "topics": [
+        "마스크 / 공정통합",
+        "노광 / High NA EUV",
+        "구매 / 공급망"
+      ],
+      "tags": [
+        "TSMC",
+        "대형 마스크",
+        "생태계 협력"
+      ],
+      "summary": "TSMC와 대형 EUV 마스크 전환을 위한 공동 이니셔티브를 추진한다. 파일럿 라인과 장비 준비 일정은 향후 목표로 제시돼 있다.",
+      "study": "공부 질문: 마스크 크기를 바꾸면 스캐너뿐 아니라 마스크 제작·검사·이송·설계 도구 중 어떤 요소를 함께 준비해야 할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "asml-and-tsmc-announce-initiative-pioneer-industry-transition-large-format-photomasks-high-na-euv",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-7acb23ff6942e5f0",
+      "title": "ASML reports €9.3 billion total net sales and €2.9 billion net income in Q2 2026",
+      "url": "https://investor.asml.com/news-releases/news-release-details/q2-2026-financial-results",
+      "date": "2026-07-15",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "장비 제조 / 생산운영",
+        "고객지원 / 유지보수"
+      ],
+      "tags": [
+        "분기실적",
+        "EUV",
+        "DUV 이머전"
+      ],
+      "summary": "2026년 2분기 실적과 EUV·DUV 이머전 장비의 생산능력 확대 계획, 기존 장비 업그레이드 방향을 설명한다.",
+      "study": "공부 질문: 장비 수요 증가를 생산능력 확충과 생산성 개선으로 나눠 대응하면 공급 계획과 자원 배분은 어떻게 달라질까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "q2-2026-financial-results",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-4641b452d21240a6",
+      "title": "High NA EUV reaches new readiness milestone with first high-volume Logic product",
+      "url": "https://investor.asml.com/news-releases/news-release-details/high-na-euv-reaches-new-readiness-milestone",
+      "date": "2026-07-15",
+      "category": "노광 / High NA EUV",
+      "topics": [
+        "시험 / 품질검증",
+        "광원 / 장비 제어"
+      ],
+      "tags": [
+        "EXE:5200B",
+        "Intel 18A",
+        "양산 검증"
+      ],
+      "summary": "Intel의 일부 제품 레이어에 High NA를 적용한 양산 사례를 소개한다. 수율 비교와 장비 인수 시험을 통해 공정 적용 준비도를 설명한다.",
+      "study": "공부 질문: 해상도가 좋아진 장비를 양산에 적용할 때 수율·오버레이·가동률·처리량을 어떤 기준으로 함께 검증할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "high-na-euv-reaches-new-readiness-milestone",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-8d9af8745e228321",
+      "title": "The machines behind the machines",
+      "url": "https://www.asml.com/en/company/stories/2026/machines-behind-machines",
+      "date": "2026-06-12",
+      "category": "소프트웨어 / AI",
+      "topics": [
+        "광원 / 장비 제어",
+        "계측 / 결함검사",
+        "고객지원 / 유지보수"
+      ],
+      "tags": [
+        "OPC",
+        "AI 광원 보정",
+        "e-beam 검사",
+        "고장 진단"
+      ],
+      "summary": "OPC 계산·EUV 광원 보정·전자빔 검사·장비 진단과 설계에 AI를 적용하는 사례를 설명한다. 초기 검증 결과와 광범위한 적용을 구분한다.",
+      "study": "공부 질문: AI 모델이 속도를 높여도 물리적 정확도와 신뢰성을 유지하는지 공정·장비별로 어떤 기준을 세워 검증할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "machines-behind-machines",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-45cc584954bbdc6b",
+      "title": "Tata Electronics and ASML announce strategic partnership to advance the semiconductor manufacturing ecosystem in India",
+      "url": "https://investor.asml.com/news-releases/news-release-details/tata-electronics-and-asml-announce-strategic-partnership-advance-semiconductor-manufacturing-ecosystem-india",
+      "date": "2026-05-16",
+      "category": "공급 / 계약",
+      "topics": [
+        "구매 / 공급망",
+        "장비 제조 / 생산운영"
+      ],
+      "tags": [
+        "Tata Electronics",
+        "MoU",
+        "Dholera 팹"
+      ],
+      "summary": "Tata와 Dholera 팹의 구축·가동을 지원하는 노광 장비 및 솔루션 협력 양해각서를 체결했다. 공급망과 연구 인프라 협력도 포함한다.",
+      "study": "공부 질문: 새 팹의 양산 준비에서 장비 반입·공정 통합·공급망·유지보수 역량을 어떤 순서로 검증해야 할까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "tata-electronics-and-asml-announce-strategic-partnership-advance-semiconductor-manufacturing-ecosystem-india",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-b594a5f550558bc6",
+      "title": "ASML reports €8.8 billion total net sales and €2.8 billion net income in Q1 2026",
+      "url": "https://investor.asml.com/news-releases/news-release-details/q1-2026-financial-results",
+      "date": "2026-04-15",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "장비 제조 / 생산운영",
+        "고객지원 / 유지보수"
+      ],
+      "tags": [
+        "분기실적",
+        "설치 장비",
+        "수요 대응"
+      ],
+      "summary": "2026년 1분기 실적과 고객의 생산능력 확대에 대응하는 신규 장비 공급·설치 장비 성능 개선 전략을 설명한다.",
+      "study": "공부 질문: 장비 출하 대수·제품 구성·서비스 기여도를 분리하면 매출과 이익 변화를 어떻게 해석할 수 있을까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "q1-2026-financial-results",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    },
+    {
+      "id": "asml-ea67b5582cfff9d9",
+      "title": "ASML reports €32.7 billion total net sales and €9.6 billion net income in 2025",
+      "url": "https://investor.asml.com/news-releases/news-release-details/q4-2025-financial-results",
+      "date": "2026-01-28",
+      "category": "재무 / 사업전략",
+      "topics": [
+        "노광 / High NA EUV",
+        "고객지원 / 유지보수"
+      ],
+      "tags": [
+        "연간실적",
+        "수주잔고",
+        "High NA"
+      ],
+      "summary": "2025년 연간·4분기 실적과 수주잔고, High NA 매출 인식 및 설치 장비 사업을 설명한다.",
+      "study": "공부 질문: 수주·출하·고객 인수·매출 인식 시점이 다를 때 장비 제조사의 생산 계획과 실적을 어떻게 연결해 볼까?",
+      "verified": true,
+      "is_official": true,
+      "source_key": "q4-2025-financial-results",
+      "source": "2026-10-22 ASML 공식 원문·표시 게시일 확인"
+    }
+  ]
+}
