@@ -1,5 +1,5 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
-import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js';
+import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261021-04';
 
 // Keep the desktop application's DOM and style selectors intact.
 const legacyIds={ 'article-list':'articleList', 'article-count':'listCount', 'list-title':'listTitle', 'reader-title':'articleTitle', 'reader-category':'articleCategory', 'reader-date':'articleDate', 'note-editor':'noteEditor', 'note-context':'noteContext', 'note-count':'noteChars', 'save-status':'noteSaveStatus', 'add-open':'addNews', 'add-dialog':'addDialog', 'add-form':'addForm', 'add-url':'addUrl', 'add-title':'addTitle', 'add-category':'addCategory', 'add-date':'addDate', 'add-status':'addError', 'category-suggestions':'fieldSuggestions' };
