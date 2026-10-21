@@ -1,15 +1,15 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
-import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261021-04';
+import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-01';
 
 // Keep the desktop application's DOM and style selectors intact.
 const legacyIds={ 'article-list':'articleList', 'article-count':'listCount', 'list-title':'listTitle', 'reader-title':'articleTitle', 'reader-category':'articleCategory', 'reader-date':'articleDate', 'note-editor':'noteEditor', 'note-context':'noteContext', 'note-count':'noteChars', 'save-status':'noteSaveStatus', 'add-open':'addNews', 'add-dialog':'addDialog', 'add-form':'addForm', 'add-url':'addUrl', 'add-title':'addTitle', 'add-category':'addCategory', 'add-date':'addDate', 'add-status':'addError', 'category-suggestions':'fieldSuggestions' };
 const $ = id => document.getElementById(legacyIds[id]||id);
-const state = { user:null, articles:[], companies:[], companyId:DEFAULT_COMPANY, notes:new Map(), dirty:new Map(), selected:null, tab:'memo', filter:'all', admin:false, generation:0, view:'web', preview:false };
+const state = { user:null, articles:[], companies:[], companyId:DEFAULT_COMPANY, notes:new Map(), dirty:new Map(), selected:null, tab:'takeaway', filter:'all', admin:false, generation:0, view:'web', preview:false };
 const companyArticles = () => state.articles.filter(a=>a.company_id===state.companyId);
 const currentCompany = () => state.companies.find(c=>c.id===state.companyId);
 const FIELD_ORDER=['열관리 / 충전','섀시 / NVH','차체 / 충돌','차량전자 / E/E','품질 / 신뢰성','시험 / 가상개발','프레스 / 차체','스마트제조','도장 / 의장','소재 / 경량화','하이브리드','ADAS / 자율주행','전동화 구동','SDV / IVI','배터리 / BMS','수소 / 연료전지','구매 / 공급망','상품 / 사업전략'];
 let client, authMode='login', timer, saving=null, importData=null, recoveryMode=false;
-let adminNotes=[], adminSelected=null, adminTab='memo';
+let adminNotes=[], adminSelected=null, adminTab='takeaway';
 const emptyNote = id => ({ article_id:id, memo:'', qa:'', takeaway:'', origin:'', favorite:false, read:false, user_edited:false, revision:0 });
 const note = id => state.notes.get(id) || emptyNote(id);
 const message = (id, text, error=false) => { $(id).textContent=text; $(id).dataset.error=String(error); };
@@ -310,7 +310,7 @@ function downloadBackup() {
 async function loadAdminNotes() {
   if(!state.admin || !state.selected)return;
   const generation=state.generation, id=state.selected.id;
-  resetAdminNotes();adminTab='memo';$('admin-dialog-title').textContent=state.selected.title;
+  resetAdminNotes();adminTab='takeaway';$('admin-dialog-title').textContent=state.selected.title;
   $('admin-status').textContent='회원 메모를 불러오는 중…';$('admin-dialog').showModal();
   message('workspace-status','회원 메모를 조회하는 중…');
   const [notes,profiles]=await Promise.all([
@@ -468,7 +468,7 @@ function wireEvents() {
   };
   $('export-notes').onclick=async()=>{try{await saveAll();downloadBackup();}catch(e){message('workspace-status',errorText(e),true);}};
   $('export-markdown').onclick=async()=>{
-    try {await saveAll();const sections=[...state.notes].filter(([,n])=>n.memo||n.qa||n.takeaway).map(([id,n])=>{const article=state.articles.find(a=>a.id===id)||topicArticles().find(a=>a.id===id);return `## ${article?.title||id}\n\n${article?.url||''}\n\n### 메모1\n\n${n.memo}\n\n### 메모2\n\n${n.qa}\n\n### 메모3\n\n${n.takeaway}`;});const url=URL.createObjectURL(new Blob([sections.join('\n\n---\n\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='내공부기록.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+    try {await saveAll();const sections=[...state.notes].filter(([,n])=>n.memo||n.qa||n.takeaway).map(([id,n])=>{const article=state.articles.find(a=>a.id===id)||topicArticles().find(a=>a.id===id);const content=Object.entries(NOTE_LABELS).map(([key,label])=>`### ${label}\n\n${n[key]||''}`).join('\n\n');return `## ${article?.title||id}\n\n${article?.url||''}\n\n${content}`;});const url=URL.createObjectURL(new Blob([sections.join('\n\n---\n\n')],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='내공부기록.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
     catch(e){message('workspace-status',errorText(e),true);}
   };
   window.addEventListener('beforeunload',event=>{if(state.dirty.size){event.preventDefault();event.returnValue='';}});

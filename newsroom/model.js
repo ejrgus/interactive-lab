@@ -8,7 +8,8 @@ export function canonicalUrl(value) {
 
 export const DEFAULT_COMPANY = 'hyundai-motor-group';
 export const EXTERNAL_CATEGORY = '외부링크';
-export const NOTE_LABELS = { memo:'메모1', qa:'메모2', takeaway:'메모3' };
+// Preserve the stored fields so existing notes and backups keep their content.
+export const NOTE_LABELS = { takeaway:'메모1', qa:'메모2', memo:'AI 요약' };
 export const topicId = (companyId, category) => companyId === DEFAULT_COMPANY ? `topic:${category}` : `company:${companyId}:topic:${category}`;
 export function topicCompany(id) {
   return id.startsWith('company:') ? id.split(':')[1] : DEFAULT_COMPANY;
