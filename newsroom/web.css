@@ -147,7 +147,7 @@ body.resizing-note{cursor:col-resize;user-select:none}body.resizing-note iframe{
  .sidebar{grid-column:1;grid-row:1;padding-top:20px;max-height:360px}.library{grid-column:2;grid-row:1;padding-top:0;max-height:360px}
  .sidebar-foot,.web-status{display:none}.reader{grid-column:1 / -1;min-height:500px;height:75dvh;border-top:1px solid var(--line)}
  .notes{grid-column:1 / -1;min-height:500px;height:75dvh;border-top:1px solid var(--line)}
- #note-resize,#expand-note{display:none}.article-top{flex-wrap:wrap;height:auto;min-height:70px}.reader-actions{flex-wrap:wrap}
+ #note-resize{display:none}.article-top{flex-wrap:wrap;height:auto;min-height:70px}.reader-actions{flex-wrap:wrap}
  body.reader-focus #workspace{display:flex;flex-direction:column}body.reader-focus .reader{min-height:70vh}body.reader-focus .notes{min-height:500px}
  .tools-menu,body.reader-focus .tools-menu{position:fixed;left:auto;right:10px;top:50px}
 }
@@ -164,3 +164,5 @@ h2#articleTitle.reader-label{position:absolute;width:1px;height:1px;margin:-1px;
 #browserToolbar .reader-flags{flex-shrink:0;gap:3px}
 #browserToolbar .reader-flags button{height:25px;min-width:25px;padding:2px 5px}
 #browserToolbar .focus-menu-button,#browserToolbar #readerFocus{font-size:10px;padding:4px 6px}
+
+.note-tools{justify-content:flex-end}
