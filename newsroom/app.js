@@ -51,6 +51,7 @@ function lockView() {
   state.companies=[];state.companyId=DEFAULT_COMPANY;$('company-menu').hidden=true;
   for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog']) if($(id).open)$(id).close();
   $('import-file').value=''; importData=null;
+  setToolsMenu(false);$('account-label').textContent='';setReaderFocus(false);
 }
 async function acceptSession(session) {
   if(recoveryMode) { $('auth-panel').hidden=true; $('workspace').hidden=true; $('recovery-panel').hidden=false; return; }
@@ -124,7 +125,7 @@ function companyIcon(company) {
 }
 function renderCompany() {
   const company=currentCompany();if(!company)return;
-  $('company-button').replaceChildren(companyIcon(company));$('company-button').setAttribute('aria-label',`${company.name} · 기업 선택`);$('company-button').title='기업 선택';
+  $('company-logo').replaceChildren(companyIcon(company));$('company-button').setAttribute('aria-label',`${company.name} · 기업 선택`);$('company-button').title='기업 선택';
   $('company-name').textContent=company.name;$('company-caption').textContent='NEWS & NOTES';
   $('company-list').replaceChildren();
   for(const c of state.companies) {
@@ -165,6 +166,16 @@ function updateArticleSource() {
   const official=$('add-official').value==='true';
   $('add-category').disabled=!official;$('add-category').required=official;$('add-category-label').hidden=!official;
   $('external-hint').hidden=$('add-official').value!=='false';
+}
+function setToolsMenu(open) {
+  $('toolsMenu').hidden=!open;
+  for(const id of ['toolsButton','readerMenu'])$(id).setAttribute('aria-expanded',String(open));
+  if(open){$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}
+}
+function setReaderFocus(open) {
+  document.body.classList.toggle('reader-focus',open);
+  $('readerFocus').textContent=open?'✕ 넓게 보기 닫기':'⤢ 뉴스 넓게';
+  setToolsMenu(false);
 }
 function renderList() {
   const query=$('search').value.trim().toLowerCase(), category=$('category').value;
@@ -363,8 +374,13 @@ function wireEvents() {
     catch(e){message('workspace-status',`로그아웃하지 못했습니다. ${errorText(e)}`,true);}
   };
   $('search').oninput=renderList;$('category').onchange=renderList;
-  $('toolsButton').onclick=()=>{const open=$('toolsMenu').hidden;$('toolsMenu').hidden=!open;$('toolsButton').setAttribute('aria-expanded',String(open));};
-  $('company-button').onclick=()=>{const open=$('company-menu').hidden;$('company-menu').hidden=!open;$('company-button').setAttribute('aria-expanded',String(open));};
+  for(const id of ['toolsButton','readerMenu'])$(id).onclick=()=>setToolsMenu($('toolsMenu').hidden);
+  $('leaveWorkspace').onclick=async event=>{
+    if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+    event.preventDefault();
+    try{await saveAll();location.assign($('leaveWorkspace').href);}catch(e){message('workspace-status',errorText(e),true);}
+  };
+  $('company-button').onclick=()=>{const open=$('company-menu').hidden;setToolsMenu(false);$('company-menu').hidden=!open;$('company-button').setAttribute('aria-expanded',String(open));};
   $('company-add').onclick=()=>openCompanyForm();$('company-edit').onclick=()=>openCompanyForm(true);
   $('company-form').onsubmit=async event=>{
     event.preventDefault();const submit=event.submitter;submit.disabled=true;const generation=state.generation;
@@ -386,10 +402,10 @@ function wireEvents() {
       message('workspace-status',editing?'기업 정보를 업데이트했습니다.':'기업을 열었습니다. 뉴스를 추가해보세요.');
     }catch(e){message('company-error',errorText(e),true);}finally{submit.disabled=false;}
   };
-  document.addEventListener('click',event=>{if(!event.target.closest('#toolsMenu')&&!event.target.closest('#toolsButton'))$('toolsMenu').hidden=true;if(!event.target.closest('.company-picker')){$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}});
+  document.addEventListener('click',event=>{if(!event.target.closest('#toolsMenu')&&!event.target.closest('#toolsButton')&&!event.target.closest('#readerMenu'))setToolsMenu(false);if(!event.target.closest('.company-picker')){$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}});
   $('topicNote').onclick=()=>selectTopic($('category').value||'면접 연결');
   $('previewNote').onclick=()=>{state.preview=!state.preview;renderNote();};
-  $('readerFocus').onclick=()=>{document.body.classList.toggle('reader-focus');$('readerFocus').textContent=document.body.classList.contains('reader-focus')?'☷ 목록 보기':'⤢ 뉴스 넓게';};
+  $('readerFocus').onclick=()=>setReaderFocus(!document.body.classList.contains('reader-focus'));
   $('webTab').onclick=()=>{state.view='web';renderReaderView();};$('summaryTab').onclick=()=>{state.view='summary';renderReaderView();};
   $('external').title='새 탭에서 원문 열기';$('external').onclick=()=>{if(state.selected?.url)window.open(canonicalUrl(state.selected.url),'_blank','noopener,noreferrer');};
   for(const id of ['reload','homeArticle'])$(id).onclick=()=>{if(state.selected?.url){$('articleFrame').dataset.source='';state.view='web';renderReaderView();}};
@@ -457,7 +473,7 @@ function wireEvents() {
   };
   window.addEventListener('beforeunload',event=>{if(state.dirty.size){event.preventDefault();event.returnValue='';}});
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveAll().catch(e=>message('save-status',errorText(e),true));});
-  document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'&&state.user){event.preventDefault();saveAll().catch(e=>message('save-status',errorText(e),true));}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='f'&&state.user){event.preventDefault();document.body.classList.remove('reader-focus');$('search').focus();}if(event.key==='Escape'){document.body.classList.remove('reader-focus');$('readerFocus').textContent='⤢ 뉴스 넓게';$('toolsMenu').hidden=true;$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}});
+  document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'&&state.user){event.preventDefault();saveAll().catch(e=>message('save-status',errorText(e),true));}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='f'&&state.user){event.preventDefault();setReaderFocus(false);$('search').focus();}if(event.key==='Escape'){setReaderFocus(false);$('company-menu').hidden=true;$('company-button').setAttribute('aria-expanded','false');}});
 }
 async function init() {
   if(document.readyState==='loading')await new Promise(resolve=>document.addEventListener('DOMContentLoaded',resolve,{once:true}));

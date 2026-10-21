@@ -7,6 +7,23 @@ a { color:#3d6eab; }
 .brand-icon { display:grid; padding:0; border:0; flex-shrink:0; font-style:normal; font-size:14px; }
 .brand-icon .company-icon { width:30px; height:30px; }
 .company-picker { position:relative; }
+.company-picker { width:100%; min-width:0; }
+.company-trigger { display:flex; align-items:center; gap:7px; width:100%; min-width:0; height:42px; padding:5px 7px; border:1px solid #dce6f2; background:#f7faff; text-align:left; }
+.company-trigger:hover,.company-trigger[aria-expanded=true] { background:#eaf2ff; border-color:#b8cfea; }
+.company-logo { display:flex; flex-shrink:0; }
+.company-logo .company-icon { width:28px; height:28px; border-radius:7px; }
+.company-label { flex:1; min-width:0; }
+.company-chevron { color:#6f8dad; font-size:13px; flex-shrink:0; }
+.company-trigger strong { font-size:12px; }
+.focus-menu-button { display:none; }
+body.reader-focus .focus-menu-button { display:inline-flex; }
+body.reader-focus .tools-menu { left:auto; right:calc(var(--note) + 10px); top:44px; }
+.tools-menu { width:248px; left:calc(var(--nav) + var(--list) - 258px); }
+.tools-menu a { display:block; text-decoration:none; border-radius:7px; font-size:12px; padding:11px; color:#42526a; }
+.tools-menu a:hover { background:#eef3fb; }
+.tools-menu a:focus-visible { outline:2px solid #3b82f6; outline-offset:2px; }
+.tools-menu .menu-signout { color:#b34d55; background:#fff2f3; margin-top:4px; }
+.tools-menu p.menu-caption { color:#6782a3; font-size:10px; margin:10px 0 3px; }
 .company-icon { display:grid; place-items:center; position:relative; width:37px; height:37px; border-radius:10px; background:#edf3fb; color:#28557e; font-size:12px; font-weight:700; flex-shrink:0; overflow:hidden; }
 .company-icon img { position:absolute; inset:3px; width:calc(100% - 6px); height:calc(100% - 6px); object-fit:contain; }
 .company-menu { position:absolute; top:46px; left:0; z-index:30; width:280px; max-height:65vh; overflow:auto; background:white; border:1px solid var(--line); border-radius:12px; box-shadow:0 12px 40px #13273b26; padding:9px; }
@@ -94,6 +111,7 @@ body.reader-focus .web-status { display:none; }
  .article-top { flex-direction:column; align-items:stretch; min-height:80px; height:auto; padding:10px; }
  h2#articleTitle { white-space:normal; font-size:13px; }.reader-actions { justify-content:space-between; }
  .tools-menu { position:fixed; left:auto; right:10px; top:50px; }
+ body.reader-focus .tools-menu { right:10px; top:50px; }
  body.reader-focus #workspace { display:flex; flex-direction:column; }
  body.reader-focus .reader { min-height:70vh; } body.reader-focus .notes { min-height:400px; }
  .auth-shell { gap:30px; padding:35px 20px; }.auth-intro h1 { font-size:31px; }
