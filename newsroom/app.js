@@ -1,8 +1,8 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
 import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-01';
-import { setupNoteLayout } from './layout.js?v=20261022-02';
-import { createPresence } from './presence.js?v=20261022-02';
-import { createNoteImages } from './images.js?v=20261022-02';
+import { setupNoteLayout } from './layout.js?v=20261022-04';
+import { createPresence } from './presence.js?v=20261022-04';
+import { createNoteImages } from './images.js?v=20261022-04';
 
 // Keep the desktop application's DOM and style selectors intact.
 const legacyIds={ 'article-list':'articleList', 'article-count':'listCount', 'list-title':'listTitle', 'reader-title':'articleTitle', 'reader-category':'articleCategory', 'reader-date':'articleDate', 'note-editor':'noteEditor', 'note-context':'noteContext', 'note-count':'noteChars', 'save-status':'noteSaveStatus', 'add-open':'addNews', 'add-dialog':'addDialog', 'add-form':'addForm', 'add-url':'addUrl', 'add-title':'addTitle', 'add-category':'addCategory', 'add-date':'addDate', 'add-status':'addError', 'category-suggestions':'fieldSuggestions' };
@@ -286,6 +286,7 @@ function changeNote(patch, edited=true) {
   timer=setTimeout(()=>saveAll().catch(e=>message('save-status',errorText(e),true)),850);
 }
 async function saveAll() {
+  await ownImages?.flush();
   clearTimeout(timer);
   if(saving){await saving;if(state.dirty.size)return saveAll();return;}
   if(!state.user || !state.dirty.size)return;
@@ -366,7 +367,7 @@ function renderAdminNotes() {
 function wireEvents() {
   setupNoteLayout();
   presence=createPresence(client,renderOnline);
-  ownImages=createNoteImages(client,{gallery:$('note-images'),status:$('image-status'),input:$('image-file'),upload:$('attach-image'),context:()=>state.user&&state.selected?{userId:state.user.id,articleId:state.selected.id,noteKey:state.tab}:null});
+  ownImages=createNoteImages(client,{gallery:$('note-images'),status:$('image-status'),pasteTarget:$('note-editor'),context:()=>state.user&&state.selected?{userId:state.user.id,articleId:state.selected.id,noteKey:state.tab}:null});
   adminImages=createNoteImages(client,{gallery:$('admin-images'),status:$('admin-image-status'),context:()=>state.user&&state.selected&&adminSelected?{userId:adminSelected,articleId:state.selected.id,noteKey:adminTab}:null});
   $('online-button').onclick=()=>$('online-dialog').showModal();
   $('online-retry').onclick=()=>{if(state.user){presence.stop();presence.start(state.user,profileNickname);}};

@@ -8,13 +8,17 @@ export function validateImage(file) {
 const check=({data,error})=>{if(error)throw error;return data;};
 const keyOf=c=>c?`${c.userId}:${c.articleId}:${c.noteKey}`:'';
 
-export function createNoteImages(client,{gallery,status,context,input,upload}) {
-  let key='',generation=0,uploading=false,refreshTimer;
+export function clipboardImages(data) {
+  const items=Array.from(data?.items||[]).filter(item=>item.kind==='file'&&item.type.startsWith('image/')).map(item=>item.getAsFile()).filter(Boolean);
+  return items.length?items:Array.from(data?.files||[]).filter(file=>file.type.startsWith('image/'));
+}
+
+export function createNoteImages(client,{gallery,status,context,pasteTarget}) {
+  let key='',generation=0,refreshTimer,pending=Promise.resolve();
   const say=(text,error=false)=>{status.textContent=text;status.dataset.error=String(error);};
   const storage=()=>client.storage.from(BUCKET);
   function clear() {
     generation++;key='';clearTimeout(refreshTimer);gallery.replaceChildren();say('');
-    if(input)input.value='';if(upload)upload.disabled=true;
   }
   function openOriginal(row,url) {
     const image=document.getElementById('image-original');image.src=url;image.alt=row.file_name;
@@ -23,7 +27,6 @@ export function createNoteImages(client,{gallery,status,context,input,upload}) {
   }
   async function load(force=false) {
     const c=context();if(!c){clear();return;}
-    if(upload)upload.disabled=uploading;
     if(!force&&key===keyOf(c))return;
     key=keyOf(c);const turn=++generation;clearTimeout(refreshTimer);gallery.replaceChildren();say('이미지 불러오는 중…');
     try {
@@ -39,7 +42,7 @@ export function createNoteImages(client,{gallery,status,context,input,upload}) {
         const caption=document.createElement('figcaption');caption.textContent=row.file_name;
         const controls=document.createElement('div');controls.className='image-controls';
         const original=document.createElement('button');original.type='button';original.textContent='원본 보기';original.disabled=!url;original.onclick=()=>openOriginal(row,url);controls.append(original);
-        if(input) {
+        if(pasteTarget) {
           const label=document.createElement('label');label.textContent='크기';
           const range=document.createElement('input');range.type='range';range.min='25';range.max='100';range.step='5';range.value=String(row.width_percent);range.setAttribute('aria-label',`${row.file_name} 표시 크기`);
           const output=document.createElement('output');output.textContent=`${row.width_percent}%`;
@@ -66,23 +69,32 @@ export function createNoteImages(client,{gallery,status,context,input,upload}) {
       if(turn===generation){key='';say('이미지 목록을 불러오지 못했어요. 메모 탭을 다시 선택해주세요.',true);}
     }
   }
-  if(input) {
-    upload.onclick=()=>input.click();
-    input.onchange=async()=>{
-      const file=input.files[0],c=context();input.value='';if(!file||!c||uploading)return;
+  if(pasteTarget) {
+    async function attach(file,c) {
       let path='',stored=false,attached=false;
       try {
-        validateImage(file);uploading=true;upload.disabled=true;say('원본 이미지 업로드 중…');
+        validateImage(file);if(keyOf(context())===keyOf(c))say('이미지 붙여넣는 중… 원본을 저장합니다.');
         const id=crypto.randomUUID();path=`${c.userId}/${id}.${TYPES[file.type]}`;
         check(await storage().upload(path,file,{contentType:file.type,upsert:false}));stored=true;
-        check(await client.from('newsroom_note_images').insert({id,user_id:c.userId,article_id:c.articleId,note_key:c.noteKey,object_path:path,file_name:file.name.slice(0,200),mime_type:file.type,byte_size:file.size,width_percent:100}));attached=true;
-        if(keyOf(context())===keyOf(c))await load(true);
+        check(await client.from('newsroom_note_images').insert({id,user_id:c.userId,article_id:c.articleId,note_key:c.noteKey,object_path:path,file_name:(file.name||`붙여넣은 이미지.${TYPES[file.type]}`).slice(0,200),mime_type:file.type,byte_size:file.size,width_percent:100}));attached=true;
+        if(keyOf(context())===keyOf(c)){
+          await load(true);
+          gallery.lastElementChild?.scrollIntoView({block:'nearest'});
+        }
       } catch(e) {
         let cleaned=true;
         if(stored&&!attached)try{check(await storage().remove([path]));}catch{cleaned=false;}
         if(keyOf(context())===keyOf(c))say(cleaned?(e.message||'이미지 업로드에 실패했어요.'):'첨부 등록에 실패했고 파일 정리가 필요해요. 관리자에게 알려주세요.',true);
-      } finally {uploading=false;if(context())upload.disabled=false;}
-    };
+      }
+    }
+    pasteTarget.addEventListener('paste',event=>{
+      const c=context();if(!c||pasteTarget.disabled)return;
+      const files=clipboardImages(event.clipboardData);if(!files.length)return;
+      event.preventDefault();
+      try {files.forEach(validateImage);}catch(e){say(e.message,true);return;}
+      say('이미지 붙여넣는 중… 원본을 저장합니다.');
+      for(const file of files)pending=pending.then(()=>attach(file,c));
+    });
   }
-  return {load,clear};
+  return {load,clear,flush:()=>pending};
 }

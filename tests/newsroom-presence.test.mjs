@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createPresence,onlineMembers,PRESENCE_TOPIC} from '../newsroom/presence.js';
 import {noteWidthLimits} from '../newsroom/layout.js';
-import {validateImage,MAX_IMAGE_BYTES} from '../newsroom/images.js';
+import {validateImage,MAX_IMAGE_BYTES,clipboardImages} from '../newsroom/images.js';
 
 test('several tabs for one member are one entry; empty and malformed state is ignored',()=>{
   const result=onlineMembers({a:[{nickname:'회원 A'},{nickname:'회원 A'}],b:[{nickname:'회원 B'}],c:[],d:null});
@@ -33,4 +33,11 @@ test('image uploads preserve original bytes and reject unsupported or oversized 
   assert.throws(()=>validateImage({type:'image/png',size:MAX_IMAGE_BYTES+1}));
   assert.throws(()=>validateImage({type:'image/svg+xml',size:100}));
   assert.throws(()=>validateImage({type:'image/jpeg',size:0}));
+});
+test('clipboard screenshots are picked once and text-only paste is left alone',()=>{
+  const image={type:'image/png',size:1024},item={kind:'file',type:'image/png',getAsFile:()=>image};
+  assert.deepEqual(clipboardImages({items:[item],files:[image]}),[image]);
+  assert.deepEqual(clipboardImages({items:[],files:[image]}),[image]);
+  assert.deepEqual(clipboardImages({items:[{kind:'string',type:'text/html',getAsFile:()=>null}],files:[]}),[]);
+  assert.deepEqual(clipboardImages(null),[]);
 });
