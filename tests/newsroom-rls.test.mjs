@@ -44,6 +44,12 @@ await as('authenticated',C,async()=>{
   assert.equal((await db.query("update public.newsroom_notes set memo='admin edit' where user_id=$1 returning memo",[A])).rows.length,0);checks++;
 });
 await as('authenticated',A,async()=>{
+  await db.query("insert into public.newsroom_notes(article_id,read) values('empty-read-record',true)");
+  await db.query('select public.newsroom_import_records($1::jsonb,$2::jsonb)',[JSON.stringify({'empty-read-record':{memo:'Existing local memo',updated:'2026-01-01T00:00:00Z'}}),'[]']);
+  assert.equal((await db.query("select memo from public.newsroom_notes where article_id='empty-read-record'")).rows[0].memo,'Existing local memo');checks++;
+  await db.query("update public.newsroom_notes set memo='',user_edited=true,updated_at=now() where article_id='empty-read-record'");
+  await db.query('select public.newsroom_import_records($1::jsonb,$2::jsonb)',[JSON.stringify({'empty-read-record':{memo:'Should not replace a deliberate clear',updated:'2026-01-01T00:00:00Z'}}),'[]']);
+  assert.equal((await db.query("select memo from public.newsroom_notes where article_id='empty-read-record'")).rows[0].memo,'');checks++;
   const r=await db.query("update public.newsroom_notes set memo='A revision 2' where article_id='topic:test' and revision=1 returning revision");
   assert.equal(Number(r.rows[0].revision),2);checks++;
   assert.equal((await db.query("update public.newsroom_notes set memo='stale' where article_id='topic:test' and revision=1 returning revision")).rows.length,0);checks++;

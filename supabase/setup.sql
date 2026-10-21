@@ -8,6 +8,7 @@ create table if not exists newsroom_private.admins (
   created_at timestamptz not null default now()
 );
 revoke all on newsroom_private.admins from public, anon, authenticated;
+alter table newsroom_private.admins enable row level security;
 
 create or replace function public.newsroom_is_admin() returns boolean
 language sql stable security definer set search_path = '' as $$
@@ -123,7 +124,11 @@ begin
     on conflict (user_id,article_id) do update set
       memo=excluded.memo,qa=excluded.qa,takeaway=excluded.takeaway,origin=excluded.origin,
       favorite=excluded.favorite,read=excluded.read,user_edited=excluded.user_edited,updated_at=excluded.updated_at
-    where public.newsroom_notes.updated_at < coalesce(nullif(item->>'updated','')::timestamptz,'epoch'::timestamptz);
+    where (not public.newsroom_notes.user_edited
+           and public.newsroom_notes.memo = ''
+           and public.newsroom_notes.qa = ''
+           and public.newsroom_notes.takeaway = '')
+       or public.newsroom_notes.updated_at < coalesce(nullif(item->>'updated','')::timestamptz,'epoch'::timestamptz);
     get diagnostics changed = row_count;
     imported := imported + changed;
   end loop;

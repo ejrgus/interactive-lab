@@ -15,7 +15,7 @@
 ## Supabase에서 한 번 실행할 설정
 
 1. 프로젝트 SQL Editor에서 `supabase/setup.sql` 전체를 붙여넣고 Run을 누른다. 테이블·권한·기사 71개가 설정된다. 다시 실행해도 기존 메모는 지우지 않는다.
-2. Authentication → URL Configuration에서 Site URL을 `https://ejrgus.github.io/interactive-lab/`로 설정하고 Redirect URLs에 `https://ejrgus.github.io/interactive-lab/newsroom/index.html`을 추가한다. 로컬 검증 시 `http://localhost:4173/newsroom/index.html`도 추가한다.
+2. Authentication → URL Configuration에서 Site URL을 `https://ejrgus.github.io/interactive-lab/newsroom/index.html`로 설정하고 같은 주소를 Redirect URLs에도 추가한다. 로컬 검증 시 `http://127.0.0.1:4174/newsroom/index.html`도 추가한다.
 3. Authentication의 이메일 가입을 활성화한다. 친구들과 실제로 이용할 때에는 사용자 소유 SMTP를 설정한다. Supabase 기본 메일 발송은 테스트용이고 수신자·발송량이 제한되어 외부 친구의 인증 메일에 사용하기 어렵다. 비밀번호는 웹사이트나 저장소에 적지 않는다.
 4. 사이트 뉴스룸에서 운영자 본인이 먼저 회원가입·이메일 인증·로그인한다.
 5. `supabase/03-admin.sql`의 `YOUR_EMAIL_HERE`를 본인 가입 이메일로 바꿔 SQL Editor에서 실행한다. 사이트를 새로고침하면 관리자 메모 열람 메뉴가 표시된다. 첫 가입자를 자동으로 관리자로 지정하지 않는다.
@@ -39,6 +39,7 @@ Supabase 프로젝트 소유자는 대시보드에서 DB를 관리할 수 있다
 - 뉴스 추가 사항은 새로고침으로 반영한다. 이 버전은 실시간 구독을 사용하지 않는다.
 - 내 기록 백업은 본인 메모만 JSON 파일로 내려받는다. 관리자에게 보이는 다른 회원의 메모는 백업에 포함하지 않는다.
 - 파일을 가져올 때 직접 추가한 기사는 공유되며, 메모는 본인 계정에만 들어간다.
+- 먼저 열어본 기사에 읽음 상태만 있고 메모가 비어 있으면 기존 로컬 메모를 채운다. 사용자가 직접 내용을 지운 메모는 더 최신인 서버 기록으로 유지한다.
 
 ## 검증 및 코드와 배포
 
