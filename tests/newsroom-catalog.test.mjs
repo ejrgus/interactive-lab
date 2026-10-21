@@ -10,6 +10,39 @@ const asml=JSON.parse(await read('newsroom/catalogs/asml.json'));
 const lge=JSON.parse(await read('newsroom/catalogs/lg-electronics.json'));
 const innotek=JSON.parse(await read('newsroom/catalogs/lg-innotek.json'));
 const kia=JSON.parse(await read('newsroom/catalogs/kia.json'));
+const hynix=JSON.parse(await read('newsroom/catalogs/sk-hynix.json'));
+
+test('SK hynix separates media inventory, preserves verified originals and distinguishes negotiations',async()=>{
+  const excluded=JSON.parse(await read('newsroom/catalogs/sk-hynix-exclusions.json')).excluded;
+  assert.equal(hynix.coverage.since,'2025-10-22');
+  assert.equal(hynix.coverage.until,'2026-10-22');
+  assert.equal(hynix.coverage.inventory_total,1179);
+  assert.equal(hynix.coverage.listed+hynix.coverage.non_text_posts,1179);
+  assert.equal(hynix.articles.length+excluded.length,202);
+  assert.equal(hynix.articles.length,64);
+  assert.equal(hynix.coverage.selected_originals_verified,64);
+  assert.equal(new Set(hynix.articles.map(a=>a.url)).size,64);
+  assert.equal(new Set(hynix.articles.map(a=>a.id)).size,64);
+  const fields=new Set();
+  for(const a of hynix.articles){
+    assert.ok(a.date>=hynix.coverage.since&&a.date<=hynix.coverage.until);
+    assert.equal(canonicalUrl(a.url),a.url);
+    assert.equal(new URL(a.url).hostname,'news.skhynix.co.kr');
+    assert.ok(a.is_official&&a.verified&&a.summary&&a.study.startsWith('공부 질문:'));
+    assert.ok(!/The Leaders|임원인사|채용|사명 로고플레이|사회공헌|HBM 칩스|ThanksFULL/.test(a.title));
+    assert.equal(new Set([a.category,...a.topics]).size,1+a.topics.length);
+    for(const f of [a.category,...a.topics])fields.add(f);
+  }
+  assert.equal(fields.size,23);
+  assert.ok([...fields].every(f=>!/마케팅|영업|인사|사회공헌/.test(f)));
+  assert.equal(hynix.articles.filter(a=>inCategory(a,'공급 / 계약')).length,8);
+  const sample=hynix.articles.find(a=>a.source_post_id==='63161');
+  for(const f of ['공급 / 계약','HBM / 고대역폭 메모리','패키징 / TSV·본딩','시험 / 신뢰성'])assert.ok(inCategory(sample,f));
+  assert.ok(!inCategory(hynix.articles.find(a=>a.source_post_id==='64500'),'공급 / 계약'));
+  assert.ok(!inCategory(hynix.articles.find(a=>a.source_post_id==='61164'),'공급 / 계약'));
+  assert.ok(excluded.some(a=>a.reason.includes('미확정')));
+  assert.notEqual(topicId(hynix.company.id,'공급 / 계약'),topicId(kia.company.id,'공급 / 계약'));
+});
 
 test('Kia covers the verified year and distinguishes fleet contracts from launch reservations',async()=>{
   const excluded=JSON.parse(await read('newsroom/catalogs/kia-exclusions.json')).excluded;
@@ -241,6 +274,9 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
     await db.exec("insert into public.newsroom_companies(id,name) values('existing-kia','기아');");
     await db.query("insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-kia-article',$1,'existing Kia title','existing-kia','existing category')",[kia.articles[0].url]);
     await db.exec("insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-kia-article','existing Kia private text');");
+    await db.exec("insert into public.newsroom_companies(id,name) values('existing-hynix','SK하이닉스');");
+    await db.query("insert into public.newsroom_articles(id,url,title,company_id,category) values('existing-hynix-article',$1,'existing SK hynix title','existing-hynix','existing category')",[hynix.articles[0].url]);
+    await db.exec("insert into public.newsroom_notes(user_id,article_id,takeaway) values('00000000-0000-4000-8000-000000000001','existing-hynix-article','existing SK hynix private text');");
     const before=(await db.query('select * from public.newsroom_notes')).rows;
     const seed=await read('supabase/07-seed-company-news.sql');
     await db.exec(seed);await db.exec(seed);
@@ -261,6 +297,9 @@ test('company seed reuses existing company/article IDs and leaves notes unchange
     assert.equal((await db.query("select id from public.newsroom_companies where name='기아'")).rows[0].id,'existing-kia');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-kia'")).rows[0].n,38);
     assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[kia.articles[0].url])).rows[0].id,'existing-kia-article');
+    assert.equal((await db.query("select id from public.newsroom_companies where name='SK하이닉스'")).rows[0].id,'existing-hynix');
+    assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='existing-hynix'")).rows[0].n,64);
+    assert.equal((await db.query('select id from public.newsroom_articles where url=$1',[hynix.articles[0].url])).rows[0].id,'existing-hynix-article');
     assert.equal((await db.query('select id,title from public.newsroom_articles where url=$1',[first.url])).rows[0].id,'existing-article');
     assert.equal((await db.query("select count(*)::int n from public.newsroom_articles where company_id='hyundai-motor-group'")).rows[0].n,71);
     assert.deepEqual((await db.query('select * from public.newsroom_notes')).rows,before);
