@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
-import {canonicalUrl,inCategory,topicId,usesSeparateReader} from '../newsroom/model.js';
+import {canonicalUrl,inCategory,topicId} from '../newsroom/model.js';
 const read=name=>readFile(new URL('../'+name,import.meta.url),'utf8');
 const catalog=JSON.parse(await read('newsroom/catalogs/hankook-tire.json'));
 const lg=JSON.parse(await read('newsroom/catalogs/lg-energy-solution.json'));
@@ -142,15 +142,6 @@ test('LG Electronics shares contract identity across fields and includes body-co
   const hiddenSupply=lge.articles.find(a=>a.source_post_id==='233910');
   assert.equal(hiddenSupply.category,'공급 / 계약');
   assert.notEqual(topicId(lge.company.id,'공급 / 계약'),topicId(lg.company.id,'공급 / 계약'));
-});
-
-test('the separate reader is restricted to sites confirmed to reject embedding',()=>{
-  assert.equal(usesSeparateReader('https://investor.asml.com/news-releases/news-release-details/example'),true);
-  assert.equal(usesSeparateReader('https://www.investor.asml.com/news-releases/news-release-details/example'),true);
-  assert.equal(usesSeparateReader('https://www.lginnotek.com/news/pressView.do?idx=6601&locale=ko'),true);
-  assert.equal(usesSeparateReader('https://lginnotek.com/news/insightsView.do?idx=245&locale=ko'),true);
-  assert.equal(usesSeparateReader('https://www.lginnotek.com.example.org/story'),false);
-  for(const url of ['','not a URL','https://investor.asml.com.example.org/story','https://www.asml.com/en/company/stories/2026/machines-behind-machines','https://inside.lgensol.com/story','https://www.hyundaimotorgroup.com/ko/story/test'])assert.equal(usesSeparateReader(url),false);
 });
 
 test('ASML originals follow the year and account for the full verified discovery scope',async()=>{

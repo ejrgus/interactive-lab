@@ -6,12 +6,6 @@ export function canonicalUrl(value) {
   return url.href.replace(/\/$/, '');
 }
 
-// These official sites reject embedded readers. Keep the study visible.
-export function usesSeparateReader(value) {
-  try { return ['investor.asml.com','www.investor.asml.com','www.lginnotek.com','lginnotek.com'].includes(new URL(value).hostname); }
-  catch { return false; }
-}
-
 export const DEFAULT_COMPANY = 'hyundai-motor-group';
 export const EXTERNAL_CATEGORY = '외부링크';
 // Preserve the stored fields so existing notes and backups keep their content.

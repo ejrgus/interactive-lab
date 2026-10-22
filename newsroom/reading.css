@@ -1,0 +1,11 @@
+#readingSurface{flex:1 1 0;min-height:0;overflow:auto;padding:36px clamp(24px,5%,64px) 64px;background:#fff;scrollbar-gutter:stable;line-height:1.95;color:#35445a}
+#readingSurface[hidden]{display:none}
+#readingSurface header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+#readingSurface .reading-eyebrow{font-size:10px;letter-spacing:.16em;color:#587ca5;font-weight:600;margin:0 0 12px}
+#readingSurface h1{font-size:23px;line-height:1.55;letter-spacing:-.025em;color:#1e3552;margin:0 0 16px;word-break:keep-all;overflow-wrap:anywhere}
+#readingSurface .reading-meta{font-size:11px;color:#7b899b;margin:0}
+#readingSurface .reading-notice{font-size:11px;color:#6c7c90;background:#f4f7fb;border-left:2px solid #b6cbe3;padding:12px 16px;margin:0 0 30px}
+#readingSurface section{margin:0 0 30px}
+#readingSurface h2{font-size:16px;line-height:1.6;color:#263f60;margin:0 0 11px}
+#readingSurface section p{font-size:14px;margin:0;word-break:keep-all;overflow-wrap:anywhere}
+#readingSurface .reading-source{border-top:1px solid var(--line);padding-top:16px;margin-top:38px;color:#8994a4;font-size:10px;overflow-wrap:anywhere}
