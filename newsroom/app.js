@@ -1,5 +1,6 @@
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './config.js';
-import { canonicalUrl, usesSeparateReader, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-08';
+import { canonicalUrl, parseBackup, recordForExport, DEFAULT_COMPANY, EXTERNAL_CATEGORY, NOTE_LABELS, topicId, topicCompany, articleFields, inCategory } from './model.js?v=20261022-09';
+import { articleReader, renderArticleReading } from './reader.js?v=20261022-09';
 import { setupNoteLayout } from './layout.js?v=20261022-05';
 import { createPresence } from './presence.js?v=20261022-05';
 import { createNoteImages } from './images.js?v=20261022-05';
@@ -52,7 +53,7 @@ function lockView() {
   $('app-topbar').hidden=true;document.body.classList.remove('signed-in','reader-focus');
   $('article-list').replaceChildren(); resetAdminNotes(); $('admin-panel').hidden=true;
   $('note-editor').value=''; $('note-editor').disabled=true; $('password').value='';
-  $('notePreview').textContent='';$('notePreview').hidden=true;$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';
+  $('notePreview').textContent='';$('notePreview').hidden=true;$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';$('readingSurface').replaceChildren();
   $('search').value='';$('category').value='';state.filter='all';state.preview=false;
   state.companies=[];state.companyId=DEFAULT_COMPANY;$('company-menu').hidden=true;
   for(const id of ['add-dialog','import-dialog','company-dialog','admin-dialog','online-dialog']) if($(id).open)$(id).close();
@@ -237,16 +238,19 @@ function selectTopic(category) {
 }
 function renderReaderView() {
   const article=state.selected;if(!article)return;
-  const separate=usesSeparateReader(article.url);
-  const web=!!article.url&&state.view==='web'&&!separate;
-  $('webSurface').hidden=!web;$('summaryContent').hidden=web;$('browserToolbar').hidden=false;
+  const plan=articleReader(article.url);
+  const web=!!article.url&&state.view==='web';
+  const embedded=web&&plan.kind==='frame',reading=web&&plan.kind==='reading';
+  $('webSurface').hidden=!embedded;$('readingSurface').hidden=!reading;$('summaryContent').hidden=web;$('browserToolbar').hidden=false;
   for(const id of ['reload','homeArticle','currentUrl','currentAdd','external'])$(id).hidden=!article.url;
   $('webTab').disabled=!article.url;$('webTab').classList.toggle('active',web);$('summaryTab').classList.toggle('active',!web);
-  $('webTab').textContent=separate?'원문 새 탭':'원문 웹';
-  $('currentUrl').textContent=article.url||'';$('currentUrl').title=article.url||'';
-  if(web&&$('articleFrame').dataset.source!==article.url){$('articleFrame').src=canonicalUrl(article.url);$('articleFrame').dataset.source=article.url;}
-  if(!web){$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';}
-  $('webStatus').textContent=separate?'이 사이트의 원문은 새 탭에서 열립니다. 요약과 메모는 여기서 함께 보세요.':web?'내부 원문이 표시되지 않으면 ↗ 버튼으로 새 탭에서 열어주세요.':'뉴스는 함께 공유하고, 메모는 내 계정에 저장됩니다.';
+  $('webTab').textContent=plan.kind==='reading'?'기사 읽기':'원문 웹';
+  const displayedUrl=embedded?plan.url:article.url||'';
+  $('currentUrl').textContent=displayedUrl;$('currentUrl').title=displayedUrl;
+  if(embedded&&$('articleFrame').dataset.source!==plan.url){$('articleFrame').src=plan.url;$('articleFrame').dataset.source=plan.url;}
+  if(!embedded){$('articleFrame').removeAttribute('src');$('articleFrame').dataset.source='';}
+  if(reading){renderArticleReading($('readingSurface'),article,plan);$('readingSurface').scrollTop=0;}
+  $('webStatus').textContent=reading?'공식 자료를 정리한 읽기 화면 · 메모는 같은 기사에 저장됩니다.':embedded&&plan.provider?`${plan.provider}의 동일 기사를 표시합니다.`:web?'내부 원문이 표시되지 않으면 ↗ 버튼으로 새 탭에서 열어주세요.':'뉴스는 함께 공유하고, 메모는 내 계정에 저장됩니다.';
 }
 async function selectArticle(article, flush=true) {
   if(flush)await saveAll();
@@ -436,7 +440,7 @@ function wireEvents() {
   $('topicNote').onclick=()=>selectTopic($('category').value||'면접 연결');
   $('previewNote').onclick=async()=>{await ownImages.flush();state.preview=!state.preview;renderNote();};
   $('readerFocus').onclick=()=>setReaderFocus(!document.body.classList.contains('reader-focus'));
-  $('webTab').onclick=()=>{if(usesSeparateReader(state.selected?.url)){$('external').click();return;}state.view='web';renderReaderView();};$('summaryTab').onclick=()=>{state.view='summary';renderReaderView();};
+  $('webTab').onclick=()=>{state.view='web';renderReaderView();};$('summaryTab').onclick=()=>{state.view='summary';renderReaderView();};
   $('external').title='새 탭에서 원문 열기';$('external').onclick=()=>{if(state.selected?.url)window.open(canonicalUrl(state.selected.url),'_blank','noopener,noreferrer');};
   for(const id of ['reload','homeArticle'])$(id).onclick=()=>{if(state.selected?.url){$('articleFrame').dataset.source='';state.view='web';renderReaderView();}};
   $('currentAdd').onclick=()=>{$('add-open').click();if(state.selected?.url){$('add-url').value=state.selected.url;$('add-title').value=state.selected.title;if(state.selected.category!==EXTERNAL_CATEGORY)$('add-category').value=state.selected.category;}};

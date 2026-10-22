@@ -94,7 +94,7 @@ def build(cache):
         f'원문 {len(sources)}건 확인 → {len(articles)}건 수집 / {len(excluded)}건 제외',
         coverage['scope'],coverage['policy'],'제목은 공식 영어 원문을 유지하고 요약·공부 질문은 한국어로 작성.',
         '기사 본문·개인 기록·인증 정보를 공개 카탈로그에 포함하지 않음.',
-        'ASML Investor 원문은 내부 프레임에서 표시되지 않음을 확인. 해당 도메인은 학습 요약을 기본 표시하고 원문 새 탭 버튼으로 연결. 다른 회사의 원문 웹 동작은 유지.','',
+        'ASML Investor 원문은 내부 프레임에서 표시되지 않음. 2026-10-22부터 해당 기사는 원문 주요 내용을 한국어로 정리한 내부 읽기 자료를 표시하며 원문 전체·원문 화면과 구분. 원문을 강제로 새 탭에서 열지 않음. Stories 원문 웹 동작은 유지.','',
         '분야별 건수 (동일 기사 교차 분류로 분야 합계와 고유 기사 수는 다름):']
     report.extend(f'{field}: {counts[field]}' for field in FIELDS.values())
     report.extend(['','공식 로고: '+catalog['company']['logo_source'],
